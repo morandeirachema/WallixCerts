@@ -30,7 +30,8 @@ deployments** of WALLIX Bastion.
 - **Required certification (verbatim):** *"WCP-P or e-WCP certified (WALLIX CERTIFIED
   PROFESSIONAL PAM)"* — see [WCP-P](wcp-p-professional.md).
 - **GNU/Linux command lines.** *"Scripting knowledge will enable the trainee to handle
-  the WALLIX PAM advanced concepts with greater ease."*
+  the WALLIX PAM advanced concepts with greater ease."* → work through the
+  **[Linux CLI deep dive for WCE-P](../../prerequisites/linux-cli-for-wce-p.md)**.
 - Technical-English proficiency; Microsoft Teams (instructor-led); admin rights on
   laptop for e-learning.
 
@@ -76,6 +77,38 @@ Server, **2× WALLIX Bastion** (Azure / OVA). Minimum **4 CPU / i5, 32 GB RAM, 4
 | (Active/Active, DRP) | [High availability & DR](../../deep-dives/high-availability-and-dr.md) |
 
 Self-test: [practice questions](../../exam-prep/practice-questions.md).
+
+## Scope, exam focus & study tips
+
+> *Study guidance **derived** from the published curriculum and product documentation —
+> not official WALLIX exam content; question count and weighting are not published.*
+
+**Scope — what WCE-P validates:** that you can deliver **advanced, large-scale or
+complex** Bastion deployments — advanced authentication on both Bastion and Access
+Manager, application scripting, proxy tuning, application-to-application secrets, the REST
+API, and troubleshooting, plus Active/Active architecture, automatic provisioning and
+disaster recovery.
+
+**Likely focus areas (mapped from the modules):**
+- The **authentication matrix** — RADIUS, Kerberos **explicit vs transparent**, X.509, SAML, 2-factor — and which methods apply to Bastion vs Access Manager (Module 1).
+- **AutoIt** application scripting: write / compile / configure / secure (Module 2).
+- **Proxy parameters** per protocol — RDP, SSH, VNC, TELNET/RLOGIN, **Bastion for OT**, RAWTCPIP (Module 3).
+- **WAAPM** (application-to-application) and **external vaults** (Module 4).
+- **REST API** — authentication, resources, requests, methods and response codes (Module 5).
+- **Troubleshooting** — Bastion/Access Manager **log files and databases**, password-rotation plugins (Module 6).
+
+**Study tips:**
+- You need genuine **GNU/Linux command-line** comfort — this is a stated prerequisite.
+  Work through the **[Linux CLI deep dive for WCE-P](../../prerequisites/linux-cli-for-wce-p.md)** first.
+- Know the auth methods **cold**, especially **Kerberos explicit vs transparent** and which
+  leg each covers — see [Authentication & Access Manager](../../deep-dives/authentication-and-access-manager.md).
+- Be able to make a **REST API** call (authenticate with an API key, read a resource) — see
+  [REST API & automation](../../deep-dives/rest-api-and-automation.md).
+- Know **where the logs and databases live** for both products — see
+  [Troubleshooting & logs](../../deep-dives/troubleshooting-and-logs.md).
+- Understand **WAAPM vs external vault**, and **Active/Active + disaster recovery** — see
+  [HA & DR](../../deep-dives/high-availability-and-dr.md).
+- Basic **scripting** (AutoIt for applications, shell for operations) makes Modules 2–3 and troubleshooting much easier.
 
 ## Assessment
 

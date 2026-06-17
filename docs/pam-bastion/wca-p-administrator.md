@@ -79,6 +79,33 @@ Foundation concepts: [What is PAM?](../../foundations/what-is-pam.md) ·
 [core concepts](../../foundations/core-concepts-least-privilege-jit-zero-trust.md).
 Self-test: [practice questions](../../exam-prep/practice-questions.md).
 
+## Scope, exam focus & study tips
+
+> *Study guidance **derived** from the published curriculum and the WALLIX product
+> documentation — not official WALLIX exam content. The exam's question count and weighting
+> are not published.*
+
+**Scope — what WCA-P validates:** that you can **operate an already-deployed** WALLIX
+Bastion + Access Manager day to day — connect users to targets over RDP/SSH, manage live
+sessions, use the password vault (view / check-out / Break-Glass), set up approval
+workflows, read the audit trail and session recordings, use Access Manager, and run the
+support process. It deliberately **excludes installation, deployment, and high
+availability** (those begin at [WCP-P](wcp-p-professional.md)).
+
+**Likely focus areas (mapped from the modules):**
+- Opening RDP and SSH sessions through the Bastion (Module 2).
+- Password visualization, check-out, and Break-Glass (Module 3).
+- Approval workflows for sessions and passwords (Module 4).
+- Navigating audit — session / account / approval / authentication history and recordings (Module 5).
+- Access Manager from the user/admin perspective (Module 6).
+
+**Study tips:**
+- Actually run the three labs (DNS setup; RDP & SSH; password check-out) — the assessment mirrors hands-on tasks.
+- Be crisp on the split between **Session Manager** (brokering connections) and **Password Manager** (the vault).
+- Understand what an *authorization* is conceptually (it links *who* to *what*), even though building one is a WCP-P skill.
+- Know **Break-Glass** (emergency credential access) and what each audit screen shows.
+- Don't over-invest in installation or HA — they're out of scope at this level.
+
 ## Assessment
 
 Pre-test at start; **final MCQ exam, 70% to pass** → `WCA-P` / `eWCA-P` certification

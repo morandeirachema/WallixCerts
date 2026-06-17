@@ -103,6 +103,34 @@ targets (resource + account)*; user-mapping modes (account mapping / session acc
 interactive login); checkout policies; connection policies & Session Probe.
 Self-test: [practice questions](../../exam-prep/practice-questions.md).
 
+## Scope, exam focus & study tips
+
+> *Study guidance **derived** from the published curriculum and product documentation —
+> not official WALLIX exam content; question count and weighting are not published.*
+
+**Scope — what WCP-P validates:** that you can **install, configure, deploy and
+administer** WALLIX Bastion in a classical architecture — stand up the appliance, build
+the full access model, configure the Session and Password Managers, approvals and audit,
+set up Access Manager, and apply basic high-availability replication.
+
+**Likely focus areas (mapped from the modules):**
+- The **Access Control List (ACL) data model** and how an *authorization* binds **one user group to one target group**, carrying **Sessions** and **Secrets** rights (Module 2).
+- **User-mapping / secondary-connection modes** — account mapping vs session/specific account vs interactive login.
+- **Global vs local domains** and **checkout policies**.
+- **Connection policies** and the **Session Probe**; **Applications / AppDriver**; **external authentication** and **mass import** (Modules 2.4–2.6).
+- Password **check-out / change / Break-Glass** (3); **approval** (4); **audit** (5).
+- **Access Manager** configuration (6) and **HA replication** concepts (7).
+
+**Study tips:**
+- This is the **data-model-heavy** level — be able to draw *users → user groups →
+  authorization → target groups → targets (resource + account)* from memory. See the
+  [data-model deep dive](../../deep-dives/bastion-data-model.md).
+- Practice building **one authorization end to end** in a lab, then connecting over RDP and SSH.
+- Memorize the **three user-mapping modes** and when each applies.
+- Know **AppDriver**, **connection policies**, and exactly what the **Session Probe** captures.
+- Understand **HA replication** at concept level (what is and isn't replicated) — see
+  [HA & DR](../../deep-dives/high-availability-and-dr.md).
+
 ## Assessment
 
 Pre-test; **final MCQ exam, 70% to pass** → `WCP-P` / `eWCP-P` certification (digital
