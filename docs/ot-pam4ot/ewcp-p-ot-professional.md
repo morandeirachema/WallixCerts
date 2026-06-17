@@ -91,8 +91,12 @@ Professional – PAM4OT (`eWCP-P-OT`).
 PAM4OT is an **OT-specific packaging of WALLIX Bastion** (sessions flow through the
 Bastion), delivered under the **"OT.security by WALLIX"** brand. Key differentiators:
 agentless on PLCs/equipment, industrial-protocol encapsulation in SSH tunnels, focus on
-third-party maintenance access, and ISA/IEC 62443 alignment. See the
-[product portfolio — PAM4OT section](../00-overview/product-portfolio.md#6-wallix-pam4ot--operational-technology-ot-security).
+third-party maintenance access, and ISA/IEC 62443 alignment.
+
+> 📖 **Full technical deep dive:** **[PAM4OT — Operational Technology](../../deep-dives/pam4ot-operational-technology.md)**
+> — the OT universe, the Purdue model, how the Bastion engine applies to OT, the three
+> architectures, use cases, and ISA/IEC 62443 mapping. Shorter overview in the
+> [product portfolio — PAM4OT section](../00-overview/product-portfolio.md#6-wallix-pam4ot--operational-technology-ot-security).
 
 ## Sources
 

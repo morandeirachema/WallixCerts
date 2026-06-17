@@ -16,6 +16,7 @@ and Deployment Guide (v12.0.2).
 | [High availability & DR](high-availability-and-dr.md) | DB replication over autossh, Master/Slave & Master/Master, failover | WCE-P |
 | [REST API & automation](rest-api-and-automation.md) | API auth, resources, curl examples, IaC, CI/CD secret retrieval | WCE-P |
 | [Troubleshooting & logs](troubleshooting-and-logs.md) | Log locations, common issues, plugin debugging, SIEM, support process | WCE-P |
+| [PAM4OT — Operational Technology](pam4ot-operational-technology.md) | Bastion applied to OT/ICS: the OT universe, Purdue model, industrial protocols, the 3 architectures, ISA/IEC 62443 | eWCP-P-OT |
 
 💡 New to the concepts? Read [foundations](../foundations/README.md) and
 [prerequisites](../prerequisites/README.md) first. Practice with
