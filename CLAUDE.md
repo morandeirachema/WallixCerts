@@ -79,6 +79,12 @@ certification track unless WALLIX publishes one.
 
 ## Conventions
 
+- **Diagrams are always Mermaid, never ASCII art.** Author every diagram as a
+  GitHub-rendered ` ```mermaid ` block (`flowchart`, `sequenceDiagram`, `erDiagram`,
+  `quadrantChart`, `timeline`). Quote labels with special chars (`id["a/b (c)"]`), use
+  `<br/>` for line breaks, keep node IDs alphanumeric, and avoid reserved words (`end`,
+  `graph`, `subgraph`) as IDs. Leave genuine code/CLI/config blocks as code. The repo was
+  fully converted to Mermaid — keep it that way. See CONTRIBUTING.md for the type table.
 - **Cross-link with relative paths** between docs; link into the product portfolio using
   its section anchors (e.g. `product-portfolio.md#3-wallix-trustelem-...`).
 - **Dates** are written absolute (e.g. "2026-06-17"), not relative.

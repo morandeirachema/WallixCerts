@@ -31,13 +31,31 @@ unofficial study aids, not real exam content.
 - Start with an `# H1` title, a 1–2 sentence intro, and a short "Learning objectives" or
   key-points list where it fits.
 - Lean into the three things this repo is built around: **concepts** explained from first
-  principles, **flows** (ASCII flow/sequence/topology diagrams with clean, evenly-sized,
-  aligned boxes and arrows), and **acronyms** (expand every acronym on first use, e.g.
-  "Privileged Access Management (PAM)").
+  principles, **flows** (diagrams — see the Diagrams rule below), and **acronyms** (expand
+  every acronym on first use, e.g. "Privileged Access Management (PAM)").
 - Use tables, lists, and fenced code blocks. Write **dates absolute** (e.g. `2026-06-17`).
 - **Cross-link with relative paths.** Top-level folders are siblings, so use
   `../<folder>/<file>.md`. Don't duplicate the product portfolio — link to it and go deeper.
 - No author or tool attribution anywhere in files **or commit messages**.
+
+### Diagrams — always Mermaid, never ASCII art
+
+Author **every diagram as a GitHub-rendered [Mermaid](https://mermaid.js.org/) block**
+(` ```mermaid `). Do **not** use ASCII / box-drawing art — the whole repo was converted to
+Mermaid and new diagrams must match. Pick the fitting type:
+
+| Use for | Mermaid type |
+|---------|--------------|
+| Processes, architecture, topologies, decision trees | `flowchart TD` / `LR` |
+| Protocol / message exchanges between parties | `sequenceDiagram` |
+| Data models / entity relationships | `erDiagram` |
+| 2×2 analyst positioning | `quadrantChart` |
+| Time-phased roadmaps | `timeline` |
+
+Syntax rules so it renders on GitHub: quote labels containing spaces/special characters
+(`id["Text (parens), a/b"]`), use `<br/>` for line breaks, keep node IDs alphanumeric, and
+never use reserved words (`end`, `graph`, `subgraph`) as IDs. Leave genuine
+code/CLI/config blocks as code. Translate faithfully — never invent steps or facts.
 
 ## Adding a new page
 
