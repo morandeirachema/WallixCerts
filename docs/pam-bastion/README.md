@@ -6,11 +6,9 @@ all three levels and the only one offered in instructor-led classroom formats.
 
 ## Progression
 
-```
-WCA-P  ──►  WCP-P  ──►  WCE-P
-Admin       Pro          Expert
-1 day       3 days       2 days
-(concepts)  (deploy)     (advanced)
+```mermaid
+flowchart LR
+    WCAP["WCA-P<br/>Admin<br/>1 day<br/>(concepts)"] --> WCPP["WCP-P<br/>Pro<br/>3 days<br/>(deploy)"] --> WCEP["WCE-P<br/>Expert<br/>2 days<br/>(advanced)"]
 ```
 
 > *"Each certification level is designed to build upon the previous, ensuring a

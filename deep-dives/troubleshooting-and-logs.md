@@ -43,21 +43,15 @@ Certificate Authority · SMTP = Simple Mail Transfer Protocol. Full list:
 
 ## 1. Troubleshooting methodology
 
-```
-                         GENERAL TROUBLESHOOTING METHOD
-  1. REPRODUCE      -> exact user, target, protocol, time; capture the error text
-        |
-  2. ISOLATE LEG    -> client -> Bastion (primary)   OR   Bastion -> target (secondary)?
-        |               (web GUI login works but proxy fails => secondary-leg/authz)
-        |
-  3. READ LOGS      -> System > Status / Syslog (GUI) ; CLI logs under /var/log/wab*
-        |               WAM: Settings > Logs, /var/log/wallix/wabam
-        |
-  4. SERVICES       -> System > Service control ; watchdog state (e-mail templates)
-        |
-  5. DATABASE       -> MariaDB up? replication healthy? (bastion-replication --monitoring)
-        |
-  6. ESCALATE       -> set logs DEBUG, generate archive, open WALLIX support case
+```mermaid
+flowchart TD
+    Reproduce["1. REPRODUCE<br/>-> exact user, target, protocol, time; capture the error text"]
+    Isolate["2. ISOLATE LEG<br/>-> client -> Bastion (primary) OR Bastion -> target (secondary)?<br/>(web GUI login works but proxy fails =&gt; secondary-leg/authz)"]
+    ReadLogs["3. READ LOGS<br/>-> System > Status / Syslog (GUI) ; CLI logs under /var/log/wab*<br/>WAM: Settings > Logs, /var/log/wallix/wabam"]
+    Services["4. SERVICES<br/>-> System > Service control ; watchdog state (e-mail templates)"]
+    Database["5. DATABASE<br/>-> MariaDB up? replication healthy? (bastion-replication --monitoring)"]
+    Escalate["6. ESCALATE<br/>-> set logs DEBUG, generate archive, open WALLIX support case"]
+    Reproduce --> Isolate --> ReadLogs --> Services --> Database --> Escalate
 ```
 
 Golden rule for isolation: if the user can **log in to the web GUI** but a **session fails**,
@@ -180,27 +174,14 @@ See §6.
 
 ## 5. Debugging password-rotation plugins
 
+```mermaid
+flowchart TD
+    Celery["wallixcelery<br/>(rotation job)"] -->|"plugin over SSH/API/SMB<br/>(change scheduled)"| Target["TARGET device or global server<br/>(Cisco/Windows/Unix/LDAP/...)"]
+    Target -->|"on MISMATCH<br/>(Bastion vault secret ==? actual secret on target)"| Reconcile["RECONCILIATION:<br/>'Administrator account' on the domain<br/>re-sets the pw when Bastion &lt;&gt; target"]
+    Reconcile --> Result["Result -> credential_change_success.txt / _failure.txt / _summary.txt"]
 ```
-            PASSWORD CHANGE / VERIFY (and where it breaks)
-  Bastion vault secret  ==?==  actual secret on target
-        |                          |
-        | change scheduled         |
-        v                          v
-  +----------------+   plugin   +-----------+
-  | wallixcelery   | ---------> | TARGET    |  (Cisco/Windows/Unix/LDAP/...)
-  | (rotation job) |  over SSH/ | device or |
-  +-------+--------+  API/SMB   | global    |
-          |                     | server    |
-          |   on MISMATCH       +-----+-----+
-          v                           |
-  +-----------------------------+     |
-  | RECONCILIATION:             |     |
-  | "Administrator account" on  |     |
-  | the domain re-sets the pw   |<----+
-  | when Bastion <> target      |
-  +-----------------------------+
-   Result -> credential_change_success.txt / _failure.txt / _summary.txt
-```
+
+*Password change / verify (and where it breaks).*
 
 Debug checklist:
 
@@ -224,46 +205,22 @@ Debug checklist:
 
 ## 6. Decision tree — "user cannot connect to a target"
 
+```mermaid
+flowchart TD
+    Start["USER CANNOT CONNECT TO TARGET"] --> GUI{"Can the user log in to the<br/>Bastion/WAM web GUI?"}
+    GUI -->|NO| Primary["PRIMARY-LEG problem<br/>- domain / mapping<br/>- external auth (LDAP/Kerberos/X509/SAML/OIDC)<br/>- user Disabled/expired<br/>-> External auth + Authentication domains + Mappings"]
+    GUI -->|YES| Authz{"Does the target appear under<br/>'My authorizations'?"}
+    Authz -->|NO| AuthzProblem["AUTHORIZATION missing/wrong<br/>- usergroup &lt;-&gt; targetgroup<br/>- time frame<br/>- approval pending"]
+    Authz -->|YES| Session{"Session opens but fails / drops?"}
+    Session -->|"open fails"| Secondary["SECONDARY auth/cred<br/>- acct mapping<br/>- vault checkout<br/>- conn. policy<br/>- target :22/3389 reachab."]
+    Session -->|"drops"| Runtime["RUNTIME<br/>- disk full -> proxy stop<br/>- OCR/kill rule<br/>- ICAP block<br/>- timeout"]
 ```
-                 USER CANNOT CONNECT TO TARGET
-                              |
-                +-------------v--------------+
-                | Can the user log in to the |
-                | Bastion/WAM web GUI?       |
-                +------+--------------+------+
-                       | NO           | YES
-                       v              v
-        +------------------------+   +------------------------------+
-        | PRIMARY-LEG problem    |   | Does the target appear under |
-        | - domain / mapping     |   | "My authorizations"?         |
-        | - external auth        |   +------+----------------+------+
-        |   (LDAP/Kerberos/X509/ |          | NO             | YES
-        |    SAML/OIDC)          |          v                v
-        | - user Disabled/expired|   +----------------+  +------------------------+
-        | -> External auth +     |   | AUTHORIZATION  |  | Session opens but fails |
-        |    Authentication      |   | missing/wrong  |  | / drops?               |
-        |    domains + Mappings  |   | - usergroup<-> |  +-----+------------+-----+
-        +------------------------+   |   targetgroup  |        | open fails | drops
-                                     | - time frame   |        v            v
-                                     | - approval     |  +-----------+ +-----------+
-                                     |   pending      |  | SECONDARY | | RUNTIME   |
-                                     +----------------+  | auth/cred | | - disk    |
-                                                         | - acct    | |   full -> |
-                                                         |   mapping | |   proxy   |
-                                                         | - vault   | |   stop    |
-                                                         |   checkout| | - OCR/    |
-                                                         | - conn.   | |   kill    |
-                                                         |   policy  | |   rule    |
-                                                         | - target  | | - ICAP    |
-                                                         |   :22/3389| |   block   |
-                                                         |   reachab.| | - timeout |
-                                                         +-----------+ +-----------+
-   Logs to pull at each leaf:
-   PRIMARY  -> System > Syslog ; external-auth test ; Kerberos/X509 config
-   AUTHZ    -> authorization + approval workflow ; time frame
-   SECONDARY-> session metadata (Audit > Session History) ; connection policy
-   RUNTIME  -> watchdog/disk notifications ; ICAP/OCR restriction rules ; SIEM
-```
+
+Logs to pull at each leaf:
+- **PRIMARY** -> System > Syslog ; external-auth test ; Kerberos/X509 config
+- **AUTHZ** -> authorization + approval workflow ; time frame
+- **SECONDARY** -> session metadata (Audit > Session History) ; connection policy
+- **RUNTIME** -> watchdog/disk notifications ; ICAP/OCR restriction rules ; SIEM
 
 ---
 
@@ -285,13 +242,11 @@ Debug checklist:
 - **Caution:** TRACE/ALL log levels may expose **passwords** — never forward those to a SIEM
   or share with support; drop to **DEBUG** first.
 
-```
-   EVENT SOURCES ---> syslog-ng (:514) ---> SIEM (Splunk / QRadar / Sentinel / ...)
-   - proxy session events    |
-   - auth success/failure    |   also: SNMP traps :162, e-mail (SMTP :25/587/465)
-   - cert / key verification |
-   - ICAP (AV/DLP) verdicts  |
-   - Session Probe metadata  |
+```mermaid
+flowchart LR
+    Sources["EVENT SOURCES<br/>- proxy session events<br/>- auth success/failure<br/>- cert / key verification<br/>- ICAP (AV/DLP) verdicts<br/>- Session Probe metadata"] --> Syslog["syslog-ng (:514)"]
+    Syslog --> SIEM["SIEM (Splunk / QRadar / Sentinel / ...)"]
+    Syslog -.-> Other["also: SNMP traps :162,<br/>e-mail (SMTP :25/587/465)"]
 ```
 
 ---
@@ -330,17 +285,11 @@ Common WAM-specific failures:
 
 ## 9. The WALLIX support case process
 
-```
-   BEFORE          OPENING             DURING/AFTER            CLOSING
-  +---------+     +-------------+      +----------------+     +-----------+
-  | gather  | --> | open ticket | -->  | exchange logs/ | --> | verify    |
-  | facts:  |     | on portal:  |      | context files; |     | fix in    |
-  | version,|     | support.    |      | apply guidance |     | your env; |
-  | logs    |     | wallix.com  |      | (set DEBUG,    |     | confirm;  |
-  | (DEBUG),|     | + phone for |      |  not TRACE/ALL)|     | request   |
-  | repro,  |     | urgent      |      |                |     | close;    |
-  | scope   |     | (EMEA/AMER) |      |                |     | document  |
-  +---------+     +-------------+      +----------------+     +-----------+
+```mermaid
+flowchart LR
+    Before["BEFORE<br/>gather facts:<br/>version, logs (DEBUG),<br/>repro, scope"] --> Opening["OPENING<br/>open ticket on portal:<br/>support.wallix.com<br/>+ phone for urgent (EMEA/AMER)"]
+    Opening --> During["DURING/AFTER<br/>exchange logs/context files;<br/>apply guidance<br/>(set DEBUG, not TRACE/ALL)"]
+    During --> Closing["CLOSING<br/>verify fix in your env;<br/>confirm; request close; document"]
 ```
 
 - **Before** — collect: WALLIX Bastion/WAM **version**, exact repro steps, the **log archive**

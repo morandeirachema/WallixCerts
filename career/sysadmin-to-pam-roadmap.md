@@ -99,34 +99,19 @@ compromised credential does limited damage. Same building blocks, adversarial mi
 This is an **illustrative** progression, not a guaranteed path; titles vary by employer.
 The point is that each rung reuses the rung below it.
 
-```
-                      PAM / IAM ARCHITECT
-                  designs the whole access model;
-                  sets standards, integrations, ZSP
-                            ^
-                            |  (deep + cross-product;
-                            |   maps to WCE-level expertise)
-                            |
-        +-------------------+--------------------+
-        |                                        |
-   PAM / IAM ENGINEER                      IAM / IDENTITY ANALYST
-   deploys & integrates the broker,        governs WHO has access:
-   automates rotation, HA, SIEM            access reviews, joiner/
-        ^   (maps to WCP-level)            mover/leaver, attestation
-        |                                        ^
-        |                                        |  (governance lane,
-        |                                        |   complements PAM)
-        |
-   PAM ADMINISTRATOR
-   day-to-day operation: onboard targets,
-   manage users/authorizations, run audits
-        ^   (maps to WCA-level)
-        |
-        |   <-- YOU START HERE -->
-        |
-   SYSTEMS ADMINISTRATOR
-   manages Linux/Windows servers, AD,
-   SSH/RDP, certs, scripting, logging
+```mermaid
+flowchart BT
+    sysadmin["SYSTEMS ADMINISTRATOR<br/>manages Linux/Windows servers, AD,<br/>SSH/RDP, certs, scripting, logging<br/>(YOU START HERE)"]
+    admin["PAM ADMINISTRATOR<br/>day-to-day operation: onboard targets,<br/>manage users/authorizations, run audits<br/>(maps to WCA-level)"]
+    engineer["PAM / IAM ENGINEER<br/>deploys & integrates the broker,<br/>automates rotation, HA, SIEM<br/>(maps to WCP-level)"]
+    analyst["IAM / IDENTITY ANALYST<br/>governs WHO has access:<br/>access reviews, joiner/mover/leaver,<br/>attestation (governance lane,<br/>complements PAM)"]
+    architect["PAM / IAM ARCHITECT<br/>designs the whole access model;<br/>sets standards, integrations, ZSP<br/>(deep + cross-product;<br/>maps to WCE-level expertise)"]
+
+    sysadmin --> admin
+    admin --> engineer
+    admin --> analyst
+    engineer --> architect
+    analyst --> architect
 ```
 
 Two broad directions open up above "PAM Administrator":
@@ -147,20 +132,18 @@ The timeline below assumes you are starting from a working sysadmin baseline and
 alongside a job. Adjust the months to your pace — the **sequence** matters more than the
 exact dates. Each phase links to the part of this repo that supports it.
 
-```
- Month:  0────1────2────3────4────5────6────7────8────9────10────11────12
-         |              |              |                                  |
-         |  PHASE 1     |   PHASE 2    |            PHASE 3               |
-         | FOUNDATIONS  | PRODUCT+CERT |       DEEPEN / SPECIALIZE        |
-         |              |              |                                  |
- Focus:  concepts &     first WALLIX   advanced deployment, adjacent
-         prerequisites  product cert   certs, a specialization lane
-         (vendor-       (hands-on      (Expert level + cloud/identity/OT)
-          neutral)       labs)
-         |              |              |                                  |
- Cert    Security+      WCA-P  ──────► WCP-P ───────────────────────► WCE-P
- target  (optional,     (Administrator) (Professional)                (Expert)
-         vendor-neutral)
+```mermaid
+timeline
+    title Phased, time-boxed PAM roadmap (months 0–12)
+    section Phase 1 — Months 0–3<br/>Foundations (vendor-neutral)
+        Focus : Concepts & prerequisites (vendor-neutral)
+        Cert target : Security+ (optional, vendor-neutral)
+    section Phase 2 — Months 3–6<br/>Product + Cert (hands-on labs)
+        Focus : First WALLIX product cert (hands-on labs)
+        Cert target : WCA-P (Administrator) → WCP-P (Professional)
+    section Phase 3 — Months 6–12<br/>Deepen / Specialize
+        Focus : Advanced deployment, adjacent certs, a specialization lane (Expert level + cloud/identity/OT)
+        Cert target : WCE-P (Expert)
 ```
 
 ### Phase 1 — Months 0–3: foundations (vendor-neutral)
@@ -246,14 +229,13 @@ The WALLIX Academy ladder is **progressive**: each level builds on the last, mir
 job ladder in §5. (Full mechanics, exam model, and the `WCx-y` naming convention are in
 [../docs/00-overview/certification-framework.md](../docs/00-overview/certification-framework.md).)
 
-```
-   WCA-P  ──────────►  WCP-P  ──────────►  WCE-P
-   Administrator       Professional        Expert
-   "understand &       "install, configure  "advanced, large-scale,
-    manage day-to-day"  deploy & administer"  complex deployments"
-   no install/deploy   standard architecture  requires prior WCP-P
-                                              + GNU/Linux CLI
-   ~ PAM Admin role    ~ PAM/IAM Engineer     ~ moves toward Architect
+```mermaid
+flowchart LR
+    wca["WCA-P — Administrator<br/>'understand & manage day-to-day'<br/>no install/deploy<br/>~ PAM Admin role"]
+    wcp["WCP-P — Professional<br/>'install, configure, deploy & administer'<br/>standard architecture<br/>~ PAM/IAM Engineer"]
+    wce["WCE-P — Expert<br/>'advanced, large-scale, complex deployments'<br/>requires prior WCP-P + GNU/Linux CLI<br/>~ moves toward Architect"]
+
+    wca --> wcp --> wce
 ```
 
 - **Exam model (all tracks):** a final multiple-choice questionnaire (MCQ) requiring
@@ -292,24 +274,18 @@ links, and the vendor-specific vs vendor-neutral split are in the companion file
 
 ## 8. Putting it together — a one-glance plan
 
-```
-   START: Systems Administrator
-     |
-     |  Phase 1 (M0–3): foundations + prerequisites      [vendor-neutral]
-     |     read ../foundations/* and ../prerequisites/*  (+ optional Security+)
-     v
-   PAM-aware sysadmin
-     |
-     |  Phase 2 (M3–6): WALLIX WCA-P -> WCP-P            [hands-on labs]
-     v
-   PAM Administrator / junior Engineer
-     |
-     |  Phase 3 (M6–12): WCE-P + a lane                 [specialize]
-     |     infra lane  -> deployment/HA, +cloud cert (AZ-500 / AWS Security)
-     |     identity lane-> WCP-G / SC-300, access governance
-     |     OT lane      -> eWCP-P-OT (needs WCP-P first)
-     v
-   PAM / IAM Engineer  --->  (with experience)  --->  PAM / IAM Architect
+```mermaid
+flowchart TD
+    start(["START: Systems Administrator"])
+    aware["PAM-aware sysadmin"]
+    admin["PAM Administrator / junior Engineer"]
+    engineer["PAM / IAM Engineer"]
+    architect["PAM / IAM Architect"]
+
+    start -->|"Phase 1 (M0–3): foundations + prerequisites [vendor-neutral]<br/>read ../foundations/* and ../prerequisites/* (+ optional Security+)"| aware
+    aware -->|"Phase 2 (M3–6): WALLIX WCA-P -> WCP-P [hands-on labs]"| admin
+    admin -->|"Phase 3 (M6–12): WCE-P + a lane [specialize]<br/>infra lane -> deployment/HA, +cloud cert (AZ-500 / AWS Security)<br/>identity lane -> WCP-G / SC-300, access governance<br/>OT lane -> eWCP-P-OT (needs WCP-P first)"| engineer
+    engineer -->|"(with experience)"| architect
 ```
 
 **Next:** the skills matrix and certification survey in

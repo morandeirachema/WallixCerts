@@ -54,20 +54,19 @@ See [../reference/acronyms.md](../reference/acronyms.md),
 
 ### Two families to keep straight
 
-```
-   SESSION protocols  (Bastion PROXIES the live connection)
-   +-------------------------------------------------------------+
-   |  SSH(22)   RDP(3389)   VNC(5900)   Telnet(23)   RLOGIN(513)  |
-   |  -> recorded, credential-injected, sub-protocol controlled  |
-   +-------------------------------------------------------------+
-
-   INFRASTRUCTURE protocols  (Bastion RELIES on these around the session)
-   +-------------------------------------------------------------+
-   |  Auth/federation : LDAP(389/636) RADIUS(1812) TACACS+(49)   |
-   |                    Kerberos(88) SAML OIDC/OAuth2 SCIM        |
-   |  Transport       : TLS/SSL(443)                             |
-   |  Ops/audit       : SNMP(161)  Syslog(514)                   |
-   +-------------------------------------------------------------+
+```mermaid
+flowchart TD
+    subgraph SESSION["SESSION protocols — Bastion PROXIES the live connection"]
+        S1["SSH (22) · RDP (3389) · VNC (5900) · Telnet (23) · RLOGIN (513)"]
+        S2["→ recorded, credential-injected, sub-protocol controlled"]
+        S1 --- S2
+    end
+    subgraph INFRA["INFRASTRUCTURE protocols — Bastion RELIES on these around the session"]
+        I1["Auth / federation:<br/>LDAP (389/636) · RADIUS (1812) · TACACS+ (49) · Kerberos (88) · SAML · OIDC/OAuth2 · SCIM"]
+        I2["Transport: TLS/SSL (443)"]
+        I3["Ops / audit: SNMP (161) · Syslog (514)"]
+    end
+    SESSION --- INFRA
 ```
 
 > **AAA** = **Authentication** (who are you?), **Authorization** (what may you do?),
@@ -87,31 +86,19 @@ SSO** and identity federation. Three roles:
 
 This is the **SP-initiated** flow (user starts at the app):
 
-```
-   BROWSER (user)              SERVICE PROVIDER (WALLIX            IDENTITY PROVIDER
-                                Access Manager)                    (e.g. Trustelem)
-       |                              |                                  |
-   (1) | GET protected resource       |                                  |
-       | ---------------------------> |                                  |
-       |                              |                                  |
-   (2) | 302 redirect + SAML AuthnReq |                                  |
-       | <--------------------------- |                                  |
-       |                                                                 |
-   (3) | follow redirect (SAML AuthnRequest) to IdP                       |
-       | --------------------------------------------------------------> |
-       |                                                                 |
-   (4) | login + MFA at the IdP                                          |
-       | <=============================================================> |
-       |                                                                 |
-   (5) | 200 page with signed SAML Assertion (auto-POSTs back)           |
-       | <-------------------------------------------------------------- |
-       |                              |                                  |
-   (6) | POST SAML Assertion          |                                  |
-       | ---------------------------> |                                  |
-       |                              | (7) verify IdP signature,        |
-       |                              |     read identity + attributes   |
-   (8) | access granted (session)     |                                  |
-       | <--------------------------- |                                  |
+```mermaid
+sequenceDiagram
+    participant B as Browser (user)
+    participant SP as Service Provider<br/>(WALLIX Access Manager)
+    participant IdP as Identity Provider<br/>(e.g. Trustelem)
+    B->>SP: (1) GET protected resource
+    SP->>B: (2) 302 redirect + SAML AuthnReq
+    B->>IdP: (3) follow redirect (SAML AuthnRequest) to IdP
+    B<<->>IdP: (4) login + MFA at the IdP
+    IdP->>B: (5) 200 page with signed SAML Assertion (auto-POSTs back)
+    B->>SP: (6) POST SAML Assertion
+    Note over SP: (7) verify IdP signature,<br/>read identity + attributes
+    SP->>B: (8) access granted (session)
 ```
 
 **Walk-through:** the SP bounces the unauthenticated user to the IdP with a signed
@@ -138,32 +125,20 @@ the **Authorization Code Flow**:
 - **Client / Relying Party (RP)** — the app (here, **WALLIX Access Manager**).
 - **Authorization Server / OpenID Provider (OP)** — the IdP.
 
-```
-   BROWSER (user)            CLIENT / RP (WALLIX            AUTHORIZATION SERVER / OP
-                              Access Manager)                (IdP)
-       |                            |                              |
-   (1) | click "Log in"             |                              |
-       | -------------------------> |                              |
-   (2) | 302 -> /authorize?response_type=code&client_id=...&scope=openid
-       | <------------------------- |                              |
-       |                                                           |
-   (3) | GET /authorize (login + consent at the OP)                |
-       | --------------------------------------------------------> |
-       | <=======================================================> |  (authenticate)
-       |                                                           |
-   (4) | 302 redirect back with ?code=AUTH_CODE                    |
-       | <-------------------------------------------------------- |
-       |                            |                              |
-   (5) | GET redirect_uri?code=...  |                              |
-       | -------------------------> |                              |
-       |                            | (6) POST /token  back-channel|
-       |                            |     code + client_secret     |
-       |                            | ---------------------------> |
-       |                            | (7) ID Token (JWT) + Access  |
-       |                            |     Token returned           |
-       |                            | <--------------------------- |
-   (8) | logged in (RP validates ID Token signature)               |
-       | <------------------------- |                              |
+```mermaid
+sequenceDiagram
+    participant B as Browser (user)
+    participant RP as Client / RP<br/>(WALLIX Access Manager)
+    participant OP as Authorization Server / OP<br/>(IdP)
+    B->>RP: (1) click "Log in"
+    RP->>B: (2) 302 -> /authorize?response_type=code&client_id=...&scope=openid
+    B->>OP: (3) GET /authorize (login + consent at the OP)
+    B<<->>OP: (3) authenticate
+    OP->>B: (4) 302 redirect back with ?code=AUTH_CODE
+    B->>RP: (5) GET redirect_uri?code=...
+    RP->>OP: (6) POST /token back-channel<br/>code + client_secret
+    OP->>RP: (7) ID Token (JWT) + Access Token returned
+    RP->>B: (8) logged in (RP validates ID Token signature)
 ```
 
 **Why the code, not the token, comes back through the browser:** the short-lived
@@ -186,30 +161,19 @@ through the user's browser. The RP then validates the ID Token's signature (8).
   Manager**.
 - **RADIUS server** — the AAA/MFA service (e.g., Trustelem, an OTP server).
 
-```
-   USER             RADIUS CLIENT (WALLIX           RADIUS SERVER
-                     Bastion / Access Manager)       (MFA / AAA)
-     |                       |                            |
- (1) | username + password   |                            |
-     | + OTP (optional)      |                            |
-     | --------------------> |                            |
-     |                       | (2) Access-Request          |
-     |                       |     (UDP 1812, shared secret)|
-     |                       | -------------------------> |
-     |                       |                            | (3) check creds /
-     |                       |                            |     OTP / push
-     |                       |                            |
-     |                       | (4a) Access-Challenge       |
-     |                       |      ("enter your OTP")     |
-     |                       | <------------------------- |
- (4b)| OTP                   |                            |
-     | --------------------> | --(Access-Request again)-> |
-     |                       |                            |
-     |                       | (5) Access-Accept           |
-     |                       |     (or Access-Reject)      |
-     |                       | <------------------------- |
- (6) | logged in / denied    |                            |
-     | <-------------------- |                            |
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant RC as RADIUS Client<br/>(WALLIX Bastion / Access Manager)
+    participant RS as RADIUS Server<br/>(MFA / AAA)
+    U->>RC: (1) username + password + OTP (optional)
+    RC->>RS: (2) Access-Request (UDP 1812, shared secret)
+    Note over RS: (3) check creds / OTP / push
+    RS->>RC: (4a) Access-Challenge ("enter your OTP")
+    U->>RC: (4b) OTP
+    RC->>RS: (4b) Access-Request again
+    RS->>RC: (5) Access-Accept (or Access-Reject)
+    RC->>U: (6) logged in / denied
 ```
 
 **Walk-through:** the client wraps the user's credentials in an **Access-Request**

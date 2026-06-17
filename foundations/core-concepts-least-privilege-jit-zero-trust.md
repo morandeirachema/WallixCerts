@@ -26,36 +26,27 @@ Two flow diagrams show a JIT access request and a four-eyes approval.
 
 These concepts are not independent — they reinforce one another. Hold this map in mind.
 
+```mermaid
+flowchart TD
+    ZT["ZERO TRUST (the overarching mindset)<br/>'never trust, always verify'"]
+    ZT -->|"realized for privileged access by"| PoLP
+    PoLP["PoLP<br/>minimum rights"]
+    JIT["JIT<br/>only when needed"]
+    ZSP["ZSP<br/>no standing privilege at all"]
+    PoLP -->|"tighten access in time"| JIT
+    JIT -->|"tighten to zero"| ZSP
+    PoLP -->|"enforced & evidenced by these MECHANISMS"| Mech
+    subgraph Mech["MECHANISMS"]
+        direction LR
+        Vault["Vaulting & Rotation<br/>(check-out / check-in)"]
+        Iso["Session Isolation +<br/>Recording = Non-repud."]
+        Appr["Approval controls:<br/>SoD, four-eyes"]
+    end
+    Appr -->|"audited emergency override of the above"| BG["Break-glass"]
 ```
-                         THE ACCESS-SECURITY CONCEPT MAP
 
-                        ┌─────────────────────────────┐
-                        │        ZERO TRUST           │  "never trust, always verify"
-                        │  (the overarching mindset)  │
-                        └──────────────┬──────────────┘
-                                       │ realized for privileged access by ▼
-        ┌──────────────────────────────────────────────────────────────────┐
-        │                                                                  │
-   ┌────▼─────┐   tighten   ┌────────────┐   tighten   ┌──────────────────┐│
-   │  PoLP    │ ──────────► │    JIT     │ ──────────► │ ZSP              ││
-   │ minimum  │   access    │ only when  │   to        │ no standing      ││
-   │ rights   │   in time   │  needed    │   zero      │ privilege at all ││
-   └──────────┘             └────────────┘             └──────────────────┘│
-        │                                                                  │
-        │   enforced & evidenced by these MECHANISMS:                      │
-        │   ┌──────────────┐ ┌──────────────┐ ┌──────────────┐            │
-        └──►│ Vaulting &   │ │ Session      │ │ Approval     │            │
-            │ Rotation     │ │ Isolation +  │ │ controls:    │            │
-            │ (check-out/  │ │ Recording =  │ │ SoD,         │            │
-            │  check-in)   │ │ Non-repud.   │ │ four-eyes    │            │
-            └──────────────┘ └──────────────┘ └──────────────┘            │
-                                                  │                       │
-                                       Break-glass = the audited          │
-                                       emergency override of the above ───┘
-
-   PoLP = Principle of Least Privilege   JIT = Just-In-Time   ZSP = Zero Standing Privileges
-   SoD  = Separation of Duties           Non-repud. = Non-repudiation
-```
+> PoLP = Principle of Least Privilege · JIT = Just-In-Time · ZSP = Zero Standing
+> Privileges · SoD = Separation of Duties · Non-repud. = Non-repudiation.
 
 ---
 
@@ -179,31 +170,22 @@ unmonitored master key (a real risk flagged for break-glass accounts in
 A user needs privileged access to a target for a one-off task. With JIT there is **no
 standing access**; they must request it, and it disappears on its own.
 
+```mermaid
+flowchart LR
+    R["1. REQUEST<br/>user asks for access to TARGET X<br/>for REASON Y, for DURATION Z"]
+    A["2. APPROVE<br/>approver (a DIFFERENT person — SoD)<br/>checks the request; may require a<br/>ticket / comment / quorum"]
+    G["3. GRANT (JIT)<br/>PAM opens a brokered, RECORDED<br/>session to TARGET; credential<br/>INJECTED (user never sees it)"]
+    E["4. AUTO-EXPIRE<br/>time window ends: access REVOKED<br/>automatically; credential ROTATED;<br/>session sealed in audit trail"]
+    R --> A --> G --> E
+    Notes["If DENIED at step 2 → no access, request logged.<br/>If approval TIMES OUT → request expires, nothing granted.<br/>Net effect: ZERO standing privilege between tasks (→ ZSP)."]
+    R -.-> Notes
+    A -.-> Notes
+    G -.-> Notes
+    E --> Back["back to NO standing access"]
+    Notes -.-> Back
 ```
-                      JIT ACCESS LIFECYCLE (one task, then gone)
 
-   ┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
-   │  1. REQUEST  │ ──► │  2. APPROVE  │ ──► │  3. GRANT     │ ──► │ 4. AUTO-     │
-   │              │     │              │     │  (JIT)        │     │    EXPIRE     │
-   └──────┬───────┘     └──────┬───────┘     └──────┬───────┘     └──────┬───────┘
-          │                    │                    │                    │
-   user asks for         approver (a DIFFERENT  PAM opens a          time window ends:
-   access to TARGET      person — SoD) checks   brokered, RECORDED   access REVOKED
-   X for REASON Y,       the request; may       session to TARGET;   automatically;
-   for DURATION Z        require a ticket /      credential INJECTED  credential ROTATED;
-          │              comment / quorum       (user never sees it) session sealed in
-          │                    │                    │                audit trail
-          ▼                    ▼                    ▼                    │
-   ┌──────────────────────────────────────────────────────────────────┐│
-   │  If DENIED at step 2 → no access, request logged.                 ││
-   │  If approval TIMES OUT → request expires, nothing granted.        ││
-   │  Net effect: ZERO standing privilege between tasks (→ ZSP).       ││
-   └──────────────────────────────────────────────────────────────────┘│
-                                                                         ▼
-                                                          back to NO standing access
-
-   SoD = Separation of Duties   ZSP = Zero Standing Privileges
-```
+> SoD = Separation of Duties · ZSP = Zero Standing Privileges.
 
 This is exactly the behaviour a PAM tool's **approval workflow + time-frame +
 single-connection** options provide; in WALLIX Bastion these live on the
@@ -217,37 +199,25 @@ authorization's *Approval* tab — see
 Zooming into step 2 above: a sensitive session requires a **second pair of eyes**
 before it opens, and optionally a supervisor watching it live.
 
+```mermaid
+sequenceDiagram
+    participant R as REQUESTER
+    participant A as APPROVER(S)
+    participant S as SESSION
+    R->>A: (1) requests session (target, reason, optional ticket)
+    Note over A: (2) notified of pending request
+    Note over A: (3) reviews; must be a DIFFERENT person (SoD).<br/>Options: comment required, ticket required,<br/>QUORUM (N approvers), timeout.
+    alt APPROVE
+        A->>R: (4) access granted
+        R->>S: (5) session opens, RECORDED
+        Note over R,S: (optional live supervision)<br/>4-eyes = approver WATCHES, no control<br/>4-hands = approver can TAKE CONTROL
+        S->>R: (6) on finish → session sealed in audit trail (non-repudiation)
+    else DENY
+        A->>A: logged, no access
+    end
 ```
-                         FOUR-EYES APPROVAL (dual control)
 
-        REQUESTER                       APPROVER(S)                     SESSION
-        ──────────                      ────────────                    ────────
-            │                                │                             │
-   (1) requests session ──────────────►  (2) notified of pending          │
-       (target, reason,                      request                       │
-        optional ticket)                     │                             │
-            │                          (3) reviews; must be a              │
-            │                              DIFFERENT person (SoD).          │
-            │                              Options: comment required,       │
-            │                              ticket required, QUORUM          │
-            │                              (N approvers), timeout.          │
-            │                                │                             │
-            │              ┌─────────────────┴──────────────────┐          │
-            │              ▼                                     ▼          │
-            │        APPROVE                                  DENY          │
-            │              │                                     │          │
-   (4) access granted ◄────┘                                     └─► logged, no access
-            │                                                                │
-   (5) session opens, RECORDED ─────────────────────────────────────────────►
-            │                                                                │
-            │   (optional live supervision)                                  │
-            │   • 4-eyes  = approver WATCHES, no control ◄────────────────── │
-            │   • 4-hands = approver can TAKE CONTROL    ◄────────────────── │
-            │                                                                │
-   (6) on finish → session sealed in audit trail (non-repudiation)           ▼
-
-   SoD = Separation of Duties
-```
+> SoD = Separation of Duties.
 
 **Why two diagrams?** JIT answers *"when and for how long?"* (time-boxing access).
 Four-eyes answers *"who must agree, and who is watching?"* (dual control). Real PAM

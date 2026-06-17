@@ -67,44 +67,28 @@ the VMs WALLIX provides preconfigured. Counts are taken directly from the cert d
 
 ### FLOW — WCP-P lab topology (the fullest PAM lab)
 
-```
-                        ADMIN WORKSTATION (your laptop / RDP-SSH client)
-                                          |
-                                          | HTTPS 443 (user web portal)
-                                          | SSH 22 / RDP 3389 (proxied sessions)
-                                          v
-   +--------------------------------------------------------------------------+
-   |                          WALLIX FRONT-END (entry point)                  |
-   |                                                                          |
-   |   +-------------------------+        +-------------------------------+   |
-   |   |   Access Manager (WAM)  |        |        Bastion #1             |   |
-   |   |   HTML5 reverse proxy   |------->|   (PAM proxy / vault / GUI)   |   |
-   |   |   single HTTPS gateway  |        |   Session + Password Mgr      |   |
-   |   +-------------------------+        +-------------------------------+   |
-   |                                              |                          |
-   |                                              | HA Database Replication  |
-   |                                              v                          |
-   |                                      +-------------------------------+  |
-   |                                      |        Bastion #2             |  |
-   |                                      |   (HA peer / replica)         |  |
-   |                                      +-------------------------------+  |
-   +--------------------------------------------------------------------------+
-                          |  BACK LEG (Bastion -> target)
-                          |  SSH 22 / RDP 3389, credentials injected
-        +-----------------+-----------------+----------------------------+
-        |                 |                                              |
-        v                 v                                              v
- +--------------+  +------------------+                        +------------------+
- | Domain       |  | Windows Server   |                        | Linux Server     |
- | Controller   |  | 2016             |                        | (SSH target)     |
- | (AD/DNS/     |  | (RDP target /    |                        |                  |
- |  Kerberos)   |  |  jump server)    |                        |                  |
- | Win 2016     |  |                  |                        |                  |
- +--------------+  +------------------+                        +------------------+
-        ^                 ^                                              ^
-        |                 |                                              |
-        +-----------------+----------------------------------------------+
-                  AD domain: users, DNS, Kerberos KDC for all hosts
+```mermaid
+flowchart TD
+    ADMIN["ADMIN WORKSTATION<br/>(your laptop / RDP-SSH client)"]
+    ADMIN -->|"HTTPS 443 (user web portal)<br/>SSH 22 / RDP 3389 (proxied sessions)"| FRONTEND
+
+    subgraph FRONTEND["WALLIX FRONT-END (entry point)"]
+        WAM["Access Manager (WAM)<br/>HTML5 reverse proxy<br/>single HTTPS gateway"]
+        BASTION1["Bastion #1<br/>(PAM proxy / vault / GUI)<br/>Session + Password Mgr"]
+        BASTION2["Bastion #2<br/>(HA peer / replica)"]
+        WAM --> BASTION1
+        BASTION1 -->|"HA Database Replication"| BASTION2
+    end
+
+    subgraph TARGETS["AD domain: users, DNS, Kerberos KDC for all hosts"]
+        DC["Domain Controller<br/>(AD/DNS/Kerberos)<br/>Win 2016"]
+        WINSRV["Windows Server 2016<br/>(RDP target / jump server)"]
+        LINUX["Linux Server<br/>(SSH target)"]
+    end
+
+    BASTION1 -->|"BACK LEG (Bastion -> target)<br/>SSH 22 / RDP 3389, credentials injected"| DC
+    BASTION1 --> WINSRV
+    BASTION1 --> LINUX
 ```
 
 **How to read it:** users never touch the targets directly. They authenticate to the
@@ -175,27 +159,17 @@ licences/time and prepares both legs of the proxy.
 
 ### FLOW — self-built substrate (no WALLIX software required)
 
-```
-   +---------------------------------------------------------------+
-   |                 YOUR FREE HOME LAB (no Bastion yet)           |
-   |                                                               |
-   |   +------------------+   AD domain    +-------------------+   |
-   |   | Domain Controller|<-------------->| Windows Server    |   |
-   |   | Win Server eval  |  DNS/Kerberos  | (member server,   |   |
-   |   | (AD DS + DNS)    |                |  RDP target)      |   |
-   |   +------------------+                +-------------------+   |
-   |            ^                                   ^              |
-   |            | LDAP / Kerberos                   | RDP 3389     |
-   |            v                                   |              |
-   |   +------------------+                         |              |
-   |   | Linux Server     |<------------------------+              |
-   |   | (Debian/Ubuntu)  |   SSH 22                                |
-   |   | sshd + sudo +    |                                         |
-   |   | optional SSSD    |   <-- where Bastion's "back leg" would  |
-   |   |  joined to AD    |       land once installed               |
-   |   +------------------+                                         |
-   +---------------------------------------------------------------+
-              (drop a Bastion + Access Manager in front later)
+```mermaid
+flowchart TD
+    subgraph LAB["YOUR FREE HOME LAB (no Bastion yet)"]
+        DC["Domain Controller<br/>Win Server eval<br/>(AD DS + DNS)"]
+        WINSRV["Windows Server<br/>(member server,<br/>RDP target)"]
+        LINUX["Linux Server<br/>(Debian/Ubuntu)<br/>sshd + sudo +<br/>optional SSSD<br/>joined to AD<br/>← where Bastion's 'back leg'<br/>would land once installed"]
+        DC <-->|"AD domain<br/>DNS/Kerberos"| WINSRV
+        DC <-->|"LDAP / Kerberos"| LINUX
+        WINSRV -->|"RDP 3389<br/>SSH 22"| LINUX
+    end
+    LAB -.->|"drop a Bastion + Access Manager in front later"| LATER["Bastion + Access Manager (added later)"]
 ```
 
 What to practise on this substrate, mapped to the deep-dives:

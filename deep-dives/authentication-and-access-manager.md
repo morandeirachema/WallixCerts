@@ -55,28 +55,26 @@ Attribute · FQDN = Fully Qualified Domain Name. Full list: [../reference/acrony
 Users reach the Bastion over three network protocols, and not every auth protocol works
 on every one (Bastion Administration Guide §7.1.1 "Overview of authentication protocols"):
 
-```
-                        AUTHENTICATION PROTOCOL AVAILABILITY (primary leg)
- +----------------------------+---------+---------+---------+
- | Auth protocol              | HTTPS   | SSH     | RDP     |
- +----------------------------+---------+---------+---------+
- | LDAP/AD bind password      |   yes   |   yes   |   yes   |
- | Local password             |   yes   |   yes   |   yes   |
- | RADIUS                     |   yes   |   yes   |   yes   |
- | TACACS+                    |   yes   |   yes   |   yes   |
- | Kerberos-Password (DEPR.)  |   yes   |   yes   |   yes   |
- | Kerberos Ticket (standard) |   yes   |   yes   |   yes   |
- | SSH Key / SSH CA           |    -    |   yes   |    -    |
- | X.509 certificate          |   yes   |  (2)    |  (2)    |
- | SAML                       |   yes   |  (1)    |  (1)    |
- | OIDC                       |   yes   |  (1)    |  (1)    |
- | PingID                     |   yes   |   yes   |   yes   |
- +----------------------------+---------+---------+---------+
- (1) Supported but workflow not fully integrated: user copies a provided link into a
-     browser to retrieve a token, then pastes the token into the client.
- (2) Supported but not fully integrated: user authenticates first over HTTPS, then
-     confirms the request on the SSH/RDP client.
-```
+**Authentication protocol availability (primary leg):**
+
+| Auth protocol | HTTPS | SSH | RDP |
+|---|:---:|:---:|:---:|
+| LDAP/AD bind password | ✅ | ✅ | ✅ |
+| Local password | ✅ | ✅ | ✅ |
+| RADIUS | ✅ | ✅ | ✅ |
+| TACACS+ | ✅ | ✅ | ✅ |
+| Kerberos-Password *(deprecated)* | ✅ | ✅ | ✅ |
+| Kerberos Ticket (standard) | ✅ | ✅ | ✅ |
+| SSH Key / SSH CA | — | ✅ | — |
+| X.509 certificate | ✅ | (2) | (2) |
+| SAML | ✅ | (1) | (1) |
+| OIDC | ✅ | (1) | (1) |
+| PingID | ✅ | ✅ | ✅ |
+
+> **(1)** Supported but workflow not fully integrated: the user copies a provided link
+> into a browser to retrieve a token, then pastes the token into the client.
+> **(2)** Supported but not fully integrated: the user authenticates first over HTTPS,
+> then confirms the request on the SSH/RDP client.
 
 **One-Time Password (OTP):** once authenticated to the web interface (by *any* protocol),
 a user can download an SSH/RDP connection file from **My authorizations > Sessions** that
@@ -229,45 +227,21 @@ FQDN in the cluster). Domain + group mappings mirror SAML.
 
 ## 2. The 2FA / MFA decision model
 
+```mermaid
+flowchart TD
+    Connect["User connects (HTTPS / SSH / RDP)"] --> Resolve["Resolve Authentication domain<br/>(from login @domain or URL)"]
+    Resolve --> Primary["PRIMARY authentication<br/>(local / LDAP / Kerberos / SAML / OIDC ...)"]
+    Primary -->|fail| Deny1["DENY"]
+    Primary -->|ok| Secondary{"SECONDARY auth set?"}
+    Secondary -->|no| AllowPrimary["Authorization check passed at PRIMARY -> ALLOW"]
+    Secondary -->|"yes (2FA)"| Factor2["RADIUS push / OTP / Kerberos-Pwd as 2nd factor"]
+    Factor2 -->|fail| Deny2["DENY"]
+    Factor2 -->|ok| Allow2["ALLOW"]
 ```
-                 BASTION AUTHENTICATION DECISION (primary leg)
- +-------------------------------------------------------------------+
- | User connects (HTTPS / SSH / RDP)                                 |
- +----------------------------------+--------------------------------+
-                                    |
-                                    v
-                    +-------------------------------+
-                    | Resolve Authentication domain |
-                    | (from login @domain or URL)   |
-                    +---------------+---------------+
-                                    |
-                                    v
-                    +-------------------------------+
-                    | PRIMARY authentication        |
-                    | (local / LDAP / Kerberos /    |
-                    |  SAML / OIDC ...)             |
-                    +------+----------------+-------+
-                           | fail           | ok
-                           v                v
-                      +---------+   +-----------------------+
-                      | DENY    |   | SECONDARY auth set?   |
-                      +---------+   +----+-------------+----+
-                                         | no          | yes (2FA)
-                                         v             v
-                            +-----------------+  +----------------------+
-                            | Authorization   |  | RADIUS push / OTP /  |
-                            | check passed at |  | Kerberos-Pwd as 2nd  |
-                            | PRIMARY -> ALLOW|  | factor               |
-                            +-----------------+  +----+-------------+---+
-                                                      | fail        | ok
-                                                      v             v
-                                                 +---------+   +---------+
-                                                 | DENY    |   | ALLOW   |
-                                                 +---------+   +---------+
- Note: authorization is decided at PRIMARY auth only; the secondary
- factor adds assurance but performs no authorization check.
- For >2 factors, delegate MFA to the IdP (SAML/OIDC) or RADIUS.
-```
+
+> Note: authorization is decided at PRIMARY auth only; the secondary
+> factor adds assurance but performs no authorization check.
+> For >2 factors, delegate MFA to the IdP (SAML/OIDC) or RADIUS.
 
 - **SFA** = primary only. **2FA** = primary + one secondary (RADIUS push, OTP, PingID,
   Kerberos-Password as 2nd factor).
@@ -288,26 +262,24 @@ Bastions at each login.
 
 ### 3.1 Browser → target request flow (HTML5, no VPN)
 
-```
-  BROWSER                 WAM (reverse proxy)             BASTION(s)            TARGET
-  (HTML5)                 /var/wab/etc/wabam              REST API key
-    |                          |                              |                   |
- 1) HTTPS login ------------->|                              |                   |
-    |                          | 2) authenticate user        |                   |
-    |                          |    (Org domain: local/LDAP/ |                   |
-    |                          |     RADIUS/SAML/OIDC/X.509/  |                   |
-    |                          |     BASTION) + factors       |                   |
-    |                          |                              |                   |
-    |                          | 3) GET authorizations  ----->| (per registered  |
-    |                          |    over REST API (api_key)   |  Bastion in Org)  |
-    |                          |<-----------------------------|                   |
-    | 4) show "My targets" <---|                              |                   |
-    |                          |                              |                   |
- 5) click a target ---------->| 6) open session via Bastion->| 7) proxy to ----->|
-    |   (RDP/SSH/UT)           |    proxy, stream as HTML5    |    target         |
-    |<==== HTML5 pixels/keys ==|<==== RDP/SSH/UT proxy =======|<==================|
-    |                          |                              |                   |
-    |        (session recorded on the Bastion; auditable centrally in WAM)        |
+```mermaid
+sequenceDiagram
+    participant Browser as "BROWSER (HTML5)"
+    participant WAM as "WAM (reverse proxy)<br/>/var/wab/etc/wabam"
+    participant Bastion as "BASTION(s)<br/>REST API key"
+    participant Target as "TARGET"
+    Browser->>WAM: 1) HTTPS login
+    Note over WAM: 2) authenticate user<br/>(Org domain: local/LDAP/<br/>RADIUS/SAML/OIDC/X.509/<br/>BASTION) + factors
+    WAM->>Bastion: 3) GET authorizations over REST API (api_key)<br/>(per registered Bastion in Org)
+    Bastion-->>WAM: authorizations
+    WAM-->>Browser: 4) show "My targets"
+    Browser->>WAM: 5) click a target (RDP/SSH/UT)
+    WAM->>Bastion: 6) open session via Bastion proxy, stream as HTML5
+    Bastion->>Target: 7) proxy to target
+    Target-->>Bastion: RDP/SSH/UT proxy
+    Bastion-->>WAM: RDP/SSH/UT proxy
+    WAM-->>Browser: HTML5 pixels/keys
+    Note over Browser,Target: session recorded on the Bastion; auditable centrally in WAM
 ```
 
 There is **no inbound path from the browser to the target** — WAM speaks to the Bastion,
@@ -356,25 +328,24 @@ WAM domains (**Configuration > Domains**) of type **local**, **LDAP**, **SAML**,
 plus authenticators **RADIUS** and **BASTION**; X.509 cert auth can be toggled on a domain
 (*Allow X509 Cert. Authentication*). The MFA engine is built from two orthogonal fields:
 
+```mermaid
+flowchart TD
+    subgraph FactorOrder["FACTOR = ORDER of challenge (defines the MFA chain)"]
+        direction LR
+        F1["Factor 1<br/>LDAP bind"] --> F2["Factor 2<br/>RADIUS push"] --> F3["Factor 3<br/>X.509"]
+    end
+    subgraph Priority["PRIORITY = HA FALLBACK among authenticators of SAME factor"]
+        direction LR
+        PA["LDAP-A prio1"] -->|failover| PB["LDAP-B prio2"]
+    end
+    FactorOrder -.- Priority
 ```
-              WAM PER-DOMAIN AUTHENTICATOR CHAINING
-  +------------------------------------------------------------+
-  | FACTOR  = ORDER of challenge (defines the MFA chain)       |
-  |   Each authenticator in the factor order must return a     |
-  |   positive response, in order. All must pass -> success.   |
-  |   Any one fails -> authentication fails.                   |
-  |                                                            |
-  |   Factor 1        Factor 2        Factor 3                 |
-  |   [LDAP bind] --> [RADIUS push] --> [X.509]   (example)    |
-  +------------------------------------------------------------+
-  | PRIORITY = HA FALLBACK among authenticators of SAME factor |
-  |   Priority 1 server queried first; if no response, the     |
-  |   next is tried, etc. No server responds -> auth fails.    |
-  |   (Same priority on several servers = load-balancing.)     |
-  |                                                            |
-  |   Factor 1: [LDAP-A prio1] -> [LDAP-B prio2] (failover)    |
-  +------------------------------------------------------------+
-```
+
+- **FACTOR** = order of challenge: each authenticator in the factor order must return a
+  positive response, in order. All must pass -> success. Any one fails -> authentication fails.
+- **PRIORITY** = HA fallback among authenticators of the same factor: priority 1 server
+  queried first; if no response, the next is tried, etc. No server responds -> auth fails.
+  (Same priority on several servers = load-balancing.)
 
 - **Factor Used for Account Mapping** — which factor's credentials are reused on the
   Bastion→target account-mapping leg in an MFA flow.
@@ -390,25 +361,22 @@ plus authenticators **RADIUS** and **BASTION**; X.509 cert auth can be toggled o
 
 ### 3.5 SAML federation sequence (SP-initiated, through WAM)
 
-```
- USER/BROWSER        WAM (SAML SP)              IdP (Trustelem/Entra/Okta)     BASTION
-     |                   |                            |                          |
- 1) GET org URL -------->|                            |                          |
-     |                   | 2) build AuthnRequest      |                          |
-     |<-- 302 redirect --| (SP entity id, ACS URL)    |                          |
-     |                   |                            |                          |
- 3) follow redirect ----------------------------->    |                          |
-     |                   |                       4) authenticate user            |
-     |                   |                          + enforce MFA (push/FIDO2)    |
-     |                   |                            |                          |
-     |<--- 5) SAML Response (signed assertion) POST to WAM ACS ------------------|
-     |                   |                            |                          |
-     |                   | 6) validate signature,     |                          |
-     |                   |    map Login/Profile/Group |                          |
-     |                   |    attributes              |                          |
-     |                   | 7) gather authorizations ->|------------------------->|
-     |                   |    from Bastions (REST API)|<-------------------------|
-     |<-- 8) targets list-|                            |                          |
+```mermaid
+sequenceDiagram
+    participant User as "USER/BROWSER"
+    participant WAM as "WAM (SAML SP)"
+    participant IdP as "IdP (Trustelem/Entra/Okta)"
+    participant Bastion as "BASTION"
+    User->>WAM: 1) GET org URL
+    Note over WAM: 2) build AuthnRequest<br/>(SP entity id, ACS URL)
+    WAM-->>User: 302 redirect
+    User->>IdP: 3) follow redirect
+    Note over IdP: 4) authenticate user<br/>+ enforce MFA (push/FIDO2)
+    IdP-->>WAM: 5) SAML Response (signed assertion) POST to WAM ACS
+    Note over WAM: 6) validate signature,<br/>map Login/Profile/Group attributes
+    WAM->>Bastion: 7) gather authorizations from Bastions (REST API)
+    Bastion-->>WAM: authorizations
+    WAM-->>User: 8) targets list
 ```
 
 IdP-initiated is the mirror: the user starts at the IdP portal, the IdP posts the assertion

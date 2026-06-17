@@ -51,22 +51,18 @@ A **checkout policy** is attached to a target account (`Targets > Checkout polic
 | **Maximum checkout duration** | Optional hard cap (≥ duration + extension; set extension `0` if unused). |
 | **Change password at check-in** | If on, **forces a password rotation when the credential is returned** — the secret the user saw is now dead. |
 
-```
-   CHECK-OUT / CHECK-IN LIFECYCLE
- +-----------+   request    +------------------+  lock (optional)  +------------+
- |  USER     |------------->|  CHECKOUT POLICY |------------------>|  ACCOUNT   |
- |           |              |  validates       |                   |  LOCKED    |
- +-----------+              +------------------+                   +-----+------+
-       | sees login/password/SSH key/cert                                |
-       | uses it (duration; optional extension; max cap)                 |
-       v                                                                 |
-   CHECK-IN (manual return or duration/timeout reached)                  |
-       |                                                                 v
-       |  Change password at check-in = ON ?                       +------------+
-       +----------- yes -----------> ROTATE secret on target  ---->|  ACCOUNT   |
-       |                             (new secret stored in vault)  | UNLOCKED + |
-       +----------- no  -----------> just unlock                   |  rotated   |
-                                                                   +------------+
+```mermaid
+flowchart TD
+    User["USER"] -->|"request"| Policy["CHECKOUT POLICY<br/>validates"]
+    Policy -->|"lock (optional)"| Locked["ACCOUNT LOCKED"]
+    User --> Use["sees login/password/SSH key/cert<br/>uses it (duration; optional extension; max cap)"]
+    Use --> CheckIn["CHECK-IN<br/>(manual return or duration/timeout reached)"]
+    Locked --> Decide
+    CheckIn --> Decide{"Change password at check-in = ON?"}
+    Decide -->|"yes"| Rotate["ROTATE secret on target<br/>(new secret stored in vault)"]
+    Decide -->|"no"| Unlock["just unlock"]
+    Rotate --> Result["ACCOUNT UNLOCKED + rotated"]
+    Unlock --> Result
 ```
 
 > A locked account that is **mid-password-change stays locked for the policy duration**. The Bastion plugin (remote vault) can also **extend** a checkout depending on the original Bastion's policies. While a password change is in progress, the secret cannot be checked out.
@@ -93,25 +89,13 @@ Three building blocks (all for **local-vault** global/local domains):
 
 **Automatic rotation triggers** (per account where the option is enabled): modifying the policy on a domain, applying a new policy to a domain, the scheduled periodicity, or **change-on-check-in**. Parallelism is tunable (`Modify the maximum number of parallel secret rotations`).
 
-```
-   AUTOMATIC PASSWORD-ROTATION FLOW (per domain)
- schedule (periodicity)  OR  policy change  OR  check-in
-            |
-            v
- +-------------------------+   for each account with auto-change enabled
- | wallixcelery worker     |---------------------------------------------+
- | reads password change   |                                             |
- | policy (complexity/keys)|                                             v
- +-------------------------+                                  +----------------------+
-            | generate new secret                            |  PASSWORD CHANGE     |
-            v                                                 |  PLUGIN (per device) |
- +-------------------------+   1) connect AS the target acct  |  Cisco/Windows/Unix/ |
- |  attempt change         |----------------------------------|  F5/Oracle/...       |
- |                         |   2) on failure: use the         +----------+-----------+
- +-------------------------+      RECONCILIATION account ----------------+
-            | success
-            v
- store new secret in VAULT, propagate to target, notify (and Break-Glass email)
+```mermaid
+flowchart TD
+    Trigger["schedule (periodicity) OR policy change OR check-in"] --> Worker["wallixcelery worker<br/>reads password change policy (complexity/keys)"]
+    Worker -->|"for each account with auto-change enabled<br/>generate new secret"| Attempt["attempt change"]
+    Attempt -->|"1) connect AS the target acct"| Plugin["PASSWORD CHANGE PLUGIN (per device)<br/>Cisco/Windows/Unix/F5/Oracle/..."]
+    Attempt -->|"2) on failure: use the RECONCILIATION account"| Plugin
+    Plugin -->|"success"| Store["store new secret in VAULT,<br/>propagate to target,<br/>notify (and Break-Glass email)"]
 ```
 
 Manual options also exist: enter your own secret and **Propagate credential change**, or **Automatic credential change** for one/many accounts (only where *Password change on domain* is enabled).
@@ -165,14 +149,10 @@ Each plugin documents whether an **administrator account is required on the doma
 | **HashiCorp Vault** | Vault / **API v1** | Current LTS. |
 | **Thycotic Secret Server** | Vault | Current LTS. |
 
-```
-   SECRET SOURCES FOR A GLOBAL DOMAIN
- +---------------------------+        +---------------------------------+
- |  Vault type = LOCAL       |        |  Vault type = EXTERNAL          |
- |  Bastion vault            |        |  plugin -> CyberArk / HashiCorp |
- |  (rotation by Bastion OK) |        |           / Thycotic / Bastion  |
- +---------------------------+        |  (Bastion retrieves only)       |
-                                      +---------------------------------+
+```mermaid
+flowchart TD
+    Domain["SECRET SOURCES FOR A GLOBAL DOMAIN"] --> Local["Vault type = LOCAL<br/>Bastion vault<br/>(rotation by Bastion OK)"]
+    Domain --> External["Vault type = EXTERNAL<br/>plugin -> CyberArk / HashiCorp<br/>/ Thycotic / Bastion<br/>(Bastion retrieves only)"]
 ```
 
 > **HA note:** with Master/Slave HA and *change-on-check-in*, **all Slaves must have a Bastion plugin connected to the Master** so password changes converge.
@@ -198,17 +178,16 @@ Two variants:
 
 > **Flag (from the portfolio):** "AAPM" is a marketing term; technically it is realised via the **Bastion REST API + vault plugins** — the term itself does not appear by name in the 12.3.2 administration-guide chapters reviewed. WAAPM is the packaged WALLIX client/library around this API.
 
-```
-   APPLICATION-TO-APPLICATION SECRET RETRIEVAL (AAPM / WAAPM)
- +---------------+   1. request secret (API key auth, TLS)   +------------------+
- |  Script / app |------------------------------------------>|  wabrestapi (443)|
- |  (no hard-    |                                            |  permission check|
- |   coded pwd)  |<------------------------------------------|  vault lookup    |
- +---------------+   2. return current secret (just-in-time)  +--------+---------+
-        |                                                              |
-        | 3. use secret immediately, do not persist                    v
-        v                                                        VAULT (rotated
-   connect to DB / API / service                                 on schedule)
+```mermaid
+sequenceDiagram
+    participant App as Script / app<br/>(no hard-coded pwd)
+    participant API as wabrestapi (443)<br/>permission check
+    participant Vault as VAULT<br/>(rotated on schedule)
+    Note over App,Vault: APPLICATION-TO-APPLICATION SECRET RETRIEVAL (AAPM / WAAPM)
+    App->>API: 1. request secret (API key auth, TLS)
+    API->>Vault: vault lookup
+    API-->>App: 2. return current secret (just-in-time)
+    Note over App: 3. use secret immediately, do not persist<br/>connect to DB / API / service
 ```
 
 Because the vault keeps rotating the underlying secret, the application **always fetches the current value** — eliminating stale, plaintext credentials on disk. (See [architecture](./bastion-architecture.md#4-internal-components--services) for `wabrestapi`.)

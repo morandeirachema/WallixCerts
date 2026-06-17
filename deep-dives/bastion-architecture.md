@@ -26,20 +26,19 @@ A Bastion solves the **credential-exposure and accountability problem** of privi
 
 The Bastion inserts a **mandatory chokepoint**:
 
-```
-   LOW-TRUST DOMAIN                  PROXY / BROKER                 HIGH-TRUST DOMAIN
- (people + Internet)               (WALLIX Bastion)              (target accounts)
-+------------------+   FRONT LEG   +-------------------+  BACK LEG  +------------------+
-|                  |  (primary     |                   | (secondary |                  |
-|   Admin / user   |   connection) |  Authenticates    |  connection)|  Linux / Windows |
-|   workstation    |==============>|  the USER         |===========>|  Network device  |
-|                  |  SSH / RDP /  |  Injects the      |  SSH/RDP/  |  Application      |
-|                  |  HTTPS        |  TARGET secret    |  VNC/...   |  (target account) |
-+------------------+               |  Records the      |            +------------------+
-                                   |  whole session    |
-                                   +-------------------+
-   user knows ONLY                       vault +                     target password
-   their Bastion login                   recordings                  NEVER reaches the user
+```mermaid
+flowchart LR
+    subgraph LOW["LOW-TRUST DOMAIN<br/>(people + Internet)"]
+        User["Admin / user workstation<br/>(user knows ONLY their Bastion login)"]
+    end
+    subgraph PROXY["PROXY / BROKER (WALLIX Bastion)"]
+        Bastion["Authenticates the USER<br/>Injects the TARGET secret<br/>Records the whole session<br/>(vault + recordings)"]
+    end
+    subgraph HIGH["HIGH-TRUST DOMAIN<br/>(target accounts)"]
+        Target["Linux / Windows<br/>Network device<br/>Application (target account)<br/>(target password NEVER reaches the user)"]
+    end
+    User ==>|"FRONT LEG (primary connection)<br/>SSH / RDP / HTTPS"| Bastion
+    Bastion ==>|"BACK LEG (secondary connection)<br/>SSH / RDP / VNC / ..."| Target
 ```
 
 Three properties follow directly from this design:
@@ -66,10 +65,11 @@ WALLIX splits a connection into a **primary connection** (front leg) and a **sec
 
 A **connection policy** is defined as the rules that apply "when the Bastion connects to a target using a supported protocol. This connection, known as a *secondary connection*, takes place after user authentication." Built-in policies exist per protocol (`SSH`, `RDP`, `VNC`, `TELNET`, `RLOGIN`, `RAWTCPIP`, `WEBAPP`), plus hardened **CCN-STIC** (`SSH-ccn`, `RDP-ccn`) and **SOG-IS CES 1.3** variants (`SSH-sogisces_1.3_2030`, `RDP-sogisces_1.3_2030`).
 
-```
- FRONT LEG  ── governed by ──>  PROXY CONFIGURATION   (user -> Bastion)
- BACK LEG   ── governed by ──>  CONNECTION POLICY     (Bastion -> target)
-            ── secret from ──>  VAULT (PASSWORD_VAULT) / mapping / interactive
+```mermaid
+flowchart LR
+    FrontLeg["FRONT LEG<br/>(user -> Bastion)"] -->|"governed by"| ProxyConfig["PROXY CONFIGURATION"]
+    BackLeg["BACK LEG<br/>(Bastion -> target)"] -->|"governed by"| ConnPolicy["CONNECTION POLICY"]
+    BackLeg -->|"secret from"| Vault["VAULT (PASSWORD_VAULT) / mapping / interactive"]
 ```
 
 Because the legs are decoupled, you can (for example) let a user reach the Bastion over RDP with SAML+MFA on the front leg, while the back leg uses `PASSWORD_VAULT` with a vaulted Windows account — and the user never types or sees that Windows password.
@@ -83,20 +83,22 @@ WALLIX states plainly: *"WALLIX Bastion is positioned between a low trust domain
 - the **only** path from users/Internet into the protected segment is the Bastion;
 - firewall rules between the DMZ and the high-trust segment allow *only the Bastion's source IP* to reach the targets on management ports.
 
-```
-  CORP / INTERNET        DMZ                       PROTECTED / OT SEGMENT
- +--------------+   +----------------+        +-----------------------------+
- |  Users       |   |   WALLIX       |        |  Windows  Linux  Network     |
- |  Workstations|-->|   Bastion      |------->|  servers  hosts  devices/HMI |
- |  (low trust) |   |   (broker)     |        |  (high trust targets)        |
- +--------------+   +----------------+        +-----------------------------+
-                          ^                        ^
-                          |                        |
-                +-----------------+      firewall allows ONLY
-                |  AD/LDAP  SIEM  |      Bastion -> target on
-                |  DNS  NTP  Mail |      management ports
-                |  RADIUS/Kerberos|
-                +-----------------+
+```mermaid
+flowchart LR
+    subgraph CORP["CORP / INTERNET"]
+        Users["Users / Workstations<br/>(low trust)"]
+    end
+    subgraph DMZ["DMZ"]
+        Bastion["WALLIX Bastion<br/>(broker)"]
+    end
+    subgraph PROT["PROTECTED / OT SEGMENT"]
+        Targets["Windows servers, Linux hosts,<br/>Network devices/HMI<br/>(high trust targets)"]
+    end
+    Support["AD/LDAP, SIEM,<br/>DNS, NTP, Mail,<br/>RADIUS/Kerberos"]
+    Users --> Bastion
+    Bastion -->|"firewall allows ONLY Bastion -> target<br/>on management ports"| Targets
+    Support --- Bastion
+    Support --- Targets
 ```
 
 **Front-leg (inbound to Bastion) ports** — factory defaults from the 12.0.2 Deployment Guide:
@@ -147,29 +149,31 @@ wabsystemconfiguration  syslog-ng  acpid  cron  wab-backupdaemon  mariadb
 
 Storage sits on **LVM** under `/var/wab` (recordings, database, logs), encrypted with **LUKS**; the volume can be extended to grow recording retention.
 
-```
-                         WALLIX BASTION APPLIANCE (Debian + LUKS at rest)
- +-------------------------------------------------------------------------------+
- |  ADMIN / API PLANE            PROXY PLANE                CONTROL/AUDIT PLANE   |
- |  +----------------+           +----------------+         +------------------+ |
- |  |  wabgui (443)  |           |  redemption    |         |  wabwatchdog     | |
- |  |  wabrestapi    |<--------->|  (RDP proxy)   |         |  (supervisor)    | |
- |  +----------------+           |  SSH proxy     |         +------------------+ |
- |          |                    |  VNC/TELNET/   |         +------------------+ |
- |          v                    |  RLOGIN/RAW    |         |  syslog-ng -> SIEM| |
- |  +----------------+           +-------+--------+         +------------------+ |
- |  |  sashimi /     |                   |                  +------------------+ |
- |  |  wallixsession |<------------------+                  |  superset (dash) | |
- |  +-------+--------+                   |                  +------------------+ |
- |          |                            |                  +------------------+ |
- |          v                            v                  |  wallixcelery    | |
- |  +----------------+           +----------------+         |  (async jobs)    | |
- |  |   MariaDB      |           | wallix-discovery|        +------------------+ |
- |  | 3306 / 3307    |           | (asset scans)   |        +------------------+ |
- |  | ACL + audit    |           +----------------+         | wab-backupdaemon | |
- |  +----------------+                                      +------------------+ |
- |                          /var/wab on LVM (recordings, DB, logs)              |
- +-------------------------------------------------------------------------------+
+```mermaid
+flowchart TB
+    subgraph APPLIANCE["WALLIX BASTION APPLIANCE (Debian + LUKS at rest)"]
+        subgraph ADMIN["ADMIN / API PLANE"]
+            wabgui["wabgui (443)<br/>wabrestapi"]
+            sashimi["sashimi /<br/>wallixsession"]
+            mariadb["MariaDB<br/>3306 / 3307<br/>ACL + audit"]
+            wabgui --> sashimi
+            sashimi --> mariadb
+        end
+        subgraph PROXY["PROXY PLANE"]
+            redemption["redemption (RDP proxy)<br/>SSH proxy<br/>VNC/TELNET/RLOGIN/RAW"]
+            discovery["wallix-discovery<br/>(asset scans)"]
+        end
+        subgraph CTRL["CONTROL / AUDIT PLANE"]
+            watchdog["wabwatchdog (supervisor)"]
+            syslogng["syslog-ng -> SIEM"]
+            superset["superset (dash)"]
+            celery["wallixcelery (async jobs)"]
+            backup["wab-backupdaemon"]
+        end
+        storage["/var/wab on LVM (recordings, DB, logs)"]
+    end
+    wabgui <--> redemption
+    redemption --> sashimi
 ```
 
 > **Hardening note:** WALLIX explicitly **forbids installing external agents** (EDR, backup, monitoring) on the appliance and treats any change outside the GUI/CLI as a violation of the terms. During upgrades a **lock-down mechanism** disables services and access until the system is verified safe. This is why third-party EDR/backup must integrate via the API/SIEM, not by installing on the box.
@@ -203,14 +207,20 @@ For remote/external access, a separate **Access Manager (WAM)** component is pla
 
 An **`autossh`-managed SSH tunnel** with port forwarding links the Bastion databases so they replicate *without* exposing the DB to the network. Slaves/peers pull updates using **outbound source port 3307 → inbound destination port 3306**.
 
-```
-        MASTER / SLAVE(s)                         MASTER / MASTER (exactly 2)
- +-----------+        +-----------+         +-----------+        +-----------+
- |  Master   |  3307  |  Slave 1  |         | Primary   |  3307  | Secondary |
- | (Active)  |======> | (Passive) |         | Master    |<======>| Master    |
- |  :3306    |  ssh   |  :3306    |         |  :3306    |  ssh   |  :3306    |
- +-----------+ tunnel +-----------+         +-----------+ tunnel +-----------+
-        \____ 3307 ___ Slave 2 (Passive)         (replication both directions)
+```mermaid
+flowchart LR
+    subgraph MS["MASTER / SLAVE(s)"]
+        Master["Master (Active)<br/>:3306"]
+        Slave1["Slave 1 (Passive)<br/>:3306"]
+        Slave2["Slave 2 (Passive)"]
+        Master ==>|"3307 ssh tunnel"| Slave1
+        Master ==>|"3307 ssh tunnel"| Slave2
+    end
+    subgraph MM["MASTER / MASTER (exactly 2)"]
+        Primary["Primary Master<br/>:3306"]
+        Secondary["Secondary Master<br/>:3306"]
+        Primary <==>|"3307 ssh tunnel<br/>(replication both directions)"| Secondary
+    end
 ```
 
 **Key HA constraints (from the portfolio + deployment guide):**
@@ -233,25 +243,14 @@ No fixed concurrent-session numbers are published in the deployment guide (defer
 
 ## 7. Putting it together — end-to-end session flow
 
-```
- 1. USER connects to Bastion (FRONT LEG)        2. Bastion AUTHN + AUTHZ
-    SSH/RDP/HTTPS to 22/3389/443                   - verify user (LDAP/SAML/MFA...)
-    + MFA                                          - permission profile check
-        |                                          - evaluate AUTHORIZATION (ACL):
-        v                                            user group -> target group ?
- +--------------+      wabgui/wabrestapi                |  Sessions right? approval?
- |  Client      | ---> sashimi/wallixsession -----------+
- +--------------+              |
-        ^                      v   3. SECRET RETRIEVAL
-        |               +-------------+   vault (MariaDB) or external vault
-        |               |  redemption |   PASSWORD_VAULT / mapping / interactive
-   4. RECORD +          |  / SSH proxy|
-   real-time monitor    +------+------+   5. BACK LEG: Bastion -> target
-   (video/transcript,          |          injects target secret, opens session
-    Session Probe,             v
-    SIEM via syslog-ng) +-------------+
-                        |  TARGET     |  (Windows / Linux / network / HMI)
-                        +-------------+
+```mermaid
+flowchart TD
+    Client["Client"] -->|"1. USER connects (FRONT LEG)<br/>SSH/RDP/HTTPS to 22/3389/443 + MFA"| Front["wabgui / wabrestapi<br/>sashimi / wallixsession"]
+    Front --> Authz["2. Bastion AUTHN + AUTHZ<br/>- verify user (LDAP/SAML/MFA...)<br/>- permission profile check<br/>- evaluate AUTHORIZATION (ACL):<br/>user group -> target group?<br/>Sessions right? approval?"]
+    Authz --> Proxy["redemption / SSH proxy"]
+    Proxy -->|"3. SECRET RETRIEVAL<br/>vault (MariaDB) or external vault<br/>PASSWORD_VAULT / mapping / interactive"| Secret["Secret obtained"]
+    Secret --> Target["5. BACK LEG: Bastion -> target<br/>injects target secret, opens session<br/>TARGET (Windows / Linux / network / HMI)"]
+    Proxy -.->|"4. RECORD + real-time monitor<br/>(video/transcript, Session Probe,<br/>SIEM via syslog-ng)"| Client
 ```
 
 Each numbered step maps to a sibling deep-dive: authorization evaluation → [bastion-data-model.md](./bastion-data-model.md); recording/monitoring/approval → [session-management.md](./session-management.md); secret retrieval/rotation → [secrets-and-password-management.md](./secrets-and-password-management.md).

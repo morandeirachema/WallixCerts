@@ -108,24 +108,24 @@ WAM API-key profiles (Bastion v12.1+), in order of decreasing scope:
 
 ### 1.5 API authentication flow
 
-```
-            REST API AUTHENTICATION FLOW
-  CLIENT (script/CI/WAM)                BASTION REST API (/api/vX.Y)
-        |                                      |
-   choose auth model                           |
-        |                                      |
-   (A) API key:                                |
-   GET /users  --------------------------------> validate X-Auth-Key
-        |   X-Auth-User + X-Auth-Key            |  + intersect key x user profile
-        |<------------------ 200 + JSON --------|  (None beats Modify)
-        |                                      |
-   (B) user session:                           |
-   POST /session {user,password} -------------> authenticate (primary +/- 2FA)
-        |<----- 200 + Set-Cookie (session) ----|
-   GET /devices  (Cookie) ---------------------> validate session cookie
-        |<------------------ 200 + JSON --------|
-        |                                      |
-   on error: 401 (bad/expired auth) | 403 (insufficient profile)
+```mermaid
+sequenceDiagram
+    participant Client as "CLIENT (script/CI/WAM)"
+    participant API as "BASTION REST API (/api/vX.Y)"
+    Note over Client: choose auth model
+    alt (A) API key
+        Client->>API: GET /users (X-Auth-User + X-Auth-Key)
+        Note over API: validate X-Auth-Key<br/>+ intersect key x user profile<br/>(None beats Modify)
+        API-->>Client: 200 + JSON
+    else (B) user session
+        Client->>API: POST /session {user,password}
+        Note over API: authenticate (primary +/- 2FA)
+        API-->>Client: 200 + Set-Cookie (session)
+        Client->>API: GET /devices (Cookie)
+        Note over API: validate session cookie
+        API-->>Client: 200 + JSON
+    end
+    Note over Client,API: on error: 401 (bad/expired auth) | 403 (insufficient profile)
 ```
 
 ---
@@ -275,19 +275,14 @@ Two routes:
 
 Treat Bastion objects as declarative state and reconcile them through the API.
 
-```
-                 IaC RECONCILE LOOP (DevOps)
-  +-----------------+      +------------------+      +---------------------+
-  | Git repo:       |      | CI/CD pipeline   |      | Bastion REST API    |
-  | targets.yml     | ---> | (plan)           | ---> | GET current state   |
-  | users.yml       |      |  - read desired  | <--- | (200 + JSON)        |
-  | authz.yml       |      |  - diff vs live  |      |                     |
-  +-----------------+      |  - apply changes | ---> | POST/PUT/DELETE     |
-                           +------------------+      | (201/200/204)       |
-                                  |                  +---------------------+
-                                  v
-                           idempotent: 409 on
-                           existing authz = "already converged"
+```mermaid
+flowchart LR
+    Git["Git repo:<br/>targets.yml<br/>users.yml<br/>authz.yml"] --> Pipeline["CI/CD pipeline (plan)<br/>- read desired<br/>- diff vs live<br/>- apply changes"]
+    Pipeline -->|"GET current state"| API["Bastion REST API"]
+    API -->|"200 + JSON"| Pipeline
+    Pipeline -->|"POST/PUT/DELETE"| API
+    API -->|"201/200/204"| Pipeline
+    Pipeline --> Idempotent["idempotent: 409 on existing authz = 'already converged'"]
 ```
 
 Practical patterns:
@@ -312,33 +307,23 @@ implementation/agent. Technically it is the **REST API + vault checkout** mechan
 
 ### 5.1 CI/CD secret-retrieval automation flow
 
-```
-              CI/CD SECRET RETRIEVAL (AAPM / WAAPM)
-  +-------------+    +----------------+    +-------------------+    +-----------+
-  | CI/CD job   |    | WAAPM agent /  |    | Bastion REST API  |    | Vault     |
-  | (pipeline)  |    | API client     |    | /accounts/.../    |    | (Bastion  |
-  |             |    | (key in CI     |    |   checkout        |    |  or ext.) |
-  |             |    |  secret store) |    |                   |    |           |
-  +------+------+    +-------+--------+    +---------+---------+    +-----+-----+
-         | 1) need DB pw     |                      |                    |
-         +------------------>| 2) authenticate      |                    |
-         |                   |    (X-Auth-Key)      |                    |
-         |                   +--------------------->| 3) check authz     |
-         |                   |                      |    (Secrets right) |
-         |                   |                      +------------------->| 4) fetch secret
-         |                   |                      |<-------------------+   (+ lock if
-         |                   |<--- 200 + secret ----|                    |    checkout policy)
-         | 5) inject into    |                      |                    |
-         |    runtime env  <-+                      |                    |
-         | 6) run task       |                      |                    |
-         |    (no pw on disk)|                      |                    |
-         | 7) check-in ------>--------------------->| 8) /checkin        |
-         |                   |                      |    (optional       |
-         |                   |                      |     rotate on      |
-         |                   |                      |     check-in)      |
-         +-------------------+----------------------+--------------------+
-   Secret lives only in memory for the job's lifetime; checkout can lock the
-   account against concurrent use and rotate the password at check-in.
+```mermaid
+sequenceDiagram
+    participant Job as "CI/CD job (pipeline)"
+    participant Agent as "WAAPM agent / API client<br/>(key in CI secret store)"
+    participant API as "Bastion REST API<br/>/accounts/.../checkout"
+    participant Vault as "Vault (Bastion or ext.)"
+    Job->>Agent: 1) need DB pw
+    Agent->>API: 2) authenticate (X-Auth-Key)
+    API->>API: 3) check authz (Secrets right)
+    API->>Vault: 4) fetch secret (+ lock if checkout policy)
+    Vault-->>API: secret
+    API-->>Agent: 200 + secret
+    Agent-->>Job: 5) inject into runtime env
+    Note over Job: 6) run task (no pw on disk)
+    Job->>API: 7) check-in
+    Note over API: 8) /checkin (optional rotate on check-in)
+    Note over Job,Vault: Secret lives only in memory for the job's lifetime; checkout can lock the<br/>account against concurrent use and rotate the password at check-in.
 ```
 
 ### 5.2 Checkout / check-in via the API

@@ -52,46 +52,37 @@ Plus a special use: **Scenario accounts** (used by an SSH **startup scenario** t
 
 ## 2. Entity-relationship diagram
 
-```
-        IDENTITY SIDE                    BINDING                    TARGET SIDE
- +---------------------+                                   +-----------------------------+
- |  USER               |                                   |   DEVICE  or  APPLICATION   |
- |  (person / dir acct)|                                   |   (equipment / app on a     |
- +----------+----------+                                   |    jump server)             |
-            |  member of                                   +--------------+--------------+
-            v                                                              |  hosts
- +---------------------+                                   +--------------v--------------+
- |  USER GROUP         |                                   |   SERVICE                   |
- +----------+----------+                                   |   (protocol + port +        |
-            |                                              |    connection policy)       |
-            |                                              +--------------+--------------+
-            |                                                             | combine =
-            |                                              +--------------v--------------+
-            |                                              |   RESOURCE                  |
-            |                                              |   = service + device/app    |
-            |                                              +--------------+--------------+
-            |                                                             |
-            |                                +-----------+   +-----------v-------------+
-            |                                |  DOMAIN   |-->|   TARGET ACCOUNT        |
-            |                                | global /  |   |   (account, in a domain)|
-            |                                | local     |   +-----------+-------------+
-            |                                +-----------+               | combine =
-            |                                              +-------------v-------------+
-            |                                              |   TARGET = resource +     |
-            |                                              |            target account |
-            |                                              +-------------+-------------+
-            |                                                            | member of
-            |                                              +-------------v-------------+
-            |                                              |   TARGET GROUP            |
-            |                                              +-------------+-------------+
-            |                                                            |
-            |     +======================================================+
-            |     |   AUTHORIZATION  (exactly ONE user group <-> ONE target group)
-            +====>|   carries: Sessions right | Secrets right (cumulative)
-                  |            + Protocols/Sub-protocols
-                  |            + Session recording | Session invite | Critical flag
-                  |            + Approval workflow (Approval tab)
-                  +======================================================+
+```mermaid
+erDiagram
+    USER ||--o{ USER_GROUP : "member of"
+    USER_GROUP ||--|| AUTHORIZATION : "binds (exactly ONE)"
+    AUTHORIZATION ||--|| TARGET_GROUP : "binds (exactly ONE)"
+    TARGET_GROUP ||--o{ TARGET : "gathers (member of)"
+    TARGET }o--|| RESOURCE : "= resource +"
+    TARGET }o--|| TARGET_ACCOUNT : "target account"
+    RESOURCE }o--|| SERVICE : "= service +"
+    RESOURCE }o--|| DEVICE_OR_APPLICATION : "device/app"
+    DEVICE_OR_APPLICATION ||--o{ SERVICE : "hosts"
+    DOMAIN ||--o{ TARGET_ACCOUNT : "contains (global / local)"
+
+    USER {
+        string identity "person / dir acct"
+    }
+    DEVICE_OR_APPLICATION {
+        string kind "equipment / app on a jump server"
+    }
+    SERVICE {
+        string definition "protocol + port + connection policy"
+    }
+    TARGET_ACCOUNT {
+        string account "account, in a domain"
+    }
+    AUTHORIZATION {
+        string rights "Sessions | Secrets (cumulative)"
+        string protocols "Protocols / Sub-protocols"
+        string options "Session recording | Session invite | Critical flag"
+        string approval "Approval workflow (Approval tab)"
+    }
 ```
 
 **Relationship chain (memorise this):**
@@ -156,15 +147,12 @@ A target group's tab determines **how the back-leg (secondary) credential is obt
 | **Specific / session account** ("Connection with a specific account") | "The user connects to the target with a **specific account saved in the WALLIX Bastion database** … Credentials are **injected automatically** when the session starts." | **`PASSWORD_VAULT`** — secret comes from the Bastion vault (or external vault). |
 | **Interactive login** | The user **manually types** the target credentials on the target. | **`PASSWORD_INTERACTIVE`** must be enabled; no injection. |
 
-```
-            HOW DOES THE BACK-LEG CREDENTIAL ARRIVE?
-   +-----------------------------------------------------------+
-   |  ACCOUNT MAPPING  -> user's OWN Bastion/dir credential     |
-   |                      auto-injected (PASSWORD_MAPPING/VTR)  |
-   |  SPECIFIC ACCOUNT -> VAULTED account, auto-injected        |
-   |                      (PASSWORD_VAULT)                      |
-   |  INTERACTIVE LOGIN-> user TYPES it (PASSWORD_INTERACTIVE)  |
-   +-----------------------------------------------------------+
+```mermaid
+flowchart LR
+    Q{"HOW DOES THE BACK-LEG<br/>CREDENTIAL ARRIVE?"}
+    Q --> AM["ACCOUNT MAPPING<br/>-> user's OWN Bastion/dir credential<br/>auto-injected (PASSWORD_MAPPING/VTR)"]
+    Q --> SA["SPECIFIC ACCOUNT<br/>-> VAULTED account, auto-injected<br/>(PASSWORD_VAULT)"]
+    Q --> IL["INTERACTIVE LOGIN<br/>-> user TYPES it (PASSWORD_INTERACTIVE)"]
 ```
 
 > A **Vault Transformation Rule (VTR)** is "a rule based on a character string … to retrieve the credentials of an existing account in the WALLIX Bastion vault for a target account configured for account mapping" — the bridge that lets non-password primary auth still pull a vaulted secret for the back leg.
@@ -239,48 +227,25 @@ A target group's tab determines **how the back-leg (secondary) credential is obt
 
 ## 8. Runtime evaluation flow — "how an authorization is evaluated when a user connects"
 
-```
-              USER initiates connection (front leg) to Bastion
-                                  |
-                                  v
-   [1] AUTHENTICATE the user (local/LDAP/SAML/OIDC/Kerberos/X.509 + MFA)
-                                  |  fail -> reject
-                                  v
-   [2] Resolve the user's USER GROUP(S)
-                                  |
-                                  v
-   [3] Find an AUTHORIZATION whose user group covers this user AND
-       whose target group contains the requested TARGET
-                                  |  none -> ACCESS DENIED
-                                  v
-   [4] Does the authorization grant the needed RIGHT?
-       (Sessions for a session, Secrets for a checkout)   -- cumulative across auths
-                                  |  no  -> denied for that action
-                                  v
-   [5] Is the requested PROTOCOL/SUB-PROTOCOL allowed?     -- e.g. SSH_SCP_UP?
-                                  |  no  -> sub-action blocked
-                                  v
-   [6] TIME FRAME check (attached to the user group)
-            inside frame ----------------+----------- outside frame
-                |                                          |
-                v                                          v
-   [7a] Approval setting (inside):              [7b] Approval setting (outside):
-        No approval / Automatic /                    Access blocked / Automatic /
-        Approval with quorum                          Approval with quorum
-                |                                          |
-                +---------------------+--------------------+
-                                      v
-   [8] If quorum required: create APPROVAL REQUEST -> notify approvers
-       (mandatory comment/ticket?) -> wait for quorum or reject/timeout
-                                      |  rejected/timeout -> denied
-                                      v
-   [9] OPEN SESSION (back leg): obtain credential per mapping mode
-        - account mapping  : user's own credential (PASSWORD_MAPPING / VTR)
-        - specific account : vaulted secret (PASSWORD_VAULT)   <-- check-out/lock
-        - interactive      : user types it (PASSWORD_INTERACTIVE)
-                                      |
-                                      v
-  [10] PROXY + RECORD + apply restriction rules (kill/notify, OCR) + stream to SIEM
+```mermaid
+flowchart TD
+    Start["USER initiates connection (front leg) to Bastion"] --> S1
+    S1["[1] AUTHENTICATE the user<br/>(local/LDAP/SAML/OIDC/Kerberos/X.509 + MFA)"] -->|"fail"| Reject["reject"]
+    S1 --> S2["[2] Resolve the user's USER GROUP(S)"]
+    S2 --> S3["[3] Find an AUTHORIZATION whose user group covers this user<br/>AND whose target group contains the requested TARGET"]
+    S3 -->|"none"| Denied["ACCESS DENIED"]
+    S3 --> S4["[4] Does the authorization grant the needed RIGHT?<br/>(Sessions for a session, Secrets for a checkout)<br/>-- cumulative across auths"]
+    S4 -->|"no"| DeniedAction["denied for that action"]
+    S4 --> S5["[5] Is the requested PROTOCOL/SUB-PROTOCOL allowed?<br/>-- e.g. SSH_SCP_UP?"]
+    S5 -->|"no"| Blocked["sub-action blocked"]
+    S5 --> S6{"[6] TIME FRAME check<br/>(attached to the user group)"}
+    S6 -->|"inside frame"| S7a["[7a] Approval setting (inside):<br/>No approval / Automatic /<br/>Approval with quorum"]
+    S6 -->|"outside frame"| S7b["[7b] Approval setting (outside):<br/>Access blocked / Automatic /<br/>Approval with quorum"]
+    S7a --> S8["[8] If quorum required: create APPROVAL REQUEST -> notify approvers<br/>(mandatory comment/ticket?) -> wait for quorum or reject/timeout"]
+    S7b --> S8
+    S8 -->|"rejected/timeout"| DeniedReq["denied"]
+    S8 --> S9["[9] OPEN SESSION (back leg): obtain credential per mapping mode<br/>- account mapping: user's own credential (PASSWORD_MAPPING / VTR)<br/>- specific account: vaulted secret (PASSWORD_VAULT) &lt;-- check-out/lock<br/>- interactive: user types it (PASSWORD_INTERACTIVE)"]
+    S9 --> S10["[10] PROXY + RECORD + apply restriction rules (kill/notify, OCR) + stream to SIEM"]
 ```
 
 **Notes that trip people up:**

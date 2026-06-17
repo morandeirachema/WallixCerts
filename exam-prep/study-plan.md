@@ -35,24 +35,21 @@ cert level:
 
 ### FLOW — learning path
 
-```
-  FOUNDATIONS        PREREQUISITES        PRODUCT / CERT         DEEP-DIVES            LABS &
-  (why PAM)          (the substrate)      (what to know)         (how it works)        PRACTICE
-+--------------+   +-----------------+   +----------------+   +-----------------+   +---------------+
-| what-is-pam  |-->| networking      |-->| product-       |-->| bastion-        |-->| building-a-   |
-| privileged-  |   | linux-          |   |  portfolio     |   |  architecture   |   |  home-lab     |
-|  accounts    |   |  essentials     |   | cert datasheet |   | bastion-data-   |   | hands-on-     |
-| core-concepts|   | windows-and-AD  |   |  (WCA/WCP/WCE) |   |  model          |   |  exercises    |
-| threat-      |   | crypto-and-pki  |   |                |   | session / auth /|   | self-test     |
-|  landscape   |   |                 |   |                |   |  secrets / HA / |   |  (recall the  |
-| pam-vs-IAM.. |   |                 |   |                |   |  api / trouble  |   |  key points)  |
-+--------------+   +-----------------+   +----------------+   +-----------------+   +---------------+
-        |                  |                     |                    |                    |
-        +----- skim if -----+                     +--- the core -------+                    |
-        |  already strong   |                     |  exam material     |                    |
-        v                                          v                                        v
-   build vocabulary                         match curriculum modules                 prove recall
-   & motivation                             1:1 to deep-dives                         + hands-on
+```mermaid
+flowchart LR
+    FOUND["<b>FOUNDATIONS</b> (why PAM)<br/>what-is-pam<br/>privileged-accounts<br/>core-concepts<br/>threat-landscape<br/>pam-vs-IAM..."]
+    PRE["<b>PREREQUISITES</b> (the substrate)<br/>networking<br/>linux-essentials<br/>windows-and-AD<br/>crypto-and-pki"]
+    PROD["<b>PRODUCT / CERT</b> (what to know)<br/>product-portfolio<br/>cert datasheet<br/>(WCA/WCP/WCE)"]
+    DEEP["<b>DEEP-DIVES</b> (how it works)<br/>bastion-architecture<br/>bastion-data-model<br/>session / auth /<br/>secrets / HA /<br/>api / trouble"]
+    LABS["<b>LABS &amp; PRACTICE</b><br/>building-a-home-lab<br/>hands-on-exercises<br/>self-test<br/>(recall the key points)"]
+
+    FOUND --> PRE --> PROD --> DEEP --> LABS
+
+    FOUND -.->|"skim if already strong"| VOCAB["build vocabulary<br/>&amp; motivation"]
+    PRE -.->|"skim if already strong"| VOCAB
+    PROD -.->|"the core exam material"| MATCH["match curriculum modules<br/>1:1 to deep-dives"]
+    DEEP -.->|"the core exam material"| MATCH
+    LABS -.-> RECALL["prove recall<br/>+ hands-on"]
 ```
 
 **Rule of thumb:** read **left to right**, but if you are an experienced sysadmin you may

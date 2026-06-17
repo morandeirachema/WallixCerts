@@ -1,57 +1,66 @@
-# WallixCerts — WALLIX & PAM Certification Study Hub
+<div align="center">
 
-A complete, **source-grounded** self-study repository for a systems administrator moving
-into cybersecurity and specializing in **Privileged Access Management (PAM)** with the
-**[WALLIX](https://www.wallix.com/)** suite and its
-**[WALLIX Academy](https://www.wallix.com/support-services/wallix-academy/)** certifications.
+# 🔐 WallixCerts
 
-It takes you from *"what is PAM?"* all the way to certification exam prep and a career
-roadmap — concepts, **flow diagrams**, acronyms, deep technical dives, labs, and practice
-questions.
+### A source-grounded study hub for **Privileged Access Management** & the **WALLIX certifications**
 
-> ⚠️ **Unofficial & no fabrication.** This is a community study compilation, not a WALLIX
+*From “what is PAM?” to certified* — concepts, real diagrams, labs, exam prep, and a
+career roadmap for a **systems administrator moving into cybersecurity**.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+![Docs](https://img.shields.io/badge/docs-40%2B%20pages-blue)
+![Diagrams](https://img.shields.io/badge/diagrams-Mermaid-ff3670)
+![Focus](https://img.shields.io/badge/focus-Privileged%20Access%20Management-1f6feb)
+![Vendor](https://img.shields.io/badge/vendor-WALLIX-orange)
+![Facts](https://img.shields.io/badge/facts-source--grounded-success)
+
+</div>
+
+---
+
+> [!NOTE]
+> **Unofficial & no fabrication.** A community study compilation, not a WALLIX
 > publication. Every factual claim is tied to an official WALLIX document or a reputable
-> source (cited per page); unknowns are marked *"not specified in sources"* rather than
-> guessed. Always confirm current details with WALLIX Academy (`academy@wallix.com`).
-> Compiled **2026-06-17**.
+> source (cited per page); unknowns are marked *“not specified in sources.”* Confirm
+> current details with WALLIX Academy (`academy@wallix.com`). Compiled **2026-06-17**.
 
----
+## 🗺️ The learning path
 
-## How to use this repo — the learning path
-
-```
-   ┌──────────────┐   ┌───────────────┐   ┌──────────────────┐   ┌──────────────┐
-   │ 1 FOUNDATIONS│──▶│ 2 PREREQUISITES│──▶│ 3 PRODUCTS &     │──▶│ 4 DEEP DIVES │
-   │   PAM concepts│   │  sysadmin→cyber│   │   CERTIFICATIONS │   │ Bastion guts │
-   └──────────────┘   └───────────────┘   └──────────────────┘   └──────┬───────┘
-                                                                         │
-        ┌────────────────────────────────────────────────────────────────┘
-        ▼
-   ┌──────────┐   ┌──────────────┐   ┌──────────┐
-   │ 5 LABS   │──▶│ 6 EXAM PREP  │──▶│ 7 CAREER │     (+ REFERENCE throughout)
-   │ practice │   │ plan + tests │   │ roadmap  │
-   └──────────┘   └──────────────┘   └──────────┘
+```mermaid
+flowchart LR
+    F["1 · Foundations<br/>PAM concepts"] --> P["2 · Prerequisites<br/>Linux · AD · net · crypto"]
+    P --> D["3 · Products & Certs<br/>the WALLIX suite + tracks"]
+    D --> DD["4 · Deep Dives<br/>Bastion internals"]
+    DD --> L["5 · Labs<br/>hands-on practice"]
+    L --> E["6 · Exam Prep<br/>plan · questions · cheat sheet"]
+    E --> C["7 · Career<br/>sysadmin → PAM specialist"]
+    R["📚 Reference<br/>glossary · acronyms · compliance"] -.-> F
+    R -.-> DD
+    R -.-> E
 ```
 
-| Step | Section | Start here |
-|------|---------|-----------|
-| 1 | **Foundations** — what PAM is and why it matters | [foundations/](foundations/README.md) |
-| 2 | **Prerequisites** — Linux, AD, networking, crypto | [prerequisites/](prerequisites/README.md) |
-| 3 | **Products & Certifications** — the WALLIX suite & cert tracks | [docs/00-overview/](docs/00-overview/product-portfolio.md) · [certification framework](docs/00-overview/certification-framework.md) |
-| 4 | **Deep dives** — WALLIX Bastion internals | [deep-dives/](deep-dives/README.md) |
-| 5 | **Labs** — build a lab & do exercises | [labs/](labs/README.md) |
-| 6 | **Exam prep** — study plan, practice questions, cheat sheet | [exam-prep/](exam-prep/README.md) |
-| 7 | **Career** — from sysadmin to PAM specialist | [career/](career/README.md) |
-| — | **Reference** — glossary, acronyms, compliance, sources | [reference/](reference/README.md) |
+## 📦 What's inside
 
----
+| # | Section | Start here |
+|---|---------|-----------|
+| 1 | **Foundations** — what PAM is, threats, core principles, market | [foundations/](foundations/README.md) |
+| 2 | **Prerequisites** — Linux · Windows/AD · networking · crypto/PKI | [prerequisites/](prerequisites/README.md) |
+| 3 | **Products & Certifications** — the WALLIX suite & cert tracks | [product portfolio](docs/00-overview/product-portfolio.md) · [framework](docs/00-overview/certification-framework.md) |
+| 4 | **Deep dives** — WALLIX Bastion internals (8 docs) | [deep-dives/](deep-dives/README.md) |
+| 5 | **Labs** — build a lab & guided exercises | [labs/](labs/README.md) |
+| 6 | **Exam prep** — study plan, 54 practice Qs, cheat sheet | [exam-prep/](exam-prep/README.md) |
+| 7 | **Career** — roadmap & adjacent certifications | [career/](career/README.md) |
+| 📚 | **Reference** — glossary, acronyms, compliance, sources | [reference/](reference/README.md) |
 
-## The WALLIX certification framework
+## 🎓 The WALLIX certification framework
 
-Three progressive levels — **Administrator (WCA) → Professional (WCP) → Expert (WCE)** —
-across product tracks. Code format `WC{level}-{track}`; `e` prefix = e-learning.
-Exam model: a final **MCQ requiring 70% to pass**. Full detail in the
-[certification framework](docs/00-overview/certification-framework.md).
+Three progressive levels across product tracks. Code format `WC{level}-{track}`;
+an `e` prefix means e-learning. Exam model: a final **MCQ requiring 70% to pass**.
+
+```mermaid
+flowchart LR
+    WCA["WCA — Administrator<br/>understand & operate"] --> WCP["WCP — Professional<br/>deploy & administer"] --> WCE["WCE — Expert<br/>advanced & complex"]
+```
 
 | Track | Product | Administrator | Professional | Expert |
 |-------|---------|---------------|--------------|--------|
@@ -60,34 +69,42 @@ Exam model: a final **MCQ requiring 70% to pass**. Full detail in the
 | **IDaaS** | WALLIX One IDaaS (Trustelem) | — | [WCP-I](docs/idaas/ewcp-i-professional.md) | — |
 | **OT** | WALLIX PAM4OT | — | [eWCP-P-OT](docs/ot-pam4ot/ewcp-p-ot-professional.md) | — |
 
----
+<details>
+<summary>📂 <b>Full repository layout</b></summary>
 
-## Repository layout
-
+```mermaid
+flowchart LR
+    Root["📦 WallixCerts/"]
+    Root --> F["foundations/<br/>concepts · threats · principles · market"]
+    Root --> Pre["prerequisites/<br/>Linux · Windows/AD · networking · crypto"]
+    Root --> Docs["docs/<br/>certifications & product portfolio"]
+    Root --> DD["deep-dives/<br/>Bastion internals (8 docs)"]
+    Root --> Labs["labs/<br/>setup · exercises"]
+    Root --> Exam["exam-prep/<br/>plan · questions · cheat sheet"]
+    Root --> Career["career/<br/>roadmap · adjacent certs"]
+    Root --> Ref["reference/<br/>glossary · acronyms · compliance · sources"]
+    Docs --> Ov["00-overview/"]
+    Docs --> PB["pam-bastion/<br/>WCA-P · WCP-P · WCE-P"]
+    Docs --> OT["ot-pam4ot/<br/>eWCP-P-OT"]
+    Docs --> ID["idaas/<br/>eWCP-I / WCP-I"]
+    Docs --> IAG["iag/<br/>eWCP-G / WCP-G · WCA-G"]
 ```
-WallixCerts/
-├── foundations/      PAM concepts (what/why), threats, core principles, market landscape
-├── prerequisites/    Linux · Windows/AD · networking & protocols · crypto & PKI
-├── docs/
-│   ├── 00-overview/  certification-framework · product-portfolio (technical overview)
-│   ├── pam-bastion/  WCA-P · WCP-P · WCE-P
-│   ├── ot-pam4ot/    eWCP-P-OT
-│   ├── idaas/        eWCP-I / WCP-I
-│   └── iag/          eWCP-G / WCP-G (+ WCA-G coming soon)
-├── deep-dives/       Bastion architecture, data model, sessions, secrets, auth, HA, API, troubleshooting
-├── labs/             home lab setup · hands-on exercises
-├── exam-prep/        study plan · practice questions · cheat sheet
-├── career/           sysadmin→PAM roadmap · skills & adjacent certs
-└── reference/        glossary · acronyms · compliance & standards · sources
-```
+</details>
 
-~40 documents. Each page carries its own **Sources** section.
-
-## Quick links
+## 🔗 Quick links
 
 - 🎓 [WALLIX Academy](https://www.wallix.com/support-services/wallix-academy/)
 - 📘 [Official training catalog 2025–2026 (PDF)](https://www.wallix.com/wp-content/uploads/2024/04/WALLIX_TRAINING_2025-2026_ENG.pdf)
 - 🧱 [Product portfolio technical overview](docs/00-overview/product-portfolio.md)
 - 🧠 [Glossary](reference/glossary.md) · [Acronyms](reference/acronyms.md)
 - 📚 [Full source list](reference/sources.md)
-- ✉️ Contact: `academy@wallix.com`
+
+## 🤝 Contributing & license
+
+Contributions welcome — see **[CONTRIBUTING.md](CONTRIBUTING.md)** (the no-fabrication
+rule, page conventions, and a periodic verification checklist). Licensed under
+**[MIT](LICENSE)**.
+
+> Not affiliated with or endorsed by WALLIX. “WALLIX”, “Bastion”, “Trustelem”, “BestSafe”
+> and related names are trademarks of their respective owners, used here for
+> identification and educational purposes only.

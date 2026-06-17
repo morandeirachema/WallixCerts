@@ -20,13 +20,14 @@ comprehensive understanding from basic administration to advanced deployment.
 
 ## Naming convention
 
-```
-W C x - y
-│ │ │   └─ Track:  P = PAM/Bastion · G = IAG · I = IDaaS · P-OT = OT
-│ │ └───── Level:  A = Administrator · P = Professional · E = Expert
-│ └─────── "Certified"
-└───────── "WALLIX"
-```
+A code reads `W C x - y`, decoded position by position:
+
+| Position | Symbol | Meaning |
+|----------|--------|---------|
+| 1 | `W` | "WALLIX" |
+| 2 | `C` | "Certified" |
+| 3 | `x` | **Level:** `A` = Administrator · `P` = Professional · `E` = Expert |
+| 4 | `y` | **Track:** `P` = PAM/Bastion · `G` = IAG · `I` = IDaaS · `P-OT` = OT |
 
 - An **`e` prefix** (`eWCA-P`, `eWCP-P`, `eWCE-P`, `eWCP-G`, `eWCP-I`, `eWCP-P-OT`)
   denotes the **self-paced e-learning** variant delivered on the WALLIX Academy platform.

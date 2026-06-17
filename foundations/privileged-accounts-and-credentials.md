@@ -24,27 +24,17 @@ deprovision.
 
 Before the catalogue, fix this distinction in your head — it drives everything in PAM.
 
+```mermaid
+flowchart TD
+    Root["PRIVILEGED ACCOUNTS"]
+    Root --> Human["HUMAN (people)<br/>• local admin<br/>• domain admin<br/>• root<br/>• DBA<br/>• cloud root<br/>• break-glass"]
+    Root --> NonHuman["NON-HUMAN (machine)<br/>• service accounts<br/>• application / A2A<br/>• SSH keys<br/>• API keys<br/>• certificates<br/>• default vendor acct"]
+    Human --> HumanNote["Tied to a named person (ideally)<br/>protected with MFA + recording"]
+    NonHuman --> NonHumanNote["Tied to a process / device / robot<br/>protected with vaulting + rotation<br/>+ removing hard-coded secrets (A2A)"]
 ```
-            PRIVILEGED ACCOUNTS
-            ┌────────────────────────────────────────────────┐
-            │                                                │
-   ┌────────┴─────────┐                          ┌───────────┴──────────┐
-   │  HUMAN (people)  │                          │  NON-HUMAN (machine) │
-   ├──────────────────┤                          ├──────────────────────┤
-   │ • local admin    │                          │ • service accounts   │
-   │ • domain admin   │                          │ • application / A2A  │
-   │ • root           │                          │ • SSH keys           │
-   │ • DBA            │                          │ • API keys           │
-   │ • cloud root     │                          │ • certificates       │
-   │ • break-glass    │                          │ • default vendor acct│
-   └──────────────────┘                          └──────────────────────┘
-        |                                              |
-   tied to a named person (ideally)            tied to a process / device / robot
-   protected with MFA + recording              protected with vaulting + rotation
-                                                + removing hard-coded secrets (A2A)
 
-   DBA = Database Administrator   A2A = Application-to-Application   MFA = Multi-Factor Authentication
-```
+> DBA = Database Administrator · A2A = Application-to-Application · MFA = Multi-Factor
+> Authentication.
 
 > **Why it matters:** non-human accounts often **outnumber human ones by 10:1 or more**,
 > rarely get their passwords changed, frequently have credentials *hard-coded* in
@@ -112,40 +102,28 @@ get *provisioned* and then live forever ("standing" privilege). With PAM, the
 credential is vaulted at birth, injected (never exposed) during use, rotated on a
 schedule or after every use, and cleanly retired at the end.
 
+```mermaid
+flowchart LR
+    P["1. PROVISION (onboard)<br/>• create account with LEAST privilege<br/>• store secret in the VAULT<br/>• record owner & purpose"]
+    U["2. USE (access)<br/>• user authNs to the PAM gateway (with MFA)<br/>• PAM CHECKS OUT the secret & INJECTS it<br/>• session RECORDED"]
+    R["3. ROTATE (refresh)<br/>• change pwd/key on a schedule or AFTER use<br/>• re-vault new secret<br/>• old secret is now worthless"]
+    D["4. DEPROVISION (retire)<br/>• disable & delete the account<br/>• remove SSH keys / certs / tokens<br/>• revoke cloud roles<br/>• close the audit record"]
+    P --> U --> R --> D
+    U <-->|"CHECK-OUT / CHECK-IN loop<br/>(steps 2 ↔ 3 repeat)"| R
 ```
-                        PRIVILEGED-ACCOUNT LIFECYCLE
-                        (PAM-controlled, ideal state)
 
-   ┌──────────────┐      ┌──────────────┐      ┌──────────────┐      ┌──────────────┐
-   │  1. PROVISION│ ───► │   2. USE      │ ───► │  3. ROTATE   │ ───► │4. DEPROVISION│
-   │   (onboard)  │      │   (access)    │      │  (refresh)   │      │   (retire)   │
-   └──────┬───────┘      └──────┬────────┘      └──────┬───────┘      └──────┬───────┘
-          │                     │                      │                     │
-   • create account      • user authNs to       • change pwd/key      • disable & delete
-     with LEAST            the PAM gateway         on a schedule         the account
-     privilege             (with MFA)              or AFTER use        • remove SSH keys
-   • store secret in     • PAM CHECKS OUT       • re-vault new          / certs / tokens
-     the VAULT             the secret &            secret             • revoke cloud roles
-   • record owner          INJECTS it            • old secret is      • close the audit
-     & purpose           • session RECORDED        now worthless        record
-          │                     │                      │                     │
-          └─────────────────────┴──────────┬───────────┴─────────────────────┘
-                                            │
-                                   ┌────────▼─────────┐
-                                   │ CHECK-OUT / CHECK-IN loop │
-                                   │ (steps 2↔3 repeat)        │
-                                   └───────────────────────────┘
+The CHECK-OUT / CHECK-IN model (zoom on steps 2–3):
 
-   The CHECK-OUT / CHECK-IN model (zoom on steps 2–3):
-
-        request ──► CHECK-OUT secret ──► use (recorded) ──► CHECK-IN ──► ROTATE
-           ▲           (lock account            │            (return)       │
-           │            so no one else          │                          │
-           └────────────  uses it) ◄────────────┴── "change password at ───┘
-                                                     check-in" forces rotation
-
-   authN = authenticate   MFA = Multi-Factor Authentication
+```mermaid
+flowchart LR
+    Req["request"] --> CO["CHECK-OUT secret<br/>(lock account so no one else uses it)"]
+    CO --> Use["use (recorded)"]
+    Use --> CI["CHECK-IN (return)"]
+    CI --> Rot["ROTATE<br/>'change password at check-in' forces rotation"]
+    Rot --> Req
 ```
+
+> authN = authenticate · MFA = Multi-Factor Authentication.
 
 **Where PAM adds value at each stage:**
 
@@ -172,17 +150,14 @@ see the
 
 ## 5. Quick decision guide — "is this account privileged?"
 
-```
-   Can the account ...                                        → treat as PRIVILEGED, vault it
-   ─────────────────────────────────────────────────────────
-   ... administer an OS, directory, DB, hypervisor, or cloud?  → YES
-   ... read or modify data belonging to other users?          → YES
-   ... run unattended automation with elevated rights?        → YES (non-human)
-   ... change security settings or disable logging?           → YES
-   ... unlock other systems (holds a key/cert/API token)?     → YES (credential)
-   ─────────────────────────────────────────────────────────
-   Otherwise → standard user (managed by IAM/IDaaS, not PAM)
-```
+| Can the account ... | Verdict |
+|---|---|
+| ... administer an OS, directory, DB, hypervisor, or cloud? | **PRIVILEGED — vault it** (YES) |
+| ... read or modify data belonging to other users? | **PRIVILEGED — vault it** (YES) |
+| ... run unattended automation with elevated rights? | **PRIVILEGED — vault it** (YES, non-human) |
+| ... change security settings or disable logging? | **PRIVILEGED — vault it** (YES) |
+| ... unlock other systems (holds a key/cert/API token)? | **PRIVILEGED — vault it** (YES, credential) |
+| Otherwise | standard user (managed by IAM/IDaaS, not PAM) |
 
 ---
 

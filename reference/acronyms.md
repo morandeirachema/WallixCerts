@@ -17,13 +17,15 @@ acronyms are defined in the [glossary](glossary.md) and the
 > [certification framework](../docs/00-overview/certification-framework.md). The decode
 > chart below is repeated from there for convenience.
 
-```
-W C x - y
-│ │ │   └─ Track:  P = PAM/Bastion · G = IAG · I = IDaaS · P-OT = OT
-│ │ └───── Level:  A = Administrator · P = Professional · E = Expert
-│ └─────── "Certified"
-└───────── "WALLIX"     (e- prefix = self-paced e-learning variant)
-```
+A code reads `W C x - y` (an `e-` prefix marks the self-paced e-learning variant):
+
+| Position | Symbol | Meaning |
+|----------|--------|---------|
+| 1 | `W` | "WALLIX" |
+| 2 | `C` | "Certified" |
+| 3 | `x` | **Level:** `A` = Administrator · `P` = Professional · `E` = Expert |
+| 4 | `y` | **Track:** `P` = PAM/Bastion · `G` = IAG · `I` = IDaaS · `P-OT` = OT |
+| prefix | `e-` | self-paced e-learning variant |
 
 ---
 

@@ -67,35 +67,17 @@ One **Active** node (Master) takes all changes; one or more **Passive** Slaves p
 *"No modification must be performed by the Slaves."* Slaves request updates from the Master
 on **outbound 3307 → inbound 3306** through the `autossh` tunnel.
 
+```mermaid
+flowchart TD
+    Master["MASTER (Active)<br/>- all writes here<br/>- password rotation scheduled HERE<br/>MariaDB :3306"]
+    Slave1["SLAVE 1 (Passive)<br/>- read-only<br/>- own audit/session tables<br/>MariaDB :3306"]
+    Slave2["SLAVE 2 (Passive)<br/>- read-only<br/>- own audit/session tables<br/>MariaDB :3306"]
+    Slave1 -->|"autossh tunnel (admin SSH :2242)<br/>repl 3307 -> 3306"| Master
+    Slave2 -->|"autossh tunnel (admin SSH :2242)<br/>repl 3307 -> 3306"| Master
 ```
-                       MASTER / SLAVE(S)  (one writer, N readers)
 
-        +-----------------------+
-        |   MASTER (Active)     |
-        |   - all writes here   |
-        |   - password rotation |
-        |     scheduled HERE    |
-        |   MariaDB :3306       |
-        +-----------+-----------+
-                    ^   ^
-   autossh tunnel   |   |   autossh tunnel
-   (admin SSH :2242)|   |   (admin SSH :2242)
-   repl 3307 -> 3306|   | repl 3307 -> 3306
-                    |   |
-        +-----------+   +-----------+
-        |                           |
-+-------+---------+        +--------+--------+
-| SLAVE 1         |        | SLAVE 2         |
-| (Passive)       |        | (Passive)       |
-| - read-only     |        | - read-only     |
-| - own audit/    |        | - own audit/    |
-|   session tables|        |   session tables|
-| MariaDB :3306   |        | MariaDB :3306   |
-+-----------------+        +-----------------+
-
- Rules: schedule password change only on Master; do NOT use
- "Change password at check-in"; approvals requested/validated on Master only.
-```
+*Master / Slave(s): one writer, N readers.* Rules: schedule password change only on
+Master; do NOT use "Change password at check-in"; approvals requested/validated on Master only.
 
 ### 2.2 Master / Master (exactly two nodes)
 
@@ -103,47 +85,31 @@ Bidirectional, but **only two nodes**. There is still a **primary Master** (the 
 replication was *installed* on) and a **secondary Master**. Each node requests updates from
 the other on **outbound 3307 → inbound 3306**.
 
+```mermaid
+flowchart LR
+    Primary["PRIMARY MASTER<br/>- replication installed here<br/>- ALL password actions + rotation scheduled HERE ONLY<br/>- approvals replicated<br/>MariaDB :3306"]
+    Secondary["SECONDARY MASTER<br/>- second node<br/>- own audit / session tables (not replic.)<br/>- approvals replicated<br/>MariaDB :3306"]
+    Primary <-->|"autossh SSH :2242 tunnel<br/>repl 3307 &lt;-&gt; 3306"| Secondary
 ```
-                  MASTER / MASTER  (exactly 2 nodes, bidirectional)
 
-   +---------------------------+                 +---------------------------+
-   |  PRIMARY MASTER           |                 |  SECONDARY MASTER         |
-   |  - replication installed  |                 |  - second node            |
-   |    here                   |                 |                           |
-   |  - ALL password actions   |   autossh SSH   |  - own audit / session    |
-   |    + rotation scheduled   |<== :2242 tunnel ==>|   tables (not replic.) |
-   |    HERE ONLY              |   repl 3307<->3306|                          |
-   |  - approvals replicated   |                 |  - approvals replicated   |
-   |  MariaDB :3306            |                 |  MariaDB :3306            |
-   +---------------------------+                 +---------------------------+
-
- API provisioning must NOT run simultaneously on both (duplicate IDs / UUID issues).
- Password rotation scheduled on the PRIMARY only (else passwords updated twice).
-```
+*Master / Master: exactly 2 nodes, bidirectional.* API provisioning must NOT run
+simultaneously on both (duplicate IDs / UUID issues). Password rotation scheduled on the
+PRIMARY only (else passwords updated twice).
 
 ---
 
 ## 3. What IS vs. IS NOT replicated
 
-```
- +------------------------------------+   +------------------------------------+
- |        REPLICATED (config)         |   |          NOT REPLICATED            |
- +------------------------------------+   +------------------------------------+
- | Users, user groups, profiles       |   | AUDIT / SESSION tables (live data) |
- | Devices, services, accounts        |   | Session Management > Recording Opts|
- | Domains, target groups             |   | Configuration > Configuration Opts |
- | Authorizations                     |   | Configuration > Connection Messages|
- | Approvals (M/M; M/S = Master only) |   | Configuration > License            |
- | Most "Configuration" data          |   | Configuration > Audit Logs         |
- |                                    |   | System > Network                   |
- |                                    |   | System > Time Service              |
- |                                    |   | System > SNMP                      |
- |                                    |   | System > SMTP Server               |
- |                                    |   | System > Service Control           |
- |                                    |   | System > SIEM Integration          |
- |                                    |   | Users > Accounts: GPG fingerprint  |
- |                                    |   | Targets > Devices: device certs    |
- +------------------------------------+   +------------------------------------+
+```mermaid
+flowchart LR
+    subgraph Replicated["REPLICATED (config)"]
+        direction TB
+        R["Users, user groups, profiles<br/>Devices, services, accounts<br/>Domains, target groups<br/>Authorizations<br/>Approvals (M/M; M/S = Master only)<br/>Most 'Configuration' data"]
+    end
+    subgraph NotReplicated["NOT REPLICATED"]
+        direction TB
+        N["AUDIT / SESSION tables (live data)<br/>Session Management &gt; Recording Opts<br/>Configuration &gt; Configuration Opts<br/>Configuration &gt; Connection Messages<br/>Configuration &gt; License<br/>Configuration &gt; Audit Logs<br/>System &gt; Network<br/>System &gt; Time Service<br/>System &gt; SNMP<br/>System &gt; SMTP Server<br/>System &gt; Service Control<br/>System &gt; SIEM Integration<br/>Users &gt; Accounts: GPG fingerprint<br/>Targets &gt; Devices: device certs"]
+    end
 ```
 
 **Consequence for DR/audit:** because each node keeps its *own* audit and session
@@ -238,31 +204,20 @@ Master/Slave is identical except you pick **2** and define the **number of Slave
 Replication gives you data redundancy; **WAM** gives you *session* load-balancing and a
 single entry point. Two complementary WAM mechanisms (WAM Administration Guide §20):
 
+```mermaid
+flowchart TD
+    Browsers["browsers (HTML5)"] --> LB["Load balancer (front)"]
+    LB --> WAM1["WAM node 1<br/>/var/wab/etc/wabam"]
+    LB --> WAM2["WAM node 2<br/>/var/wab/etc/wabam<br/>(HA: copy crypto.install.key, db.*, user.admin*)"]
+    WAM1 --> Cluster{{"one WAM 'farm'; any node serves any user<br/>Bastion CLUSTER (same auth names)"}}
+    WAM2 --> Cluster
+    Cluster --> BastionA["Bastion A"]
+    Cluster --> BastionB["Bastion B"]
+    Cluster --> BastionC["Bastion C"]
 ```
-                 BASTION CLUSTER BEHIND ACCESS MANAGER
 
-                         +------------------------+
-   browsers (HTML5) ---->|  Load balancer (front) |
-                         +-----------+------------+
-                                     |
-                    +----------------+----------------+
-                    v                                 v
-            +---------------+                 +---------------+
-            |  WAM node 1   |   (HA: copy     |  WAM node 2   |
-            |  /var/wab/etc |    crypto.install|  /var/wab/etc |
-            |   /wabam      |    .key, db.*,   |   /wabam      |
-            +-------+-------+    user.admin*)  +-------+-------+
-                    |   one WAM "farm"; any node serves any user|
-                    +--------------------+--------------------+
-                                         |
-                         +---- Bastion CLUSTER (same auth names) ----+
-                         v                v                v
-                  +-----------+    +-----------+    +-----------+
-                  | Bastion A |    | Bastion B |    | Bastion C |
-                  +-----------+    +-----------+    +-----------+
-            Target connection routed to the Bastion with the
-            FEWEST sessions in progress within the WAM farm.
-```
+*Bastion cluster behind Access Manager.* Target connection routed to the Bastion with the
+FEWEST sessions in progress within the WAM farm.
 
 - **Several WAM instances** behind a load balancer = WAM HA (removes WAM as a SPOF). Extra
   instances copy `crypto.install.key`, `db.connections*`, `user.admin*` from the first; if
@@ -283,39 +238,17 @@ single entry point. Two complementary WAM mechanisms (WAM Administration Guide �
 
 ## 6. Failover flow
 
+```mermaid
+flowchart TD
+    Healthy["Master healthy"] -->|"replication monitoring (cron / e-mail)"| OK["OK"]
+    Healthy -->|"Master fails (hardware / network / crash)"| Detect["1. Detection<br/>- bastion-replication --monitoring shows Master fault<br/>- e-mail alert ha_master_fault.txt (if notification set)"]
+    Detect --> Promote["2. Promote a Slave<br/>bastion-replication --elevate-master<br/>(Slave becomes the new writer)"]
+    Promote --> Redirect["3. Redirect users<br/>- point clients / WAM Bastion 'Host' to the new Master<br/>- resume password rotation / approvals on new Master"]
+    Redirect --> Recover["4. Recover old Master<br/>- rebuild as a Slave of the new Master, then<br/>bastion-replication --resync (or --dump-resync)"]
 ```
-                          FAILOVER (Master/Slave example)
 
-  [ Master healthy ] --- replication monitoring (cron / e-mail) --->  OK
-            |
-            | Master fails (hardware / network / crash)
-            v
-  +-------------------------------------------------------------+
-  | 1. Detection                                                |
-  |    - bastion-replication --monitoring shows Master fault    |
-  |    - e-mail alert ha_master_fault.txt (if notification set) |
-  +------------------------------+------------------------------+
-                                 v
-  +-------------------------------------------------------------+
-  | 2. Promote a Slave                                          |
-  |    # bastion-replication --elevate-master                   |
-  |    (Slave becomes the new writer)                           |
-  +------------------------------+------------------------------+
-                                 v
-  +-------------------------------------------------------------+
-  | 3. Redirect users                                           |
-  |    - point clients / WAM Bastion "Host" to the new Master   |
-  |    - resume password rotation / approvals on new Master     |
-  +------------------------------+------------------------------+
-                                 v
-  +-------------------------------------------------------------+
-  | 4. Recover old Master                                       |
-  |    - rebuild as a Slave of the new Master, then             |
-  |      # bastion-replication --resync   (or --dump-resync)    |
-  +-------------------------------------------------------------+
-
-  e-mail templates: ha_master_fault.txt / ha_master_up.txt / ha_slave_missing.txt
-```
+*Failover (Master/Slave example).* E-mail templates: `ha_master_fault.txt` /
+`ha_master_up.txt` / `ha_slave_missing.txt`.
 
 > Failover is **operator-driven** (promote with `--elevate-master`, redirect clients), not
 > a fully automatic VIP cutover from the Bastion itself. WAM in front can mask node loss for

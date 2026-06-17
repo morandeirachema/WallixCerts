@@ -34,18 +34,18 @@ See [../reference/acronyms.md](../reference/acronyms.md) and
 | **Asymmetric** | A **key pair**: public encrypts / private decrypts (and private signs / public verifies) | Slow, but solves key distribution | Key exchange, signatures, certificates. e.g., **RSA**, **ECDSA**, **Ed25519** |
 | **Hashing** | *No key* — a one-way fingerprint | Irreversible | Integrity, password storage, signatures. e.g., **SHA-256** |
 
-```
-   SYMMETRIC                         ASYMMETRIC
-   +-----------------------+         +------------------------------------+
-   |  plaintext            |         |  encrypt with PUBLIC key           |
-   |     | (same key)      |         |        -> decrypt with PRIVATE key |
-   |     v                 |         |                                    |
-   |  ciphertext           |         |  sign with PRIVATE key             |
-   |     | (same key)      |         |        -> verify with PUBLIC key   |
-   |     v                 |         +------------------------------------+
-   |  plaintext            |
-   +-----------------------+         HASH:  data --> [SHA-256] --> fixed digest
-                                            (one-way, cannot be reversed)
+```mermaid
+flowchart TB
+    subgraph SYM["Symmetric — same key both ways"]
+        P1["plaintext"] -->|"same key"| C1["ciphertext"] -->|"same key"| P2["plaintext"]
+    end
+    subgraph ASY["Asymmetric — key pair"]
+        E1["encrypt with PUBLIC key"] --> D1["decrypt with PRIVATE key"]
+        G1["sign with PRIVATE key"] --> V1["verify with PUBLIC key"]
+    end
+    subgraph HSH["Hashing — one-way"]
+        H1["data"] -->|"SHA-256"| H2["fixed digest<br/>(cannot be reversed)"]
+    end
 ```
 
 In practice systems combine them: asymmetric crypto **exchanges a symmetric session
@@ -85,29 +85,17 @@ sudo cryptsetup open /dev/sdb1 vault   # unlock -> /dev/mapper/vault
 The handshake authenticates the server (via its certificate) and agrees a fresh
 symmetric session key. Simplified TLS 1.2/1.3 flow:
 
-```
-   CLIENT (browser / ssh client)              SERVER (Bastion GUI, Access Manager)
-        |                                                |
-   (1)  | ClientHello: TLS versions, cipher list, random |
-        | ---------------------------------------------> |
-        |                                                |
-   (2)  | ServerHello: chosen cipher + server random     |
-        | <--------------------------------------------- |
-   (3)  | Certificate (server's X.509 + chain)           |
-        | <--------------------------------------------- |
-        |                                                |
-   (4)  | Client VERIFIES the cert against trusted CAs   |
-        |     (chain valid? not expired? not revoked?)   |
-        |                                                |
-   (5)  | Key exchange (e.g. ECDHE) -> both derive the    |
-        |     SAME symmetric session key                 |
-        | <===========================================>  |
-        |                                                |
-   (6)  | Finished (MAC of handshake) both ways          |
-        | <===========================================>  |
-        |                                                |
-   (7)  | Encrypted application data (AES-GCM session)   |
-        | <===========================================>  |
+```mermaid
+sequenceDiagram
+    participant C as Client (browser / ssh client)
+    participant S as Server (Bastion GUI, Access Manager)
+    C->>S: (1) ClientHello: TLS versions, cipher list, random
+    S->>C: (2) ServerHello: chosen cipher + server random
+    S->>C: (3) Certificate (server's X.509 + chain)
+    Note over C: (4) Client VERIFIES the cert against trusted CAs<br/>(chain valid? not expired? not revoked?)
+    C<<->>S: (5) Key exchange (e.g. ECDHE) -> both derive the SAME symmetric session key
+    C<<->>S: (6) Finished (MAC of handshake) both ways
+    C<<->>S: (7) Encrypted application data (AES-GCM session)
 ```
 
 **Walk-through:** Hellos negotiate version + cipher and exchange randoms (1–2); the
@@ -155,28 +143,16 @@ Trust flows **down** from a self-signed **Root CA** through optional **Intermedi
 CAs** to the **leaf** (end-entity) certificate. A client trusts the leaf because it can
 follow the signatures back up to a Root CA already in its **trust store**.
 
-```
-   +------------------------+
-   |     Root CA            |   self-signed; pre-installed in OS/browser trust store
-   |  (trust anchor)        |
-   +-----------+------------+
-               | signs
-               v
-   +------------------------+
-   |   Intermediate CA      |   signed by Root; issues end-entity certs
-   +-----------+------------+
-               | signs
-               v
-   +------------------------+
-   |  Leaf / End-entity     |   e.g. CN=bastion.corp.example.com (the server cert)
-   |  certificate           |
-   +------------------------+
+```mermaid
+flowchart TD
+    Root["Root CA (trust anchor)<br/>self-signed; pre-installed in OS/browser trust store"]
+    Inter["Intermediate CA<br/>signed by Root; issues end-entity certs"]
+    Leaf["Leaf / End-entity certificate<br/>e.g. CN=bastion.corp.example.com (the server cert)"]
+    Root -->|signs| Inter
+    Inter -->|signs| Leaf
 
-   VERIFICATION (client walks UP the chain):
-     leaf signature  -> valid? (checked with Intermediate's public key)
-     intermediate    -> valid? (checked with Root's public key)
-     Root            -> present in my trust store?  AND
-     each cert       -> not expired? not in CRL / OCSP says "good"? -> TRUST
+    V["VERIFICATION (client walks UP the chain):<br/>leaf signature -> valid? (checked with Intermediate's public key)<br/>intermediate -> valid? (checked with Root's public key)<br/>Root -> present in my trust store? AND<br/>each cert -> not expired? not in CRL / OCSP says 'good'? -> TRUST"]
+    Leaf -.->|verify back up to| V
 ```
 
 > **Bastion tie-in:** Bastion/WAM present server certificates (verified via this chain),
@@ -227,22 +203,19 @@ network needed at generation time.
 
 #### FLOW: TOTP generation
 
-```
-        SHARED SECRET (seed)            CURRENT TIME
-        (set up once, via QR)                |
-                |                            | floor(unix_time / 30)
-                |                            v
-                +-------------> [ HMAC-SHA1(seed, time_step) ] 
-                                            |
-                                            v
-                                 [ dynamic truncation ]
-                                            |
-                                            v
-                                   6-digit code  e.g. 492 731
-                                            |
-                                            v
-        Server computes the SAME value independently and compares.
-        Codes match (within a small time window) -> accept.
+```mermaid
+flowchart TD
+    Seed["SHARED SECRET (seed)<br/>(set up once, via QR)"]
+    Time["CURRENT TIME<br/>floor(unix_time / 30)"]
+    HMAC["HMAC-SHA1(seed, time_step)"]
+    Trunc["dynamic truncation"]
+    Code["6-digit code e.g. 492 731"]
+    Server["Server computes the SAME value independently and compares.<br/>Codes match (within a small time window) -> accept."]
+    Seed --> HMAC
+    Time --> HMAC
+    HMAC --> Trunc
+    Trunc --> Code
+    Code --> Server
 ```
 
 Because both sides derive the code from the same seed + clock, the code works **offline**

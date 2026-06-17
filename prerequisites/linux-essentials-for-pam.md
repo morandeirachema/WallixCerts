@@ -57,13 +57,10 @@ target. The Bastion authenticates the admin, then opens a *second* SSH connectio
 the real target on the admin's behalf, injecting the vaulted credential. The admin
 never learns the target password. Two SSH legs, one broker in the middle:
 
-```
-+-----------+        SSH leg 1         +-----------+        SSH leg 2         +-----------+
-|           |  port 22 (admin login)   |           |  port 22 (vaulted creds) |           |
-|   Admin   | -----------------------> |  WALLIX   | -----------------------> |  Target   |
-|  ssh cli  |   admin's own identity   |  Bastion  |  injected target account |  server   |
-|           | <----------------------- |  (proxy)  | <----------------------- |           |
-+-----------+    recorded + audited    +-----------+                          +-----------+
+```mermaid
+flowchart LR
+    Admin["Admin<br/>ssh client<br/>(own identity)"] -->|"SSH leg 1<br/>port 22 — admin login"| Bastion["WALLIX Bastion<br/>(proxy)<br/>recorded + audited"]
+    Bastion -->|"SSH leg 2<br/>port 22 — injected target account"| Target["Target server"]
 ```
 
 ### SSH key-based authentication
@@ -93,29 +90,19 @@ This is the exchange that proves "I hold the private key" *without ever sending 
 After the encrypted transport channel is set up (Diffie-Hellman key exchange), the
 authentication step runs:
 
-```
-   CLIENT (ssh)                                          SERVER (sshd)
-   private key id_ed25519                       authorized_keys (your public key)
-        |                                                      |
-        |   (1) "I want to log in as alice"                    |
-        | ---------------------------------------------------> |
-        |                                                      |
-        |        (2) Is alice's public key in                  |
-        |            authorized_keys?  YES.                    |
-        |            Server sends a random CHALLENGE            |
-        | <--------------------------------------------------- |
-        |                                                      |
-        |   (3) Sign the challenge with the PRIVATE key         |
-        |       (the private key never leaves the client)      |
-        | ---------------------------------------------------> |
-        |                                                      |
-        |        (4) Verify the signature using the            |
-        |            stored PUBLIC key. Valid?                  |
-        |            -> grant shell session                    |
-        | <--------------------------------------------------- |
-        |                                                      |
-        |   (5) Encrypted interactive shell session            |
-        | <==================================================> |
+```mermaid
+sequenceDiagram
+    participant C as Client (ssh)<br/>private key id_ed25519
+    participant S as Server (sshd)<br/>authorized_keys (your public key)
+    C->>S: (1) "I want to log in as alice"
+    Note over S: (2) Is alice's public key in<br/>authorized_keys? YES.
+    S->>C: (2) Server sends a random CHALLENGE
+    Note over C: (3) Sign the challenge with the PRIVATE key<br/>(the private key never leaves the client)
+    C->>S: (3) Signed challenge
+    Note over S: (4) Verify the signature using the<br/>stored PUBLIC key. Valid?<br/>-> grant shell session
+    S->>C: (4) Authentication result
+    C-->>S: (5) Encrypted interactive shell session
+    S-->>C: (5) Encrypted interactive shell session
 ```
 
 **Key idea:** the private key is used to *sign* a challenge; the server *verifies* with
@@ -304,13 +291,19 @@ Both can appear in the same sentence: *"We configured the target's **Linux PAM**
 to require MFA, and put the host behind **WALLIX PAM** (Bastion) for session
 recording."* When in doubt, expand the acronym.
 
-```
-   /etc/pam.d/sshd  (Linux PAM stack)            WALLIX Bastion (WALLIX PAM)
-   +---------------------------+                 +---------------------------+
-   |  pam_unix.so   (password) |                 |  vaults credentials       |
-   |  pam_..._otp   (2nd factor)|   <-- local --> |  brokers + records session|
-   |  pam_limits.so (resource) |   on ONE host    |  across the ENTERPRISE    |
-   +---------------------------+                 +---------------------------+
+```mermaid
+flowchart LR
+    subgraph LPAM["/etc/pam.d/sshd — Linux PAM stack (one host)"]
+        A["pam_unix.so (password)"]
+        B["pam_*_otp (2nd factor)"]
+        C["pam_limits.so (resource)"]
+    end
+    subgraph WPAM["WALLIX Bastion — WALLIX PAM (enterprise)"]
+        D["Vaults credentials"]
+        E["Brokers + records session"]
+        F["Across the enterprise"]
+    end
+    LPAM -.->|"local, on ONE host"| WPAM
 ```
 
 ---

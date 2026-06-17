@@ -64,21 +64,15 @@ The **Magic Quadrant** is Gartner's signature comparison chart. It plots vendors
 - **Ability to Execute** (vertical axis) — financial viability, market responsiveness, product maturity, sales/support, customer base. *How well do they deliver today?*
 - **Completeness of Vision** (horizontal axis) — innovation and understanding of where the market is going. *Do they lead or follow the market?*
 
-```
-                      Ability to Execute (high)
-                              ^
-                              |
-        CHALLENGERS           |          LEADERS
-   execute well today, but    |   execute well AND have
-   weaker market vision       |   a strong forward vision
-                              |
-   ---------------------------+---------------------------> Completeness
-                              |                              of Vision (high)
-        NICHE PLAYERS         |          VISIONARIES
-   focused on a small         |   strong vision / drive the
-   segment or unfocused       |   market, executing less fully
-                              |
-                       (low Ability to Execute)
+```mermaid
+quadrantChart
+    title Gartner Magic Quadrant for PAM (the four quadrants)
+    x-axis "Completeness of Vision (low)" --> "Completeness of Vision (high)"
+    y-axis "Ability to Execute (low)" --> "Ability to Execute (high)"
+    quadrant-1 "LEADERS: execute well AND have a strong forward vision"
+    quadrant-2 "CHALLENGERS: execute well today, but weaker market vision"
+    quadrant-3 "NICHE PLAYERS: focused on a small segment or unfocused"
+    quadrant-4 "VISIONARIES: strong vision / drive the market, executing less fully"
 ```
 
 - **Leaders (upper-right):** execute well and are well positioned for the future.
@@ -160,35 +154,30 @@ See [../docs/00-overview/product-portfolio.md](../docs/00-overview/product-portf
 
 This is an **illustrative** sketch (not a reproduction of any analyst chart) to help a newcomer visualize where vendors tend to sit. Horizontal axis = **breadth/scale of the global suite**; vertical axis = **European sovereignty / regional + OT focus**. Positions are approximate and for learning only.
 
+```mermaid
+quadrantChart
+    title Illustrative PAM positioning (for learning only)
+    x-axis "Suite breadth / global scale (low)" --> "Suite breadth / global scale (high)"
+    y-axis "Lower European / OT emphasis" --> "European sovereignty / OT focus (high)"
+    quadrant-1 "WALLIX lane: EU-sovereign suite + OT"
+    quadrant-2 "Regional / EMEA-APAC"
+    quadrant-3 "Legacy enterprise"
+    quadrant-4 "Global PAM Leaders"
+    "ARCON (regional EMEA/APAC)": [0.22, 0.78]
+    "WALLIX (PAM+IDaaS+IAG+EPM; OT; ANSSI CSPN/BSI BSZ)": [0.62, 0.80]
+    "Symantec / Broadcom (legacy)": [0.18, 0.28]
+    "One Identity (Safeguard + identity fabric)": [0.55, 0.30]
+    "CyberArk": [0.82, 0.26]
+    "BeyondTrust": [0.85, 0.20]
+    "Delinea": [0.80, 0.16]
 ```
-   European sovereignty / OT focus (high)
-                 ^
-                 |
-   +-------------+--------------------------------------+
-   |             |                                      |
-   |   ARCON     |         WALLIX                        |
-   | (regional   |   (EU-sovereign suite: PAM + IDaaS    |
-   |  EMEA/APAC) |    + IAG + EPM; strong OT;            |
-   |             |    ANSSI CSPN / BSI BSZ)              |
-   |             |                                      |
-   +-------------+--------------------------------------+---> Suite
-   |             |                                      |    breadth /
-   |  Symantec/  |   One Identity      CyberArk         |    global scale
-   |  Broadcom   |   (Safeguard +      BeyondTrust      |    (high)
-   |  (legacy    |    identity fabric) Delinea          |
-   |   enterprise)|                    (global PAM      |
-   |             |                     Leaders)         |
-   +-------------+--------------------------------------+
-                 |
-        (lower European/OT emphasis)
 
-   Adjacent tools (different primary job, often compared to PAM):
-   +--------------------------+   +-------------------------------+
-   | HashiCorp Vault          |   | Microsoft Entra PIM           |
-   | machine/app secrets,     |   | JIT activation of cloud admin |
-   | dynamic creds (DevOps)   |   | roles (Microsoft ecosystem)   |
-   +--------------------------+   +-------------------------------+
-```
+Adjacent tools (different primary job, often compared to PAM, sitting outside the core PAM box):
+
+| Tool | Primary job |
+|---|---|
+| **HashiCorp Vault** | machine/app secrets, dynamic creds (DevOps) |
+| **Microsoft Entra PIM** | JIT activation of cloud admin roles (Microsoft ecosystem) |
 
 **How to read it:** The global **Leaders** (CyberArk, BeyondTrust, Delinea) dominate the high-scale right side. **WALLIX** occupies the upper-right blend of **suite breadth plus European sovereignty and OT** — the lane that earns it "Visionary" at Gartner and "Overall Leader" at KuppingerCole. The adjacent tools sit outside the core PAM box because their primary purpose is secrets management (Vault) or cloud-role JIT (Entra PIM), not full session-brokering PAM.
 

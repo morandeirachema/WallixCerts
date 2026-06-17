@@ -42,18 +42,14 @@ core objects:
 | **Group Policy Object (GPO)** | A policy bundle (security, software, settings) linked to a site/domain/OU | "Disable USB on workstations" |
 | **Computer** | A machine joined to the domain | `SRV-DB-01` |
 
-```
-                          Domain: corp.example.com
-                                    |
-              +---------------------+---------------------+
-              |                     |                     |
-          OU=Paris              OU=London            OU=Servers
-              |                     |                     |
-        +-----+-----+         +-----+-----+         +-----+-----+
-        | Users     |         | Users     |         | Computers |
-        | Groups    |         | Groups    |         | (linked   |
-        | (GPO link)|         | (GPO link)|         |  GPOs)    |
-        +-----------+         +-----------+         +-----------+
+```mermaid
+flowchart TD
+    D["Domain: corp.example.com"] --> P["OU=Paris"]
+    D --> L["OU=London"]
+    D --> S["OU=Servers"]
+    P --> Pc["Users · Groups<br/>(GPO link)"]
+    L --> Lc["Users · Groups<br/>(GPO link)"]
+    S --> Sc["Computers<br/>(linked GPOs)"]
 ```
 
 - **OUs** are about *administration and policy scope* (where a GPO applies).
@@ -103,13 +99,10 @@ and sends back keyboard/mouse input. Modern RDP adds:
 > (clipboard, drive, printer, smartcard, audio) are individually allow/deny per
 > authorization.
 
-```
-+-----------+        RDP leg 1         +-----------+        RDP leg 2         +-----------+
-|  Admin    |  port 3389 (admin login) |  WALLIX   |  port 3389 (vaulted acct)|  Windows  |
-|  mstsc /  | -----------------------> |  Bastion  | -----------------------> |  target   |
-|  HTML5    |   admin's own identity   | Redemption|  injected target account |  (DC/srv) |
-|           | <----------------------- |  (proxy)  | <----------------------- |           |
-+-----------+   recorded video + OCR   +-----------+                          +-----------+
+```mermaid
+flowchart LR
+    Admin["Admin<br/>mstsc / HTML5<br/>(own identity)"] -->|"RDP leg 1<br/>port 3389 — admin login"| Bastion["WALLIX Bastion<br/>Redemption (proxy)<br/>recorded video + OCR"]
+    Bastion -->|"RDP leg 2<br/>port 3389 — injected target account"| Target["Windows target<br/>(DC / server)"]
 ```
 
 ---
@@ -138,30 +131,17 @@ Kerberos has three parties: the **Client**, the **KDC** (Key Distribution Center
 on the DC, split into an **Authentication Service / AS** and **Ticket-Granting Service /
 TGS**), and the **target Service** (e.g., a file server or RDP host).
 
-```
-   CLIENT                         KDC (on Domain Controller)              SERVICE
-  (alice)                  +----------------+----------------+         (e.g. SRV-DB-01)
-     |                     |  AS (Auth Svc) |  TGS (Ticket   |              |
-     |                     |                |   Granting Svc)|              |
-     |   (1) AS-REQ  "I am alice"            |               |              |
-     | -----------------------------------> |               |              |
-     |                     |                                 |              |
-     |   (2) AS-REP  TGT (Ticket-Granting Ticket)            |              |
-     |       + session key, encrypted to alice's key         |              |
-     | <----------------------------------- |               |              |
-     |                                                        |             |
-     |   (3) TGS-REQ  "Give me a ticket for SRV-DB-01"        |             |
-     |       (present the TGT)                                |             |
-     | ----------------------------------------------------> |             |
-     |                                                        |             |
-     |   (4) TGS-REP  Service Ticket for SRV-DB-01            |             |
-     | <---------------------------------------------------- |             |
-     |                                                                      |
-     |   (5) AP-REQ  present the Service Ticket to the server               |
-     | -------------------------------------------------------------------> |
-     |                                                                      |
-     |   (6) AP-REP  mutual auth OK -> access granted                       |
-     | <------------------------------------------------------------------- |
+```mermaid
+sequenceDiagram
+    participant C as Client (alice)
+    participant KDC as KDC on Domain Controller<br/>(AS = Auth Svc, TGS = Ticket-Granting Svc)
+    participant SVC as Service (e.g. SRV-DB-01)
+    C->>KDC: (1) AS-REQ "I am alice"
+    KDC->>C: (2) AS-REP TGT (Ticket-Granting Ticket)<br/>+ session key, encrypted to alice's key
+    C->>KDC: (3) TGS-REQ "Give me a ticket for SRV-DB-01"<br/>(present the TGT)
+    KDC->>C: (4) TGS-REP Service Ticket for SRV-DB-01
+    C->>SVC: (5) AP-REQ present the Service Ticket to the server
+    SVC->>C: (6) AP-REP mutual auth OK -> access granted
 ```
 
 **Plain-English walk-through:**
@@ -238,20 +218,15 @@ securely in AD, rotating it on a schedule.
 To stop a single compromised admin from cascading into total domain takeover, Microsoft
 defines **administrative tiers** that must not cross:
 
+```mermaid
+flowchart TD
+    T0["Tier 0 — Identity / control plane (highest)<br/>Domain Controllers, AD, PKI, Domain/Enterprise Admins<br/>Credentials here can control everything below"]
+    T1["Tier 1 — Servers and applications<br/>Member servers, databases, business apps"]
+    T2["Tier 2 — Workstations / end-user devices (lowest)<br/>Helpdesk, user PCs"]
+    T0 --> T1 --> T2
 ```
-   Tier 0  ──  Identity / control plane
-   (highest) |  Domain Controllers, AD, PKI, Domain/Enterprise Admins
-             |  Credentials here can control everything below.
-             v
-   Tier 1  ──  Servers and applications
-             |  Member servers, databases, business apps.
-             v
-   Tier 2  ──  Workstations / end-user devices
-   (lowest)  |  Helpdesk, user PCs.
 
-   RULE: a Tier-0 admin credential must NEVER be typed on a Tier-1/2 machine
-         (or it can be stolen and used to climb back up).
-```
+> **Rule:** a Tier-0 admin credential must **never** be typed on a Tier-1/2 machine — or it can be stolen and used to climb back up.
 
 The point: credentials of one tier must never be exposed on a lower tier, because a
 lower tier is more exposed to compromise.

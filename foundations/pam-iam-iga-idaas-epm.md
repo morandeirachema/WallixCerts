@@ -155,41 +155,29 @@ context for the landscape, not a WALLIX offering.*
 How the disciplines overlap. Read top-to-bottom as *governance → identity →
 privilege*, and note where the circles touch.
 
-```
-                       THE IDENTITY-SECURITY LANDSCAPE
+```mermaid
+flowchart TD
+    subgraph GOVL["GOVERNANCE LAYER — 'who SHOULD have access, and can we prove it?'"]
+        IGA["IGA / IAG<br/>access reviews · SoD · role mining · compliance<br/>governs BOTH ordinary and privileged access"]
+    end
+    subgraph IDL["IDENTITY LAYER (everyday) — 'who is this user?'"]
+        IAM["IAM<br/>AuthN · AuthZ · lifecycle<br/>SSO + MFA<br/>delivered via IDaaS (WALLIX Trustelem)"]
+    end
+    subgraph PRL["PRIVILEGE LAYER (dangerous) — 'control the powerful access'"]
+        PAM["PAM<br/>vault · broker · record · JIT<br/>(WALLIX Bastion + Access Mgr)"]
+        EPM["EPM / PEDM<br/>remove local admin · app-level elevation<br/>(WALLIX BestSafe)"]
+        PAM -->|"pairs with"| EPM
+    end
+    CIEM["CLOUD ENTITLEMENTS — CIEM<br/>right-size cloud roles/policies<br/>(context only; not a WALLIX product)"]
 
-   ╔══════════════════════════════════════════════════════════════════════╗
-   ║  GOVERNANCE LAYER — "who SHOULD have access, and can we prove it?"      ║
-   ║                                                                        ║
-   ║      ┌────────────────────  IGA / IAG  ───────────────────────┐        ║
-   ║      │  access reviews · SoD · role mining · compliance        │        ║
-   ║      │  governs BOTH ordinary and privileged access            │        ║
-   ║      └───────────┬───────────────────────────┬─────────────────┘        ║
-   ║                  │ governs                    │ governs (= PAG)          ║
-   ╠══════════════════▼═════════════════╗ ╔════════▼═══════════════════════════╣
-   ║  IDENTITY LAYER (everyday)         ║ ║  PRIVILEGE LAYER (dangerous)        ║
-   ║  "who is this user?"               ║ ║  "control the powerful access"      ║
-   ║                                    ║ ║                                     ║
-   ║   ┌────────── IAM ──────────┐      ║ ║   ┌──────────── PAM ────────────┐   ║
-   ║   │  AuthN · AuthZ · lifecycle│     ║ ║   │ vault · broker · record · JIT│  ║
-   ║   │  ┌─────┐    ┌─────┐       │     ║ ║   │  (WALLIX Bastion + Access Mgr)│ ║
-   ║   │  │ SSO │    │ MFA │       │     ║ ║   └──────────────┬───────────────┘  ║
-   ║   │  └─────┘    └─────┘       │     ║ ║                  │ pairs with        ║
-   ║   │  delivered via IDaaS      │     ║ ║   ┌──────────── EPM / PEDM ───────┐  ║
-   ║   │  (WALLIX Trustelem)       │     ║ ║   │ remove local admin · app-level│  ║
-   ║   └───────────────────────────┘     ║ ║   │ elevation  (WALLIX BestSafe)  │  ║
-   ║              feeds AuthN/MFA ───────────►│   └───────────────────────────────┘  ║
-   ╚════════════════════════════════════╝ ╚═════════════════════════════════════╝
-                                                      │
-                              ┌───────────────────────▼────────────────────────┐
-                              │  CLOUD ENTITLEMENTS — CIEM                       │
-                              │  right-size cloud roles/policies (context only;  │
-                              │  not a WALLIX product)                           │
-                              └──────────────────────────────────────────────────┘
-
-   AuthN = Authentication   AuthZ = Authorization   SoD = Separation of Duties
-   JIT = Just-In-Time       PAG = Privileged Access Governance (IGA applied to PAM)
+    IGA -->|"governs"| IAM
+    IGA -->|"governs (= PAG)"| PAM
+    IAM -->|"feeds AuthN/MFA"| PAM
+    PRL --> CIEM
 ```
+
+> AuthN = Authentication · AuthZ = Authorization · SoD = Separation of Duties ·
+> JIT = Just-In-Time · PAG = Privileged Access Governance (IGA applied to PAM).
 
 **How to read the overlaps:**
 

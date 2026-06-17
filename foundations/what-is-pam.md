@@ -149,33 +149,28 @@ These map directly to the deeper
 PAM is one layer in a defense-in-depth stack. It is closely related to identity tools
 but plays a distinct, narrower, deeper role.
 
+```mermaid
+flowchart TD
+    subgraph STACK["SECURITY STACK (simplified, top = closest to the user)"]
+        direction TB
+        GOV["GOVERNANCE — IGA / IAG<br/>'who SHOULD have access?'<br/>(access reviews, certification, SoD)"]
+        IDENT["IDENTITY — IAM / IDaaS<br/>'who is this user?'<br/>SSO + MFA for the whole workforce"]
+        subgraph PRIV["PRIVILEGE (this page)"]
+            direction LR
+            PAM["PAM<br/>session + secrets<br/>for admins/targets"]
+            EPM["EPM / PEDM<br/>endpoint elevation<br/>remove local admin"]
+        end
+        ENDP["ENDPOINT/NET — EDR · firewall · network segmentation"]
+        MON["MONITORING — SIEM · SOC · log correlation · alerting"]
+        GOV --- IDENT --- PRIV --- ENDP --- MON
+    end
 ```
-                    SECURITY STACK (simplified, top = closest to the user)
-        ┌───────────────────────────────────────────────────────────────┐
-        │  GOVERNANCE        IGA / IAG  — "who SHOULD have access?"       │
-        │                    (access reviews, certification, SoD)        │
-        ├───────────────────────────────────────────────────────────────┤
-        │  IDENTITY          IAM / IDaaS — "who is this user?"            │
-        │                    SSO + MFA for the whole workforce           │
-        ├───────────────────────────────────────────────────────────────┤
-        │  PRIVILEGE  ┌──────────────────────┐ ┌──────────────────────┐  │
-        │  (this page)│  PAM                 │ │  EPM / PEDM          │  │
-        │             │  session + secrets   │ │  endpoint elevation  │  │
-        │             │  for admins/targets  │ │  remove local admin  │  │
-        │             └──────────────────────┘ └──────────────────────┘  │
-        ├───────────────────────────────────────────────────────────────┤
-        │  ENDPOINT/NET      EDR · firewall · network segmentation       │
-        ├───────────────────────────────────────────────────────────────┤
-        │  MONITORING        SIEM · SOC · log correlation · alerting     │
-        └───────────────────────────────────────────────────────────────┘
 
-   IGA = Identity Governance & Administration   IAG = Identity & Access Governance
-   IAM = Identity & Access Management            IDaaS = Identity-as-a-Service
-   SSO = Single Sign-On                          MFA = Multi-Factor Authentication
-   EPM = Endpoint Privilege Management           PEDM = Privilege Elevation & Delegation Mgmt
-   EDR = Endpoint Detection & Response           SIEM = Security Information & Event Mgmt
-   SoD = Separation of Duties
-```
+> **Acronyms:** IGA = Identity Governance & Administration · IAG = Identity & Access
+> Governance · IAM = Identity & Access Management · IDaaS = Identity-as-a-Service ·
+> SSO = Single Sign-On · MFA = Multi-Factor Authentication · EPM = Endpoint Privilege
+> Management · PEDM = Privilege Elevation & Delegation Mgmt · EDR = Endpoint Detection &
+> Response · SIEM = Security Information & Event Mgmt · SoD = Separation of Duties.
 
 - **PAM relies on IAM/IDaaS** to authenticate the human in the first place (often via
   **SSO** and **MFA**) — then takes over for the privileged leg of the journey.
@@ -195,43 +190,47 @@ gateway, which authenticates the user, fetches the target credential from the va
 **injects** it (so the user never sees it), proxies the protocol (RDP/SSH/etc.), and
 **records** everything.
 
-```
-   LOW-TRUST ZONE                  PAM GATEWAY (the bastion)                 HIGH-TRUST ZONE
- (admin workstations)        ┌──────────────────────────────────┐         (critical targets)
-                             │                                  │
- ┌───────────────┐          │  ┌────────────┐   ┌────────────┐ │          ┌───────────────┐
- │   Admin user  │  (1)     │  │  Broker /  │   │  Secrets   │ │   (5)    │  Target server │
- │  + MFA token  │ ───────► │  │  Proxy     │   │  Vault     │ │ ───────► │  (Linux / Win  │
- └───────────────┘          │  │  engine    │   │ (encrypted)│ │          │   / network)   │
-        ▲                   │  └─────┬──────┘   └─────┬──────┘ │          └───────┬───────┘
-        │                   │        │ (2)            │        │                  │
-        │  (7) live watch / │        ▼                │ (3)    │                  │
-        │      replay /     │   ┌─────────┐           │ fetch  │                  │
-        │      forced kill  │   │ AuthN + │◄──────────┘ + rotate│                 │
- ┌──────┴───────┐           │   │ AuthZ   │            credential│        (6) all │
- │ Auditor /    │           │   │ policy  │                      │ traffic proxied│
- │ approver     │ ◄─────────┤   └────┬────┘                      │  & recorded    │
- └──────────────┘   (8)     │        │ (4) inject credential ───────────────────►│
-                            │        ▼  into the proxied session │                │
-                            │   ┌──────────────┐                 │                │
-                            │   │ Session       │◄────────────────────────────────┘
-                            │   │ Recorder      │  (6) capture video/keystrokes/metadata
-                            │   └──────────────┘                 │
-                            └──────────────────────────────────┘
+```mermaid
+flowchart LR
+    subgraph LOW["LOW-TRUST ZONE (admin workstations)"]
+        direction TB
+        Admin["Admin user<br/>+ MFA token"]
+        Auditor["Auditor /<br/>approver"]
+    end
+    subgraph GW["PAM GATEWAY (the bastion)"]
+        direction TB
+        Proxy["Broker /<br/>Proxy engine"]
+        Vault["Secrets Vault<br/>(encrypted)"]
+        AuthZ["AuthN + AuthZ<br/>policy"]
+        Recorder["Session<br/>Recorder"]
+    end
+    subgraph HIGH["HIGH-TRUST ZONE (critical targets)"]
+        Target["Target server<br/>(Linux / Win / network)"]
+    end
 
-   STEP-BY-STEP
-   (1) User connects to the GATEWAY (never to the target). Identity proven with MFA.
-   (2) Gateway checks AuthN (who you are) + AuthZ (are you allowed THIS target now?).
-   (3) Gateway retrieves the target's credential from the VAULT (and may rotate it).
-   (4) Gateway INJECTS the credential into the connection — the user never sees it.
-   (5) Gateway opens the proxied session to the target on the user's behalf.
-   (6) Every keystroke / screen is RECORDED; metadata streamed for analysis.
-   (7) An auditor can watch LIVE, or replay later, or force-terminate the session.
-   (8) On disconnect: session sealed in the audit trail; credential may be rotated.
-
-   AuthN = Authentication (who you are)   AuthZ = Authorization (what you may do)
-   MFA   = Multi-Factor Authentication
+    Admin -->|"(1) connect + MFA"| Proxy
+    Proxy -->|"(2)"| AuthZ
+    AuthZ -->|"(3) fetch + rotate credential"| Vault
+    AuthZ -->|"(4) inject credential into proxied session"| Recorder
+    Proxy -->|"(5) open proxied session"| Target
+    Target -->|"(6) all traffic proxied & recorded:<br/>video/keystrokes/metadata"| Recorder
+    Recorder -->|"(7) live watch / replay / forced kill"| Auditor
+    Auditor -->|"(8) session sealed in audit trail;<br/>credential may be rotated"| AuthZ
 ```
+
+**STEP-BY-STEP**
+
+1. User connects to the GATEWAY (never to the target). Identity proven with MFA.
+2. Gateway checks AuthN (who you are) + AuthZ (are you allowed THIS target now?).
+3. Gateway retrieves the target's credential from the VAULT (and may rotate it).
+4. Gateway INJECTS the credential into the connection — the user never sees it.
+5. Gateway opens the proxied session to the target on the user's behalf.
+6. Every keystroke / screen is RECORDED; metadata streamed for analysis.
+7. An auditor can watch LIVE, or replay later, or force-terminate the session.
+8. On disconnect: session sealed in the audit trail; credential may be rotated.
+
+> AuthN = Authentication (who you are) · AuthZ = Authorization (what you may do) ·
+> MFA = Multi-Factor Authentication.
 
 **Why this design is powerful:** the admin's workstation (a low-trust, malware-prone
 environment) **never holds the target credential** and **never has a direct path** to

@@ -48,27 +48,37 @@ Administration Guide, the WALLIX Academy catalog). For practice, see
 
 ### Compact relationship diagram
 
-```
-   IDENTITY SIDE              BINDING                TARGET SIDE
-  USER                                         DEVICE / APPLICATION
-   | member of                                       | hosts
-   v                                                 v
-  USER GROUP                                       SERVICE (proto+port+policy)
-   |                                                 | combine =
-   |                                               RESOURCE (service + device/app)
-   |                          DOMAIN ---> TARGET ACCOUNT (account, in a domain)
-   |                        (global/local)           | combine =
-   |                                               TARGET (= resource + target account)
-   |                                                 | member of
-   |                                               TARGET GROUP
-   |                                                 |
-   +=========== AUTHORIZATION (ONE user grp <-> ONE target grp) ===========+
-                carries: Sessions | Secrets (cumulative)
-                       + Protocols/Sub-protocols + Recording
-                       + Session invite + Critical flag + Approval tab
+```mermaid
+flowchart TD
+    subgraph IDENTITY["IDENTITY SIDE"]
+        USER["USER"]
+        USERGROUP["USER GROUP"]
+        USER -->|"member of"| USERGROUP
+    end
 
-  CHAIN:  users -> user groups -> (AUTHORIZATION) -> target groups -> targets
+    subgraph TARGETSIDE["TARGET SIDE"]
+        DEVAPP["DEVICE / APPLICATION"]
+        SERVICE["SERVICE (proto+port+policy)"]
+        RESOURCE["RESOURCE (service + device/app)"]
+        DOMAIN["DOMAIN (global/local)"]
+        TACCOUNT["TARGET ACCOUNT (account, in a domain)"]
+        TARGET["TARGET (= resource + target account)"]
+        TARGETGROUP["TARGET GROUP"]
+        DEVAPP -->|"hosts"| SERVICE
+        SERVICE -->|"combine ="| RESOURCE
+        DOMAIN --> TACCOUNT
+        RESOURCE -->|"combine ="| TARGET
+        TACCOUNT --> TARGET
+        TARGET -->|"member of"| TARGETGROUP
+    end
+
+    AUTHZ["AUTHORIZATION (BINDING)<br/>ONE user grp &lt;-&gt; ONE target grp<br/>carries: Sessions | Secrets (cumulative)<br/>+ Protocols/Sub-protocols + Recording<br/>+ Session invite + Critical flag + Approval tab"]
+
+    USERGROUP --> AUTHZ
+    TARGETGROUP --> AUTHZ
 ```
+
+**Chain:** `users → user groups → (AUTHORIZATION) → target groups → targets`
 
 ### Cardinal rules (exam traps)
 

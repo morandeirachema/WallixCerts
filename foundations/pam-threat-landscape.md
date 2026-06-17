@@ -52,26 +52,19 @@ The stages below combine the Lockheed Martin **Cyber Kill Chain** idea with
 **MITRE ATT&CK** tactic names. Privileged credentials are the fuel for the middle
 stages.
 
+```mermaid
+flowchart LR
+    S1["1. INITIAL ACCESS<br/>phishing, stolen creds,<br/>exploit, drive-by<br/><br/>ATT&CK: TA0001 Initial Access"]
+    S2["2. CREDENTIAL THEFT<br/>dump LSASS, Mimikatz,<br/>Kerberoasting<br/><br/>ATT&CK: TA0006 Credential Access"]
+    S3["3. PRIVILEGE ESCALATION<br/>exploit / abuse token, UAC<br/>bypass, sudo misconfig<br/><br/>ATT&CK: TA0004 Privilege Escalation"]
+    S4["4. LATERAL MOVEMENT<br/>PtH / PtT to hop host to host,<br/>reuse local-admin reuse<br/><br/>ATT&CK: TA0008 Lateral Movement"]
+    S5["5. PERSISTENCE<br/>create backdoor accounts, Golden<br/>Ticket, scheduled tasks, DCSync<br/><br/>ATT&CK: TA0003 Persistence"]
+    S6["6. IMPACT<br/>ransomware, data theft,<br/>sabotage, extortion<br/><br/>ATT&CK: TA0040 Impact"]
+    S1 --> S2 --> S3 --> S4 --> S5 --> S6
 ```
-                              THE PRIVILEGED-ACCESS ATTACK CHAIN
-                              (left → right = the attacker's journey)
 
- ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐
- │ 1. INITIAL   │  │ 2. CREDENTIAL│  │ 3. PRIVILEGE │  │ 4. LATERAL   │  │ 5. PERSIST-  │  │ 6. IMPACT    │
- │    ACCESS    │─►│    THEFT     │─►│   ESCALATION │─►│   MOVEMENT   │─►│    ENCE      │─►│              │
- └──────┬───────┘  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘
-        │                 │                 │                 │                 │                 │
-   phishing,         dump LSASS,       exploit / abuse    PtH / PtT to     create backdoor   ransomware,
-   stolen creds,     Mimikatz,         token, UAC         hop host→host,   accounts, Golden  data theft,
-   exploit, drive-by Kerberoasting     bypass, sudo       reuse local-     Ticket, scheduled sabotage,
-                                       misconfig          admin reuse      tasks, DCSync     extortion
-
-   ATT&CK   TA0001          TA0006           TA0004           TA0008          TA0003           TA0040
-   tactic:  Initial         Credential       Privilege        Lateral         Persistence      Impact
-            Access          Access           Escalation       Movement
-
-   ── The middle four stages all turn on PRIVILEGED CREDENTIALS. That is where PAM intervenes. ──
-```
+> The middle four stages (2–5) all turn on PRIVILEGED CREDENTIALS. That is where PAM
+> intervenes. (Left → right = the attacker's journey.)
 
 **Reading the chain:** the attacker gets a foothold (1), steals a credential (2),
 escalates to a more powerful one (3), uses it to move across the network (4),
@@ -130,38 +123,36 @@ Dumping, T1003"). Mapping defences to ATT&CK shows coverage gaps clearly.
 
 The clearest way to see PAM's value is to run the same attack against two environments.
 
+```mermaid
+flowchart TD
+    subgraph WITHOUT["WITHOUT PAM"]
+        direction TB
+        WO1["Admin types target password directly"]
+        WO2["Password CACHED / hash in LSASS on endpoint"]
+        WO3["[attacker phishes the endpoint]"]
+        WO4["DUMP LSASS (Mimikatz) → get hash/password"]
+        WO5["PASS-THE-HASH to next server<br/>(reused local-admin password works everywhere)"]
+        WO6["LATERAL MOVEMENT across the estate"]
+        WO7["reach Domain Controller → DOMAIN TAKEOVER"]
+        WO8["PERSISTENCE (Golden Ticket) + RANSOMWARE"]
+        WOR["Result: full compromise, no audit trail"]
+        WO1 --> WO2 --> WO3 --> WO4 --> WO5 --> WO6 --> WO7 --> WO8 --> WOR
+    end
+    subgraph WITH["WITH PAM"]
+        direction TB
+        WI1["Admin connects to the GATEWAY (MFA)"]
+        WI2["Credential stays in VAULT; INJECTED only<br/>into the brokered session (never cached)"]
+        WI3["[attacker phishes the endpoint]"]
+        WI4["endpoint holds NO target secret →<br/>nothing useful to dump"]
+        WI5["unique + ROTATED creds per target →<br/>stolen value is already worthless"]
+        WI6["every privileged hop must go through the<br/>gateway → BLOCKED / RECORDED / time-boxed"]
+        WI7["attack stalls at the endpoint; auditor<br/>sees the attempt; access auto-expires"]
+        WIR["Result: contained, attributed, reversible"]
+        WI1 --> WI2 --> WI3 --> WI4 --> WI5 --> WI6 --> WI7 --> WIR
+    end
 ```
-   ════════════════ WITHOUT PAM ════════════════        ═══════════════ WITH PAM ═══════════════
 
-   Admin types target password directly                  Admin connects to the GATEWAY (MFA)
-            │                                                      │
-            ▼                                                      ▼
-   Password CACHED / hash in LSASS on endpoint            Credential stays in VAULT; INJECTED only
-            │                                              into the brokered session (never cached)
-            ▼                                                      │
-   [attacker phishes the endpoint]                                ▼
-            │                                              [attacker phishes the endpoint]
-            ▼                                                      │
-   DUMP LSASS (Mimikatz) → get hash/password                      ▼
-            │                                              endpoint holds NO target secret →
-            ▼                                              nothing useful to dump
-   PASS-THE-HASH to next server (reused                           │
-   local-admin password works everywhere)                         ▼
-            │                                              unique + ROTATED creds per target →
-            ▼                                              stolen value is already worthless
-   LATERAL MOVEMENT across the estate                             │
-            │                                                      ▼
-            ▼                                              every privileged hop must go through the
-   reach Domain Controller → DOMAIN TAKEOVER               gateway → BLOCKED / RECORDED / time-boxed
-            │                                                      │
-            ▼                                                      ▼
-   PERSISTENCE (Golden Ticket) + RANSOMWARE               attack stalls at the endpoint; auditor
-                                                          sees the attempt; access auto-expires
-   ─────────────────────────────────────────────        ─────────────────────────────────────────
-   Result: full compromise, no audit trail               Result: contained, attributed, reversible
-
-   MFA = Multi-Factor Authentication   LSASS = Local Security Authority Subsystem Service
-```
+> MFA = Multi-Factor Authentication · LSASS = Local Security Authority Subsystem Service.
 
 **The single sentence to remember:** *PAM breaks the attack chain at stages 2–5 by
 keeping the credential out of the attacker's reach (vault + injection), making any

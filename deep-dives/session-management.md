@@ -82,30 +82,21 @@ The policy is where the **back-leg authentication methods** are enabled and orde
 
 ## 3. Session connection sequence
 
-```
- CLIENT                         BASTION                         TARGET
-   |  1. open SSH/RDP/HTTPS (front leg)                            |
-   |------------------------------------>|                         |
-   |  2. authenticate user (+MFA)        |                         |
-   |<-----------------------------------|                         |
-   |        [evaluate AUTHORIZATION: user grp -> target grp,       |
-   |         Sessions right? protocol/sub-proto allowed?           |
-   |         time frame? approval needed?]   (see data-model file) |
-   |  3. if approval required -> request -> wait for quorum        |
-   |                                     |                         |
-   |                                     |  4. secondary connection (back leg)
-   |                                     |     obtain credential:  |
-   |                                     |     PASSWORD_VAULT /     |
-   |                                     |     MAPPING / INTERACTIVE|
-   |                                     |------------------------>|
-   |                                     |  5. session established  |
-   |  6. proxied traffic <==============>|<=======================>|
-   |                                     |   RECORD (video/transcript)
-   |                                     |   Session Probe metadata (RDP)
-   |                                     |   restriction rules (kill/notify, OCR)
-   |                                     |   real-time monitoring (4-eyes/4-hands)
-   |                                     |   stream events -> SIEM (syslog-ng)
-   |  7. disconnect / kill / approval-end -> session closed, recording sealed
+```mermaid
+sequenceDiagram
+    participant CLIENT
+    participant BASTION
+    participant TARGET
+    CLIENT->>BASTION: 1. open SSH/RDP/HTTPS (front leg)
+    BASTION-->>CLIENT: 2. authenticate user (+MFA)
+    Note over BASTION: evaluate AUTHORIZATION: user grp -> target grp,<br/>Sessions right? protocol/sub-proto allowed?<br/>time frame? approval needed? (see data-model file)
+    Note over CLIENT,BASTION: 3. if approval required -> request -> wait for quorum
+    BASTION->>TARGET: 4. secondary connection (back leg)<br/>obtain credential: PASSWORD_VAULT / MAPPING / INTERACTIVE
+    TARGET-->>BASTION: 5. session established
+    CLIENT->>BASTION: 6. proxied traffic
+    BASTION->>TARGET: 6. proxied traffic
+    Note over BASTION: RECORD (video/transcript)<br/>Session Probe metadata (RDP)<br/>restriction rules (kill/notify, OCR)<br/>real-time monitoring (4-eyes/4-hands)<br/>stream events -> SIEM (syslog-ng)
+    Note over CLIENT,TARGET: 7. disconnect / kill / approval-end -> session closed, recording sealed
 ```
 
 ---
@@ -122,15 +113,18 @@ Key facts:
 - **Auditors can watch current SSH sessions live even when recording is OFF** in the authorization (explicit warning in §13).
 - Events/metadata are forwarded to a **SIEM via `syslog-ng`** for correlation.
 
-```
-  LIVE SESSION ──► proxy captures ──► VIDEO (RDP) / TRANSCRIPT (SSH)
-        │                              encrypted, Bastion-bound, on /var/wab (LVM)
-        ├──► Session Probe metadata (RDP) ─┐
-        ├──► restriction-rule events ──────┤──► syslog-ng ──► SIEM
-        └──► session lifecycle events ─────┘
-                         │
-                         ▼
-            AUDITOR replay (embedded player)  /  Access Manager cross-Bastion search
+```mermaid
+flowchart TD
+    Live["LIVE SESSION"] --> Capture["proxy captures"]
+    Capture --> Rec["VIDEO (RDP) / TRANSCRIPT (SSH)<br/>encrypted, Bastion-bound, on /var/wab (LVM)"]
+    Capture --> Probe["Session Probe metadata (RDP)"]
+    Capture --> Restr["restriction-rule events"]
+    Capture --> Lifecycle["session lifecycle events"]
+    Probe --> Syslog["syslog-ng"]
+    Restr --> Syslog
+    Lifecycle --> Syslog
+    Syslog --> SIEM["SIEM"]
+    Rec --> Replay["AUDITOR replay (embedded player)  /<br/>Access Manager cross-Bastion search"]
 ```
 
 ### The Session Probe (RDP / Windows only)
@@ -182,16 +176,16 @@ Glossary definitions are unambiguous:
 | **4 hands** | "Mechanism allowing an auditor to **gain control** over the current session of another user." |
 | **Session sharing** | "Real-time audit capability which grants auditors access to a user's session … Auditors of RDP sessions can **remotely control** a user's session." |
 
-```
-   4 EYES                              4 HANDS
- +----------+   watch only          +----------+   takes control
- |  USER    |                       |  USER    |
- +----+-----+                       +----+-----+
-      | session                          | session (shared control)
-      v                                  v
- +----------+                       +----------+
- | AUDITOR  | (view, can terminate) | AUDITOR  | (mouse+keyboard, RDP)
- +----------+                       +----------+
+```mermaid
+flowchart TB
+    subgraph FE["4 EYES"]
+        UserE["USER"] -->|"session"| AuditorE["AUDITOR<br/>(view, can terminate)"]
+        UserE -.->|"watch only"| AuditorE
+    end
+    subgraph FH["4 HANDS"]
+        UserH["USER"] -->|"session (shared control)"| AuditorH["AUDITOR<br/>(mouse+keyboard, RDP)"]
+        UserH -.->|"takes control"| AuditorH
+    end
 ```
 
 ### Session Invite (external guest)
@@ -229,25 +223,17 @@ Plus:
 - **Self-approval** — globally toggled by `Allow self approvals`; if cleared, approvers can't see/answer their own requests.
 - Quorum **N must be ≤ number of approvers** available in the selected groups. Approvers can **reduce** a request's duration (decreases cumulatively).
 
-```
-  USER requests access (web or at SSH/RDP connect)
-        |
-        v
-  Approval workflow enabled?
-   no -> direct access
-   yes ->  inside time frame ?
-            | yes                                 | no
-            v                                      v
-   No approval / Automatic /              Access blocked / Automatic /
-   Approval with quorum                   Approval with quorum
-            |                                      |
-            +------------------+-------------------+
-                               v
-                quorum reached? --no--> pending ... -> rejected / timeout -> CLOSED
-                               | yes
-                               v
-                ACCEPTED -> session may start (Single connection? then one shot)
-                (comment/ticket recorded; SIEM logged)
+```mermaid
+flowchart TD
+    Req["USER requests access (web or at SSH/RDP connect)"] --> Enabled{"Approval workflow enabled?"}
+    Enabled -->|"no"| Direct["direct access"]
+    Enabled -->|"yes"| Frame{"inside time frame?"}
+    Frame -->|"yes"| Inside["No approval / Automatic /<br/>Approval with quorum"]
+    Frame -->|"no"| Outside["Access blocked / Automatic /<br/>Approval with quorum"]
+    Inside --> Quorum{"quorum reached?"}
+    Outside --> Quorum
+    Quorum -->|"no"| Pending["pending ... -> rejected / timeout -> CLOSED"]
+    Quorum -->|"yes"| Accepted["ACCEPTED -> session may start<br/>(Single connection? then one shot)<br/>(comment/ticket recorded; SIEM logged)"]
 ```
 
 > **Gotcha (verbatim intent):** with *Access blocked* outside hours, an approval that **starts inside** the allowed window can **continue into blocked hours** — only the start time is checked; the session ends when the **approval** ends, not when the time frame ends. Also: **scenario accounts cannot be used with authorizations that include an approval workflow** (use a separate authorization without approval).

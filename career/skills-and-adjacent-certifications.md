@@ -57,18 +57,16 @@ to prioritize study, not as a ranking of difficulty.
 | **Cloud** | **Growing** | IAM roles/policies in Azure & AWS, cloud admin-role governance, SaaS PAM delivery, secrets managers | Privileged identities increasingly live in the cloud; PAM is delivered as SaaS (e.g., WALLIX One) and must govern cloud roles | see cloud certs in Part 2 (AZ-500, AWS Security, SC-300) |
 | **The identity stack (IAM/IGA/IDaaS/EPM)** | **High** | How PAM relates to IAM, IGA/IAG, IDaaS (SSO/MFA), and EPM/PEDM; federation (SAML/OIDC); lifecycle (JML) | PAM is one layer of identity security; engineers/architects integrate it with the rest | [../foundations/pam-iam-iga-idaas-epm.md](../foundations/pam-iam-iga-idaas-epm.md) |
 
-```
-   Centrality to PAM (qualitative)
+```mermaid
+flowchart TD
+    title["Centrality to PAM (qualitative)<br/>Read DOWN as your study order"]
+    core["CORE<br/>Linux · Windows/AD · Networking · Crypto/PKI<br/>(the four ../prerequisites/ deep-dives)"]
+    high["HIGH<br/>Scripting/Automation · Identity stack (IAM/IGA/IDaaS/EPM)"]
+    growing["GROWING<br/>Cloud (Azure / AWS IAM, SaaS PAM, secrets mgmt)"]
 
-   CORE      |  Linux   Windows/AD   Networking   Crypto/PKI
-             |    (the four ../prerequisites/ deep-dives)
-   ----------+--------------------------------------------------
-   HIGH      |  Scripting/Automation     Identity stack (IAM/IGA/IDaaS/EPM)
-   ----------+--------------------------------------------------
-   GROWING   |  Cloud (Azure / AWS IAM, SaaS PAM, secrets mgmt)
-
-   Read DOWN this list as your study order: master the CORE four first,
-   then automation + the identity stack, then add cloud depth.
+    title --> core
+    core -->|"master the CORE four first"| high
+    high -->|"then automation + the identity stack, then add cloud depth"| growing
 ```
 
 **How to read the matrix:** the four **Core** domains map one-to-one onto the
@@ -169,34 +167,29 @@ CISSP <https://www.isc2.org/certifications/cissp>
 
 ## Part 3 — Vendor-specific vs vendor-neutral at a glance
 
-```
-   VENDOR-NEUTRAL                         VENDOR-SPECIFIC
-   (concepts transfer everywhere)         (tied to one product)
-   +-----------------------------+        +---------------------------------+
-   | CompTIA Security+           |        | WALLIX WCA-P / WCP-P / WCE-P     |
-   | CompTIA Network+            |        | CyberArk Defender/Sentry/Guardian|
-   | CompTIA Linux+              |        | BeyondTrust University           |
-   | (ISC)2 CC                   |        | Delinea (Secret Server)          |
-   | (ISC)2 CISSP                |        | One Identity (Safeguard)         |
-   +-----------------------------+        | Microsoft SC-300 / AZ-500        |
-                                          | AWS Certified Security – Spec.   |
-                                          +---------------------------------+
+| VENDOR-NEUTRAL<br/>(concepts transfer everywhere) | VENDOR-SPECIFIC<br/>(tied to one product) |
+|---|---|
+| CompTIA Security+ | WALLIX WCA-P / WCP-P / WCE-P |
+| CompTIA Network+ | CyberArk Defender/Sentry/Guardian |
+| CompTIA Linux+ | BeyondTrust University |
+| (ISC)2 CC | Delinea (Secret Server) |
+| (ISC)2 CISSP | One Identity (Safeguard) |
+|  | Microsoft SC-300 / AZ-500 |
+|  | AWS Certified Security – Spec. |
 
-   Use NEUTRAL certs to prove you understand the concepts;
-   use SPECIFIC certs to prove you can run the product an employer owns.
-   A balanced PAM profile has some of each.
-```
+> Use NEUTRAL certs to prove you understand the concepts; use SPECIFIC certs to
+> prove you can run the product an employer owns. A balanced PAM profile has some of each.
 
 A suggested minimal-but-credible early-PAM stack (see the roadmap for timing):
 
-```
-   Foundation        +   PAM product       +   one specialization
-   (vendor-neutral)      (vendor-specific)      (your chosen lane)
-   ----------------      ----------------       --------------------------
-   Security+         +   WALLIX WCA-P/WCP-P  +   one of:
-                                                 - a 2nd PAM vendor cert
-                                                 - SC-300 (identity lane)
-                                                 - AZ-500 / AWS Security (cloud lane)
+```mermaid
+flowchart LR
+    foundation["Foundation (vendor-neutral)<br/>Security+"]
+    product["PAM product (vendor-specific)<br/>WALLIX WCA-P/WCP-P"]
+    specialization["One specialization (your chosen lane)<br/>one of:<br/>- a 2nd PAM vendor cert<br/>- SC-300 (identity lane)<br/>- AZ-500 / AWS Security (cloud lane)"]
+
+    foundation -->|"+"| product
+    product -->|"+"| specialization
 ```
 
 ---
