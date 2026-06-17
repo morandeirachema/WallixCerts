@@ -42,6 +42,45 @@ industrial / OT environments.
 | 2 | **Advanced Applications** | Typical users & digital access issues; managing third-party access; managing industrial protocols; secure access while preserving service continuity; secure file transfer; secured access to critical assets; trace & audit for incident response and regulatory compliance |
 | 3 | **PAM4OT Architectures** | Centralized · Hybrid · Distributed |
 
+## Scope, exam focus & study tips
+
+> *Study guidance **derived** from the published curriculum and the WALLIX product
+> documentation — not official WALLIX exam content; question count and weighting are not
+> published.*
+
+**Scope — what eWCP-P-OT validates:** that you can position and deploy **WALLIX PAM4OT**
+to secure privileged and remote access across **Operational Technology (OT)** environments
+— understand the OT world and its identity/access risks, secure third-party/vendor
+maintenance access, handle industrial protocols and file transfer **without disrupting
+production**, keep an audit trail for compliance, and choose the right PAM4OT architecture.
+Because PAM4OT is WALLIX Bastion packaged for OT, this builds directly on
+[WCP-P](../pam-bastion/wcp-p-professional.md).
+
+**Likely focus areas (mapped from the modules):**
+- The **OT universe** — what OT is; main components, equipment & protocols; the OT context (Module 1).
+- The **security stakes of identity & access** in OT (Module 1).
+- Securing **third-party / vendor maintenance access** — the flagship OT use case (Module 2).
+- Managing **industrial protocols** and **secure file transfer** while **preserving service continuity** (Module 2).
+- **Trace & audit** for incident response and regulatory compliance (Module 2).
+- The three **PAM4OT architectures**: **Centralized · Hybrid · Distributed** (Module 3).
+
+**Study tips:**
+- This builds on **WCP-P** (a required prerequisite) — make sure your Bastion fundamentals
+  are solid; revisit the [WCP-P scope](../pam-bastion/wcp-p-professional.md) if rusty.
+- Remember **PAM4OT = Bastion for OT**: know how Bastion brokers and records sessions, and
+  the OT specifics — **agentless on PLCs**, **industrial-protocol encapsulation in SSH** —
+  via the [product portfolio PAM4OT section](../00-overview/product-portfolio.md#6-wallix-pam4ot--operational-technology-ot-security).
+- Learn the OT vocabulary: **ICS, SCADA, PLC, RTU, HMI**, the **IT/OT boundary**, and the
+  **Purdue model** (concept). For OT/Purdue fundamentals, the CEH
+  [IoT & OT module](../../ceh/domains/18-iot-and-ot-hacking.md) is a good background read.
+- Be able to **compare the three architectures** (Centralized / Hybrid / Distributed) and when each fits.
+- Know the compliance drivers: **ISA/IEC 62443** and **NIS2**.
+- Format is **~4 h online with demos** (not a full VM lab) — focus on concepts, use cases
+  and architecture rather than hands-on configuration.
+
+> **Not specified in any WALLIX source** (do not assume): the **number of exam questions**,
+> the **exam time limit**, the **certification validity/renewal period**, and the **price**.
+
 ## Assessment
 
 Pre-test; MCQs and demos throughout; **final MCQ exam, 70% to pass** → WALLIX Certified
