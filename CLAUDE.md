@@ -21,6 +21,16 @@ Two layers of content:
   Each folder has a `README.md` index; the root `README.md` is the learning-path hub.
   Cross-folder links are relative siblings: `../<folder>/<file>.md`.
 
+**Multiple certifications (since 2026-06):** the repo is now a multi-certification study
+collection. **WALLIX / PAM is the primary hub** (the root `README.md` and the folders
+above). A parallel, self-contained hub lives under **`ceh/`** — an EC-Council **CEH v13**
+study hub with its own `README.md`, `00-overview/`, `domains/` (the 20 modules), `tools/`,
+`labs/`, `exam-prep/`, `career/`, and `reference/`. Keep each certification's material
+inside its own hub; both follow the same conventions (Mermaid-only diagrams, no
+fabrication, a `Sources` section per page). **CEH offensive topics stay
+conceptual/defensive** — countermeasures + written-authorization framing, never weaponized
+how-tos.
+
 ## Organizing principle: the certification taxonomy
 
 The directory layout deliberately mirrors WALLIX's own certification taxonomy, so you

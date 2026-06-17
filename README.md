@@ -7,6 +7,8 @@
 *From “what is PAM?” to certified* — concepts, real diagrams, labs, exam prep, and a
 career roadmap for a **systems administrator moving into cybersecurity**.
 
+**A multi-certification study collection** — WALLIX / PAM (primary) · [CEH v13](ceh/README.md)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Docs](https://img.shields.io/badge/docs-40%2B%20pages-blue)
 ![Diagrams](https://img.shields.io/badge/diagrams-Mermaid-ff3670)
