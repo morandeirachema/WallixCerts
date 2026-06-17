@@ -165,7 +165,7 @@ flowchart TD
 ## 5. SSH key types — RSA, ECDSA, Ed25519
 
 SSH public-key auth (see
-[linux-essentials-for-pam.md](linux-essentials-for-pam.md#ssh--secure-shell)) supports
+[linux-essentials-for-pam.md](linux-essentials-for-pam.md#1-ssh--secure-shell)) supports
 several asymmetric algorithms:
 
 | Type | Family | Recommended size | Notes |

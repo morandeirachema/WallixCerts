@@ -36,7 +36,7 @@ flowchart TD
 > DBA = Database Administrator · A2A = Application-to-Application · MFA = Multi-Factor
 > Authentication.
 
-> **Why it matters:** non-human accounts often **outnumber human ones by 10:1 or more**,
+> **Why it matters:** non-human accounts often **vastly outnumber human ones** (industry reports commonly cite ratios on the order of 10:1 or higher),
 > rarely get their passwords changed, frequently have credentials *hard-coded* in
 > scripts, and almost never have MFA. They are a quiet, sprawling attack surface — and a
 > core reason PAM emphasizes the **vault** and **automatic rotation** pillars.

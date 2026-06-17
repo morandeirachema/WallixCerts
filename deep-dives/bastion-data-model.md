@@ -115,7 +115,7 @@ So access is the *set union* of all authorizations a user inherits through group
 | **Session recording** | Enables recording (type depends on protocol). |
 | **Session invite** | Lets a host invite an external **guest** into a live **RDP/VNC** session — *View only* or *View and control* (requires Access Manager 5+; not on SaaS; not for SSH/applications). |
 | **Critical targets** | Flags targets as critical (notifications fire only if the dedicated alert is also enabled). |
-| **Approval workflow** (Approval tab) | Optional quorum-based approval; see §6 below and [session-management](./session-management.md#3-approval-workflows). |
+| **Approval workflow** (Approval tab) | Optional quorum-based approval; see §6 below and [session-management](./session-management.md#6-approval-workflows). |
 
 > When editing an existing authorization you **cannot change the User group or Target group** — those are fixed at creation; delete and recreate to re-pair.
 

@@ -54,7 +54,7 @@ flowchart TD
 
 ## OWASP Mobile Top 10
 
-The **OWASP Mobile Top 10** is the industry reference for the most critical mobile-app risks. CEH expects familiarity with the categories (the current OWASP Mobile Top 10, 2024):
+The **OWASP Mobile Top 10** is the industry reference for the most critical mobile-app risks. CEH expects familiarity with the categories (based on the OWASP Mobile Top 10 — verify the current edition and exact wording on the OWASP site, as it is periodically revised):
 
 | ID | Risk |
 | --- | --- |

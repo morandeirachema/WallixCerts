@@ -5,7 +5,7 @@ Access Manager (WAM)** (the HTML5 web gateway in front of one or more Bastions),
 how WAM federates that identity out to external Identity Providers (IdPs). This is the
 *primary* (Bastion / WAM) connection leg — distinct from the *secondary* leg where the
 Bastion authenticates onward to the **target** (account mapping, vault account,
-interactive login) covered in the [product portfolio ACL model](../docs/00-overview/product-portfolio.md#core-pam-conceptsthe-acl-data-model).
+interactive login) covered in the [product portfolio ACL model](../docs/00-overview/product-portfolio.md#core-pam-concepts--the-acl-data-model).
 
 This file maps directly to **WCE-P (WALLIX Certified Expert – PAM)** Module 1 "Advanced
 authentication" (Bastion: RADIUS, Kerberos explicit/transparent, X.509, SAML, 2-Factor;

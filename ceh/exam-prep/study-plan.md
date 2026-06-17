@@ -131,7 +131,7 @@ flowchart TD
 
 ### CEH knowledge exam (312-50v13)
 - **Format:** 125 multiple-choice questions, **4 hours**.
-- **Passing score:** a scaled **cut-score that varies by exam form, roughly in the 60–85% range** — EC-Council sets the exact cut-score per question bank, so do not assume a fixed percentage. Aim comfortably above 85% in practice to be safe.
+- **Passing score:** a scaled **cut-score that varies by exam form, roughly in the 60–85% range** — EC-Council sets the exact cut-score per question bank, so do not assume a fixed percentage. Aim to score well above the top of that range in your practice tests to give yourself margin.
 - **Delivery:** typically via remote proctoring or a testing centre (for example, the ECC Exam Portal or Pearson VUE). Confirm current delivery options on EC-Council.
 - **Eligibility:** either complete official EC-Council training, **or** apply via the experience-based route (documented information-security work experience) and pay the eligibility-application fee. Verify current rules on EC-Council.
 

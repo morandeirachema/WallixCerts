@@ -56,7 +56,7 @@ flowchart TD
 | OS / runtime | Customer | Provider | Provider |
 | Virtualisation / hardware / facilities | Provider | Provider | Provider |
 
-> The classic mistake: assuming "the cloud provider secures everything." Misconfigured storage buckets and over-permissive identities are *customer* responsibilities — and the leading cause of cloud breaches.
+> The classic mistake: assuming "the cloud provider secures everything." Misconfigured storage buckets and over-permissive identities are *customer* responsibilities — and a leading cause of cloud breaches (widely reported by the Cloud Security Alliance and others).
 
 ## Containers and serverless
 
@@ -90,7 +90,7 @@ flowchart LR
 
 ## Cloud Security Posture Management (CSPM)
 
-**Cloud Security Posture Management (CSPM)** is tooling that continuously scans cloud configurations against security best practices and compliance baselines, flags **misconfigurations** (e.g., public buckets, open ports, missing encryption), and helps remediate them. Because misconfiguration is the leading cloud risk, CSPM directly targets the most common failure. Related categories: **CWPP** (Cloud Workload Protection Platform) for workloads, and **CNAPP** (Cloud-Native Application Protection Platform) combining several capabilities.
+**Cloud Security Posture Management (CSPM)** is tooling that continuously scans cloud configurations against security best practices and compliance baselines, flags **misconfigurations** (e.g., public buckets, open ports, missing encryption), and helps remediate them. Because misconfiguration is a top cloud risk, CSPM directly targets one of the most common failures. Related categories: **CWPP** (Cloud Workload Protection Platform) for workloads, and **CNAPP** (Cloud-Native Application Protection Platform) combining several capabilities.
 
 ## Tools (purpose only)
 
@@ -121,7 +121,7 @@ Named for awareness; authorised use only and within the provider's rules.
 
 - **Shared responsibility** is the cloud's central concept: provider secures **of** the cloud; customer secures **in** the cloud. The split shifts with **IaaS → PaaS → SaaS**.
 - **You are always responsible for your data, identities, and access configuration** — in every model.
-- **Misconfiguration** (public buckets, open ports, weak IAM) is the **leading** cloud breach cause; **CSPM** targets it.
+- **Misconfiguration** (public buckets, open ports, weak IAM) is a **leading** cloud breach cause; **CSPM** targets it.
 - **IaaS:** you manage the OS up. **PaaS:** you manage app + data. **SaaS:** you manage data, users, and access settings.
 - **Containers** share the host kernel (lighter, less isolated than VMs); **serverless/FaaS** removes server management but you still secure code and permissions.
 - **MFA + least privilege IAM** are core countermeasures.

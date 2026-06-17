@@ -20,7 +20,7 @@ A **hypervisor** is software that runs virtual machines on your computer. Each V
 | Hypervisor | Type | Notes |
 | --- | --- | --- |
 | **Oracle VirtualBox** | Free, cross-platform | Popular free choice; runs on Windows, macOS, and Linux |
-| **VMware Workstation Pro / Fusion** | Commercial (free tiers vary) | Widely used; check current licensing and free-for-personal-use terms on the vendor site |
+| **VMware Workstation Pro / Fusion** | Free for personal use; paid for commercial | Broadcom made the Pro editions free for personal use (2024); confirm current licensing on the vendor site |
 | **Microsoft Hyper-V** | Built into Windows Pro/Enterprise | Native option on supported Windows editions |
 
 > For a sysadmin: if you have managed VMware vSphere or Hyper-V at work, the desktop versions will feel familiar. The lab concepts (virtual switches, snapshots) carry straight over.

@@ -105,7 +105,7 @@ ss -tn state established              # current connections
 
 The Bastion's internal services (database, the RDP proxy, REST API, schedulers, etc.) and
 their roles are listed in
-[Bastion architecture](../deep-dives/bastion-architecture.md#internal-components).
+[Bastion architecture](../deep-dives/bastion-architecture.md#4-internal-components--services).
 
 ## 5. Text editing config files
 

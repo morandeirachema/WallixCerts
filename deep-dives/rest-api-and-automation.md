@@ -134,7 +134,7 @@ sequenceDiagram
 
 ### 2.1 Core resources (object model → endpoints)
 
-The API mirrors the [ACL data model](../docs/00-overview/product-portfolio.md#core-pam-conceptsthe-acl-data-model).
+The API mirrors the [ACL data model](../docs/00-overview/product-portfolio.md#core-pam-concepts--the-acl-data-model).
 Typical collections (paths under `/api/vX.Y/`):
 
 | Resource | Path (convention) | What it manages |
