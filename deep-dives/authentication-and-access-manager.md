@@ -114,7 +114,7 @@ Both modes are Kerberos, the difference is *who holds the ticket* (this is the W
 
 | Mode (guide name) | WCE-P term | How it works | Status |
 |---|---|---|---|
-| **Kerberos-Password** | Kerberos *explicit* | User types login+password; **Bastion acts as a Kerberos client** and gets the ticket from the KDC on the user's behalf. Feels like a normal login. | **Deprecated as of v12.X** (Single-Point-of-Failure risk) — migrate to Kerberos Ticket |
+| **Kerberos-Password** | Kerberos *explicit* | User types login+password; **Bastion acts as a Kerberos client** and gets the ticket from the KDC on the user's behalf. Feels like a normal login. | **Deprecated in the v12 series** — the guide states "as of WALLIX Bastion version 12.X" without a precise version (Single-Point-of-Failure risk) — migrate to Kerberos Ticket |
 | **Kerberos Ticket (standard)** | Kerberos *transparent* | The **client (browser / SSH client) already holds a Kerberos ticket** (e.g. from Windows SSO) and presents it; Bastion validates it against a **keytab**. No password typed. | Recommended |
 
 Configuration of **Kerberos Ticket** (`Add > Kerberos`):
@@ -420,7 +420,7 @@ detail: [high-availability-and-dr.md](./high-availability-and-dr.md#5-load-balan
 | Local password | External auth / per user | yes | – | yes | strict policy |
 | LDAP/AD bind | External auth → AD/LDAP | – | yes (primary) | yes | use StartTLS/SSL |
 | Kerberos Ticket (transparent) | External auth → Kerberos | – | yes (primary) | – | KDC :88, keytab, realm UPPERCASE |
-| Kerberos-Password (explicit) | External auth → Kerberos-Password | yes | yes (1st/2nd) | – | **deprecated v12.X** |
+| Kerberos-Password (explicit) | External auth → Kerberos-Password | yes | yes (1st/2nd) | – | **deprecated in v12 series** (guide says "12.X", no precise version) |
 | RADIUS | External auth → RADIUS | only-method | secondary | authenticator | :1812, challenge-response, push 2FA |
 | TACACS+ | External auth → TACACS+ | only-method | secondary | – | :49 |
 | X.509 cert (CRL/OCSP) | X.509 configuration | yes | yes | per-domain toggle | GUI-only validation |
