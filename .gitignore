@@ -1,0 +1,12 @@
+# Editor / OS
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/
+
+# Local tooling / session dirs
+.claude/
+
+# Downloaded source PDFs (large; linked from docs instead)
+*.pdf
