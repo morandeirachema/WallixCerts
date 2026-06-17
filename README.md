@@ -52,6 +52,15 @@ flowchart LR
 | 7 | **Career** — roadmap & adjacent certifications | [career/](career/README.md) |
 | 📚 | **Reference** — glossary, acronyms, compliance, sources | [reference/](reference/README.md) |
 
+## 🧭 Other certification hubs in this repo
+
+Beyond WALLIX / PAM, this repo also hosts a second self-study hub built to the same
+standards (Mermaid diagrams, source-grounded, no fabrication):
+
+- 🎯 **[Certified Ethical Hacker (CEH)](ceh/README.md)** — a **defense-oriented** EC-Council
+  **CEH v13** hub: the 20 modules, the 5 phases, tools, safe-lab guidance, exam prep, and a
+  glossary/acronyms. Educational & authorized-use only.
+
 ## 🎓 The WALLIX certification framework
 
 Three progressive levels across product tracks. Code format `WC{level}-{track}`;
