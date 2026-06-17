@@ -30,10 +30,24 @@ Each level is available **instructor-led** (`WCA-P`/`WCP-P`/`WCE-P`) and as **e-
 - **Prerequisites (technical knowledge):** SSH, RDP, proxy concepts, Linux; system/
   network/infrastructure fundamentals; technical English.
 - **Exam:** final **MCQ, 70% to pass** → certification + digital badge/diploma.
-  Pre-test + ongoing oral questions/MCQs/labs during the course.
+  Pre-test + continuous assessment during the course — instructor-led: oral questions,
+  MCQs and labs; **e-learning: MCQs and labs (no oral questions)**.
+- **Class size:** **6 trainees max** (instructor-led); e-learning is nominative.
 - **Labs:** WALLIX-provided preconfigured VMs (Azure for instructor-led; OVA for e-learning).
+- **Booking:** via your WALLIX sales representative; WALLIX Academy replies within ~2 days.
+  Courses are accessible to people with disabilities (`academy@wallix.com`).
 - **Product covered:** WALLIX Bastion (Session Manager, Password Manager/Vault) +
   WALLIX Access Manager. See [product portfolio](../00-overview/product-portfolio.md#1-wallix-bastion--privileged-access-management-pam).
+
+> **Not specified in any WALLIX source** (do not assume): the **number of exam questions**,
+> the **exam time limit**, the **certification validity/renewal period**, and the **price**.
+
+## Study companion
+
+Each cert doc maps its modules to the in-repo **[deep dives](../../deep-dives/README.md)**
+(sourced from the official WALLIX Bastion guides), so you can study the *why* behind the
+syllabus. Foundation first: [What is PAM?](../../foundations/what-is-pam.md). Self-test:
+[practice questions](../../exam-prep/practice-questions.md).
 
 ## Related PAM-family certifications
 

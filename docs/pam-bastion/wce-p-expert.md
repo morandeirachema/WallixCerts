@@ -11,8 +11,14 @@ advanced authentication, scripting, proxy tuning, the REST API, and troubleshoot
 | **Product** | WALLIX Bastion + WALLIX Access Manager |
 | **Duration** | 2 days (14 hours) |
 | **Formats** | Inter-company, intra-company, e-learning |
+| **Class size** | 6 trainees max (instructor-led); nominative (e-learning) |
 | **Prerequisite** | **WCP-P (or e-WCP) certification — required** + GNU/Linux command line |
 | **Exam** | Final MCQ, **70% to pass** |
+
+> **Format availability note:** the WALLIX Academy web page (checked June 2026) marks the
+> WCE-P **online** track as *"coming soon"*, while the 2025–2026 catalog PDF fully
+> documents an existing **eWCE-P** e-learning track. The sources differ — confirm current
+> availability with WALLIX Academy.
 
 ## Target audience
 
@@ -21,37 +27,66 @@ deployments** of WALLIX Bastion.
 
 ## Prerequisites
 
-- **Required certification:** **WCP-P** (WALLIX Certified Professional – PAM) or e-WCP.
-- **GNU/Linux command-line** knowledge; scripting knowledge helps with advanced concepts.
+- **Required certification (verbatim):** *"WCP-P or e-WCP certified (WALLIX CERTIFIED
+  PROFESSIONAL PAM)"* — see [WCP-P](wcp-p-professional.md).
+- **GNU/Linux command lines.** *"Scripting knowledge will enable the trainee to handle
+  the WALLIX PAM advanced concepts with greater ease."*
 - Technical-English proficiency; Microsoft Teams (instructor-led); admin rights on
   laptop for e-learning.
 
 ## Objective
 
-Cover advanced WALLIX PAM/Bastion deployments — **Active/Active architecture, automatic
-provisioning, and disaster recovery** — preparing participants for large-scale or
-complex implementations.
+> *"This 2-day training covers advanced WALLIX PAM deployments, including Active/Active
+> architecture, automatic provisioning, and disaster recovery, preparing participants for
+> large-scale or complex implementations."* — 2025–2026 catalog
+>
+> The **eWCE-P** datasheet uses the heading "Training Overview" and the wording "advanced
+> WALLIX **Bastion** deployments" — same scope, minor wording difference.
 
 ## Curriculum / modules
 
 | # | Module | Topics & labs |
 |---|--------|---------------|
-| 1 | **Advanced authentication** | 1.1 Global Concepts · 1.2 Bastion: Radius, Kerberos Explicit, X509, Kerberos Transparent, SAML, 2-Factor · 1.3 Access Manager: X509, SAML · *Lab 0: Network & Bastion 1 config; Lab 1.1: X509; Lab 1.2: Kerberos* |
+| 1 | **Advanced authentication** | 1.1 Global Concepts · 1.2 Bastion: Radius, Kerberos Explicit, X509, Kerberos Transparent, SAML, 2-Factor · 1.3 Access Manager: X509, SAML · *Lab 0 (see note); Lab 1.1: X509; Lab 1.2: Kerberos* |
 | 2 | **Advanced Applications** | Global concepts, Reminders, Clusters, **AutoIt** scripting (Write, Compile, Configuration, Secure) · *Lab 2* |
 | 3 | **Proxies parameters** | 3.1 Global concepts · 3.2 Common parameters · 3.3 AutoIt (RDP Global params, Sesman, Bastion certificate) · 3.4 SSH (connection policies, global params) · 3.5 Others (TELNET/RLOGIN, **Bastion for OT**, VNC policies & params, RAWTCPIP) · *Lab 3* |
 | 4 | **Advanced Password Manager** | Global concepts, Reminders, **WAAPM** (WALLIX Application-to-Application Password Manager), External Vault · *Lab 4* |
 | 5 | **WALLIX Bastion REST API** | Global concepts (Methods, Response codes); REST API (Authentication, Resources, Requests) · *Lab 5* |
-| 6 | **Troubleshoot** | Introduction; Bastion log files; Bastion database; Access Manager log files; Access Manager database; Bastion password-rotation plugins |
+| 6 | **Troubleshoot** | 6.1 Introduction; 6.2 Bastion Log files; 6.3 Bastion Database; 6.4 Access Manager Log files; 6.5 Access Manager Database; 6.6 Bastion Password Rotation plugins |
+
+> **Lab 0 differs by format:** instructor-led WCE-P Lab 0 = *"Network configuration and
+> Bastion 1 configuration"*; eWCE-P Lab 0 = *"Check the configuration of the WALLIX
+> Bastion."*
 
 ## Lab environment
 
 **5 preconfigured VMs:** Domain Controller (Win 2016), Windows Server 2016, Linux
 Server, **2× WALLIX Bastion** (Azure / OVA). Minimum **4 CPU / i5, 32 GB RAM, 40 GB free**.
 
+## Study companion — map each module to a deep dive
+
+| Module | Go deeper |
+|--------|-----------|
+| 1 Advanced authentication | [Authentication & Access Manager](../../deep-dives/authentication-and-access-manager.md) |
+| 2 Advanced Applications | [Session management → applications](../../deep-dives/session-management.md) |
+| 3 Proxies parameters | [Session management](../../deep-dives/session-management.md) · [architecture](../../deep-dives/bastion-architecture.md) |
+| 4 Advanced Password Manager (WAAPM) | [Secrets & password management](../../deep-dives/secrets-and-password-management.md) |
+| 5 WALLIX Bastion REST API | [REST API & automation](../../deep-dives/rest-api-and-automation.md) |
+| 6 Troubleshoot | [Troubleshooting & logs](../../deep-dives/troubleshooting-and-logs.md) |
+| (Active/Active, DRP) | [High availability & DR](../../deep-dives/high-availability-and-dr.md) |
+
+Self-test: [practice questions](../../exam-prep/practice-questions.md).
+
 ## Assessment
 
-Pre-test; oral questions, MCQs and hands-on labs throughout; **final MCQ exam, 70% to
-pass** → `WCE-P` / `eWCE-P` certification (digital badge + diploma).
+Pre-test; **final MCQ exam, 70% to pass** → `WCE-P` / `eWCE-P` certification (digital
+badge + diploma). Continuous assessment during the course:
+- **Instructor-led (WCE-P):** oral questions, MCQs, and hands-on labs.
+- **E-learning (eWCE-P):** MCQs and hands-on labs (no oral questions).
+
+> **Not specified in any WALLIX source:** the **number of exam questions**, the **exam
+> time limit**, the **certification validity/renewal period**, and the **price**. Confirm
+> with WALLIX Academy (`academy@wallix.com`).
 
 ## Path
 
@@ -60,4 +95,4 @@ pass** → `WCE-P` / `eWCE-P` certification (digital badge + diploma).
 ## Sources
 
 - WALLIX Academy: https://www.wallix.com/support-services/wallix-academy/
-- Training catalog 2025–2026 (EN): https://www.wallix.com/wp-content/uploads/2024/04/WALLIX_TRAINING_2025-2026_ENG.pdf
+- Training catalog 2025–2026 (EN) — primary, retrieved full (35 pp.): https://www.wallix.com/wp-content/uploads/2024/04/WALLIX_TRAINING_2025-2026_ENG.pdf
