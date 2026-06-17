@@ -1,61 +1,64 @@
-# WallixCerts — WALLIX Academy Certification Documentation
+# WallixCerts — WALLIX & PAM Certification Study Hub
 
-Unofficial study & reference documentation for the certifications offered by
-**[WALLIX Academy](https://www.wallix.com/support-services/wallix-academy/)** — the
-training and certification arm of [WALLIX](https://www.wallix.com/), the European
-(French) cybersecurity vendor specializing in identity and access security.
+A complete, **source-grounded** self-study repository for a systems administrator moving
+into cybersecurity and specializing in **Privileged Access Management (PAM)** with the
+**[WALLIX](https://www.wallix.com/)** suite and its
+**[WALLIX Academy](https://www.wallix.com/support-services/wallix-academy/)** certifications.
 
-This repo compiles, from official WALLIX sources, the **technical background**, the
-**course curricula**, and the **exam requirements** for each WALLIX certification.
+It takes you from *"what is PAM?"* all the way to certification exam prep and a career
+roadmap — concepts, **flow diagrams**, acronyms, deep technical dives, labs, and practice
+questions.
 
-> ⚠️ **Unofficial.** This is a community/study compilation, not a WALLIX publication.
-> Always confirm current details with WALLIX Academy (`academy@wallix.com`) and the
-> official [training catalog](https://www.wallix.com/wp-content/uploads/2024/04/WALLIX_TRAINING_2025-2026_ENG.pdf).
-> Compiled **2026-06-17** from the 2025–2026 catalog and live WALLIX pages.
-
----
-
-## The certification framework
-
-WALLIX Academy structures its certifications into **three progressive levels**, each
-building on the previous, across several **product tracks**. Naming convention:
-
-```
-W C x - y
-│ │ │   └─ Track:  P = PAM/Bastion · G = IAG · I = IDaaS · P-OT = OT · E = EPM
-│ │ └───── Level:  A = Administrator · P = Professional · E = Expert
-│ └─────── "Certified"
-└───────── "WALLIX"
-
-An "e" prefix (e.g. eWCP-P) denotes the self-paced e-learning variant.
-```
-
-| Level | Code | Goal |
-|-------|------|------|
-| **Administrator** | `WCA` | Understand the solution and manage it in day-to-day activities |
-| **Professional**  | `WCP` | Manage deployment & administration in a standard environment |
-| **Expert**        | `WCE` | Achieve advanced / large-scale & complex deployments |
-
-**Exam model (all tracks):** a final **multiple-choice (MCQ)** exam requiring a
-**70% score** to pass, plus a pre-test and continuous assessment (oral questions,
-MCQs, hands-on labs) during the course.
-
-See **[docs/00-overview/certification-framework.md](docs/00-overview/certification-framework.md)** for full details.
+> ⚠️ **Unofficial & no fabrication.** This is a community study compilation, not a WALLIX
+> publication. Every factual claim is tied to an official WALLIX document or a reputable
+> source (cited per page); unknowns are marked *"not specified in sources"* rather than
+> guessed. Always confirm current details with WALLIX Academy (`academy@wallix.com`).
+> Compiled **2026-06-17**.
 
 ---
 
-## Certification matrix
+## How to use this repo — the learning path
 
-| Track | Product | Administrator | Professional | Expert | Status |
-|-------|---------|---------------|--------------|--------|--------|
-| **PAM / Bastion** | WALLIX Bastion | [WCA-P](docs/pam-bastion/wca-p-administrator.md) | [WCP-P](docs/pam-bastion/wcp-p-professional.md) | [WCE-P](docs/pam-bastion/wce-p-expert.md) | ✅ Available |
-| **IAG** | WALLIX IAG | [WCA-G](docs/iag/wca-g-administrator.md) *(coming soon)* | [WCP-G](docs/iag/ewcp-g-professional.md) | — | 🟡 Partial |
-| **IDaaS** | WALLIX One IDaaS (Trustelem) | — | [WCP-I](docs/idaas/ewcp-i-professional.md) | — | ✅ Available |
-| **OT** | WALLIX PAM4OT | — | [eWCP-P-OT](docs/ot-pam4ot/ewcp-p-ot-professional.md) | — | ✅ Available |
+```
+   ┌──────────────┐   ┌───────────────┐   ┌──────────────────┐   ┌──────────────┐
+   │ 1 FOUNDATIONS│──▶│ 2 PREREQUISITES│──▶│ 3 PRODUCTS &     │──▶│ 4 DEEP DIVES │
+   │   PAM concepts│   │  sysadmin→cyber│   │   CERTIFICATIONS │   │ Bastion guts │
+   └──────────────┘   └───────────────┘   └──────────────────┘   └──────┬───────┘
+                                                                         │
+        ┌────────────────────────────────────────────────────────────────┘
+        ▼
+   ┌──────────┐   ┌──────────────┐   ┌──────────┐
+   │ 5 LABS   │──▶│ 6 EXAM PREP  │──▶│ 7 CAREER │     (+ REFERENCE throughout)
+   │ practice │   │ plan + tests │   │ roadmap  │
+   └──────────┘   └──────────────┘   └──────────┘
+```
 
-> The non-PAM tracks (IAG, IDaaS, OT) are delivered as **online e-learning**; only the
-> PAM track offers in-person inter-/intra-company classroom delivery. **WCP-I** and
-> **eWCP-P-OT** require a prior **WCP-P** certification.
+| Step | Section | Start here |
+|------|---------|-----------|
+| 1 | **Foundations** — what PAM is and why it matters | [foundations/](foundations/README.md) |
+| 2 | **Prerequisites** — Linux, AD, networking, crypto | [prerequisites/](prerequisites/README.md) |
+| 3 | **Products & Certifications** — the WALLIX suite & cert tracks | [docs/00-overview/](docs/00-overview/product-portfolio.md) · [certification framework](docs/00-overview/certification-framework.md) |
+| 4 | **Deep dives** — WALLIX Bastion internals | [deep-dives/](deep-dives/README.md) |
+| 5 | **Labs** — build a lab & do exercises | [labs/](labs/README.md) |
+| 6 | **Exam prep** — study plan, practice questions, cheat sheet | [exam-prep/](exam-prep/README.md) |
+| 7 | **Career** — from sysadmin to PAM specialist | [career/](career/README.md) |
+| — | **Reference** — glossary, acronyms, compliance, sources | [reference/](reference/README.md) |
+
+---
+
+## The WALLIX certification framework
+
+Three progressive levels — **Administrator (WCA) → Professional (WCP) → Expert (WCE)** —
+across product tracks. Code format `WC{level}-{track}`; `e` prefix = e-learning.
+Exam model: a final **MCQ requiring 70% to pass**. Full detail in the
+[certification framework](docs/00-overview/certification-framework.md).
+
+| Track | Product | Administrator | Professional | Expert |
+|-------|---------|---------------|--------------|--------|
+| **PAM / Bastion** | WALLIX Bastion | [WCA-P](docs/pam-bastion/wca-p-administrator.md) | [WCP-P](docs/pam-bastion/wcp-p-professional.md) | [WCE-P](docs/pam-bastion/wce-p-expert.md) |
+| **IAG** | WALLIX IAG | [WCA-G](docs/iag/wca-g-administrator.md) *(soon)* | [WCP-G](docs/iag/ewcp-g-professional.md) | — |
+| **IDaaS** | WALLIX One IDaaS (Trustelem) | — | [WCP-I](docs/idaas/ewcp-i-professional.md) | — |
+| **OT** | WALLIX PAM4OT | — | [eWCP-P-OT](docs/ot-pam4ot/ewcp-p-ot-professional.md) | — |
 
 ---
 
@@ -63,27 +66,28 @@ See **[docs/00-overview/certification-framework.md](docs/00-overview/certificati
 
 ```
 WallixCerts/
-├── README.md                                  ← you are here
+├── foundations/      PAM concepts (what/why), threats, core principles, market landscape
+├── prerequisites/    Linux · Windows/AD · networking & protocols · crypto & PKI
 ├── docs/
-│   ├── 00-overview/
-│   │   ├── certification-framework.md          Levels, codes, exam model, formats
-│   │   └── product-portfolio.md                Technical overview of all WALLIX products
-│   ├── pam-bastion/                            Core PAM track
-│   │   ├── README.md
-│   │   ├── wca-p-administrator.md
-│   │   ├── wcp-p-professional.md
-│   │   └── wce-p-expert.md
-│   ├── ot-pam4ot/   → eWCP-P-OT
-│   ├── idaas/       → eWCP-I (WCP-I)
-│   └── iag/         → eWCP-G (WCP-G) + WCA-G
-└── reference/
-    └── sources.md                              All source URLs, grouped
+│   ├── 00-overview/  certification-framework · product-portfolio (technical overview)
+│   ├── pam-bastion/  WCA-P · WCP-P · WCE-P
+│   ├── ot-pam4ot/    eWCP-P-OT
+│   ├── idaas/        eWCP-I / WCP-I
+│   └── iag/          eWCP-G / WCP-G (+ WCA-G coming soon)
+├── deep-dives/       Bastion architecture, data model, sessions, secrets, auth, HA, API, troubleshooting
+├── labs/             home lab setup · hands-on exercises
+├── exam-prep/        study plan · practice questions · cheat sheet
+├── career/           sysadmin→PAM roadmap · skills & adjacent certs
+└── reference/        glossary · acronyms · compliance & standards · sources
 ```
+
+~40 documents. Each page carries its own **Sources** section.
 
 ## Quick links
 
 - 🎓 [WALLIX Academy](https://www.wallix.com/support-services/wallix-academy/)
 - 📘 [Official training catalog 2025–2026 (PDF)](https://www.wallix.com/wp-content/uploads/2024/04/WALLIX_TRAINING_2025-2026_ENG.pdf)
 - 🧱 [Product portfolio technical overview](docs/00-overview/product-portfolio.md)
+- 🧠 [Glossary](reference/glossary.md) · [Acronyms](reference/acronyms.md)
 - 📚 [Full source list](reference/sources.md)
 - ✉️ Contact: `academy@wallix.com`

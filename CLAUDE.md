@@ -5,10 +5,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this repo is
 
 A **documentation-only repository** (pure Markdown, no source code, no build/test/lint
-tooling) that compiles, from official WALLIX sources, the technical background, course
-curricula, and exam requirements for every **WALLIX Academy** certification
-(https://www.wallix.com/support-services/wallix-academy/). There is nothing to build or
-run — work is editing `.md` files. Validation is review/preview of Markdown only.
+tooling) — a **self-study hub** for a sysadmin moving into cybersecurity and specializing
+in Privileged Access Management (PAM) with the WALLIX suite and its
+[WALLIX Academy](https://www.wallix.com/support-services/wallix-academy/) certifications.
+There is nothing to build or run — work is editing `.md` files; validation is review/
+preview of Markdown only.
+
+Two layers of content:
+- **Reference docs** under `docs/` — the certification framework and the WALLIX product
+  portfolio (this layout mirrors WALLIX's certification taxonomy; see below).
+- **Learning-path sections** as sibling top-level folders, meant to be read in order:
+  `foundations/` (PAM concepts) → `prerequisites/` (Linux, AD, networking, crypto) →
+  `docs/` (products & certs) → `deep-dives/` (Bastion internals) → `labs/` →
+  `exam-prep/` → `career/`, plus `reference/` (glossary, acronyms, compliance, sources).
+  Each folder has a `README.md` index; the root `README.md` is the learning-path hub.
+  Cross-folder links are relative siblings: `../<folder>/<file>.md`.
 
 ## Organizing principle: the certification taxonomy
 
@@ -39,7 +50,10 @@ by-module from the catalog, including lab names.
 
 ## Sourcing discipline (most important)
 
-This is a factual reference, so accuracy rules over completeness:
+This is a factual reference, so accuracy rules over completeness. **NO FABRICATION is a
+hard rule** (the repo owner insists): never invent facts, figures, dates, URLs, product
+behaviors, or exam questions presented as real. Every claim traces to a cited source or
+is clearly labeled as a pedagogical example/estimate.
 
 - The **primary source** is the official training catalog
   (`WALLIX_TRAINING_2025-2026_ENG.pdf`); the live Academy page and product docs are
