@@ -1,0 +1,52 @@
+# MkDocs Material configuration to render this repo as a browsable site.
+# Verify locally before relying on Pages:  pip install mkdocs-material && mkdocs serve
+site_name: "WallixCerts — PAM & Cybersecurity Certification Study Hub"
+site_description: "Source-grounded study notes for WALLIX/PAM, CEH, and adjacent cybersecurity certifications."
+repo_url: https://github.com/morandeirachema/WallixCerts
+repo_name: morandeirachema/WallixCerts
+
+# Content lives at the repo root (not in a docs/ subfolder), so point docs_dir at "."
+docs_dir: .
+site_dir: site
+exclude_docs: |
+  .github/
+  site/
+  mkdocs.yml
+
+theme:
+  name: material
+  features:
+    - navigation.indexes
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - pymdownx.details
+  - toc:
+      permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+  - search

@@ -14,3 +14,8 @@ each tied explicitly to *how Bastion uses it*.
 
 ➡️ Next: the [WALLIX product portfolio](../docs/00-overview/product-portfolio.md) and the
 [certification tracks](../docs/pam-bastion/README.md).
+
+> 🔁 **Same fundamentals, offensive angle:** the [CEH hub](../ceh/README.md) covers this
+> ground from an attacker's perspective — e.g. [cryptography](../ceh/domains/20-cryptography.md),
+> [scanning & networking](../ceh/domains/03-scanning-networks.md),
+> [Windows/AD attacks](../ceh/domains/06-system-hacking.md). They're complementary, not duplicated.

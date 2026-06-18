@@ -47,10 +47,52 @@ functionalities for a **standard deployment**.
 Labs via **OVA**. Minimum **16 GB RAM, i5, 50 GB free**; reserve ≥ 2 cores and 4 GB RAM
 in VirtualBox. **1 preconfigured VM** (Windows Server 2012).
 
+## Scope, exam focus & study tips
+
+> *Study guidance **derived** from the published curriculum and product documentation —
+> not official WALLIX exam content; question count and weighting are not published.*
+
+**Scope — what eWCP-G validates:** that you can run a **standard WALLIX IAG project
+lifecycle** — scope it, install the client components, transform source files into a data
+model, stand up the portal, integrate application data, go live, and operate
+**recertification (certify campaign / certify movements)** campaigns.
+
+**Likely focus areas (mapped from the modules):**
+- **Scoping** an IAG project and the **iteration-based** delivery method (Modules 1–3).
+- **Installing client components**, **files transformation**, and **creating the data
+  model** — the **ETL** consolidation step (Module 2 / Iteration 00).
+- Building and refining the **portal**: apply **filters** and **integrate application
+  data** (Iteration 01).
+- **Qualification & go-live**: production user configuration, support, operational
+  acceptance testing, **server management and migration** (Module 4).
+- **Product launch**: administer the portal, runtime management / **data analysis**, and —
+  the headline topic — **certify campaign (recertification)** and **certify movements**
+  (Module 5).
+
+**Study tips:**
+- Read the technical companion first: the
+  [WALLIX IAG — Identity & Access Governance deep dive](../../deep-dives/iag-identity-governance.md) —
+  it expands the concepts behind the project lifecycle (the four pillars, ETL, data model,
+  JML, campaigns, remediation, PAG) with Mermaid diagrams.
+- Be able to state **IAG (governance) vs IAM (management)** in one sentence, and that IAG
+  **does not enforce in real time** — remediation is routed to **PAM / ITSM / IAM**.
+- Know the **four pillars**: identification/modelization, **Joiner-Mover-Leaver**
+  lifecycle, risk control (**SoD / toxic combinations**, orphan & over-entitled accounts),
+  and audit & recertification.
+- Be able to **walk a recertification campaign** (scope → review items → certify/revoke →
+  remediation → compliance report) and a **JML** flow (recertify at **mover**, zero orphan
+  accounts at **leaver**).
+- Understand why the **ETL** ingests a **read-only consolidated copy** of entitlements, and
+  what **PAG (IGA + PAM)** means for governing privileged accounts.
+
 ## Assessment
 
 Pre-test; MCQs and hands-on labs throughout; **final MCQ exam, 70% to pass** → WALLIX
 Certified Professional – IAG (`eWCP-G`).
+
+> **Not specified in any WALLIX source:** the **number of exam questions**, the **exam
+> time limit**, the **certification validity/renewal** period, and the **price**. Confirm
+> with WALLIX Academy (`academy@wallix.com`).
 
 ## Sources
 

@@ -71,7 +71,7 @@ flowchart LR
 
 | Section | Contents |
 |---------|----------|
-| **[00-overview/](00-overview/what-is-ceh.md)** | [What is CEH](00-overview/what-is-ceh.md) · [Exam & eligibility](00-overview/exam-and-eligibility.md) · [5 phases](00-overview/five-phases-of-hacking.md) · [Legal & ethics](00-overview/legal-and-ethics.md) |
+| **[00-overview/](00-overview/what-is-ceh.md)** | [What is CEH](00-overview/what-is-ceh.md) · [Exam & eligibility](00-overview/exam-and-eligibility.md) · [5 phases](00-overview/five-phases-of-hacking.md) · [Legal & ethics](00-overview/legal-and-ethics.md) · [AI in ethical hacking](00-overview/ai-in-ethical-hacking.md) · [Engagement & reporting](00-overview/engagement-methodology-and-reporting.md) |
 | **[domains/](domains/README.md)** | The **20 CEH modules** — concepts, flows, tools, and countermeasures |
 | **[tools/](tools/tools-by-phase.md)** | Common tools mapped to phases/modules (purpose only) |
 | **[labs/](labs/building-a-ceh-lab.md)** | [Build a safe lab](labs/building-a-ceh-lab.md) · [Practice ranges](labs/practice-ranges.md) |

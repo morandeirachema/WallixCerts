@@ -54,14 +54,18 @@ flowchart LR
 | 7 | **Career** — roadmap & adjacent certifications | [career/](career/README.md) |
 | 📚 | **Reference** — glossary, acronyms, compliance, sources | [reference/](reference/README.md) |
 
-## 🧭 Other certification hubs in this repo
+## 🧭 Other certification content in this repo
 
-Beyond WALLIX / PAM, this repo also hosts a second self-study hub built to the same
-standards (Mermaid diagrams, source-grounded, no fabrication):
+Beyond WALLIX / PAM, this repo hosts a second full self-study hub plus concise orientation
+pages — all built to the same standards (Mermaid diagrams, source-grounded, no fabrication):
 
 - 🎯 **[Certified Ethical Hacker (CEH)](ceh/README.md)** — a **defense-oriented** EC-Council
   **CEH v13** hub: the 20 modules, the 5 phases, tools, safe-lab guidance, exam prep, and a
   glossary/acronyms. Educational & authorized-use only.
+- 🧩 **[Adjacent certifications](adjacent-certs/README.md)** — concise overviews of CompTIA
+  Security+, OSCP / PNPT, CISSP, and cloud security (Azure AZ-500 / AWS).
+- 🗺️ **[Learning roadmap](learning-roadmap.md)** — how foundations, WALLIX/PAM, CEH, and the
+  adjacent certs fit into one cyber-career path.
 
 ## 🎓 The WALLIX certification framework
 
