@@ -58,6 +58,7 @@ nav:
   - Home: README.md
   - Learning roadmap: learning-roadmap.md
   - Attack → Defense matrix: attack-to-defense-matrix.md
+  - Learning platforms: learning-platforms.md
   - Foundations:
       - foundations/README.md
       - What is PAM?: foundations/what-is-pam.md

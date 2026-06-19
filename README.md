@@ -70,6 +70,9 @@ pages — all built to the same standards (Mermaid diagrams, source-grounded, no
 - ⚔️ **[Attack → Defense matrix](attack-to-defense-matrix.md)** — maps common attack
   techniques (from CEH, with MITRE ATT&CK IDs) to the PAM/WALLIX controls that stop them.
   The concrete bridge between the offensive and defensive hubs.
+- 🧰 **[Learning platforms](learning-platforms.md)** — the best free & paid platforms to
+  study and practice (TryHackMe, Hack The Box, PortSwigger, blue-team ranges, …), mapped
+  to each stage of the path.
 
 ## 🎓 The WALLIX certification framework
 

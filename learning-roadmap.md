@@ -41,6 +41,10 @@ flowchart TD
 | **2c · Cloud** | Secure cloud identities & workloads | [adjacent-certs/cloud-security.md](adjacent-certs/cloud-security.md) · [CEH cloud module](ceh/domains/19-cloud-computing.md) |
 | **3 · Senior** | Breadth & management | [adjacent-certs/cissp.md](adjacent-certs/cissp.md) |
 
+> 🧰 **Where to practice each stage:** see **[learning-platforms.md](learning-platforms.md)** —
+> the best platforms (free & paid) for every step, from Professor Messer and TryHackMe to
+> Hack The Box, PortSwigger, blue-team ranges, and cloud labs.
+
 ## How the offensive and defensive sides reinforce each other
 
 A PAM engineer who understands the [attack chain](ceh/domains/01-introduction-to-ethical-hacking.md)
