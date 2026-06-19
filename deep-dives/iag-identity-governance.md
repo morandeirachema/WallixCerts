@@ -73,9 +73,9 @@ these four.
 ```mermaid
 flowchart TD
     P1["1. Identification / Modelization<br/>map identities to entitlements (ETL)"]
-    P2["2. Lifecycle (Joiner-Mover-Leaver)<br/>validate access on arrival, mobility, departure"]
-    P3["3. Risk control<br/>orphan accounts, over-entitlement, SoD / toxic combos"]
-    P4["4. Audit and compliance<br/>recertification campaigns, reports, remediation"]
+    P2["2. Lifecycle (Joiner-Mover-Leaver)<br/>validate access on arrival, mobility,<br/>departure"]
+    P3["3. Risk control<br/>orphan accounts, over-entitlement, SoD /<br/>toxic combos"]
+    P4["4. Audit and compliance<br/>recertification campaigns, reports,<br/>remediation"]
     P1 --> P2 --> P3 --> P4
     P4 -. "findings feed back into the model" .-> P1
 ```

@@ -177,7 +177,7 @@ flowchart LR
     G["3. GRANT (JIT)<br/>PAM opens a brokered, RECORDED<br/>session to TARGET; credential<br/>INJECTED (user never sees it)"]
     E["4. AUTO-EXPIRE<br/>time window ends: access REVOKED<br/>automatically; credential ROTATED;<br/>session sealed in audit trail"]
     R --> A --> G --> E
-    Notes["If DENIED at step 2 → no access, request logged.<br/>If approval TIMES OUT → request expires, nothing granted.<br/>Net effect: ZERO standing privilege between tasks (→ ZSP)."]
+    Notes["If DENIED at step 2 → no access, request<br/>logged.<br/>If approval TIMES OUT → request expires,<br/>nothing granted.<br/>Net effect: ZERO standing privilege<br/>between tasks (→ ZSP)."]
     R -.-> Notes
     A -.-> Notes
     G -.-> Notes

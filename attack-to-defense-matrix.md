@@ -57,12 +57,12 @@ flowchart TB
     S6["6. IMPACT<br/>ransomware, data theft, sabotage<br/>(TA0040)"]
     S1 --> S2 --> S3 --> S4 --> S5 --> S6
 
-    D1["Gateway + MFA; no target password to phish<br/>(it lives in the vault). User awareness training."]
-    D2["Credential injection: target secret never lands<br/>on the endpoint. Aggressive rotation voids any scrape."]
-    D3["Least privilege / JIT; remove local admin (EPM);<br/>app-level (not user-level) elevation."]
-    D4["Brokered, recorded sessions are the only path;<br/>unique + rotated creds per host kill hash/ticket reuse."]
-    D5["No standing Domain-Admin to steal; approval + recording<br/>make new accounts visible. AD hardening (general)."]
-    D6["Session kill + restriction rules; anti-ransomware (EPM);<br/>backups + segmentation (general). Full audit trail."]
+    D1["Gateway + MFA; no target password to<br/>phish<br/>(it lives in the vault). User awareness<br/>training."]
+    D2["Credential injection: target secret<br/>never lands<br/>on the endpoint. Aggressive rotation<br/>voids any scrape."]
+    D3["Least privilege / JIT; remove local<br/>admin (EPM);<br/>app-level (not user-level) elevation."]
+    D4["Brokered, recorded sessions are the only<br/>path;<br/>unique + rotated creds per host kill<br/>hash/ticket reuse."]
+    D5["No standing Domain-Admin to steal;<br/>approval + recording<br/>make new accounts visible. AD hardening<br/>(general)."]
+    D6["Session kill + restriction rules;<br/>anti-ransomware (EPM);<br/>backups + segmentation (general). Full<br/>audit trail."]
 
     S1 -. "defence" .-> D1
     S2 -. "defence" .-> D2

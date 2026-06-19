@@ -116,7 +116,7 @@ Key facts:
 ```mermaid
 flowchart TD
     Live["LIVE SESSION"] --> Capture["proxy captures"]
-    Capture --> Rec["VIDEO (RDP) / TRANSCRIPT (SSH)<br/>encrypted, Bastion-bound, on /var/wab (LVM)"]
+    Capture --> Rec["VIDEO (RDP) / TRANSCRIPT (SSH)<br/>encrypted, Bastion-bound, on /var/wab<br/>(LVM)"]
     Capture --> Probe["Session Probe metadata (RDP)"]
     Capture --> Restr["restriction-rule events"]
     Capture --> Lifecycle["session lifecycle events"]
@@ -124,7 +124,7 @@ flowchart TD
     Restr --> Syslog
     Lifecycle --> Syslog
     Syslog --> SIEM["SIEM"]
-    Rec --> Replay["AUDITOR replay (embedded player)  /<br/>Access Manager cross-Bastion search"]
+    Rec --> Replay["AUDITOR replay (embedded player) /<br/>Access Manager cross-Bastion search"]
 ```
 
 ### The Session Probe (RDP / Windows only)
@@ -225,14 +225,14 @@ Plus:
 
 ```mermaid
 flowchart TD
-    Req["USER requests access (web or at SSH/RDP connect)"] --> Enabled{"Approval workflow enabled?"}
+    Req["USER requests access (web or at SSH/RDP<br/>connect)"] --> Enabled{"Approval workflow enabled?"}
     Enabled -->|"no"| Direct["direct access"]
     Enabled -->|"yes"| Frame{"inside time frame?"}
     Frame -->|"yes"| Inside["No approval / Automatic /<br/>Approval with quorum"]
     Frame -->|"no"| Outside["Access blocked / Automatic /<br/>Approval with quorum"]
     Inside --> Quorum{"quorum reached?"}
     Outside --> Quorum
-    Quorum -->|"no"| Pending["pending ... -> rejected / timeout -> CLOSED"]
+    Quorum -->|"no"| Pending["pending ... -> rejected / timeout -><br/>CLOSED"]
     Quorum -->|"yes"| Accepted["ACCEPTED -> session may start<br/>(Single connection? then one shot)<br/>(comment/ticket recorded; SIEM logged)"]
 ```
 

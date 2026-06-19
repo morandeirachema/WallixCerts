@@ -60,9 +60,9 @@ to prioritize study, not as a ranking of difficulty.
 ```mermaid
 flowchart TD
     title["Centrality to PAM (qualitative)<br/>Read DOWN as your study order"]
-    core["CORE<br/>Linux · Windows/AD · Networking · Crypto/PKI<br/>(the four ../prerequisites/ deep-dives)"]
-    high["HIGH<br/>Scripting/Automation · Identity stack (IAM/IGA/IDaaS/EPM)"]
-    growing["GROWING<br/>Cloud (Azure / AWS IAM, SaaS PAM, secrets mgmt)"]
+    core["CORE<br/>Linux · Windows/AD · Networking ·<br/>Crypto/PKI<br/>(the four ../prerequisites/ deep-dives)"]
+    high["HIGH<br/>Scripting/Automation · Identity stack<br/>(IAM/IGA/IDaaS/EPM)"]
+    growing["GROWING<br/>Cloud (Azure / AWS IAM, SaaS PAM,<br/>secrets mgmt)"]
 
     title --> core
     core -->|"master the CORE four first"| high

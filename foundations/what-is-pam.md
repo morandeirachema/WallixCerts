@@ -151,7 +151,7 @@ but plays a distinct, narrower, deeper role.
 
 ```mermaid
 flowchart TD
-    subgraph STACK["SECURITY STACK (simplified, top = closest to the user)"]
+    subgraph STACK["SECURITY STACK (simplified, top =<br/>closest to the user)"]
         direction TB
         GOV["GOVERNANCE — IGA / IAG<br/>'who SHOULD have access?'<br/>(access reviews, certification, SoD)"]
         IDENT["IDENTITY — IAM / IDaaS<br/>'who is this user?'<br/>SSO + MFA for the whole workforce"]
@@ -160,8 +160,8 @@ flowchart TD
             PAM["PAM<br/>session + secrets<br/>for admins/targets"]
             EPM["EPM / PEDM<br/>endpoint elevation<br/>remove local admin"]
         end
-        ENDP["ENDPOINT/NET — EDR · firewall · network segmentation"]
-        MON["MONITORING — SIEM · SOC · log correlation · alerting"]
+        ENDP["ENDPOINT/NET — EDR · firewall · network<br/>segmentation"]
+        MON["MONITORING — SIEM · SOC · log<br/>correlation · alerting"]
         GOV --- IDENT --- PRIV --- ENDP --- MON
     end
 ```

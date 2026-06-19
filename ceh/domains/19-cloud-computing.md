@@ -35,12 +35,12 @@ The single most important cloud security concept. Security responsibility is **s
 
 ```mermaid
 flowchart TD
-    subgraph Customer["Customer responsibility (security IN the cloud)"]
+    subgraph Customer["Customer responsibility (security IN the<br/>cloud)"]
         DATA["Data & classification"]
         IDENT["Identity & access (IAM)"]
         APPCFG["App / OS / network config<br/>(varies by model)"]
     end
-    subgraph Provider["Provider responsibility (security OF the cloud)"]
+    subgraph Provider["Provider responsibility (security OF the<br/>cloud)"]
         VIRT["Virtualisation / hypervisor"]
         HW["Physical hosts"]
         FAC["Facilities & physical security"]

@@ -17,12 +17,12 @@ The CEH methodology has five phases. Most tools map cleanly to one or two of the
 
 ```mermaid
 flowchart TD
-    Recon["Phase 1<br/>Reconnaissance / Footprinting"] --> OSINT["OSINT &amp; footprinting tools<br/>(Maltego, theHarvester, Recon-ng, Shodan)"]
+    Recon["Phase 1<br/>Reconnaissance / Footprinting"] --> OSINT["OSINT &amp; footprinting tools<br/>(Maltego, theHarvester, Recon-ng,<br/>Shodan)"]
     Scan["Phase 2<br/>Scanning &amp; Enumeration"] --> ScanCat["Network scanners &amp; vuln scanners<br/>(Nmap, Nessus, OpenVAS, Nikto)"]
     Scan --> Sniff["Packet capture &amp; analysis<br/>(Wireshark, tcpdump)"]
     Access["Phase 3<br/>Gaining Access"] --> Exploit["Exploitation frameworks<br/>(Metasploit Framework)"]
     Access --> WebTest["Web app testing proxies<br/>(Burp Suite, OWASP ZAP, sqlmap)"]
-    Access --> CredAttack["Credential / password attacks<br/>(Hydra, John the Ripper, Hashcat, Responder)"]
+    Access --> CredAttack["Credential / password attacks<br/>(Hydra, John the Ripper, Hashcat,<br/>Responder)"]
     Access --> Wireless["Wireless tools<br/>(Aircrack-ng suite)"]
     Maintain["Phase 4<br/>Maintaining Access"] --> Pivot["Connectivity / listeners<br/>(netcat, Metasploit Framework)"]
     Tracks["Phase 5<br/>Clearing Tracks"] --> LogCat["Log / artefact handling<br/>(see module material)"]

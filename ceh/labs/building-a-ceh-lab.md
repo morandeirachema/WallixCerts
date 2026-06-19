@@ -66,7 +66,7 @@ Use **host-only** or **internal** for everything containing a vulnerable target.
 flowchart TD
     subgraph host["Your physical computer (host)"]
         HV["Hypervisor<br/>(VirtualBox / VMware / Hyper-V)"]
-        subgraph lab["Isolated lab network (host-only / internal)"]
+        subgraph lab["Isolated lab network (host-only /<br/>internal)"]
             Attacker["Attacker VM<br/>(Kali Linux or Parrot OS)"]
             T1["Target VM<br/>(Metasploitable)"]
             T2["Target VM<br/>(DVWA / OWASP Juice Shop)"]

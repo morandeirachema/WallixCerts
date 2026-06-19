@@ -152,7 +152,7 @@ flowchart TD
     HANDS --> SNR["CISSP (senior)<br/>SANS · Pluralsight<br/>Coursera / edX"]
     WPAM --> SNR
     CLOUD --> SNR
-    REF["Reference (use throughout)<br/>MITRE ATT&CK · OWASP · NIST<br/>HackTricks · PayloadsAllTheThings · GTFOBins / LOLBAS"]
+    REF["Reference (use throughout)<br/>MITRE ATT&CK · OWASP · NIST<br/>HackTricks · PayloadsAllTheThings ·<br/>GTFOBins / LOLBAS"]
 ```
 
 ## How to choose

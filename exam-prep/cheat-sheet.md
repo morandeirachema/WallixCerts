@@ -72,7 +72,7 @@ flowchart TD
         TARGET -->|"member of"| TARGETGROUP
     end
 
-    AUTHZ["AUTHORIZATION (BINDING)<br/>ONE user grp &lt;-&gt; ONE target grp<br/>carries: Sessions | Secrets (cumulative)<br/>+ Protocols/Sub-protocols + Recording<br/>+ Session invite + Critical flag + Approval tab"]
+    AUTHZ["AUTHORIZATION (BINDING)<br/>ONE user grp &lt;-&gt; ONE target grp<br/>carries: Sessions | Secrets (cumulative)<br/>+ Protocols/Sub-protocols + Recording<br/>+ Session invite + Critical flag +<br/>Approval tab"]
 
     USERGROUP --> AUTHZ
     TARGETGROUP --> AUTHZ

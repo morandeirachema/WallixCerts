@@ -54,12 +54,12 @@ stages.
 
 ```mermaid
 flowchart LR
-    S1["1. INITIAL ACCESS<br/>phishing, stolen creds,<br/>exploit, drive-by<br/><br/>ATT&CK: TA0001 Initial Access"]
-    S2["2. CREDENTIAL THEFT<br/>dump LSASS, Mimikatz,<br/>Kerberoasting<br/><br/>ATT&CK: TA0006 Credential Access"]
-    S3["3. PRIVILEGE ESCALATION<br/>exploit / abuse token, UAC<br/>bypass, sudo misconfig<br/><br/>ATT&CK: TA0004 Privilege Escalation"]
-    S4["4. LATERAL MOVEMENT<br/>PtH / PtT to hop host to host,<br/>reuse local-admin reuse<br/><br/>ATT&CK: TA0008 Lateral Movement"]
-    S5["5. PERSISTENCE<br/>create backdoor accounts, Golden<br/>Ticket, scheduled tasks, DCSync<br/><br/>ATT&CK: TA0003 Persistence"]
-    S6["6. IMPACT<br/>ransomware, data theft,<br/>sabotage, extortion<br/><br/>ATT&CK: TA0040 Impact"]
+    S1["1. INITIAL ACCESS<br/>phishing, stolen creds,<br/>exploit, drive-by<br/>ATT&CK: TA0001 Initial Access"]
+    S2["2. CREDENTIAL THEFT<br/>dump LSASS, Mimikatz,<br/>Kerberoasting<br/>ATT&CK: TA0006 Credential Access"]
+    S3["3. PRIVILEGE ESCALATION<br/>exploit / abuse token, UAC<br/>bypass, sudo misconfig<br/>ATT&CK: TA0004 Privilege Escalation"]
+    S4["4. LATERAL MOVEMENT<br/>PtH / PtT to hop host to host,<br/>reuse local-admin reuse<br/>ATT&CK: TA0008 Lateral Movement"]
+    S5["5. PERSISTENCE<br/>create backdoor accounts, Golden<br/>Ticket, scheduled tasks, DCSync<br/>ATT&CK: TA0003 Persistence"]
+    S6["6. IMPACT<br/>ransomware, data theft,<br/>sabotage, extortion<br/>ATT&CK: TA0040 Impact"]
     S1 --> S2 --> S3 --> S4 --> S5 --> S6
 ```
 
@@ -128,12 +128,12 @@ flowchart TD
     subgraph WITHOUT["WITHOUT PAM"]
         direction TB
         WO1["Admin types target password directly"]
-        WO2["Password CACHED / hash in LSASS on endpoint"]
+        WO2["Password CACHED / hash in LSASS on<br/>endpoint"]
         WO3["[attacker phishes the endpoint]"]
-        WO4["DUMP LSASS (Mimikatz) → get hash/password"]
-        WO5["PASS-THE-HASH to next server<br/>(reused local-admin password works everywhere)"]
+        WO4["DUMP LSASS (Mimikatz) → get<br/>hash/password"]
+        WO5["PASS-THE-HASH to next server<br/>(reused local-admin password works<br/>everywhere)"]
         WO6["LATERAL MOVEMENT across the estate"]
-        WO7["reach Domain Controller → DOMAIN TAKEOVER"]
+        WO7["reach Domain Controller → DOMAIN<br/>TAKEOVER"]
         WO8["PERSISTENCE (Golden Ticket) + RANSOMWARE"]
         WOR["Result: full compromise, no audit trail"]
         WO1 --> WO2 --> WO3 --> WO4 --> WO5 --> WO6 --> WO7 --> WO8 --> WOR
@@ -145,9 +145,9 @@ flowchart TD
         WI3["[attacker phishes the endpoint]"]
         WI4["endpoint holds NO target secret →<br/>nothing useful to dump"]
         WI5["unique + ROTATED creds per target →<br/>stolen value is already worthless"]
-        WI6["every privileged hop must go through the<br/>gateway → BLOCKED / RECORDED / time-boxed"]
+        WI6["every privileged hop must go through the<br/>gateway → BLOCKED / RECORDED /<br/>time-boxed"]
         WI7["attack stalls at the endpoint; auditor<br/>sees the attempt; access auto-expires"]
-        WIR["Result: contained, attributed, reversible"]
+        WIR["Result: contained, attributed,<br/>reversible"]
         WI1 --> WI2 --> WI3 --> WI4 --> WI5 --> WI6 --> WI7 --> WIR
     end
 ```

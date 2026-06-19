@@ -227,7 +227,7 @@ plus the **REST API** that ties automation together.
 
 ```mermaid
 flowchart LR
-    subgraph wallix["WALLIX (Bastion / Access Manager / WALLIX One)"]
+    subgraph wallix["WALLIX (Bastion / Access Manager /<br/>WALLIX One)"]
         CORE["PAM engine + Access Manager"]
         API["REST API"]
     end

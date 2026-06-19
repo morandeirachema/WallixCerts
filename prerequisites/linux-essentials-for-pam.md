@@ -293,7 +293,7 @@ recording."* When in doubt, expand the acronym.
 
 ```mermaid
 flowchart LR
-    subgraph LPAM["/etc/pam.d/sshd — Linux PAM stack (one host)"]
+    subgraph LPAM["/etc/pam.d/sshd — Linux PAM stack (one<br/>host)"]
         A["pam_unix.so (password)"]
         B["pam_*_otp (2nd factor)"]
         C["pam_limits.so (resource)"]

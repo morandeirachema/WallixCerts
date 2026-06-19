@@ -139,8 +139,8 @@ flowchart LR
     Root --> DD["deep-dives/<br/>WALLIX product internals (13)"]
     Root --> CEHD["ceh/<br/>CEH v13 hub (20 modules)"]
     Root --> ADJ["adjacent-certs/<br/>Security+ · OSCP · PNPT · CISSP · Cloud"]
-    Root --> XC["learning-roadmap · attack-to-defense-matrix<br/>learning-platforms"]
-    Root --> SUP["labs/ · exam-prep/ · career/ · reference/"]
+    Root --> XC["learning-roadmap ·<br/>attack-to-defense-matrix<br/>learning-platforms"]
+    Root --> SUP["labs/ · exam-prep/ · career/ ·<br/>reference/"]
 ```
 </details>
 

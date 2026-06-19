@@ -55,8 +55,8 @@ A **checkout policy** is attached to a target account (`Targets > Checkout polic
 flowchart TD
     User["USER"] -->|"request"| Policy["CHECKOUT POLICY<br/>validates"]
     Policy -->|"lock (optional)"| Locked["ACCOUNT LOCKED"]
-    User --> Use["sees login/password/SSH key/cert<br/>uses it (duration; optional extension; max cap)"]
-    Use --> CheckIn["CHECK-IN<br/>(manual return or duration/timeout reached)"]
+    User --> Use["sees login/password/SSH key/cert<br/>uses it (duration; optional extension;<br/>max cap)"]
+    Use --> CheckIn["CHECK-IN<br/>(manual return or duration/timeout<br/>reached)"]
     Locked --> Decide
     CheckIn --> Decide{"Change password at check-in = ON?"}
     Decide -->|"yes"| Rotate["ROTATE secret on target<br/>(new secret stored in vault)"]
@@ -91,7 +91,7 @@ Three building blocks (all for **local-vault** global/local domains):
 
 ```mermaid
 flowchart TD
-    Trigger["schedule (periodicity) OR policy change OR check-in"] --> Worker["wallixcelery worker<br/>reads password change policy (complexity/keys)"]
+    Trigger["schedule (periodicity) OR policy change<br/>OR check-in"] --> Worker["wallixcelery worker<br/>reads password change policy<br/>(complexity/keys)"]
     Worker -->|"for each account with auto-change enabled<br/>generate new secret"| Attempt["attempt change"]
     Attempt -->|"1) connect AS the target acct"| Plugin["PASSWORD CHANGE PLUGIN (per device)<br/>Cisco/Windows/Unix/F5/Oracle/..."]
     Attempt -->|"2) on failure: use the RECONCILIATION account"| Plugin

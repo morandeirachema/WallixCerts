@@ -220,9 +220,9 @@ defines **administrative tiers** that must not cross:
 
 ```mermaid
 flowchart TD
-    T0["Tier 0 — Identity / control plane (highest)<br/>Domain Controllers, AD, PKI, Domain/Enterprise Admins<br/>Credentials here can control everything below"]
+    T0["Tier 0 — Identity / control plane<br/>(highest)<br/>Domain Controllers, AD, PKI,<br/>Domain/Enterprise Admins<br/>Credentials here can control everything<br/>below"]
     T1["Tier 1 — Servers and applications<br/>Member servers, databases, business apps"]
-    T2["Tier 2 — Workstations / end-user devices (lowest)<br/>Helpdesk, user PCs"]
+    T2["Tier 2 — Workstations / end-user devices<br/>(lowest)<br/>Helpdesk, user PCs"]
     T0 --> T1 --> T2
 ```
 

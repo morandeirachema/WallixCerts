@@ -179,7 +179,7 @@ flowchart TD
     PW["User-Password<br/>(padded to 16-byte blocks)"] --> X(("XOR"))
     KS --> X
     X --> HID["Hidden User-Password<br/>(this is what is sent)"]
-    Note["Longer passwords: chain —<br/>next block uses MD5(secret + previous cipher block)"]
+    Note["Longer passwords: chain —<br/>next block uses MD5(secret + previous<br/>cipher block)"]
     HID -.-> Note
 ```
 

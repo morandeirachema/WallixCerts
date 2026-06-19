@@ -232,8 +232,8 @@ job ladder in §5. (Full mechanics, exam model, and the `WCx-y` naming conventio
 ```mermaid
 flowchart LR
     wca["WCA-P — Administrator<br/>'understand & manage day-to-day'<br/>no install/deploy<br/>~ PAM Admin role"]
-    wcp["WCP-P — Professional<br/>'install, configure, deploy & administer'<br/>standard architecture<br/>~ PAM/IAM Engineer"]
-    wce["WCE-P — Expert<br/>'advanced, large-scale, complex deployments'<br/>requires prior WCP-P + GNU/Linux CLI<br/>~ moves toward Architect"]
+    wcp["WCP-P — Professional<br/>'install, configure, deploy &<br/>administer'<br/>standard architecture<br/>~ PAM/IAM Engineer"]
+    wce["WCE-P — Expert<br/>'advanced, large-scale, complex<br/>deployments'<br/>requires prior WCP-P + GNU/Linux CLI<br/>~ moves toward Architect"]
 
     wca --> wcp --> wce
 ```

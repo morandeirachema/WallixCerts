@@ -229,23 +229,23 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    Start["USER initiates connection (front leg) to Bastion"] --> S1
-    S1["[1] AUTHENTICATE the user<br/>(local/LDAP/SAML/OIDC/Kerberos/X.509 + MFA)"] -->|"fail"| Reject["reject"]
+    Start["USER initiates connection (front leg) to<br/>Bastion"] --> S1
+    S1["[1] AUTHENTICATE the user<br/>(local/LDAP/SAML/OIDC/Kerberos/X.509 +<br/>MFA)"] -->|"fail"| Reject["reject"]
     S1 --> S2["[2] Resolve the user's USER GROUP(S)"]
-    S2 --> S3["[3] Find an AUTHORIZATION whose user group covers this user<br/>AND whose target group contains the requested TARGET"]
+    S2 --> S3["[3] Find an AUTHORIZATION whose user<br/>group covers this user<br/>AND whose target group contains the<br/>requested TARGET"]
     S3 -->|"none"| Denied["ACCESS DENIED"]
-    S3 --> S4["[4] Does the authorization grant the needed RIGHT?<br/>(Sessions for a session, Secrets for a checkout)<br/>-- cumulative across auths"]
+    S3 --> S4["[4] Does the authorization grant the<br/>needed RIGHT?<br/>(Sessions for a session, Secrets for a<br/>checkout)<br/>-- cumulative across auths"]
     S4 -->|"no"| DeniedAction["denied for that action"]
-    S4 --> S5["[5] Is the requested PROTOCOL/SUB-PROTOCOL allowed?<br/>-- e.g. SSH_SCP_UP?"]
+    S4 --> S5["[5] Is the requested<br/>PROTOCOL/SUB-PROTOCOL allowed?<br/>-- e.g. SSH_SCP_UP?"]
     S5 -->|"no"| Blocked["sub-action blocked"]
     S5 --> S6{"[6] TIME FRAME check<br/>(attached to the user group)"}
     S6 -->|"inside frame"| S7a["[7a] Approval setting (inside):<br/>No approval / Automatic /<br/>Approval with quorum"]
     S6 -->|"outside frame"| S7b["[7b] Approval setting (outside):<br/>Access blocked / Automatic /<br/>Approval with quorum"]
-    S7a --> S8["[8] If quorum required: create APPROVAL REQUEST -> notify approvers<br/>(mandatory comment/ticket?) -> wait for quorum or reject/timeout"]
+    S7a --> S8["[8] If quorum required: create APPROVAL<br/>REQUEST -> notify approvers<br/>(mandatory comment/ticket?) -> wait for<br/>quorum or reject/timeout"]
     S7b --> S8
     S8 -->|"rejected/timeout"| DeniedReq["denied"]
-    S8 --> S9["[9] OPEN SESSION (back leg): obtain credential per mapping mode<br/>- account mapping: user's own credential (PASSWORD_MAPPING / VTR)<br/>- specific account: vaulted secret (PASSWORD_VAULT) &lt;-- check-out/lock<br/>- interactive: user types it (PASSWORD_INTERACTIVE)"]
-    S9 --> S10["[10] PROXY + RECORD + apply restriction rules (kill/notify, OCR) + stream to SIEM"]
+    S8 --> S9["[9] OPEN SESSION (back leg): obtain<br/>credential per mapping mode<br/>- account mapping: user's own credential<br/>(PASSWORD_MAPPING / VTR)<br/>- specific account: vaulted secret<br/>(PASSWORD_VAULT) &lt;-- check-out/lock<br/>- interactive: user types it<br/>(PASSWORD_INTERACTIVE)"]
+    S9 --> S10["[10] PROXY + RECORD + apply restriction<br/>rules (kill/notify, OCR) + stream to<br/>SIEM"]
 ```
 
 **Notes that trip people up:**

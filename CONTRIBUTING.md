@@ -57,6 +57,11 @@ Syntax rules so it renders on GitHub: quote labels containing spaces/special cha
 never use reserved words (`end`, `graph`, `subgraph`) as IDs. Leave genuine
 code/CLI/config blocks as code. Translate faithfully — never invent steps or facts.
 
+**Boxes must fit their text.** Mermaid sizes a node box to its widest line, so keep each
+node-label line short (≈ ≤ 40 characters) and **wrap long labels with `<br/>`** into a few
+short lines. Run **`python scripts/wrap-mermaid-labels.py`** to auto-wrap them; the quality
+gate (`scripts/check-docs.py`) fails on over-wide flowchart labels.
+
 ## Adding a new page
 
 1. Put it in the right section folder (`foundations/`, `prerequisites/`, `docs/`,

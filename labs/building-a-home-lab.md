@@ -80,7 +80,7 @@ flowchart TD
         BASTION1 -->|"HA Database Replication"| BASTION2
     end
 
-    subgraph TARGETS["AD domain: users, DNS, Kerberos KDC for all hosts"]
+    subgraph TARGETS["AD domain: users, DNS, Kerberos KDC for<br/>all hosts"]
         DC["Domain Controller<br/>(AD/DNS/Kerberos)<br/>Win 2016"]
         WINSRV["Windows Server 2016<br/>(RDP target / jump server)"]
         LINUX["Linux Server<br/>(SSH target)"]

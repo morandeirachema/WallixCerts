@@ -6,6 +6,8 @@ Checks, across all *.md (excluding .git / site / site-src):
   - balanced ``` code fences;
   - every ```mermaid block starts with a valid diagram type and uses no
     reserved word (end/graph/subgraph) as a node id;
+  - flowchart node-label lines fit the box (no over-wide single line — wrap
+    long labels with <br/>; run scripts/wrap-mermaid-labels.py to fix);
   - every content page has a "## Sources" section (READMEs and meta files exempt);
   - no broken internal file links or heading anchors (GitHub slug rules).
 
@@ -79,6 +81,12 @@ for f in MD:
         for line in body.splitlines():
             if re.match(r'\s*(end|subgraph|graph)\s*[\[\(]', line):
                 issues.append(f"Reserved word as Mermaid node id: {f}: {line.strip()[:40]}")
+        # Flowchart node boxes should fit their text: no over-wide single label line.
+        if first.startswith(('flowchart', 'graph')):
+            for _opener, label in re.findall(r'([\[({]+)"([^"]*)"', body):
+                for seg in label.split('<br/>'):
+                    if len(seg) > 44 and ' ' in seg.strip():
+                        issues.append(f"Over-wide Mermaid label (wrap with <br/>): {f}: {seg[:48]!r}")
 
     if os.path.basename(f) not in SOURCES_EXEMPT and not re.search(r'(?im)^#+\s*sources\b', text):
         issues.append(f"Missing Sources section: {f}")
@@ -112,4 +120,4 @@ if issues:
     sys.exit(1)
 
 print(f"✅ {len(MD)} markdown files pass: no ASCII, balanced fences, "
-      "valid Mermaid, Sources present, 0 broken links/anchors.")
+      "valid Mermaid (fit-to-text labels), Sources present, 0 broken links/anchors.")

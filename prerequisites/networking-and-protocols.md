@@ -56,13 +56,13 @@ See [../reference/acronyms.md](../reference/acronyms.md),
 
 ```mermaid
 flowchart TD
-    subgraph SESSION["SESSION protocols — Bastion PROXIES the live connection"]
-        S1["SSH (22) · RDP (3389) · VNC (5900) · Telnet (23) · RLOGIN (513)"]
-        S2["→ recorded, credential-injected, sub-protocol controlled"]
+    subgraph SESSION["SESSION protocols — Bastion PROXIES the<br/>live connection"]
+        S1["SSH (22) · RDP (3389) · VNC (5900) ·<br/>Telnet (23) · RLOGIN (513)"]
+        S2["→ recorded, credential-injected,<br/>sub-protocol controlled"]
         S1 --- S2
     end
-    subgraph INFRA["INFRASTRUCTURE protocols — Bastion RELIES on these around the session"]
-        I1["Auth / federation:<br/>LDAP (389/636) · RADIUS (1812) · TACACS+ (49) · Kerberos (88) · SAML · OIDC/OAuth2 · SCIM"]
+    subgraph INFRA["INFRASTRUCTURE protocols — Bastion<br/>RELIES on these around the session"]
+        I1["Auth / federation:<br/>LDAP (389/636) · RADIUS (1812) · TACACS+<br/>(49) · Kerberos (88) · SAML ·<br/>OIDC/OAuth2 · SCIM"]
         I2["Transport: TLS/SSL (443)"]
         I3["Ops / audit: SNMP (161) · Syslog (514)"]
     end

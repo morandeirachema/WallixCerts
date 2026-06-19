@@ -69,7 +69,7 @@ A **connection policy** is defined as the rules that apply "when the Bastion con
 flowchart LR
     FrontLeg["FRONT LEG<br/>(user -> Bastion)"] -->|"governed by"| ProxyConfig["PROXY CONFIGURATION"]
     BackLeg["BACK LEG<br/>(Bastion -> target)"] -->|"governed by"| ConnPolicy["CONNECTION POLICY"]
-    BackLeg -->|"secret from"| Vault["VAULT (PASSWORD_VAULT) / mapping / interactive"]
+    BackLeg -->|"secret from"| Vault["VAULT (PASSWORD_VAULT) / mapping /<br/>interactive"]
 ```
 
 Because the legs are decoupled, you can (for example) let a user reach the Bastion over RDP with SAML+MFA on the front leg, while the back leg uses `PASSWORD_VAULT` with a vaulted Windows account — and the user never types or sees that Windows password.
@@ -151,7 +151,7 @@ Storage sits on **LVM** under `/var/wab` (recordings, database, logs), encrypted
 
 ```mermaid
 flowchart TB
-    subgraph APPLIANCE["WALLIX BASTION APPLIANCE (Debian + LUKS at rest)"]
+    subgraph APPLIANCE["WALLIX BASTION APPLIANCE (Debian + LUKS<br/>at rest)"]
         subgraph ADMIN["ADMIN / API PLANE"]
             wabgui["wabgui (443)<br/>wabrestapi"]
             sashimi["sashimi /<br/>wallixsession"]

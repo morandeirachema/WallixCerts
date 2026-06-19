@@ -145,13 +145,13 @@ follow the signatures back up to a Root CA already in its **trust store**.
 
 ```mermaid
 flowchart TD
-    Root["Root CA (trust anchor)<br/>self-signed; pre-installed in OS/browser trust store"]
+    Root["Root CA (trust anchor)<br/>self-signed; pre-installed in OS/browser<br/>trust store"]
     Inter["Intermediate CA<br/>signed by Root; issues end-entity certs"]
-    Leaf["Leaf / End-entity certificate<br/>e.g. CN=bastion.corp.example.com (the server cert)"]
+    Leaf["Leaf / End-entity certificate<br/>e.g. CN=bastion.corp.example.com (the<br/>server cert)"]
     Root -->|signs| Inter
     Inter -->|signs| Leaf
 
-    V["VERIFICATION (client walks UP the chain):<br/>leaf signature -> valid? (checked with Intermediate's public key)<br/>intermediate -> valid? (checked with Root's public key)<br/>Root -> present in my trust store? AND<br/>each cert -> not expired? not in CRL / OCSP says 'good'? -> TRUST"]
+    V["VERIFICATION (client walks UP the<br/>chain):<br/>leaf signature -> valid? (checked with<br/>Intermediate's public key)<br/>intermediate -> valid? (checked with<br/>Root's public key)<br/>Root -> present in my trust store? AND<br/>each cert -> not expired? not in CRL /<br/>OCSP says 'good'? -> TRUST"]
     Leaf -.->|verify back up to| V
 ```
 
@@ -210,7 +210,7 @@ flowchart TD
     HMAC["HMAC-SHA1(seed, time_step)"]
     Trunc["dynamic truncation"]
     Code["6-digit code e.g. 492 731"]
-    Server["Server computes the SAME value independently and compares.<br/>Codes match (within a small time window) -> accept."]
+    Server["Server computes the SAME value<br/>independently and compares.<br/>Codes match (within a small time window)<br/>-> accept."]
     Seed --> HMAC
     Time --> HMAC
     HMAC --> Trunc

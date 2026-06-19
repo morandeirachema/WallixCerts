@@ -87,8 +87,8 @@ the other on **outbound 3307 â†’ inbound 3306**.
 
 ```mermaid
 flowchart LR
-    Primary["PRIMARY MASTER<br/>- replication installed here<br/>- ALL password actions + rotation scheduled HERE ONLY<br/>- approvals replicated<br/>MariaDB :3306"]
-    Secondary["SECONDARY MASTER<br/>- second node<br/>- own audit / session tables (not replic.)<br/>- approvals replicated<br/>MariaDB :3306"]
+    Primary["PRIMARY MASTER<br/>- replication installed here<br/>- ALL password actions + rotation<br/>scheduled HERE ONLY<br/>- approvals replicated<br/>MariaDB :3306"]
+    Secondary["SECONDARY MASTER<br/>- second node<br/>- own audit / session tables (not<br/>replic.)<br/>- approvals replicated<br/>MariaDB :3306"]
     Primary <-->|"autossh SSH :2242 tunnel<br/>repl 3307 &lt;-&gt; 3306"| Secondary
 ```
 
@@ -208,7 +208,7 @@ single entry point. Two complementary WAM mechanisms (WAM Administration Guide Â
 flowchart TD
     Browsers["browsers (HTML5)"] --> LB["Load balancer (front)"]
     LB --> WAM1["WAM node 1<br/>/var/wab/etc/wabam"]
-    LB --> WAM2["WAM node 2<br/>/var/wab/etc/wabam<br/>(HA: copy crypto.install.key, db.*, user.admin*)"]
+    LB --> WAM2["WAM node 2<br/>/var/wab/etc/wabam<br/>(HA: copy crypto.install.key, db.*,<br/>user.admin*)"]
     WAM1 --> Cluster{{"one WAM 'farm'; any node serves any user<br/>Bastion CLUSTER (same auth names)"}}
     WAM2 --> Cluster
     Cluster --> BastionA["Bastion A"]
@@ -241,10 +241,10 @@ FEWEST sessions in progress within the WAM farm.
 ```mermaid
 flowchart TD
     Healthy["Master healthy"] -->|"replication monitoring (cron / e-mail)"| OK["OK"]
-    Healthy -->|"Master fails (hardware / network / crash)"| Detect["1. Detection<br/>- bastion-replication --monitoring shows Master fault<br/>- e-mail alert ha_master_fault.txt (if notification set)"]
+    Healthy -->|"Master fails (hardware / network / crash)"| Detect["1. Detection<br/>- bastion-replication --monitoring shows<br/>Master fault<br/>- e-mail alert ha_master_fault.txt (if<br/>notification set)"]
     Detect --> Promote["2. Promote a Slave<br/>bastion-replication --elevate-master<br/>(Slave becomes the new writer)"]
-    Promote --> Redirect["3. Redirect users<br/>- point clients / WAM Bastion 'Host' to the new Master<br/>- resume password rotation / approvals on new Master"]
-    Redirect --> Recover["4. Recover old Master<br/>- rebuild as a Slave of the new Master, then<br/>bastion-replication --resync (or --dump-resync)"]
+    Promote --> Redirect["3. Redirect users<br/>- point clients / WAM Bastion 'Host' to<br/>the new Master<br/>- resume password rotation / approvals<br/>on new Master"]
+    Redirect --> Recover["4. Recover old Master<br/>- rebuild as a Slave of the new Master,<br/>then<br/>bastion-replication --resync (or<br/>--dump-resync)"]
 ```
 
 *Failover (Master/Slave example).* E-mail templates: `ha_master_fault.txt` /

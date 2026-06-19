@@ -282,7 +282,7 @@ flowchart LR
     API -->|"200 + JSON"| Pipeline
     Pipeline -->|"POST/PUT/DELETE"| API
     API -->|"201/200/204"| Pipeline
-    Pipeline --> Idempotent["idempotent: 409 on existing authz = 'already converged'"]
+    Pipeline --> Idempotent["idempotent: 409 on existing authz =<br/>'already converged'"]
 ```
 
 Practical patterns:

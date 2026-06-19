@@ -66,7 +66,7 @@ For portable, cross-cloud knowledge:
 ```mermaid
 flowchart TD
     SYSADMIN["Sysadmin /<br/>cloud admin"] --> CONCEPTS["Cloud security concepts<br/>(CCSK / CEH cloud module)"]
-    CONCEPTS --> VENDOR["Vendor exam<br/>(AZ-500 / SC-500 or AWS Security Specialty)"]
+    CONCEPTS --> VENDOR["Vendor exam<br/>(AZ-500 / SC-500 or AWS Security<br/>Specialty)"]
     CONCEPTS --> NEUTRAL["CCSP<br/>(vendor-neutral, role-based)"]
     VENDOR --> PAMCLOUD["Secure privileged<br/>cloud identities (PAM)"]
     NEUTRAL --> PAMCLOUD
