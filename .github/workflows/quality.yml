@@ -1,0 +1,21 @@
+name: Docs quality
+
+# Enforces the repo's content guarantees on every push/PR:
+#   no ASCII art, balanced fences, valid Mermaid, a Sources section per page,
+#   and zero broken internal links/anchors.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Run docs quality gate
+        run: python scripts/check-docs.py

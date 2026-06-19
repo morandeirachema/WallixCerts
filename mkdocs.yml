@@ -19,6 +19,8 @@ theme:
     - navigation.indexes
     - navigation.sections
     - navigation.top
+    - navigation.tracking
+    - toc.follow
     - content.code.copy
     - search.suggest
   palette:
@@ -50,3 +52,137 @@ markdown_extensions:
 
 plugins:
   - search
+
+# Curated learning order (friendlier than the auto/alphabetical default).
+nav:
+  - Home: README.md
+  - Learning roadmap: learning-roadmap.md
+  - Attack → Defense matrix: attack-to-defense-matrix.md
+  - Foundations:
+      - foundations/README.md
+      - What is PAM?: foundations/what-is-pam.md
+      - Privileged accounts & credentials: foundations/privileged-accounts-and-credentials.md
+      - PAM threat landscape: foundations/pam-threat-landscape.md
+      - Least privilege, JIT & Zero Trust: foundations/core-concepts-least-privilege-jit-zero-trust.md
+      - PAM vs IAM / IGA / IDaaS / EPM: foundations/pam-iam-iga-idaas-epm.md
+      - PAM market landscape: foundations/pam-market-landscape.md
+  - Prerequisites:
+      - prerequisites/README.md
+      - Linux essentials: prerequisites/linux-essentials-for-pam.md
+      - Linux CLI for WCE-P: prerequisites/linux-cli-for-wce-p.md
+      - Windows & Active Directory: prerequisites/windows-and-active-directory.md
+      - Networking & protocols: prerequisites/networking-and-protocols.md
+      - Cryptography & PKI: prerequisites/cryptography-and-pki.md
+  - Protocols:
+      - protocols/README.md
+      - Kerberos: protocols/kerberos.md
+      - Active Directory: protocols/active-directory.md
+      - LDAP: protocols/ldap.md
+      - RADIUS: protocols/radius.md
+      - TLS: protocols/tls.md
+      - SSH: protocols/ssh.md
+      - SAML: protocols/saml.md
+      - OIDC / OAuth 2.0: protocols/oidc-oauth2.md
+  - WALLIX / PAM:
+      - Certification framework: docs/00-overview/certification-framework.md
+      - Product portfolio: docs/00-overview/product-portfolio.md
+      - PAM / Bastion track:
+          - docs/pam-bastion/README.md
+          - WCA-P — Administrator: docs/pam-bastion/wca-p-administrator.md
+          - WCP-P — Professional: docs/pam-bastion/wcp-p-professional.md
+          - WCE-P — Expert: docs/pam-bastion/wce-p-expert.md
+      - OT track (eWCP-P-OT): docs/ot-pam4ot/ewcp-p-ot-professional.md
+      - IDaaS track (eWCP-I): docs/idaas/ewcp-i-professional.md
+      - IAG track:
+          - docs/iag/README.md
+          - WCP-G — Professional: docs/iag/ewcp-g-professional.md
+          - WCA-G — Administrator (soon): docs/iag/wca-g-administrator.md
+      - Deep dives:
+          - deep-dives/README.md
+          - Bastion architecture: deep-dives/bastion-architecture.md
+          - Bastion data model: deep-dives/bastion-data-model.md
+          - Session management: deep-dives/session-management.md
+          - Secrets & password management: deep-dives/secrets-and-password-management.md
+          - Authentication & Access Manager: deep-dives/authentication-and-access-manager.md
+          - High availability & DR: deep-dives/high-availability-and-dr.md
+          - REST API & automation: deep-dives/rest-api-and-automation.md
+          - Troubleshooting & logs: deep-dives/troubleshooting-and-logs.md
+          - PAM4OT (OT): deep-dives/pam4ot-operational-technology.md
+          - IDaaS / Trustelem: deep-dives/idaas-trustelem.md
+          - IAG — Identity & Access Governance: deep-dives/iag-identity-governance.md
+          - EPM / BestSafe: deep-dives/epm-bestsafe.md
+          - WALLIX One & integrations: deep-dives/wallix-one-and-integrations.md
+      - Labs:
+          - labs/README.md
+          - Build a home lab: labs/building-a-home-lab.md
+          - Hands-on exercises: labs/hands-on-exercises.md
+      - Exam prep:
+          - exam-prep/README.md
+          - Study plan: exam-prep/study-plan.md
+          - Practice questions: exam-prep/practice-questions.md
+          - Cheat sheet: exam-prep/cheat-sheet.md
+      - Career:
+          - career/README.md
+          - Sysadmin → PAM roadmap: career/sysadmin-to-pam-roadmap.md
+          - Skills & adjacent certs: career/skills-and-adjacent-certifications.md
+      - Reference:
+          - reference/README.md
+          - Glossary: reference/glossary.md
+          - Acronyms: reference/acronyms.md
+          - Compliance & standards: reference/compliance-and-standards.md
+          - Sources: reference/sources.md
+  - CEH (Certified Ethical Hacker):
+      - ceh/README.md
+      - Overview:
+          - What is CEH: ceh/00-overview/what-is-ceh.md
+          - Exam & eligibility: ceh/00-overview/exam-and-eligibility.md
+          - The 5 phases: ceh/00-overview/five-phases-of-hacking.md
+          - Legal & ethics: ceh/00-overview/legal-and-ethics.md
+          - AI in ethical hacking: ceh/00-overview/ai-in-ethical-hacking.md
+          - Engagement methodology & reporting: ceh/00-overview/engagement-methodology-and-reporting.md
+      - The 20 modules:
+          - ceh/domains/README.md
+          - 01 · Introduction to ethical hacking: ceh/domains/01-introduction-to-ethical-hacking.md
+          - 02 · Footprinting & reconnaissance: ceh/domains/02-footprinting-and-reconnaissance.md
+          - 03 · Scanning networks: ceh/domains/03-scanning-networks.md
+          - 04 · Enumeration: ceh/domains/04-enumeration.md
+          - 05 · Vulnerability analysis: ceh/domains/05-vulnerability-analysis.md
+          - 06 · System hacking: ceh/domains/06-system-hacking.md
+          - 07 · Malware threats: ceh/domains/07-malware-threats.md
+          - 08 · Sniffing: ceh/domains/08-sniffing.md
+          - 09 · Social engineering: ceh/domains/09-social-engineering.md
+          - 10 · Denial-of-service: ceh/domains/10-denial-of-service.md
+          - 11 · Session hijacking: ceh/domains/11-session-hijacking.md
+          - 12 · Evading IDS, firewalls & honeypots: ceh/domains/12-evading-ids-firewalls-honeypots.md
+          - 13 · Hacking web servers: ceh/domains/13-hacking-web-servers.md
+          - 14 · Hacking web applications: ceh/domains/14-hacking-web-applications.md
+          - 15 · SQL injection: ceh/domains/15-sql-injection.md
+          - 16 · Hacking wireless networks: ceh/domains/16-hacking-wireless-networks.md
+          - 17 · Hacking mobile platforms: ceh/domains/17-hacking-mobile-platforms.md
+          - 18 · IoT & OT hacking: ceh/domains/18-iot-and-ot-hacking.md
+          - 19 · Cloud computing: ceh/domains/19-cloud-computing.md
+          - 20 · Cryptography: ceh/domains/20-cryptography.md
+      - Tools by phase: ceh/tools/tools-by-phase.md
+      - Labs:
+          - Build a CEH lab: ceh/labs/building-a-ceh-lab.md
+          - Practice ranges: ceh/labs/practice-ranges.md
+      - Exam prep:
+          - Study plan: ceh/exam-prep/study-plan.md
+          - Practice questions: ceh/exam-prep/practice-questions.md
+          - Cheat sheet: ceh/exam-prep/cheat-sheet.md
+      - Career & adjacent certs: ceh/career/ceh-career-and-adjacent-certs.md
+      - Reference:
+          - Glossary: ceh/reference/glossary.md
+          - Acronyms: ceh/reference/acronyms.md
+  - Adjacent certifications:
+      - adjacent-certs/README.md
+      - CompTIA Security+: adjacent-certs/security-plus.md
+      - OSCP: adjacent-certs/oscp.md
+      - PNPT: adjacent-certs/pnpt.md
+      - CISSP: adjacent-certs/cissp.md
+      - Cloud security: adjacent-certs/cloud-security.md
+  - About:
+      - Contributing: CONTRIBUTING.md
+      - Maintenance & verification: MAINTENANCE.md
+      - Security & responsible use: SECURITY.md
+      - Changelog: CHANGELOG.md

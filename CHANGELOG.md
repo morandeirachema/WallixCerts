@@ -3,6 +3,23 @@
 Notable changes to this study repo. Dates are when the work landed on `main`.
 This is a documentation repo, so "changes" are content additions and corrections.
 
+## 2026-06-19
+
+### Added
+- **Protocol mechanism deep dives** (`protocols/`): Kerberos, Active Directory, LDAP,
+  RADIUS, TLS, SSH, SAML, and OIDC/OAuth 2.0 — message flows, what's signed/encrypted and
+  how, grounded in the RFCs with Mermaid sequence diagrams.
+- **[Attack → Defense matrix](attack-to-defense-matrix.md)** — maps CEH attack techniques
+  (with MITRE ATT&CK IDs) to the PAM/WALLIX controls that mitigate them; bridges the hubs.
+- **CI quality gate** — `scripts/check-docs.py` + `.github/workflows/quality.yml` enforce
+  no ASCII art, valid Mermaid, a Sources section per page, and zero broken internal
+  links/anchors on every push; `external-links.yml` checks URL rot weekly.
+- **Curated MkDocs navigation**, `SECURITY.md`, issue/PR templates, and `MAINTENANCE.md`.
+- Cross-links between the WALLIX and CEH glossaries/acronyms.
+
+### Changed
+- `protocols/` index, the root README, and the learning roadmap updated for the new pages.
+
 ## 2026-06-18
 
 ### Added

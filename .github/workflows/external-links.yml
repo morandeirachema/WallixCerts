@@ -1,0 +1,24 @@
+name: External link check
+
+# Internal links/anchors are gated on every push by quality.yml (scripts/check-docs.py).
+# This job checks EXTERNAL URLs (RFCs, vendor docs, etc.) for rot — weekly and on demand.
+# It is non-blocking (fail: false) so transient/rate-limited failures don't break the repo.
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # Mondays 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check external links with lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --exclude-path site
+            --exclude-path site-src
+            './**/*.md'
+          fail: false

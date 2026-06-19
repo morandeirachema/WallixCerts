@@ -46,7 +46,9 @@ flowchart TD
 A PAM engineer who understands the [attack chain](ceh/domains/01-introduction-to-ethical-hacking.md)
 and [credential attacks](foundations/pam-threat-landscape.md) configures better controls; a
 pentester who understands [how PAM brokers and records sessions](deep-dives/bastion-architecture.md)
-writes more useful findings. The two hubs are deliberately cross-linked.
+writes more useful findings. The two hubs are deliberately cross-linked — see the
+**[attack → defense matrix](attack-to-defense-matrix.md)** for the concrete mapping of
+attack techniques to the controls that stop them.
 
 ## Sources
 

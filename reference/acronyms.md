@@ -1,5 +1,8 @@
 # Acronyms Reference
 
+> 🔁 This is the **WALLIX / PAM** acronym list. For attack/offensive acronyms, see the
+> [CEH acronyms reference](../ceh/reference/acronyms.md).
+
 A comprehensive, exam-oriented reference of the acronyms you will meet across WALLIX
 certifications, Privileged Access Management (PAM), the wider identity-security stack,
 the protocols and cryptography underneath it, Operational Technology (OT), and the

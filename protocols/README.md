@@ -18,6 +18,9 @@ and a sysadmin all need to reason about — they show up across the
 | [LDAP](ldap.md) | Directory access & queries | The DIT, DN/RDN, bind methods (simple/SASL), search; LDAPS vs StartTLS |
 | [RADIUS](radius.md) | AAA (network access) | Access-Request/Accept/Reject, the shared secret, **why only the password is obfuscated**, RadSec/EAP |
 | [TLS](tls.md) | Transport encryption | The 1.2 vs 1.3 handshake, ECDHE key agreement → HKDF → AEAD, Perfect Forward Secrecy, cert validation |
+| [SSH](ssh.md) | Secure remote shell & tunneling | 3-layer model, ECDH key exchange, host-key trust (TOFU), publickey auth, channels |
+| [SAML](saml.md) | Web SSO federation (enterprise) | IdP/SP model, signed assertions, SP- vs IdP-initiated, XML Signature/Encryption |
+| [OIDC / OAuth 2.0](oidc-oauth2.md) | Token-based auth & authorization | Authorization Code + PKCE, JWTs (JWS/JWE), access/ID/refresh tokens |
 
 ## How they fit together
 
@@ -28,6 +31,9 @@ flowchart LR
     LDAP -->|"confidentiality via"| TLS["TLS<br/>(transport encryption)"]
     RADIUS["RADIUS<br/>(AAA)"] -->|"hardened via RadSec ="| TLS
     KRB -.->|"SASL / GSSAPI bind"| LDAP
+    SSH["SSH<br/>(remote shell)"] -.->|"GSSAPI"| KRB
+    SAML["SAML<br/>(web SSO)"] -->|"transported over"| TLS
+    OIDC["OIDC / OAuth 2.0<br/>(token SSO)"] -->|"transported over"| TLS
 ```
 
 Active Directory **is** a directory service that combines Kerberos (authentication), LDAP

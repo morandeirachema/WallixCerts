@@ -67,6 +67,9 @@ pages — all built to the same standards (Mermaid diagrams, source-grounded, no
   Security+, OSCP / PNPT, CISSP, and cloud security (Azure AZ-500 / AWS).
 - 🗺️ **[Learning roadmap](learning-roadmap.md)** — how foundations, WALLIX/PAM, CEH, and the
   adjacent certs fit into one cyber-career path.
+- ⚔️ **[Attack → Defense matrix](attack-to-defense-matrix.md)** — maps common attack
+  techniques (from CEH, with MITRE ATT&CK IDs) to the PAM/WALLIX controls that stop them.
+  The concrete bridge between the offensive and defensive hubs.
 
 ## 🎓 The WALLIX certification framework
 

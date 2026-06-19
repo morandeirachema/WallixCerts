@@ -1,5 +1,8 @@
 # Glossary
 
+> 🔁 This is the **WALLIX / PAM** glossary. For offensive / ethical-hacking terms, see the
+> [CEH glossary](../ceh/reference/glossary.md) — the two are complementary, not duplicated.
+
 An alphabetical glossary of Privileged Access Management (PAM), identity and broader
 cybersecurity terms, each defined **in PAM context** for a sysadmin starting a career in
 access security with WALLIX. Where a term is treated in depth elsewhere in this repo, the
