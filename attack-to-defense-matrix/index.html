@@ -1,0 +1,5233 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Source-grounded study notes for WALLIX/PAM, CEH, and adjacent cybersecurity certifications.">
+      
+      
+      
+      
+        <link rel="prev" href="../learning-roadmap/">
+      
+      
+        <link rel="next" href="../foundations/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Attack → Defense matrix - WallixCerts — PAM & Cybersecurity Certification Study Hub</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#attack-to-defense-matrix-mapping-ceh-attacks-to-pamwallix-controls" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="WallixCerts — PAM &amp; Cybersecurity Certification Study Hub" class="md-header__button md-logo" aria-label="WallixCerts — PAM & Cybersecurity Certification Study Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WallixCerts — PAM & Cybersecurity Certification Study Hub
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Attack → Defense matrix
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/morandeirachema/WallixCerts" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    morandeirachema/WallixCerts
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="WallixCerts — PAM &amp; Cybersecurity Certification Study Hub" class="md-nav__button md-logo" aria-label="WallixCerts — PAM & Cybersecurity Certification Study Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    WallixCerts — PAM & Cybersecurity Certification Study Hub
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/morandeirachema/WallixCerts" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    morandeirachema/WallixCerts
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learning-roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attack → Defense matrix
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attack → Defense matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-attack-chain-with-defensive-interventions-overlaid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The attack chain with defensive interventions overlaid
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-mapping-table-credential-centric-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Mapping table — credential-centric attacks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-mapping-table-access-movement-escalation-and-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Mapping table — access, movement, escalation and persistence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-which-controls-are-wallix-features-vs-general-best-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Which controls are WALLIX features vs general best practice?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-defence-in-depth-the-closing-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Defence-in-depth — the closing note
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See also
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../foundations/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../foundations/what-is-pam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What is PAM?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../foundations/privileged-accounts-and-credentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privileged accounts & credentials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../foundations/pam-threat-landscape/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PAM threat landscape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../foundations/core-concepts-least-privilege-jit-zero-trust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Least privilege, JIT & Zero Trust
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../foundations/pam-iam-iga-idaas-epm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PAM vs IAM / IGA / IDaaS / EPM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../foundations/pam-market-landscape/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PAM market landscape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../prerequisites/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prerequisites
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prerequisites
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/linux-essentials-for-pam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux essentials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/linux-cli-for-wce-p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux CLI for WCE-P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/windows-and-active-directory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows & Active Directory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/networking-and-protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking & protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prerequisites/cryptography-and-pki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cryptography & PKI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../protocols/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocols
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Protocols
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protocols/kerberos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kerberos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protocols/active-directory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Active Directory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protocols/ldap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protocols/radius/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RADIUS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protocols/tls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protocols/ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SSH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protocols/saml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protocols/oidc-oauth2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OIDC / OAuth 2.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX / PAM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    WALLIX / PAM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs/00-overview/certification-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Certification framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs/00-overview/product-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../docs/pam-bastion/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PAM / Bastion track
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    PAM / Bastion track
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs/pam-bastion/wca-p-administrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WCA-P — Administrator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs/pam-bastion/wcp-p-professional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WCP-P — Professional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs/pam-bastion/wce-p-expert/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WCE-P — Expert
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs/ot-pam4ot/ewcp-p-ot-professional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OT track (eWCP-P-OT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs/idaas/ewcp-i-professional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IDaaS track (eWCP-I)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../docs/iag/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAG track
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_6" id="__nav_7_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IAG track
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs/iag/ewcp-g-professional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WCP-G — Professional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs/iag/wca-g-administrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WCA-G — Administrator (soon)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../deep-dives/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep dives
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_7" id="__nav_7_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep dives
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep-dives/bastion-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bastion architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep-dives/bastion-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bastion data model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep-dives/session-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep-dives/secrets-and-password-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secrets & password management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep-dives/authentication-and-access-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication & Access Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep-dives/high-availability-and-dr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High availability & DR
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep-dives/rest-api-and-automation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST API & automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep-dives/troubleshooting-and-logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting & logs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep-dives/pam4ot-operational-technology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PAM4OT (OT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep-dives/idaas-trustelem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IDaaS / Trustelem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep-dives/iag-identity-governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IAG — Identity & Access Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep-dives/epm-bestsafe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EPM / BestSafe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deep-dives/wallix-one-and-integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX One & integrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../labs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_8" id="__nav_7_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/building-a-home-lab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build a home lab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../labs/hands-on-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hands-on exercises
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../exam-prep/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam prep
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_9" id="__nav_7_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exam prep
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exam-prep/study-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exam-prep/practice-questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practice questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exam-prep/cheat-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheat sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../career/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Career
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_10" id="__nav_7_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Career
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../career/sysadmin-to-pam-roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sysadmin → PAM roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../career/skills-and-adjacent-certifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills & adjacent certs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_11" id="__nav_7_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/acronyms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acronyms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/compliance-and-standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compliance & standards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ceh/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CEH (Certified Ethical Hacker)
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CEH (Certified Ethical Hacker)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/00-overview/what-is-ceh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What is CEH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/00-overview/exam-and-eligibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam & eligibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/00-overview/five-phases-of-hacking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The 5 phases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/00-overview/legal-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal & ethics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/00-overview/ai-in-ethical-hacking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI in ethical hacking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/00-overview/engagement-methodology-and-reporting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engagement methodology & reporting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ceh/domains/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The 20 modules
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The 20 modules
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/01-introduction-to-ethical-hacking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Introduction to ethical hacking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/02-footprinting-and-reconnaissance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Footprinting & reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/03-scanning-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Scanning networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/04-enumeration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Enumeration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/05-vulnerability-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Vulnerability analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/06-system-hacking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · System hacking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/07-malware-threats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Malware threats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/08-sniffing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Sniffing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/09-social-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Social engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/10-denial-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Denial-of-service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/11-session-hijacking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11 · Session hijacking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/12-evading-ids-firewalls-honeypots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 · Evading IDS, firewalls & honeypots
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/13-hacking-web-servers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13 · Hacking web servers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/14-hacking-web-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14 · Hacking web applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/15-sql-injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15 · SQL injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/16-hacking-wireless-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16 · Hacking wireless networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/17-hacking-mobile-platforms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17 · Hacking mobile platforms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/18-iot-and-ot-hacking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18 · IoT & OT hacking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/19-cloud-computing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19 · Cloud computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/domains/20-cryptography/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20 · Cryptography
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/tools/tools-by-phase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools by phase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_5" id="__nav_8_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/labs/building-a-ceh-lab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Build a CEH lab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/labs/practice-ranges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practice ranges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam prep
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exam prep
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/exam-prep/study-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/exam-prep/practice-questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practice questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/exam-prep/cheat-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheat sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/career/ceh-career-and-adjacent-certs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Career & adjacent certs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_8" id="__nav_8_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/reference/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ceh/reference/acronyms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acronyms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../adjacent-certs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adjacent certifications
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Adjacent certifications
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adjacent-certs/security-plus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CompTIA Security+
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adjacent-certs/oscp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OSCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adjacent-certs/pnpt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PNPT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adjacent-certs/cissp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CISSP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adjacent-certs/cloud-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAINTENANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maintenance & verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SECURITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security & responsible use
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CHANGELOG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-attack-chain-with-defensive-interventions-overlaid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The attack chain with defensive interventions overlaid
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-mapping-table-credential-centric-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Mapping table — credential-centric attacks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-mapping-table-access-movement-escalation-and-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Mapping table — access, movement, escalation and persistence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-which-controls-are-wallix-features-vs-general-best-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Which controls are WALLIX features vs general best practice?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-defence-in-depth-the-closing-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Defence-in-depth — the closing note
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See also
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="attack-to-defense-matrix-mapping-ceh-attacks-to-pamwallix-controls">Attack-to-Defense Matrix — Mapping CEH Attacks to PAM/WALLIX Controls<a class="headerlink" href="#attack-to-defense-matrix-mapping-ceh-attacks-to-pamwallix-controls" title="Permanent link">&para;</a></h1>
+<p>This page is the <strong>bridge between the two hubs</strong> of this repository: the <strong>offensive
+hub</strong> (the <a href="../ceh/">Certified Ethical Hacker (CEH) program</a>) and the <strong>defensive
+hub</strong> (the <a href="../">WALLIX / Privileged Access Management material</a>). It takes the
+attack techniques a CEH candidate studies and maps each one to the <strong>Privileged Access
+Management (PAM)</strong> and endpoint controls that blunt it — citing the relevant
+<strong>MITRE ATT&amp;CK</strong> technique IDs and linking back into both hubs.</p>
+<p>It deliberately follows, and does not contradict, the
+<a href="../foundations/pam-threat-landscape/">PAM threat landscape</a> page, which already lays out
+the attack chain and the headline credential-centric techniques. Where this page adds
+value is breadth (more techniques) and <strong>cross-linking</strong>: every row points you to the
+CEH page that explains the <em>attack</em> and the WALLIX/foundations page that explains the
+<em>defence</em>.</p>
+<blockquote>
+<p><strong>Honest framing.</strong> Some controls below are <strong>WALLIX-specific features</strong> (e.g. credential
+injection on the back leg, the Session Probe, change-on-check-in rotation). Others are
+<strong>general best practice</strong> that PAM supports but does not own (MFA, network segmentation,
+AD hardening, SIEM detection). Each row says which is which. PAM is one layer of
+<strong>defence-in-depth</strong>, not a silver bullet — see the closing note.</p>
+</blockquote>
+<h2 id="learning-objectives">Learning objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
+<p>After working through this page you should be able to:</p>
+<ul>
+<li>Walk the <strong>attack chain</strong> — initial access → credential theft → privilege escalation →
+  lateral movement → persistence → impact — and name a defensive intervention at each stage.</li>
+<li>Map at least ten <strong>MITRE ATT&amp;CK</strong> techniques (credential dumping, Pass-the-Hash,
+  Pass-the-Ticket, Kerberoasting, Golden/Silver Ticket, phishing, valid accounts, remote
+  services, privilege escalation, account manipulation/creation) to concrete controls.</li>
+<li>Distinguish a <strong>WALLIX Bastion / BestSafe feature</strong> from a <strong>general best-practice
+  control</strong> for each mapping.</li>
+<li>Explain <em>why</em> keeping the target secret off the endpoint (vault + injection), rotating
+  it aggressively, brokering every hop, and recording everything breaks the middle of the
+  attack chain.</li>
+<li>Use this page as an index into both the CEH domain pages and the WALLIX deep-dives.</li>
+</ul>
+<hr />
+<h2 id="1-the-attack-chain-with-defensive-interventions-overlaid">1. The attack chain with defensive interventions overlaid<a class="headerlink" href="#1-the-attack-chain-with-defensive-interventions-overlaid" title="Permanent link">&para;</a></h2>
+<p>The flowchart below is the kill-chain from the
+<a href="../foundations/pam-threat-landscape/#2-the-attack-chain-kill-chain">PAM threat landscape</a>
+(stages and ATT&amp;CK tactics unchanged), with the <strong>defensive interventions</strong> that fire at
+each stage drawn alongside. The middle stages (credential theft → persistence) are where
+PAM does most of its work; the bookends (initial access, impact) lean more on general
+controls.</p>
+<pre class="mermaid"><code>flowchart TB
+    S1["1. INITIAL ACCESS&lt;br/&gt;phishing, stolen creds, exploit&lt;br/&gt;(TA0001)"]
+    S2["2. CREDENTIAL THEFT&lt;br/&gt;dump LSASS, Mimikatz, Kerberoasting&lt;br/&gt;(TA0006)"]
+    S3["3. PRIVILEGE ESCALATION&lt;br/&gt;token abuse, UAC bypass, sudo misconfig&lt;br/&gt;(TA0004)"]
+    S4["4. LATERAL MOVEMENT&lt;br/&gt;PtH / PtT, RDP/SSH reuse&lt;br/&gt;(TA0008)"]
+    S5["5. PERSISTENCE&lt;br/&gt;backdoor accounts, Golden Ticket, DCSync&lt;br/&gt;(TA0003)"]
+    S6["6. IMPACT&lt;br/&gt;ransomware, data theft, sabotage&lt;br/&gt;(TA0040)"]
+    S1 --&gt; S2 --&gt; S3 --&gt; S4 --&gt; S5 --&gt; S6
+
+    D1["Gateway + MFA; no target password to phish&lt;br/&gt;(it lives in the vault). User awareness training."]
+    D2["Credential injection: target secret never lands&lt;br/&gt;on the endpoint. Aggressive rotation voids any scrape."]
+    D3["Least privilege / JIT; remove local admin (EPM);&lt;br/&gt;app-level (not user-level) elevation."]
+    D4["Brokered, recorded sessions are the only path;&lt;br/&gt;unique + rotated creds per host kill hash/ticket reuse."]
+    D5["No standing Domain-Admin to steal; approval + recording&lt;br/&gt;make new accounts visible. AD hardening (general)."]
+    D6["Session kill + restriction rules; anti-ransomware (EPM);&lt;br/&gt;backups + segmentation (general). Full audit trail."]
+
+    S1 -. "defence" .-&gt; D1
+    S2 -. "defence" .-&gt; D2
+    S3 -. "defence" .-&gt; D3
+    S4 -. "defence" .-&gt; D4
+    S5 -. "defence" .-&gt; D5
+    S6 -. "defence" .-&gt; D6</code></pre>
+<blockquote>
+<p><strong>The one sentence to remember</strong> (from the threat-landscape page): <em>PAM breaks the
+attack chain at stages 2-5 by keeping the credential out of the attacker's reach (vault
++ injection), making any stolen secret short-lived (rotation), forcing every privileged
+hop through a recorded gateway (brokering + JIT), and making everything auditable
+(non-repudiation).</em></p>
+</blockquote>
+<hr />
+<h2 id="2-mapping-table-credential-centric-attacks">2. Mapping table — credential-centric attacks<a class="headerlink" href="#2-mapping-table-credential-centric-attacks" title="Permanent link">&para;</a></h2>
+<p>These are the attacks that turn on a <strong>usable secret</strong> (hash, ticket, or password). They
+are the heart of the CEH <a href="../ceh/domains/06-system-hacking/">System Hacking</a> module and the
+PAM thesis: remove the secret from the endpoint, rotate it constantly, and most of them
+collapse.</p>
+<table>
+<thead>
+<tr>
+<th>Attack technique</th>
+<th>What it does</th>
+<th>MITRE ATT&amp;CK ID</th>
+<th>How PAM/WALLIX (+ general controls) mitigate it</th>
+<th>Learn more</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Credential dumping / LSASS (Mimikatz)</strong></td>
+<td>Scrapes password hashes, tickets and plaintext from the Windows <strong>LSASS</strong> process memory on a host the attacker controls.</td>
+<td><a href="https://attack.mitre.org/techniques/T1003/001/">T1003.001</a> (OS Credential Dumping: LSASS Memory), parent <a href="https://attack.mitre.org/techniques/T1003/">T1003</a></td>
+<td><strong>WALLIX:</strong> credential injection on the back leg means the <strong>target password never lands on the admin's endpoint</strong> — there is little of value to dump; frequent <strong>rotation</strong> voids anything scraped. <strong>General:</strong> Credential Guard, attack-surface-reduction rules, EDR.</td>
+<td>Attack: <a href="../ceh/domains/06-system-hacking/#1-gaining-access">System hacking — credential dumping / Mimikatz</a>. Defence: <a href="../deep-dives/bastion-architecture/#1-the-proxygateway-model--why-a-bastion-exists">Bastion architecture — the proxy/gateway model</a>, <a href="../deep-dives/secrets-and-password-management/">Secrets &amp; password management</a></td>
+</tr>
+<tr>
+<td><strong>Pass-the-Hash (PtH)</strong></td>
+<td>Authenticates using a stolen <strong>NTLM hash</strong> without ever cracking it — the hash is the key, enabling lateral movement.</td>
+<td><a href="https://attack.mitre.org/techniques/T1550/002/">T1550.002</a> (Use Alternate Authentication Material: Pass the Hash)</td>
+<td><strong>WALLIX:</strong> no standing local-admin secret on endpoints; <strong>unique, rotated</strong> credentials per account/host stop hash reuse across machines; <strong>BestSafe</strong> removes local admin and rotates each local password per machine/per day. <strong>General:</strong> disable NTLM where possible, Protected Users group, AD tiering.</td>
+<td>Attack: <a href="../protocols/active-directory/#7-authentication-ntlm-legacy">Active Directory — pass-the-hash</a>. Defence: <a href="../deep-dives/epm-bestsafe/#3-key-features">EPM / BestSafe</a>, <a href="../foundations/pam-threat-landscape/#4-map-to-mitre-attck--how-pam-mitigates-each">Threat landscape — PtH row</a></td>
+</tr>
+<tr>
+<td><strong>Pass-the-Ticket (PtT)</strong></td>
+<td>Replays a stolen <strong>Kerberos ticket</strong> (TGT/TGS) extracted from memory to impersonate a user without the password, until the ticket expires.</td>
+<td><a href="https://attack.mitre.org/techniques/T1550/003/">T1550.003</a> (Use Alternate Authentication Material: Pass the Ticket)</td>
+<td><strong>WALLIX:</strong> sessions are <strong>brokered and time-boxed (JIT)</strong>; short-lived access plus recording limit ticket reuse and make abuse visible. <strong>General:</strong> short ticket lifetimes, Credential Guard, AD tiering.</td>
+<td>Attack: <a href="../protocols/kerberos/#security-notes--common-attacks">Kerberos — pass-the-ticket</a>. Defence: <a href="../deep-dives/session-management/">Session management</a>, <a href="../foundations/core-concepts-least-privilege-jit-zero-trust/#just-in-time-jit-access">Core concepts — JIT / ZSP</a></td>
+</tr>
+<tr>
+<td><strong>Kerberoasting</strong></td>
+<td>Requests service tickets (TGS) for <strong>service accounts</strong> by their SPN, then cracks them <strong>offline</strong> to recover the service-account password.</td>
+<td><a href="https://attack.mitre.org/techniques/T1558/003/">T1558.003</a> (Steal or Forge Kerberos Tickets: Kerberoasting)</td>
+<td><strong>WALLIX:</strong> the <strong>vault + automatic rotation</strong> give service accounts <strong>long (≥16-char), random, frequently-changed</strong> passwords that cannot be cracked offline in time; <strong>AAPM/WAAPM</strong> removes hard-coded service passwords from scripts. <strong>General:</strong> group Managed Service Accounts (gMSA), AES etypes (disable RC4).</td>
+<td>Attack: <a href="../protocols/kerberos/#security-notes--common-attacks">Kerberos — Kerberoasting</a>. Defence: <a href="../deep-dives/secrets-and-password-management/#3-secret-rotation-and-password-change-policies">Secrets &amp; password management — rotation</a>, <a href="../deep-dives/secrets-and-password-management/#7-aapm--waapm--application-to-application-secret-retrieval">AAPM/WAAPM</a></td>
+</tr>
+<tr>
+<td><strong>Golden Ticket</strong></td>
+<td>Forges a TGT using the AD <strong>krbtgt</strong> key — near-unlimited, long-lived domain access. A <strong>post-Domain-Admin</strong> technique.</td>
+<td><a href="https://attack.mitre.org/techniques/T1558/001/">T1558.001</a> (Steal or Forge Kerberos Tickets: Golden Ticket)</td>
+<td><strong>WALLIX (indirect):</strong> PAM does not forge-proof Kerberos, but by <strong>preventing the Domain-Admin compromise</strong> that enables krbtgt theft (no standing DA, brokered + recorded access) it removes the precondition. <strong>General (primary):</strong> rotate <code>krbtgt</code> twice, AD tiering, monitor anomalous tickets.</td>
+<td>Attack: <a href="../protocols/kerberos/#security-notes--common-attacks">Kerberos — golden/silver tickets</a>, <a href="../protocols/active-directory/#security-notes--common-attacks">Active Directory — golden ticket</a>. Defence: <a href="../foundations/pam-threat-landscape/#4-map-to-mitre-attck--how-pam-mitigates-each">Threat landscape — honest framing</a></td>
+</tr>
+<tr>
+<td><strong>Silver Ticket</strong></td>
+<td>Forges a TGS for <strong>one specific service</strong> using that service's key — quieter, scoped to a single service/host.</td>
+<td><a href="https://attack.mitre.org/techniques/T1558/002/">T1558.002</a> (Steal or Forge Kerberos Tickets: Silver Ticket)</td>
+<td><strong>WALLIX (indirect):</strong> rotating the <strong>service account's</strong> password (and hence its Kerberos key) via the vault invalidates a forged silver ticket; brokered access limits the service-key theft that precedes it. <strong>General (primary):</strong> rotate service keys, AES etypes, monitor.</td>
+<td>Attack: <a href="../protocols/kerberos/#security-notes--common-attacks">Kerberos — golden/silver tickets</a>. Defence: <a href="../deep-dives/secrets-and-password-management/#3-secret-rotation-and-password-change-policies">Secrets &amp; password management — rotation</a></td>
+</tr>
+<tr>
+<td><strong>DCSync</strong></td>
+<td>Impersonates a domain controller to pull password hashes (incl. <code>krbtgt</code>) via directory replication — enables Golden Ticket.</td>
+<td><a href="https://attack.mitre.org/techniques/T1003/006/">T1003.006</a> (OS Credential Dumping: DCSync)</td>
+<td><strong>WALLIX (indirect):</strong> blocking the path to high-privilege accounts (no standing DA, brokered + recorded access) denies the replication rights DCSync needs. <strong>General (primary):</strong> restrict replication rights, AD tiering, monitor <code>DRSGetNCChanges</code>.</td>
+<td>Attack: <a href="../protocols/active-directory/#security-notes--common-attacks">Active Directory — DCSync/DCShadow</a>. Defence: <a href="../foundations/pam-threat-landscape/#4-map-to-mitre-attck--how-pam-mitigates-each">Threat landscape — DCSync row</a></td>
+</tr>
+<tr>
+<td><strong>Offline password / hash cracking</strong></td>
+<td>Works captured hashes on the attacker's own hardware (dictionary, brute force, rule-based, rainbow tables) with no rate limit.</td>
+<td><a href="https://attack.mitre.org/techniques/T1110/002/">T1110.002</a> (Brute Force: Password Cracking), parent <a href="https://attack.mitre.org/techniques/T1110/">T1110</a></td>
+<td><strong>WALLIX:</strong> vaulted secrets are <strong>long, random and rotated</strong>, so even a stolen hash cannot be cracked before it changes. <strong>General:</strong> salted slow (work-factor) hashing, screen against breached-password lists, MFA.</td>
+<td>Attack: <a href="../ceh/domains/06-system-hacking/#offline-attack-subtypes-concept-only">System hacking — offline attacks, salting</a>. Defence: <a href="../deep-dives/secrets-and-password-management/#3-secret-rotation-and-password-change-policies">Secrets &amp; password management — change policies</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-mapping-table-access-movement-escalation-and-persistence">3. Mapping table — access, movement, escalation and persistence<a class="headerlink" href="#3-mapping-table-access-movement-escalation-and-persistence" title="Permanent link">&para;</a></h2>
+<p>These techniques are about <em>getting in</em>, <em>moving around</em>, <em>getting higher</em>, and <em>staying</em>.
+PAM controls the privileged surface of all of them.</p>
+<table>
+<thead>
+<tr>
+<th>Attack technique</th>
+<th>What it does</th>
+<th>MITRE ATT&amp;CK ID</th>
+<th>How PAM/WALLIX (+ general controls) mitigate it</th>
+<th>Learn more</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Phishing / social engineering</strong></td>
+<td>Tricks a user into giving up a password or running malware — the classic <em>initial access</em>.</td>
+<td><a href="https://attack.mitre.org/techniques/T1566/">T1566</a> (Phishing)</td>
+<td><strong>WALLIX:</strong> a stolen <em>standard</em> password is useless against privileged targets — privileged access requires the <strong>gateway + MFA</strong>, and <strong>there is no target password to phish</strong> (it lives in the vault). <strong>General (primary):</strong> user-awareness training, email filtering, MFA everywhere.</td>
+<td>Attack: <a href="../ceh/domains/09-social-engineering/#major-attack-types">Social engineering — phishing types</a>. Defence: <a href="../foundations/pam-threat-landscape/#5-flow--with-vs-without-pam">What breaks the chain — gateway + MFA</a>, <a href="../deep-dives/authentication-and-access-manager/">Authentication &amp; Access Manager</a></td>
+</tr>
+<tr>
+<td><strong>Valid accounts / standing privilege</strong></td>
+<td>Reuses <em>legitimate</em> credentials to act as a trusted insider and blend in ("living off the land").</td>
+<td><a href="https://attack.mitre.org/techniques/T1078/">T1078</a> (Valid Accounts)</td>
+<td><strong>WALLIX:</strong> <strong>check-out/check-in + recording + JIT</strong> mean every privileged use is attributed, time-limited and auditable — reuse is no longer silent; <strong>Zero Standing Privileges</strong> removes the always-on account to abuse. <strong>General:</strong> disable dormant accounts, conditional access.</td>
+<td>Attack: <a href="../ceh/domains/01-introduction-to-ethical-hacking/#3-threat-vulnerability-risk-and-exposure">Intro — why insiders/valid accounts matter</a>. Defence: <a href="../foundations/core-concepts-least-privilege-jit-zero-trust/#2-the-definitions">Core concepts — PoLP / JIT / ZSP</a>, <a href="../foundations/privileged-accounts-and-credentials/">Privileged accounts &amp; credentials</a></td>
+</tr>
+<tr>
+<td><strong>Lateral movement via RDP / SSH</strong></td>
+<td>Uses valid accounts to log into hosts over <strong>Remote Desktop / SSH</strong>, hopping host to host across the estate.</td>
+<td><a href="https://attack.mitre.org/techniques/T1021/001/">T1021.001</a> (RDP) / <a href="https://attack.mitre.org/techniques/T1021/004/">T1021.004</a> (SSH), parent <a href="https://attack.mitre.org/techniques/T1021/">T1021</a></td>
+<td><strong>WALLIX:</strong> the Bastion is a <strong>mandatory chokepoint</strong> — the only path to targets on management ports; every RDP/SSH hop is <strong>brokered, recorded and time-boxed</strong>, the Session Probe can <strong>block TCP jump connections</strong>, and <strong>restriction rules</strong> can <code>kill</code>/<code>notify</code> on dangerous commands or window titles. <strong>General:</strong> network segmentation, host-based firewalls.</td>
+<td>Attack: <a href="../ceh/domains/06-system-hacking/#1-gaining-access">System hacking — gaining access</a>, <a href="../ceh/domains/11-session-hijacking/">Session hijacking</a>. Defence: <a href="../deep-dives/bastion-architecture/#3-network-placement--the-dmz-and-connection-direction">Bastion architecture — DMZ placement</a>, <a href="../deep-dives/session-management/#1-protocols-and-sub-protocols">Session management — protocols &amp; restriction rules</a></td>
+</tr>
+<tr>
+<td><strong>Privilege escalation (vertical)</strong></td>
+<td>Moves from a limited account to administrator/root by abusing misconfigurations, UAC, or <code>sudo</code>.</td>
+<td><a href="https://attack.mitre.org/techniques/T1548/">T1548</a> (Abuse Elevation Control Mechanism), incl. <a href="https://attack.mitre.org/techniques/T1548/002/">T1548.002</a> (Bypass UAC) / <a href="https://attack.mitre.org/techniques/T1548/003/">T1548.003</a> (Sudo)</td>
+<td><strong>WALLIX:</strong> <strong>BestSafe (EPM)</strong> removes standing local admin and elevates the <strong>application/process, not the user</strong>, so there is no admin token on the account to hijack and "the most dangerous API calls are blocked." <strong>General:</strong> patch local-privesc bugs promptly, least privilege, EDR.</td>
+<td>Attack: <a href="../ceh/domains/06-system-hacking/#2-escalating-privileges">System hacking — escalating privileges</a>. Defence: <a href="../deep-dives/epm-bestsafe/#2-the-distinguishing-approach--privilege-on-the-application-not-the-user">EPM / BestSafe — privilege on the process</a>, <a href="../foundations/core-concepts-least-privilege-jit-zero-trust/#principle-of-least-privilege-polp">Core concepts — least privilege</a></td>
+</tr>
+<tr>
+<td><strong>Persistence — account manipulation</strong></td>
+<td>Modifies an existing account (adds it to privileged groups, alters credentials) to keep durable access.</td>
+<td><a href="https://attack.mitre.org/techniques/T1098/">T1098</a> (Account Manipulation)</td>
+<td><strong>WALLIX:</strong> privileged changes flow through the <strong>brokered, recorded</strong> session and (optionally) an <strong>approval workflow</strong> with mandatory comment/ticket, so manipulation is attributed and reviewable; vault rotation invalidates altered credentials. <strong>General:</strong> AD tiering, alert on privileged-group changes (SIEM).</td>
+<td>Attack: <a href="../ceh/domains/06-system-hacking/#3-maintaining-access-persistence">System hacking — maintaining access</a>. Defence: <a href="../deep-dives/session-management/#6-approval-workflows">Session management — approval workflows</a>, <a href="../foundations/core-concepts-least-privilege-jit-zero-trust/#four-eyes--dual-control">Core concepts — four-eyes / SoD</a></td>
+</tr>
+<tr>
+<td><strong>Persistence — create account</strong></td>
+<td>Creates a new local/domain backdoor account to survive reboots and password changes.</td>
+<td><a href="https://attack.mitre.org/techniques/T1136/">T1136</a> (Create Account), incl. <a href="https://attack.mitre.org/techniques/T1136/001/">T1136.001</a> (Local) / <a href="https://attack.mitre.org/techniques/T1136/002/">T1136.002</a> (Domain)</td>
+<td><strong>WALLIX (indirect):</strong> removing standing privilege and brokering admin access makes it <strong>harder to obtain the rights needed</strong> to create a backdoor account unseen; sessions that <em>do</em> create accounts are recorded. <strong>General (primary):</strong> baseline + alert on new accounts/services/scheduled tasks, application allow-listing.</td>
+<td>Attack: <a href="../ceh/domains/06-system-hacking/#3-maintaining-access-persistence">System hacking — maintaining access</a>. Defence: <a href="../deep-dives/bastion-architecture/#1-the-proxygateway-model--why-a-bastion-exists">Bastion architecture — recording/audit pipeline</a>, <a href="../deep-dives/session-management/#4-session-recording-and-the-audit-pipeline">Session management — recording</a></td>
+</tr>
+<tr>
+<td><strong>Clearing tracks / log tampering</strong></td>
+<td>Edits or deletes local logs, timestamps and history to hide the intrusion (Defense Evasion).</td>
+<td><a href="https://attack.mitre.org/techniques/T1070/">T1070</a> (Indicator Removal)</td>
+<td><strong>WALLIX:</strong> session recordings are <strong>encrypted and Bastion-bound</strong>, and events stream to a <strong>SIEM via <code>syslog-ng</code></strong> in near real time — an attacker on a target cannot reach or edit the off-host record; "logs an attacker can edit are logs you cannot trust." <strong>General:</strong> centralized tamper-evident logging, alert on log gaps.</td>
+<td>Attack: <a href="../ceh/domains/06-system-hacking/#4-clearing-tracks-anti-forensics">System hacking — clearing tracks</a>. Defence: <a href="../deep-dives/session-management/#4-session-recording-and-the-audit-pipeline">Session management — recording &amp; audit pipeline</a>, <a href="../deep-dives/troubleshooting-and-logs/">Troubleshooting &amp; logs</a></td>
+</tr>
+<tr>
+<td><strong>Ransomware / impact</strong></td>
+<td>Encrypts or destroys data once enough privilege is held — the attacker's objective.</td>
+<td><a href="https://attack.mitre.org/techniques/T1486/">T1486</a> (Data Encrypted for Impact)</td>
+<td><strong>WALLIX:</strong> <strong>BestSafe</strong> detects the <strong>intent to mass-encrypt in real time and blocks it <em>before</em> execution</strong> (optionally retaining keys); removing local admin denies ransomware the privilege it needs. <strong>General (primary):</strong> tested backups, segmentation, EDR, DR plan.</td>
+<td>Attack: <a href="../ceh/domains/07-malware-threats/">Malware threats</a>, <a href="../ceh/domains/01-introduction-to-ethical-hacking/#2-the-cia-triad">Intro — availability / DoS</a>. Defence: <a href="../deep-dives/epm-bestsafe/#real-time-anti-ransomware-prevent-not-just-detect">EPM / BestSafe — real-time anti-ransomware</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-which-controls-are-wallix-features-vs-general-best-practice">4. Which controls are WALLIX features vs general best practice?<a class="headerlink" href="#4-which-controls-are-wallix-features-vs-general-best-practice" title="Permanent link">&para;</a></h2>
+<p>A quick reference so you never overclaim PAM's reach.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Type</th>
+<th>Where it lives in this repo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Credential injection (secret never reaches endpoint)</td>
+<td><strong>WALLIX Bastion feature</strong></td>
+<td><a href="../deep-dives/bastion-architecture/#2-front-leg-vs-back-leg--the-two-legged-connection-model">Bastion architecture</a></td>
+</tr>
+<tr>
+<td>Vaulting + automatic rotation + change-on-check-in</td>
+<td><strong>WALLIX Bastion feature</strong></td>
+<td><a href="../deep-dives/secrets-and-password-management/#2-checkout-policies--check-out--check-in--lock--change-on-check-in">Secrets &amp; password management</a></td>
+</tr>
+<tr>
+<td>Session brokering, recording, restriction rules, Session Probe</td>
+<td><strong>WALLIX Bastion feature</strong></td>
+<td><a href="../deep-dives/session-management/">Session management</a></td>
+</tr>
+<tr>
+<td>Approval workflows / four-eyes / four-hands</td>
+<td><strong>WALLIX Bastion feature</strong></td>
+<td><a href="../deep-dives/session-management/#6-approval-workflows">Session management — approvals</a></td>
+</tr>
+<tr>
+<td>Remove local admin; app-level elevation; real-time anti-ransomware</td>
+<td><strong>WALLIX BestSafe (EPM) feature</strong></td>
+<td><a href="../deep-dives/epm-bestsafe/">EPM / BestSafe</a></td>
+</tr>
+<tr>
+<td>AAPM/WAAPM (no hard-coded secrets in scripts)</td>
+<td><strong>WALLIX feature</strong> (via REST API)</td>
+<td><a href="../deep-dives/secrets-and-password-management/#7-aapm--waapm--application-to-application-secret-retrieval">Secrets — AAPM/WAAPM</a></td>
+</tr>
+<tr>
+<td>Least privilege, JIT, Zero Standing Privileges, Zero Trust</td>
+<td><strong>Concept</strong> that PAM <em>implements</em></td>
+<td><a href="../foundations/core-concepts-least-privilege-jit-zero-trust/">Core concepts</a></td>
+</tr>
+<tr>
+<td>MFA</td>
+<td><strong>General best practice</strong> PAM enforces at the gateway</td>
+<td><a href="../deep-dives/authentication-and-access-manager/">Authentication &amp; Access Manager</a></td>
+</tr>
+<tr>
+<td>Network segmentation / DMZ placement</td>
+<td><strong>General best practice</strong> (PAM relies on it)</td>
+<td><a href="../deep-dives/bastion-architecture/#3-network-placement--the-dmz-and-connection-direction">Bastion architecture — DMZ</a></td>
+</tr>
+<tr>
+<td>AD hardening (tiering, krbtgt rotation, Protected Users, gMSA)</td>
+<td><strong>General best practice</strong> (outside PAM)</td>
+<td><a href="../protocols/active-directory/">Active Directory</a>, <a href="../protocols/kerberos/">Kerberos</a></td>
+</tr>
+<tr>
+<td>SIEM detection, EDR, backups, user-awareness training</td>
+<td><strong>General best practice</strong> (PAM feeds the SIEM)</td>
+<td><a href="../deep-dives/troubleshooting-and-logs/">Troubleshooting &amp; logs</a>, CEH <a href="../ceh/domains/01-introduction-to-ethical-hacking/#countermeasures--defense">Intro — countermeasures</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-defence-in-depth-the-closing-note">5. Defence-in-depth — the closing note<a class="headerlink" href="#5-defence-in-depth-the-closing-note" title="Permanent link">&para;</a></h2>
+<p>No single control on this page stops a determined adversary alone, and that is the whole
+point: CEH teaches <strong>defence-in-depth</strong> (multiple independent layers so that if one fails,
+others still protect the asset — see
+<a href="../ceh/domains/01-introduction-to-ethical-hacking/#7-defense-in-depth-layered-security">Module 1 §7</a>),
+and PAM is exactly one of those layers — a powerful <strong>control layer</strong>, not a magic shield.</p>
+<p>Read the matrix this way:</p>
+<ul>
+<li>PAM is <strong>strongest in the middle of the attack chain</strong> (stages 2-5): it keeps target
+  secrets off endpoints, rotates them so any theft is short-lived, forces every privileged
+  hop through a recorded gateway, and makes everything attributable. That directly degrades
+  credential dumping, PtH/PtT, Kerberoasting, valid-account reuse, and lateral movement.</li>
+<li>For the <strong>post-Domain-Admin AD attacks</strong> (Golden Ticket, Silver Ticket, DCSync), PAM's
+  contribution is <strong>indirect but real</strong>: it makes the high-privilege compromise that
+  precedes them far harder, and makes any abuse visible. The <em>primary</em> defences there are
+  <strong>AD hardening</strong> — tiering, <code>krbtgt</code> rotation, Protected Users, gMSA, AES etypes — which
+  PAM does not replace.</li>
+<li>For the <strong>bookends</strong> (phishing at initial access, ransomware at impact), PAM removes the
+  privileged target a phish would aim for and, via <strong>BestSafe</strong>, denies ransomware the local
+  admin it needs — but <strong>user-awareness training, MFA, email filtering, segmentation,
+  backups, EDR and SIEM detection</strong> remain essential.</li>
+</ul>
+<p>In short: combine <strong>WALLIX Bastion (session-side PAM)</strong> + <strong>WALLIX BestSafe (endpoint-side
+EPM)</strong> with classic AD hardening and detection, and you have layered coverage across the
+entire chain. That is the bridge this page is built to make explicit — the attacks you
+study in the <a href="../ceh/">CEH hub</a> are precisely the ones the
+<a href="../foundations/pam-threat-landscape/">PAM/WALLIX hub</a> is built to break.</p>
+<hr />
+<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CEH hub: <a href="../ceh/domains/06-system-hacking/">System Hacking</a> ·
+  <a href="../ceh/domains/01-introduction-to-ethical-hacking/">Introduction to Ethical Hacking</a> ·
+  <a href="../ceh/domains/09-social-engineering/">Social Engineering</a> ·
+  <a href="../ceh/domains/07-malware-threats/">Malware Threats</a></li>
+<li>WALLIX/foundations hub: <a href="../foundations/pam-threat-landscape/">PAM threat landscape</a> ·
+  <a href="../foundations/core-concepts-least-privilege-jit-zero-trust/">Core concepts: least privilege, JIT, Zero Trust</a> ·
+  <a href="../foundations/privileged-accounts-and-credentials/">Privileged accounts &amp; credentials</a></li>
+<li>Deep dives: <a href="../deep-dives/bastion-architecture/">Bastion architecture</a> ·
+  <a href="../deep-dives/session-management/">Session management</a> ·
+  <a href="../deep-dives/secrets-and-password-management/">Secrets &amp; password management</a> ·
+  <a href="../deep-dives/epm-bestsafe/">EPM / BestSafe</a></li>
+<li>Protocols: <a href="../protocols/kerberos/">Kerberos</a> · <a href="../protocols/active-directory/">Active Directory</a></li>
+<li>Reference: <a href="../reference/acronyms/">Acronyms</a> · <a href="../reference/glossary/">Glossary</a></li>
+</ul>
+<hr />
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<ul>
+<li>MITRE ATT&amp;CK — Enterprise matrix (tactics &amp; techniques): <a href="https://attack.mitre.org/matrices/enterprise/">https://attack.mitre.org/matrices/enterprise/</a></li>
+<li>MITRE ATT&amp;CK — OS Credential Dumping (T1003) and LSASS Memory (T1003.001): <a href="https://attack.mitre.org/techniques/T1003/">https://attack.mitre.org/techniques/T1003/</a> · <a href="https://attack.mitre.org/techniques/T1003/001/">https://attack.mitre.org/techniques/T1003/001/</a></li>
+<li>MITRE ATT&amp;CK — OS Credential Dumping: DCSync (T1003.006): <a href="https://attack.mitre.org/techniques/T1003/006/">https://attack.mitre.org/techniques/T1003/006/</a></li>
+<li>MITRE ATT&amp;CK — Use Alternate Authentication Material: Pass the Hash (T1550.002), Pass the Ticket (T1550.003): <a href="https://attack.mitre.org/techniques/T1550/002/">https://attack.mitre.org/techniques/T1550/002/</a> · <a href="https://attack.mitre.org/techniques/T1550/003/">https://attack.mitre.org/techniques/T1550/003/</a></li>
+<li>MITRE ATT&amp;CK — Steal or Forge Kerberos Tickets (T1558): Golden Ticket (.001), Silver Ticket (.002), Kerberoasting (.003): <a href="https://attack.mitre.org/techniques/T1558/">https://attack.mitre.org/techniques/T1558/</a></li>
+<li>MITRE ATT&amp;CK — Brute Force (T1110) incl. Password Cracking (T1110.002): <a href="https://attack.mitre.org/techniques/T1110/">https://attack.mitre.org/techniques/T1110/</a></li>
+<li>MITRE ATT&amp;CK — Phishing (T1566): <a href="https://attack.mitre.org/techniques/T1566/">https://attack.mitre.org/techniques/T1566/</a></li>
+<li>MITRE ATT&amp;CK — Valid Accounts (T1078): <a href="https://attack.mitre.org/techniques/T1078/">https://attack.mitre.org/techniques/T1078/</a></li>
+<li>MITRE ATT&amp;CK — Remote Services (T1021): RDP (.001), SSH (.004): <a href="https://attack.mitre.org/techniques/T1021/">https://attack.mitre.org/techniques/T1021/</a></li>
+<li>MITRE ATT&amp;CK — Abuse Elevation Control Mechanism (T1548): <a href="https://attack.mitre.org/techniques/T1548/">https://attack.mitre.org/techniques/T1548/</a></li>
+<li>MITRE ATT&amp;CK — Account Manipulation (T1098): <a href="https://attack.mitre.org/techniques/T1098/">https://attack.mitre.org/techniques/T1098/</a></li>
+<li>MITRE ATT&amp;CK — Create Account (T1136): <a href="https://attack.mitre.org/techniques/T1136/">https://attack.mitre.org/techniques/T1136/</a></li>
+<li>MITRE ATT&amp;CK — Indicator Removal (T1070): <a href="https://attack.mitre.org/techniques/T1070/">https://attack.mitre.org/techniques/T1070/</a></li>
+<li>MITRE ATT&amp;CK — Data Encrypted for Impact (T1486): <a href="https://attack.mitre.org/techniques/T1486/">https://attack.mitre.org/techniques/T1486/</a></li>
+<li>Lockheed Martin — Cyber Kill Chain: <a href="https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html">https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html</a></li>
+<li>NIST SP 800-207 — Zero Trust Architecture: <a href="https://csrc.nist.gov/pubs/sp/800/207/final">https://csrc.nist.gov/pubs/sp/800/207/final</a></li>
+<li>NIST SP 800-53 Rev. 5 — AC-6 Least Privilege: <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final">https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final</a></li>
+<li>WALLIX Bastion product page (PAM as breach mitigation): <a href="https://www.wallix.com/products/privileged-access-management/">https://www.wallix.com/products/privileged-access-management/</a></li>
+<li>WALLIX Bastion 12.3.2 Functional Administration Guide: <a href="https://pam.wallix.one/documentation/admin-doc/bastion_en_administration_guide.pdf">https://pam.wallix.one/documentation/admin-doc/bastion_en_administration_guide.pdf</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "toc.follow", "content.code.copy", "search.suggest"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
