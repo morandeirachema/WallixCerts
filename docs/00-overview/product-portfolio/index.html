@@ -1,0 +1,6326 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Source-grounded study notes for WALLIX/PAM, CEH, and adjacent cybersecurity certifications.">
+      
+      
+      
+      
+        <link rel="prev" href="../certification-framework/">
+      
+      
+        <link rel="next" href="../../iag/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>WALLIX Product Portfolio — Technical Overview for Certification Study - WallixCerts — PAM & Cybersecurity Certification Study Hub</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wallix-product-portfolio-technical-overview-for-certification-study" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="WallixCerts — PAM &amp; Cybersecurity Certification Study Hub" class="md-header__button md-logo" aria-label="WallixCerts — PAM & Cybersecurity Certification Study Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WallixCerts — PAM & Cybersecurity Certification Study Hub
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              WALLIX Product Portfolio — Technical Overview for Certification Study
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/morandeirachema/WallixCerts" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    morandeirachema/WallixCerts
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="WallixCerts — PAM &amp; Cybersecurity Certification Study Hub" class="md-nav__button md-logo" aria-label="WallixCerts — PAM & Cybersecurity Certification Study Hub" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    WallixCerts — PAM & Cybersecurity Certification Study Hub
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/morandeirachema/WallixCerts" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    morandeirachema/WallixCerts
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CHANGELOG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CLAUDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLAUDE.md
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CONTRIBUTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learning-roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cybersecurity Certification Learning Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../adjacent-certs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adjacent certs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Adjacent certs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../adjacent-certs/cissp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    (ISC)² CISSP — Certified Information Systems Security Professional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../adjacent-certs/cloud-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Security Certifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../adjacent-certs/oscp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OSCP / OSCP+ (OffSec PEN-200) — Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../adjacent-certs/pnpt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PNPT (TCM Security Practical Network Penetration Tester) — Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../adjacent-certs/security-plus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CompTIA Security+ (SY0-701) — Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../career/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Career
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Career
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../career/skills-and-adjacent-certifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills Matrix &amp; Adjacent Certifications for a PAM Career
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../career/sysadmin-to-pam-roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Systems Administrator to PAM Specialist — A Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ceh/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceh
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ceh
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00 overview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    00 overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/00-overview/ai-in-ethical-hacking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Artificial Intelligence in Ethical Hacking ("CEH AI")
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/00-overview/engagement-methodology-and-reporting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engagement Methodology and Reporting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/00-overview/exam-and-eligibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CEH Exam Format and Eligibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/00-overview/five-phases-of-hacking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Five Phases of Ethical Hacking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/00-overview/legal-and-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal and Ethical Foundations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/00-overview/what-is-ceh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What is the Certified Ethical Hacker (CEH)?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Career
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Career
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/career/ceh-career-and-adjacent-certs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CEH in a Cybersecurity Career, and Adjacent Certifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ceh/domains/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domains
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Domains
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/01-introduction-to-ethical-hacking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 1 — Introduction to Ethical Hacking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/02-footprinting-and-reconnaissance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 2 — Footprinting and Reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/03-scanning-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 3 — Scanning Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/04-enumeration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 4 — Enumeration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/05-vulnerability-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 05 — Vulnerability Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/06-system-hacking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 06 — System Hacking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/07-malware-threats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 07 — Malware Threats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/08-sniffing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 08 — Sniffing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/09-social-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 09 — Social Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/10-denial-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 10 — Denial-of-Service (DoS) and Distributed Denial-of-Service (DDoS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/11-session-hijacking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 11 — Session Hijacking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/12-evading-ids-firewalls-honeypots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 12 — Evading IDS, Firewalls, and Honeypots
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/13-hacking-web-servers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 13 — Hacking Web Servers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/14-hacking-web-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 14 — Hacking Web Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/15-sql-injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL Injection (SQLi)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/16-hacking-wireless-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hacking Wireless Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/17-hacking-mobile-platforms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hacking Mobile Platforms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/18-iot-and-ot-hacking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IoT and OT Hacking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/19-cloud-computing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/domains/20-cryptography/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cryptography
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_5" id="__nav_8_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam prep
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exam prep
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/exam-prep/cheat-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CEH v13 Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/exam-prep/practice-questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CEH v13 Practice Questions (Unofficial)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/exam-prep/study-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CEH v13 Study Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/labs/building-a-ceh-lab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building a Safe, Isolated CEH Practice Lab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/labs/practice-ranges/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legitimate Online Practice Ranges
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_7" id="__nav_8_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/reference/acronyms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CEH Acronyms Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/reference/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CEH Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_8" id="__nav_8_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ceh/tools/tools-by-phase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CEH Tools by Phase and Module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../deep-dives/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep dives
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep dives
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep-dives/authentication-and-access-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication &amp; WALLIX Access Manager (WAM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep-dives/bastion-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX Bastion Architecture — Proxy/Gateway, Internal Services, and Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep-dives/bastion-data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX Bastion Data Model — The ACL Engine, Step by Step
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep-dives/epm-bestsafe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX BestSafe — Endpoint Privilege Management (EPM) Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep-dives/high-availability-and-dr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High Availability (HA) &amp; Disaster Recovery (DR)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep-dives/iag-identity-governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX IAG — Identity &amp; Access Governance — Technical Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep-dives/idaas-trustelem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX One IDaaS / Trustelem — Technical Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep-dives/pam4ot-operational-technology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX PAM4OT — Privileged Access Management for Operational Technology (OT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep-dives/rest-api-and-automation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX Bastion REST API &amp; Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep-dives/secrets-and-password-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX Bastion Password Manager — Vault, Check-out/Check-in, Rotation, External Vaults
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep-dives/session-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX Bastion Session Manager — Protocols, Recording, Monitoring, Approvals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep-dives/troubleshooting-and-logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting &amp; Logs (Bastion + Access Manager)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deep-dives/wallix-one-and-integrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX One &amp; the Integration Surface — Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Docs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    00 overview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    00 overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../certification-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX Academy — Certification Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX Product Portfolio — Technical Overview for Certification Study
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX Product Portfolio — Technical Overview for Certification Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#company-background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Company Background
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Company Background">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-acquisitions-confirmed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key acquisitions (confirmed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#market-positioning-company-level-certifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Market positioning &amp; company-level certifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-wallix-bastion-privileged-access-management-pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. WALLIX Bastion — Privileged Access Management (PAM)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. WALLIX Bastion — Privileged Access Management (PAM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-is-and-the-problem-it-solves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is and the problem it solves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main modules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-pam-concepts-the-acl-data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core PAM concepts — the ACL data model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#password-secrets-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Password / secrets management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-manager-web-portal-single-point-of-access-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Manager (web portal / single point of access / gateway)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-deployment-ha-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture, deployment, HA, integrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-certifications-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product certifications / standards
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-wallix-one-the-cybersecurity-saas-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. WALLIX One — the Cybersecurity SaaS Platform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. WALLIX One — the Cybersecurity SaaS Platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-is-and-disambiguation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is (and disambiguation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-problem-target-audience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core problem &amp; target audience
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services-delivered-under-wallix-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Services delivered under WALLIX One
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-delivery-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture / delivery model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-wallix-trustelem-idaas-sso-mfa-identity-federation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. WALLIX Trustelem — IDaaS (SSO / MFA / Identity Federation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. WALLIX Trustelem — IDaaS (SSO / MFA / Identity Federation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-is-and-the-problem-it-solves_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is and the problem it solves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-protocols-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported protocols / standards
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identity-sources-directory-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identity sources / directory integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture / delivery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-bastion-wallix-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration with Bastion / WALLIX One
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application catalog
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-wallix-bestsafe-endpoint-privilege-management-epm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. WALLIX BestSafe — Endpoint Privilege Management (EPM)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. WALLIX BestSafe — Endpoint Privilege Management (EPM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-is-and-the-problem-it-solves_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is and the problem it solves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distinguishing-technical-approach-privilege-at-the-processapplication-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distinguishing technical approach — privilege at the PROCESS/APPLICATION level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-complements-pam-endpoint-vs-session-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it complements PAM (endpoint vs. session side)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#platforms-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platforms supported
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-wallix-iag-identity-access-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. WALLIX IAG — Identity &amp; Access Governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. WALLIX IAG — Identity &amp; Access Governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disambiguation-read-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disambiguation (read first)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-it-is-and-the-problem-it-solves_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is and the problem it solves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features-and-components-four-pillars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key features and components (four pillars)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fit-in-the-broader-portfolio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fit in the broader portfolio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-wallix-pam4ot-operational-technology-ot-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. WALLIX PAM4OT — Operational Technology (OT) Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. WALLIX PAM4OT — Operational Technology (OT) Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-is-and-the-problem-it-solves_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is and the problem it solves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-differs-from-standard-it-pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it differs from standard IT PAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-it-ot-boundary-positioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture / IT-OT boundary positioning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standards-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standards / compliance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partnerships-otics-vendors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partnerships (OT/ICS vendors)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wallix-bastion-pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WALLIX Bastion / PAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wallix-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WALLIX One
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wallix-trustelem-idaas-mfa-sso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WALLIX Trustelem (IDaaS / MFA / SSO)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wallix-bestsafe-epm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WALLIX BestSafe (EPM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wallix-iag-identity-access-governance-kleverware-inwebo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WALLIX IAG (Identity &amp; Access Governance) / Kleverware / inWebo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wallix-pam4ot-ot-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WALLIX PAM4OT / OT security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#company-background_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Company background
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-uncertainties-flagged-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key uncertainties flagged (summary)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../iag/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Iag
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_2" id="__nav_10_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Iag
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iag/ewcp-g-professional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    eWCP-G / WCP-G — WALLIX Certified Professional – IAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iag/wca-g-administrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WCA-G — WALLIX Certified Administrator – IAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_3" id="__nav_10_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Idaas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Idaas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../idaas/ewcp-i-professional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    eWCP-I / WCP-I — WALLIX Certified Professional – IDaaS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_4" id="__nav_10_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ot pam4ot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ot pam4ot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ot-pam4ot/ewcp-p-ot-professional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    eWCP-P-OT — WALLIX Certified Professional – OT (PAM4OT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../pam-bastion/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pam bastion
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_5" id="__nav_10_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pam bastion
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pam-bastion/wca-p-administrator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WCA-P — WALLIX Certified Administrator – PAM (Bastion)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pam-bastion/wce-p-expert/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WCE-P — WALLIX Certified Expert – PAM (Bastion)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pam-bastion/wcp-p-professional/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WCP-P — WALLIX Certified Professional – PAM (Bastion)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../exam-prep/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam prep
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exam prep
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exam-prep/cheat-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX PAM — Exam Cheat Sheet (Quick Reference)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exam-prep/practice-questions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WALLIX PAM — Practice Questions (Unofficial Study Aid)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exam-prep/study-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study Plan — Recommended Paths Through This Repo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../foundations/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Foundations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../foundations/core-concepts-least-privilege-jit-zero-trust/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts: Least Privilege, JIT &amp; Zero Trust
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../foundations/pam-iam-iga-idaas-epm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PAM vs IAM, IGA, IDaaS, EPM &amp; the Acronym Soup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../foundations/pam-market-landscape/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The PAM Market Landscape — Vendors, Analysts, and WALLIX's Position
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../foundations/pam-threat-landscape/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The PAM Threat Landscape
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../foundations/privileged-accounts-and-credentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privileged Accounts &amp; Credentials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../foundations/what-is-pam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What Is Privileged Access Management (PAM)?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../labs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labs
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_13" id="__nav_13_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/building-a-home-lab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building a Home Lab for WALLIX PAM Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../labs/hands-on-exercises/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hands-On Exercises — Practice Walkthroughs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../prerequisites/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prerequisites
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14" id="__nav_14_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prerequisites
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../prerequisites/cryptography-and-pki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cryptography and PKI for PAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../prerequisites/linux-cli-for-wce-p/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux CLI Deep Dive for WCE-P
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../prerequisites/linux-essentials-for-pam/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Essentials for PAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../prerequisites/networking-and-protocols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking and Protocols for PAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../prerequisites/windows-and-active-directory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows and Active Directory for PAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/acronyms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acronyms Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/compliance-and-standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compliance &amp; Standards — How PAM Maps to the Frameworks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#company-background" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Company Background
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Company Background">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-acquisitions-confirmed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key acquisitions (confirmed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#market-positioning-company-level-certifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Market positioning &amp; company-level certifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-wallix-bastion-privileged-access-management-pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. WALLIX Bastion — Privileged Access Management (PAM)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. WALLIX Bastion — Privileged Access Management (PAM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-is-and-the-problem-it-solves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is and the problem it solves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#main-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main modules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-pam-concepts-the-acl-data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core PAM concepts — the ACL data model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#password-secrets-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Password / secrets management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-manager-web-portal-single-point-of-access-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Manager (web portal / single point of access / gateway)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-deployment-ha-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture, deployment, HA, integrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-certifications-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product certifications / standards
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-wallix-one-the-cybersecurity-saas-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. WALLIX One — the Cybersecurity SaaS Platform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. WALLIX One — the Cybersecurity SaaS Platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-is-and-disambiguation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is (and disambiguation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-problem-target-audience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core problem &amp; target audience
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services-delivered-under-wallix-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Services delivered under WALLIX One
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-delivery-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture / delivery model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-wallix-trustelem-idaas-sso-mfa-identity-federation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. WALLIX Trustelem — IDaaS (SSO / MFA / Identity Federation)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. WALLIX Trustelem — IDaaS (SSO / MFA / Identity Federation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-is-and-the-problem-it-solves_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is and the problem it solves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-protocols-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported protocols / standards
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identity-sources-directory-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identity sources / directory integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture / delivery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-bastion-wallix-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration with Bastion / WALLIX One
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Application catalog
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-wallix-bestsafe-endpoint-privilege-management-epm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. WALLIX BestSafe — Endpoint Privilege Management (EPM)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. WALLIX BestSafe — Endpoint Privilege Management (EPM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-is-and-the-problem-it-solves_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is and the problem it solves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distinguishing-technical-approach-privilege-at-the-processapplication-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distinguishing technical approach — privilege at the PROCESS/APPLICATION level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-complements-pam-endpoint-vs-session-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it complements PAM (endpoint vs. session side)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#platforms-supported" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platforms supported
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-wallix-iag-identity-access-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. WALLIX IAG — Identity &amp; Access Governance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. WALLIX IAG — Identity &amp; Access Governance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disambiguation-read-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disambiguation (read first)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-it-is-and-the-problem-it-solves_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is and the problem it solves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features-and-components-four-pillars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key features and components (four pillars)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fit-in-the-broader-portfolio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fit in the broader portfolio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-wallix-pam4ot-operational-technology-ot-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. WALLIX PAM4OT — Operational Technology (OT) Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. WALLIX PAM4OT — Operational Technology (OT) Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-is-and-the-problem-it-solves_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is and the problem it solves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-it-differs-from-standard-it-pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it differs from standard IT PAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-it-ot-boundary-positioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture / IT-OT boundary positioning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standards-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standards / compliance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partnerships-otics-vendors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partnerships (OT/ICS vendors)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wallix-bastion-pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WALLIX Bastion / PAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wallix-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WALLIX One
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wallix-trustelem-idaas-mfa-sso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WALLIX Trustelem (IDaaS / MFA / SSO)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wallix-bestsafe-epm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WALLIX BestSafe (EPM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wallix-iag-identity-access-governance-kleverware-inwebo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WALLIX IAG (Identity &amp; Access Governance) / Kleverware / inWebo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wallix-pam4ot-ot-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WALLIX PAM4OT / OT security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#company-background_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Company background
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-uncertainties-flagged-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key uncertainties flagged (summary)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="wallix-product-portfolio-technical-overview-for-certification-study">WALLIX Product Portfolio — Technical Overview for Certification Study<a class="headerlink" href="#wallix-product-portfolio-technical-overview-for-certification-study" title="Permanent link">&para;</a></h1>
+<p><em>Compiled 2026-06-17 from WALLIX primary documentation (datasheets, admin/deployment guides, press releases) and reputable secondary sources. Version-specific facts and uncertainties are flagged inline. A full Sources list is at the end.</em></p>
+<hr />
+<h2 id="company-background">Company Background<a class="headerlink" href="#company-background" title="Permanent link">&para;</a></h2>
+<p><strong>WALLIX</strong> is a European (French) cybersecurity software vendor specializing in <strong>identity and access security</strong>, best known for <strong>Privileged Access Management (PAM)</strong>, and extending into identity governance, identity-as-a-service, endpoint privilege management, and industrial (OT) security.</p>
+<ul>
+<li><strong>Founded:</strong> 2003, Paris, France. Founder and long-serving CEO: <strong>Jean-Noël de Galzain</strong>.</li>
+<li><strong>Headquarters:</strong> Paris, France.</li>
+<li><strong>Public listing:</strong> Euronext Growth Paris, ticker <strong>ALLIX</strong> (ISIN FR0010131409); IPO in 2015 — per WALLIX, the first French cybersecurity software company to list on the stock exchange.</li>
+<li><strong>Scale (per WALLIX's June 2025 "10 years of listing" communication):</strong> revenue grew from ~€4M (2014) to ~€34M (2024); 3,500+ customers across ~90 countries; ~248 staff in 16 countries; recurring revenue ~68% of billings. WALLIX positions itself as the <strong>European leader in PAM</strong>.</li>
+</ul>
+<h3 id="key-acquisitions-confirmed">Key acquisitions (confirmed)<a class="headerlink" href="#key-acquisitions-confirmed" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Company</th>
+<th>Brought to WALLIX</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2019</td>
+<td><strong>Trustelem</strong> (French)</td>
+<td>IDaaS / SSO / MFA → WALLIX Trustelem (WALLIX IDaaS)</td>
+</tr>
+<tr>
+<td>2019</td>
+<td><strong>Simarks</strong> (Spanish)</td>
+<td>EPM technology → launched as <strong>BestSafe</strong> (Feb 2020)</td>
+</tr>
+<tr>
+<td>2023</td>
+<td><strong>Kleverware</strong> (French)</td>
+<td>Identity &amp; Access Governance → <strong>WALLIX IAG</strong></td>
+</tr>
+<tr>
+<td>2025</td>
+<td><strong>Malizen</strong> (French)</td>
+<td>AI-driven user-behavior analytics (anomaly detection from 2026)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Important correction (flag for study):</strong> Sources do <strong>not</strong> support a WALLIX <em>acquisition</em> of <strong>inWebo</strong>. inWebo is a long-standing <strong>technology partner/alliance</strong>, not a subsidiary. The <strong>WALLIX Authenticator</strong> MFA app is <em>powered by / OEM'd from</em> inWebo's (ANSSI/CSPN-certified) MFA technology. Separately, inWebo itself merged with Belgium's TrustBuilder and rebranded the group to <strong>TrustBuilder</strong> — an entity independent of WALLIX. Likewise, "<strong>BestSafe</strong>" is a WALLIX <em>product</em> built on the <strong>Simarks</strong> acquisition — not its own acquired company.</p>
+</blockquote>
+<h3 id="market-positioning-company-level-certifications">Market positioning &amp; company-level certifications<a class="headerlink" href="#market-positioning-company-level-certifications" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Gartner Magic Quadrant for PAM:</strong> Leader in 2022, then <strong>Visionary</strong> in 2023, 2024, and 2025 (three consecutive years). Consistently cited as the <strong>only European vendor</strong> in the PAM Magic Quadrant.</li>
+<li><strong>KuppingerCole Leadership Compass for PAM:</strong> <strong>Overall Leader</strong> for five consecutive years through the 2026 edition.</li>
+<li><strong>European sovereignty</strong> is a core positioning theme.</li>
+<li><strong>ISO/IEC 27001:2022</strong> company certification.</li>
+<li><strong>ANSSI CSPN</strong> (France's first-level security certification) on WALLIX Bastion (see Bastion section).</li>
+<li><strong>BSI BSZ</strong> (Germany's accelerated security certification), recognized by ANSSI via Franco-German mutual recognition (~late 2025).</li>
+<li><strong>Common Criteria / EAL:</strong> <em>no specific EAL level confirmed</em> — flag as uncertain rather than assert.</li>
+</ul>
+<hr />
+<h2 id="1-wallix-bastion-privileged-access-management-pam">1. WALLIX Bastion — Privileged Access Management (PAM)<a class="headerlink" href="#1-wallix-bastion-privileged-access-management-pam" title="Permanent link">&para;</a></h2>
+<h3 id="what-it-is-and-the-problem-it-solves">What it is and the problem it solves<a class="headerlink" href="#what-it-is-and-the-problem-it-solves" title="Permanent link">&para;</a></h3>
+<p>WALLIX Bastion is WALLIX's flagship <strong>Privileged Access Management</strong> product. It provides <strong>centralized control, brokering, and monitoring of privileged access</strong> to sensitive IT/OT assets. Stolen/abused privileged credentials are a leading breach vector; Bastion sits as a <strong>trusted gateway/proxy</strong> between a low-trust domain and a high-trust domain so that administrators never need to know target passwords, all sessions are recorded and auditable, and privileged credentials are vaulted and rotated.</p>
+<p>It is <strong>agentless</strong> on targets, and deployable <strong>on-premises, in private/public cloud, as SaaS, and hybrid</strong>.</p>
+<p>WALLIX frames Bastion around four pillars: <strong>Reduce the attack surface</strong> (asset discovery, removal of local privileged accounts, least privilege, Just-in-Time access), <strong>Control sessions</strong> (real-time monitoring, recording, alerting/termination), <strong>Manage secrets</strong> (vaulting, automated rotation, removing passwords from disks/scripts), and <strong>Audit activity</strong> (KPIs/dashboards, SIEM correlation).</p>
+<h3 id="main-modules">Main modules<a class="headerlink" href="#main-modules" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Session Manager</strong> (license-gated <code>Sessions</code> authorizations): Brokers and authenticates privileged connections; grants only authorized users access to authorized targets; records sessions as full-color video + transcript/keystroke metadata; real-time monitoring; session sharing (4-eyes/4-hands); alerting and forced termination. Target credentials are never exposed to the user.</li>
+<li><strong>Password Manager / Vault</strong> (license-gated <code>Secrets</code> authorizations): Encrypted secrets vault for passwords and SSH keys of human and non-human accounts; password complexity policy; automated rotation; check-out/check-in; password change/verification via plugins; external-vault integration.</li>
+<li><strong>Access Manager (WAM):</strong> A separate front-end component — an <strong>HTML5 web access gateway / reverse proxy</strong> in front of one or more Bastions, providing a single secured HTTPS entry point for remote/external access (detailed below).</li>
+</ul>
+<p>The broader portfolio also includes <strong>PEDM</strong> (privilege elevation/delegation, endpoint local-admin removal — see BestSafe) and the <strong>WALLIX One</strong> console; these are distinct from Bastion's core modules.</p>
+<h3 id="core-pam-concepts-the-acl-data-model">Core PAM concepts — the ACL data model<a class="headerlink" href="#core-pam-concepts-the-acl-data-model" title="Permanent link">&para;</a></h3>
+<p><em>(Source: WALLIX Bastion Functional Administration Guide; the served document was version 12.3.2.)</em> The rights engine is built on <strong>Access Control Lists</strong> of these objects:</p>
+<ul>
+<li><strong>User / User group</strong> — a user is a physical person (local, LDAP/AD/Azure AD, or SAML/OIDC-federated). User groups simplify authorization assignment; time frames/restrictions attach to groups.</li>
+<li><strong>Device / Service / Application / Resource</strong> — a <em>device</em> is physical/virtual equipment (by name, IP/FQDN, or CIDR subnet); a <em>service</em> is protocol+port+connection-policy on a device; an <em>application</em> runs on a Windows jump server; a <strong>resource</strong> = service + (device or application).</li>
+<li><strong>Account (target account)</strong> — an entity used to authenticate to a system = {device, service, account}. <strong>An account always belongs to a domain.</strong> Types: global, device/local, application, and scenario accounts (automate su/sudo at SSH session start).</li>
+<li><strong>Domain (local vs global)</strong> — a <strong>global domain</strong> groups accounts that authenticate across multiple devices (vault type Local = Bastion vault, or External = external-vault plugin); a <strong>local domain</strong> groups accounts for a single device.</li>
+<li><strong>Target</strong> = a <strong>resource + a target account</strong>.</li>
+<li><strong>Target group</strong> — gathers systems with similar requirements so they share authorizations.</li>
+<li><strong>Authorization</strong> — the binding object that <strong>gives a user group access rights to a target group</strong>. Critical rule: <strong>one authorization links exactly one user group to one target group</strong> (no duplicate pairs). It carries two cumulative rights — <strong>Sessions</strong> (open sessions) and <strong>Secrets</strong> (retrieve/view credentials) — plus allowed protocols/sub-protocols, session-recording toggle, session-invite mode, a Critical-targets flag, and an Approval-workflow tab.</li>
+</ul>
+<p><strong>Relationship chain:</strong> <em>users → user groups → (authorization) → target groups → targets (resource + account)</em>.</p>
+<p><strong>User mapping / secondary-connection modes</strong> (how the user actually reaches the target on the Bastion→target leg):
+- <strong>Account mapping (user mapping):</strong> user connects with <strong>their own Bastion/directory credentials</strong>, injected automatically (requires <code>PASSWORD_MAPPING</code>, or a vault transformation rule for non-password methods).
+- <strong>Specific/session account:</strong> connects with a <strong>vault-stored account</strong>, credentials injected automatically.
+- <strong>Interactive login:</strong> user <strong>manually types</strong> the target credentials (requires <code>PASSWORD_INTERACTIVE</code>; no injection).</p>
+<p><strong>Permission profiles</strong> govern administrative rights (None/View/Modify per feature) and are assignable to users, groups, or API keys.</p>
+<h3 id="session-management">Session management<a class="headerlink" href="#session-management" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Protocols / proxies:</strong> <strong>SSH</strong> (with SFTP/sub-systems), <strong>TELNET</strong>, <strong>RLOGIN</strong>, <strong>RDP</strong>, <strong>VNC</strong>, <strong>RAW TCP/IP</strong> (branded <strong>Universal Tunneling / UT</strong>), <strong>WEBAPP</strong> (web apps), and <strong>standard applications / RemoteApp</strong> via a Windows jump server. The RDP proxy engine is WALLIX's open-source <strong>"Redemption."</strong> RDP supports NLA (default on), Kerberos (default on from 12.0.1), and TLS controls.</li>
+<li><strong>Sub-protocols</strong> give granular, authorization-gated control (e.g., SSH: shell, remote command, X11, SCP up/down, SFTP, direct-TCPIP; RDP: clipboard up/down, file clipboard, printer, drive, smartcard, audio).</li>
+<li><strong>Session recording:</strong> Per-authorization. Recordings are <strong>encrypted so only the originating Bastion can replay them</strong>, viewed in an embedded player. RDP/SSH captured as video; textual SSH as transcript. Auditors can also watch current SSH sessions live even when recording is off.</li>
+<li><strong>Metadata / keystroke / OCR:</strong> The <strong>Session Probe</strong> (RDP Windows targets) passively collects rich metadata (window changes, control operations, process start/stop, clipboard, redirected-drive file exchanges) and pauses keystroke capture on password fields. <strong>OCR-based</strong> restriction rules can <code>kill</code> (disconnect) or <code>notify</code> on matching window titles / keyboard input; file-size limits gate transfers; Cisco IOS command allow/deny lists are supported.</li>
+<li><strong>Real-time monitoring / session sharing:</strong> <strong>4-eyes</strong> = auditor monitors without control; <strong>4-hands</strong> = auditor takes control (RDP remote control supported).</li>
+<li><strong>Session invite (external guest):</strong> Host can invite an external guest into a live <strong>RDP or VNC</strong> session via an expiring link in <strong>Access Manager 5+</strong> (View-only or View-and-control). Not for SSH/applications; not on the SaaS edition; both sessions are recorded.</li>
+<li><strong>Approval / four-eyes workflows:</strong> Per-authorization Approval tab. Inside the allowed time frame: No approval / Automatic (notify) / <strong>Approval with quorum</strong> (N approvers); outside: blocked / automatic / quorum. Options include mandatory comment, mandatory ticket, approval timeout, single (one-time) connection, self-approval toggle, and external ticketing integration.</li>
+</ul>
+<h3 id="password-secrets-management">Password / secrets management<a class="headerlink" href="#password-secrets-management" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Secret rotation:</strong> Manual or automatic change of passwords, SSH keys, or both; cron-syntax scheduling; tunable parallelism.</li>
+<li><strong>Password-change policies:</strong> Default policy requires <strong>min 16 characters</strong> (≥1 special/number/upper/lower) and <strong>RSA key size 4096</strong> (default raised from 8→16 chars in 12.0.6). Supports RSA/DSA/ECDSA key generation.</li>
+<li><strong>Check-out / check-in:</strong> Checkout retrieves/displays credentials (login, password, SSH key, signed cert) with optional <strong>account lock</strong> preventing concurrent use; checkout policy controls lock, duration/extension/maximum, and <strong>change password at check-in</strong> (forced rotation on return).</li>
+<li><strong>Password change / verification / propagation:</strong> Manual or automatic; a reconciliation/administrator account is used when Bastion's stored secret diverges from the target.</li>
+<li><strong>Vault &amp; Break-Glass:</strong> Local Bastion or external vault; emergency credential recovery; nightly GPG-encrypted credential export.</li>
+<li><strong>Password-change plugins (~20 bundled):</strong> Cisco IOS/Nexus, Citrix ADC, Dell iDRAC, F5 BIG-IP, FortiGate, HP iLO, IBM AIX/3270, Juniper SRX, LDAP, MySQL, Oracle, PAN-OS, Unix, Windows/WindowsService, VMware ESX, Check Point Gaia, etc.</li>
+<li><strong>External vault plugins:</strong> <strong>CyberArk</strong> Enterprise Password Vault, <strong>HashiCorp Vault</strong> (KV v1), <strong>Thycotic Secret Server</strong>, and a remote <strong>Bastion Vault</strong>. External-vault accounts are mapped via global domains.</li>
+<li><strong>AAPM (Application-to-Application Password Management):</strong> Marketed to eliminate hard-coded passwords in scripts/config files for DevOps/RPA. <strong>Flag:</strong> "AAPM" is a marketing term; technically it is realized via the <strong>Bastion REST API + vault plugins</strong> (the term does not appear by name in the 12.3.2 admin guide chapters reviewed).</li>
+</ul>
+<h3 id="access-manager-web-portal-single-point-of-access-gateway">Access Manager (web portal / single point of access / gateway)<a class="headerlink" href="#access-manager-web-portal-single-point-of-access-gateway" title="Permanent link">&para;</a></h3>
+<p><em>(Source: WALLIX Access Manager Administration Guide; the served document was version 5.2.4.0.)</em></p>
+<ul>
+<li><strong>Role:</strong> Provides connection services between web browsers and targets via <strong>HTML5 clients — no browser plug-in required</strong>. Brokers <strong>RDP/SSH/UT</strong> sessions over <strong>HTTPS in the browser</strong> (no VPN, no fat client). Also lets users display/copy target passwords in the browser.</li>
+<li><strong>Gateway / reverse proxy:</strong> Sits in front of <strong>one or more Bastions</strong>, reducing the external attack surface to a single secured HTTPS entry point. Authorizations stay in the Bastion — "the user's authorizations are gathered from the bastions of the organization at each login." Each Bastion registers by name + host + REST API key.</li>
+<li><strong>Multi-tenancy:</strong> "Organizations" each own users + Bastion instances.</li>
+<li><strong>Authentication / MFA:</strong> Authentication domains of type local, <strong>LDAP/AD</strong>, <strong>SAML 2.0</strong> (WAM as Service Provider; IdP- and SP-initiated; ADFS/Shibboleth), <strong>OIDC</strong> (Authorization Code Flow), <strong>BASTION</strong>, <strong>RADIUS</strong>, and <strong>X.509</strong> certificate (with CRL/OCSP). True MFA via a per-domain factor/priority model. Federated IdPs include <strong>WALLIX Trustelem</strong>. <em>Flag: FIDO2/OTP/push are not native to WAM — they arrive via the federated IdP over SAML/OIDC.</em></li>
+<li><strong>Centralized audit:</strong> Cross-Bastion search and replay of recordings (Elasticsearch-backed), live session viewing, video download.</li>
+<li><strong>Deployment:</strong> Virtual appliance for AWS, Azure, GCP, Alibaba, KVM, Hyper-V, Nutanix AHV, OpenStack, VMware vSphere; runs in Docker. HA via multiple WAM instances behind a load balancer; can also load-balance a cluster of Bastions (routing to the Bastion with fewest in-progress sessions).</li>
+</ul>
+<h3 id="architecture-deployment-ha-integrations">Architecture, deployment, HA, integrations<a class="headerlink" href="#architecture-deployment-ha-integrations" title="Permanent link">&para;</a></h3>
+<p><em>(Source: WALLIX Bastion 12.0.2 Deployment Guide.)</em></p>
+<ul>
+<li><strong>Appliance types:</strong> Physical (redundant PSUs) and virtual; virtual images for cloud (AWS AMI, Azure Marketplace, GCP, Alibaba, Outscale) and on-prem hypervisors (KVM, Hyper-V, Nutanix AHV, OpenStack, VMware vSphere ≥ ESXi 5.5); plus a generic GPG-signed ISO. OS base is Debian Linux (strongly implied; exact version not printed).</li>
+<li><strong>Internal components/services:</strong> <strong>MariaDB</strong> database (ports 3306/3307); <code>redemption</code> (RDP proxy); <code>wabgui</code> (admin GUI); <code>wabrestapi</code> (REST API); <code>sashimi</code>; <code>wallixsession</code>; <code>wallixcelery</code>; <code>wallix-discovery</code>; <code>superset</code> (analytics/dashboards); <code>syslog-ng</code> (SIEM forwarding); <code>wab-backupdaemon</code>; <code>wabwatchdog</code>. Storage on LVM (<code>/var/wab</code>).</li>
+<li><strong>High Availability:</strong> <strong>In v12, DRBD file-system replication was removed</strong>; HA is now <strong>HA Database Replication</strong> over an autossh SSH tunnel (port 2242; replication 3307→3306). Two modes: <strong>Master/Slave(s)</strong> and <strong>Master/Master</strong> (exactly two nodes), managed by the <code>bastion-replication</code> CLI. Key limits: <strong>audit/session tables are NOT replicated</strong> (each node keeps its own), <strong>IPv4 only</strong> in HA, all nodes must run the same version. <strong>Clustering</strong> and disaster recovery are also offered.</li>
+<li><strong>Scalability:</strong> No fixed concurrent-session/sizing numbers published in the deployment guide (deferred to the support portal). Vertical scaling via CPU/RAM and LVM disk extension for recording retention.</li>
+<li><strong>Directory / authentication integration:</strong> AD &amp; LDAP (with AD Silos / Protected Users), Kerberos, RADIUS, TACACS+. SAML IdPs include Microsoft Entra ID (Azure AD), Okta, PingIdentity, Google, AWS IAM Identity Center, inWebo, Trustelem.</li>
+<li><strong>MFA:</strong> External via RADIUS/SAML; WALLIX Trustelem; smart cards (e.g., Gemalto SafeNet IDPrime MD, YubiKey 5 NFC).</li>
+<li><strong>SIEM / monitoring:</strong> Syslog (<code>syslog-ng</code>, port 514), SNMP (v2c/v3), email notifications, Superset dashboards.</li>
+<li><strong>Encryption:</strong> AES-256, SHA-2, ECC; <strong>encryption at rest = LUKS</strong> (dm-crypt); RSA private keys ≥ 3072 bits; cryptographic policy selectable via <code>WABSecurityLevel</code>, with <strong>SOG-IS CES 1.3 (valid to 2030)</strong> recommended.</li>
+</ul>
+<h3 id="product-certifications-standards">Product certifications / standards<a class="headerlink" href="#product-certifications-standards" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>ANSSI CSPN:</strong> WALLIX Bastion <strong>version 6.0.102</strong> awarded CSPN, announced <strong>9 January 2020</strong> (a renewal). WALLIX describes Bastion as the first market solution awarded CSPN by ANSSI. (Carried forward in positioning through later versions.)</li>
+<li><strong>BSI BSZ (Germany):</strong> Obtained; reinforces European public-sector positioning.</li>
+<li><strong>Common Criteria / EAL:</strong> <strong>No EAL certification found</strong> in sources consulted — flagged as a likely absence; the official ANSSI/CC catalogues would be the definitive check.</li>
+<li><strong>Regulatory positioning (not product certifications):</strong> NIS2, GDPR, IEC 62443, DORA.</li>
+</ul>
+<hr />
+<h2 id="2-wallix-one-the-cybersecurity-saas-platform">2. WALLIX One — the Cybersecurity SaaS Platform<a class="headerlink" href="#2-wallix-one-the-cybersecurity-saas-platform" title="Permanent link">&para;</a></h2>
+<h3 id="what-it-is-and-disambiguation">What it is (and disambiguation)<a class="headerlink" href="#what-it-is-and-disambiguation" title="Permanent link">&para;</a></h3>
+<p><strong>WALLIX One is WALLIX's cybersecurity SaaS platform</strong> — a "Security-as-a-Service" brand/umbrella under which WALLIX delivers its access- and identity-security products as cloud-hosted subscription services. It is <strong>not a single product</strong>; it is the platform/delivery model through which several WALLIX services are consumed.</p>
+<ul>
+<li>WALLIX's self-description: "the cybersecurity SaaS platform designed to meet the digital and economic challenges of companies aiming to safeguard their access and identities," offering "best-of-breed Access and PAM services."</li>
+<li><strong>Launched 14 December 2023.</strong></li>
+</ul>
+<p><strong>Layering to keep straight (important for the exam):</strong>
+- <em>WALLIX One</em> = the SaaS platform / delivery model.
+- Individual services follow a <em>"WALLIX One-X"</em> naming convention (e.g., WALLIX One-PAM, WALLIX One-IDaaS, WALLIX One-RA, WALLIX One Enterprise Vault).
+- Underlying technology products (Bastion, Access Manager, Trustelem, BestSafe) are the <em>engines</em>; WALLIX One is how some of them are packaged and delivered as SaaS.</p>
+<h3 id="core-problem-target-audience">Core problem &amp; target audience<a class="headerlink" href="#core-problem-target-audience" title="Permanent link">&para;</a></h3>
+<p>Reduce identity-related breach risk and enable Zero-Trust access governance <strong>without</strong> on-prem infrastructure, CapEx, setup, and maintenance burden — addressing the cybersecurity skills shortage with fast ROI ("WALLIX takes care of it for you"). Targets companies of all sizes, with emphasis on <strong>SMEs/mid-caps/SMBs</strong>, cloud-first organizations, and governance of access for employees, external/third-party providers, IT admins, and OT maintainers. Secondary (blog-level) positioning targets <strong>MSPs</strong> as a cloud-PAM channel play.</p>
+<h3 id="services-delivered-under-wallix-one">Services delivered under WALLIX One<a class="headerlink" href="#services-delivered-under-wallix-one" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>What it delivers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>WALLIX One-PAM</strong></td>
+<td>PAM as a service — privileged account/password management, session traceability, JIT access.</td>
+</tr>
+<tr>
+<td><strong>WALLIX One-IDaaS</strong></td>
+<td>Cloud SSO + MFA, federated identity (built on <strong>Trustelem</strong> technology).</td>
+</tr>
+<tr>
+<td><strong>WALLIX One-RA (Remote Access)</strong></td>
+<td>Controlled third-party access with traceability, MFA, auto-revocation; <strong>no VPN, no shared passwords</strong>.</td>
+</tr>
+<tr>
+<td><strong>WALLIX One Enterprise Vault</strong></td>
+<td>SaaS credential manager with <strong>end-to-end / zero-knowledge encryption</strong>; encrypted sharing; browser extension + mobile app; admin recovery.</td>
+</tr>
+</tbody>
+</table>
+<p>PAM tiers on the SaaS portal: <strong>WALLIX One PAM Core</strong> (internal users — Session Manager, Password Manager, Universal Tunneling) and <strong>WALLIX One PAM</strong> (adds <strong>Access Manager</strong> for remote/external privileged access). <strong>WALLIX One Console</strong> is the centralized management console for large/distributed environments.</p>
+<h3 id="architecture-delivery-model">Architecture / delivery model<a class="headerlink" href="#architecture-delivery-model" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Pure SaaS</strong>, annual subscription, consumption-flexible, automatic updates, <strong>99.9% uptime SLA</strong>, <strong>ISO/IEC 27001</strong> certified.</li>
+<li><strong>Agentless / no on-prem connectors:</strong> "WALLIX One PAM does not require the installation of any on-premises connectors." Connectivity is via an <strong>IPSec tunnel initiated outbound from the client network</strong> to the WALLIX One PAM gateway — "no inbound connections or open ports are required on the client's side."</li>
+<li>Protocol proxies: <strong>RDP, SSH/SFTP, VNC, TELNET/RLOGIN</strong>, plus OT protocols and LDAP/Kerberos integration.</li>
+<li><strong>Relationship to Bastion:</strong> WALLIX One PAM is <strong>Bastion + Access Manager delivered as managed SaaS</strong> — the architecture docs reference deployed components named "WALLIX Bastion - GUI / RDP Proxy / SSH Proxy" alongside WALLIX Access Manager. Bastion is <em>also</em> still sold standalone (on-prem and via AWS Marketplace BYOL).</li>
+</ul>
+<blockquote>
+<p><strong>Flags / uncertainties:</strong> Single-tenant architecture + Microsoft Azure hosting are reported by secondary sources but were <strong>not directly confirmed</strong> on the wallix.com pages reviewed. The explicit "Trustelem → WALLIX One-IDaaS" rename is strongly implied but not stated verbatim on the pages read. <strong>EPM/BestSafe and PAM4OT belong to the broader WALLIX suite but were not presented as WALLIX One SaaS services</strong> — do not conflate the overall product suite with the WALLIX One SaaS platform.</p>
+</blockquote>
+<hr />
+<h2 id="3-wallix-trustelem-idaas-sso-mfa-identity-federation">3. WALLIX Trustelem — IDaaS (SSO / MFA / Identity Federation)<a class="headerlink" href="#3-wallix-trustelem-idaas-sso-mfa-identity-federation" title="Permanent link">&para;</a></h2>
+<h3 id="what-it-is-and-the-problem-it-solves_1">What it is and the problem it solves<a class="headerlink" href="#what-it-is-and-the-problem-it-solves_1" title="Permanent link">&para;</a></h3>
+<p><strong>WALLIX Trustelem</strong> is WALLIX's <strong>European Identity-as-a-Service (IDaaS)</strong> platform delivering cloud <strong>Single Sign-On (SSO), Multi-Factor Authentication (MFA), and identity federation</strong>, positioned as the IDaaS pillar of <strong>WALLIX One</strong> (sometimes branded "WALLIX One IDaaS"). It unifies and secures workforce access to applications within a <strong>Zero Trust</strong> framework, addressing password vulnerability, application proliferation, and the IT burden of manual access management.</p>
+<h3 id="key-features">Key features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Single Sign-On:</strong> Authenticate once; SAML/OIDC apps trust the session.</li>
+<li><strong>MFA factors (confirmed in WALLIX docs):</strong></li>
+<li><strong>WALLIX Authenticator</strong> — mobile (iOS/Android) and desktop (Windows) app; <strong>push</strong> when online, <strong>TOTP</strong> fallback offline. (The MFA tech is <em>powered by inWebo</em> — see Company Background.)</li>
+<li><strong>TOTP</strong> (also works with Google/Microsoft Authenticator).</li>
+<li><strong>FIDO security keys</strong> — FIDO2 hardware keys (e.g., YubiKey) via <strong>WebAuthn</strong> (not usable over LDAP/RADIUS).</li>
+<li><strong>SMS OTP</strong> (disabled by default; extra cost) and <strong>Email OTP</strong> (disabled by default; "not strong authentication").</li>
+<li>Docs stress true strong auth = two different kinds of factors.</li>
+<li><strong>Authentication methods (datasheet-level, secondary-confirmed):</strong> Password (AD/LDAP/Trustelem-stored), Integrated Windows Authentication, X.509 certificate.</li>
+<li><strong>Adaptive / contextual access (Access Rules):</strong> Per-application enforcement of no-auth / 1-factor / 2-factor / deny, differentiated by <strong>internal vs. external IP zone</strong>, applied to users/groups/everyone, with most-restrictive-wins and user-over-group priority. <em>Flag: "adaptive" here is primarily </em><em>network/IP-context</em><em> based; geolocation/device-posture/time-of-day conditions were not found in the docs.</em></li>
+<li><strong>Self-Service Password Reset (SSPR):</strong> For Trustelem-local, Active Directory (via ADConnect), and Azure AD (non-federated). Admin-configurable verification factors.</li>
+<li><strong>User lifecycle / provisioning:</strong> Inbound directory sync; outbound provisioning via <strong>SCIM 2.0</strong>; delegated administration; auditing with on-premise SIEM export.</li>
+</ul>
+<h3 id="supported-protocols-standards">Supported protocols / standards<a class="headerlink" href="#supported-protocols-standards" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Federation / SSO:</strong> <strong>SAML 2.0</strong>, <strong>OpenID Connect</strong>, <strong>OAuth 2.0</strong>.</li>
+<li><strong>Non-federated app auth (MFA but no SSO):</strong> <strong>LDAP/LDAPS</strong> and <strong>RADIUS</strong> (UDP 1812; PAP; typically "2nd factor only").</li>
+<li><strong>SCIM 2.0:</strong> Trustelem acts as a <strong>SCIM client</strong> to provision users/groups into downstream apps (create/update on grant, deactivate on revoke; ~5-min push interval; relayed via Trustelem Connect).</li>
+</ul>
+<h3 id="identity-sources-directory-integration">Identity sources / directory integration<a class="headerlink" href="#identity-sources-directory-integration" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Active Directory</strong> via <strong>Trustelem ADConnect</strong> — an on-prem connector with an <strong>outbound WebSocket to admin.trustelem.com on port 443</strong> (TLS + extra encryption), talking to AD over LDAP(S) with a read-only service account. Syncs users/groups by <code>memberOf</code>; <strong>no AD passwords are stored</strong>. Login maps to sAMAccountName, userPrincipalName, or mail.</li>
+<li><strong>Azure AD / Entra ID</strong> via Microsoft Graph API. <em>Limitation: when Azure delegates auth to an external IdP or uses federated domains, Azure password auth is unavailable.</em></li>
+<li><strong>LDAP</strong> directories; <strong>Google Workspace</strong> (datasheet/secondary); <strong>Trustelem local users</strong>.</li>
+</ul>
+<h3 id="architecture-delivery">Architecture / delivery<a class="headerlink" href="#architecture-delivery" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>SaaS / cloud-hosted</strong>, <strong>hosted in European data centers</strong> ("European privacy standards"; secondary sources stress European sovereignty / GDPR).</li>
+<li><strong>On-prem connectors (lightweight agents):</strong> <strong>Trustelem ADConnect</strong> (AD sync + auth delegation) and <strong>Trustelem Connect</strong> (local LDAP/RADIUS server + SCIM forwarder; outbound 443 WebSocket — no inbound firewall opening).</li>
+<li>Per-customer tenant domain <code>https://&lt;tenant&gt;.trustelem.com</code>; web admin console.</li>
+</ul>
+<h3 id="integration-with-bastion-wallix-one">Integration with Bastion / WALLIX One<a class="headerlink" href="#integration-with-bastion-wallix-one" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Pre-integrated for <strong>WALLIX Access Manager</strong> (via <strong>SAML 2.0</strong> recommended, or RADIUS) and <strong>WALLIX Bastion</strong> (via <strong>LDAP/RADIUS</strong>), providing MFA/SSO to PAM.</li>
+<li>Bundled into <strong>WALLIX One</strong> (Dec 2023) alongside PAM and Remote Access, managed from the WALLIX One Console; MFA is natively integrated with WALLIX PAM.</li>
+</ul>
+<h3 id="application-catalog">Application catalog<a class="headerlink" href="#application-catalog" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A catalog of <strong>pre-integrated app connectors</strong>. <em>Flag: count is uncertain/conflicting — docs suggested "80+", a third party claimed "1000+"; wallix.com did not state a count on the pages reviewed.</em> Named apps include Microsoft 365, Google Workspace, Salesforce, Dropbox, AWS, GitHub, Slack, Box, Datadog, Zendesk, Tableau, plus WALLIX Bastion and Access Manager. Generic models exist for SAML 2.0, OIDC, OAuth 2.0, and "Basic / no SSO" (LDAP/RADIUS) apps.</li>
+</ul>
+<hr />
+<h2 id="4-wallix-bestsafe-endpoint-privilege-management-epm">4. WALLIX BestSafe — Endpoint Privilege Management (EPM)<a class="headerlink" href="#4-wallix-bestsafe-endpoint-privilege-management-epm" title="Permanent link">&para;</a></h2>
+<h3 id="what-it-is-and-the-problem-it-solves_2">What it is and the problem it solves<a class="headerlink" href="#what-it-is-and-the-problem-it-solves_2" title="Permanent link">&para;</a></h3>
+<p><strong>WALLIX BestSafe</strong> is WALLIX's <strong>Endpoint Privilege Management (EPM)</strong> product — "a modular endpoint protection solution based on simple rules" designed to "eliminate the risks associated with overprivileged users and avoid the spread of malware, crypto-viruses and ransomware attacks." Because privilege escalation underpins most attacks, BestSafe operationalizes <strong>least privilege</strong> on endpoints, letting an organization remove local administrator accounts and "create a zero-administrator policy" while users stay productive (they can still run the apps they need, even privileged ones). It targets both user workstations and application servers, and is built on technology from the <strong>Simarks</strong> acquisition.</p>
+<h3 id="distinguishing-technical-approach-privilege-at-the-processapplication-level">Distinguishing technical approach — privilege at the PROCESS/APPLICATION level<a class="headerlink" href="#distinguishing-technical-approach-privilege-at-the-processapplication-level" title="Permanent link">&para;</a></h3>
+<p>This is the central differentiator (verbatim from the datasheet): <em>"BestSafe uses WALLIX's exclusive </em><em>patented technology</em><em> to assign the necessary security context to each process or application, regardless of the user credentials with which it is executed. With BestSafe, privileges are granted to </em><em>applications instead of users</em><em>, unlike traditional tools on the market."</em></p>
+<ul>
+<li>Traditional models elevate the <em>whole user</em> (local admin membership, UAC, sudo, "run as administrator") — so any malware in that user's context inherits the rights.</li>
+<li>BestSafe instead attaches the required privilege to the <strong>specific process/application + context</strong>, leaving the user a standard non-admin account, making <strong>"the operating system itself the guarantor of security."</strong> The user cannot self-elevate; local admin can be removed entirely; sanctioned apps still get exactly the privileges they require; and <strong>"the most dangerous API calls are blocked"</strong> even within otherwise-allowed apps. WALLIX positions this as <strong>PEDM</strong> (Privilege Elevation and Delegation Management).</li>
+</ul>
+<h3 id="key-features_1">Key features<a class="headerlink" href="#key-features_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Application control</strong></td>
+<td>White / gray / black listing; blocks unwanted installs; lets users self-install an approved set without IT.</td>
+</tr>
+<tr>
+<td><strong>Privilege management</strong></td>
+<td>At the application level and the user level; granular per user/application/group.</td>
+</tr>
+<tr>
+<td><strong>Anti-ransomware</strong></td>
+<td><strong>Detect in real time when a process intends to perform an encryption operation <em>before it is carried out</em></strong>, then stop it; optionally store every encryption key to allow later decryption.</td>
+</tr>
+<tr>
+<td><strong>Local Account Password Rotation</strong></td>
+<td>Rotates each local-account password to be <strong>unique per computer, per account, per day</strong>; future passwords predictable offline (no network needed); change attempts alerted.</td>
+</tr>
+<tr>
+<td><strong>Local user management</strong></td>
+<td>Rule-based group membership + password rotation.</td>
+</tr>
+<tr>
+<td><strong>Monitoring &amp; analytics</strong></td>
+<td>Event-based; <strong>SIEM integration</strong>; alerts/alarms.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Flag on "credential theft protection":</em> BestSafe addresses credential abuse mainly via (a) eliminating local admin accounts and (b) per-machine/per-day local password rotation. A discrete "credential theft protection" module beyond this is <strong>not named in the datasheets</strong> — treat broader credential-theft wording as positioning, not a distinct documented feature.</p>
+</blockquote>
+<h3 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Agent-based:</strong> a <strong>light agent</strong> per endpoint that caches its configuration locally and <strong>enforces policy even offline</strong>.</li>
+<li><strong>Active Directory-native, no extra infrastructure:</strong> "Fully integrated into Microsoft Active Directory"; "does not require additional infrastructure (DB servers, web servers, etc.)"; the agent contacts the closest Domain Controller.</li>
+<li><strong>Management plane:</strong> <strong>MMC snap-in</strong> + AD integration (policy distributed AD/GPO-style); event-based monitoring with SIEM forwarding. <em>Flag: whether current BestSafe/EPM is managed via the WALLIX One Console is plausible but not confirmed in the primary BestSafe sources — version-dependent.</em></li>
+<li>WALLIX cites a client-server model for scalability ("100% scalable at zero cost") and very fast deployment.</li>
+</ul>
+<h3 id="how-it-complements-pam-endpoint-vs-session-side">How it complements PAM (endpoint vs. session side)<a class="headerlink" href="#how-it-complements-pam-endpoint-vs-session-side" title="Permanent link">&para;</a></h3>
+<p>WALLIX pairs BestSafe with Bastion as a combined <strong>PAM/PEDM</strong> offering under the <strong>"PAM4ALL"</strong> least-privilege vision:
+- <strong>Bastion (PAM) = session side</strong> — brokers, vaults, records, and audits privileged sessions/credentials to targets.
+- <strong>BestSafe (EPM/PEDM) = endpoint side</strong> — enforces least privilege on the workstation/server itself, at the process/application level, removing standing local admin rights.</p>
+<h3 id="platforms-supported">Platforms supported<a class="headerlink" href="#platforms-supported" title="Permanent link">&para;</a></h3>
+<p>From the 2021 datasheet (authoritative): <strong>Windows XP and Server 2003</strong>, <strong>Windows Vista and above</strong> (covers modern Windows 10/11 and current Server editions), and <strong>Linux (Debian, RedHat, SUSE)</strong> with fine-grained policy-based elevation on Unix/Linux. <em>Flag: </em><em>macOS is NOT listed</em><em> in the WALLIX BestSafe datasheets; some third-party summaries assert macOS support, but it is </em><em>unconfirmed / likely not supported</em><em> for BestSafe specifically.</em></p>
+<hr />
+<h2 id="5-wallix-iag-identity-access-governance">5. WALLIX IAG — Identity &amp; Access Governance<a class="headerlink" href="#5-wallix-iag-identity-access-governance" title="Permanent link">&para;</a></h2>
+<h3 id="disambiguation-read-first">Disambiguation (read first)<a class="headerlink" href="#disambiguation-read-first" title="Permanent link">&para;</a></h3>
+<p>The naming confusion resolves into two <strong>separate</strong> WALLIX moves:</p>
+<ul>
+<li><strong>WALLIX IAG (Identity &amp; Access Governance) = the Kleverware product.</strong> WALLIX acquired <strong>Kleverware</strong> (a French IAG vendor) on <strong>16 May 2023</strong> and rebranded "Kleverware IAG" as <strong>WALLIX IAG</strong>. Confirmed verbatim on the WALLIX IAG datasheet: <em>"The addition of the WALLIX IAG solution seamlessly complemented their existing portfolio following the acquisition of Kleverware."</em> <strong>IAG is an official WALLIX product name — confirmed, not ambiguous.</strong></li>
+<li><strong>inWebo has nothing to do with IAG.</strong> inWebo is a strong-authentication/MFA vendor; WALLIX's relationship is a <strong>technology partnership</strong> powering <strong>WALLIX Authenticator</strong> (the MFA app tied to Trustelem). <strong>WALLIX did not acquire inWebo</strong> (inWebo merged with TrustBuilder separately). Do not conflate inWebo with IAG.</li>
+</ul>
+<p>So: <strong>IAG ← Kleverware (acquisition). MFA/Authenticator ← inWebo (partnership).</strong></p>
+<h3 id="what-it-is-and-the-problem-it-solves_3">What it is and the problem it solves<a class="headerlink" href="#what-it-is-and-the-problem-it-solves_3" title="Permanent link">&para;</a></h3>
+<p>WALLIX IAG is the <strong>governance layer</strong> answering <em>"who has access to what, and should they?"</em> — "a formal way of managing and governing access entitlements within an organization," providing "a comprehensive mapping of identities to their respective permissions" and acting as a control tower for access-certification campaigns. WALLIX distinguishes IAG (governance overlay) from IAM (the authentication/authorization plumbing); IAG can run standalone or complement an existing IAM.</p>
+<p>Core problems solved: who-has-access-to-what visibility, <strong>access certification/recertification</strong>, <strong>Segregation of Duties (SoD)</strong> / toxic-rights detection, orphan/over-entitled account remediation, and compliance reporting (ISO 27001, SOX, Basel III, NIS2, PCI DSS, Solvency II, DORA, GDPR, HIPAA).</p>
+<h3 id="key-features-and-components-four-pillars">Key features and components (four pillars)<a class="headerlink" href="#key-features-and-components-four-pillars" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Pillar</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Access Identification / Modelization</strong></td>
+<td>Centralized view across internal IT + cloud apps; data consolidation from directories, cloud, file systems, applications via an <strong>ETL</strong>; exhaustive mapping of privileged accounts; role-based attribution models.</td>
+</tr>
+<tr>
+<td><strong>Lifecycle Management (Joiner-Mover-Leaver)</strong></td>
+<td>Validation/consistency of authorizations via business-line managers; continuous control for arrivals, transfers/mobility, departures; recertify at mobility.</td>
+</tr>
+<tr>
+<td><strong>Risk Control</strong></td>
+<td>Detect orphan / over-allocated accounts; enforce <strong>SoD</strong> and identify toxic combinations; remediation executed via third-party systems (<strong>WALLIX PAM, ITSM, IAM</strong>).</td>
+</tr>
+<tr>
+<td><strong>Audit &amp; Compliance</strong></td>
+<td>Auditability of (privileged) accounts; auditor-tailored reports; <strong>review/recertification campaigns</strong> (configurable duration, periodicity, scope, approvers); remediation workflow; compliance dashboards.</td>
+</tr>
+</tbody>
+</table>
+<p>Web-interface driven; request workflows integrate with the customer's ITSM; automated campaign alerts.</p>
+<h3 id="fit-in-the-broader-portfolio">Fit in the broader portfolio<a class="headerlink" href="#fit-in-the-broader-portfolio" title="Permanent link">&para;</a></h3>
+<p>IAG is the newest pillar (since 2023) alongside Bastion (PAM), Trustelem (IDaaS), and BestSafe (EPM). WALLIX markets the <strong>convergence of IGA + PAM</strong> — pairing IAG with Bastion yields <strong>Privileged Access Governance (PAG)</strong>: governance campaigns and SoD applied to privileged accounts, with PAM as the enforcement/remediation arm. Also pitched for IT/OT and NIS2/DORA compliance.</p>
+<blockquote>
+<p><strong>Confidence:</strong> High that IAG = the Kleverware-derived official product (per WALLIX's own datasheet). High that inWebo ↔ Authenticator/MFA and is unrelated to IAG. The €250k Kleverware price and dates come from press-wire snippets consistent across multiple secondary sources but the full primary PR could not be opened directly.</p>
+</blockquote>
+<hr />
+<h2 id="6-wallix-pam4ot-operational-technology-ot-security">6. WALLIX PAM4OT — Operational Technology (OT) Security<a class="headerlink" href="#6-wallix-pam4ot-operational-technology-ot-security" title="Permanent link">&para;</a></h2>
+<h3 id="what-it-is-and-the-problem-it-solves_4">What it is and the problem it solves<a class="headerlink" href="#what-it-is-and-the-problem-it-solves_4" title="Permanent link">&para;</a></h3>
+<p><strong>PAM4OT</strong> is WALLIX's PAM offering purpose-built for <strong>Operational Technology</strong> environments — ICS, SCADA, PLCs/RTUs, HMIs, engineering workstations. It is delivered under the <strong>OT.security by WALLIX</strong> brand (launched 6 October 2022) and described as "a unified set of state-of-the-art functionalities for securing access and identity in all industrial operations."</p>
+<p><strong>Core problem:</strong> control, secure, and audit <em>privileged access</em> to OT/ICS assets — especially <strong>remote third-party/vendor and maintenance access</strong> — without disrupting production. PAM4OT inserts a controlled, monitored broker between users and OT assets, enforcing least privilege, JIT access, and full session traceability.</p>
+<blockquote>
+<p><strong>Product vs. packaging (important):</strong> PAM4OT is <strong>not a separately-engineered product</strong>. WALLIX's launch material describes it as a <strong>dedicated package built on WALLIX PAM (the Bastion product line)</strong> — sessions "flow through the WALLIX Bastion." Treat PAM4OT as an <strong>OT-specific packaging/positioning of WALLIX Bastion</strong> (Session Manager, Password Manager/Vault, Access Manager, PEDM, AAPM, Authenticator) plus WALLIX Remote Access.</p>
+</blockquote>
+<h3 id="how-it-differs-from-standard-it-pam">How it differs from standard IT PAM<a class="headerlink" href="#how-it-differs-from-standard-it-pam" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Agentless / no software on PLCs or endpoints</strong> — no performance impact on target equipment (the single most-emphasized OT differentiator; PLCs/RTUs/legacy HMIs can't host agents).</li>
+<li><strong>Legacy industrial protocol support via encapsulation</strong> — industrial protocols (Modbus, PROFINET, S7, EtherCAT, etc.) can be <strong>encapsulated inside an SSH tunnel</strong> for controlled, traceable PLC sessions (in some configs, direct PLC connection without a separate jump server).</li>
+<li><strong>Production continuity over IT-style policy</strong> — secure any protocol/access without impacting production; HA/24-7 emphasized.</li>
+<li><strong>IT/OT boundary and segmentation awareness</strong> — operates at the boundary between segmented IT and OT networks.</li>
+<li><strong>Third-party maintenance access as a first-class use case</strong> — WALLIX cites securing 7,000+ remote access points for OT service providers in 2023.</li>
+</ul>
+<h3 id="key-features_2">Key features<a class="headerlink" href="#key-features_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Secure remote access for external maintenance providers</strong> — brokered/gateway model; remote vendors authenticate to the WALLIX gateway, not directly to OT assets; integrates with AD/LDAP/RADIUS/SAML.</li>
+<li><strong>Clientless, browser-based access</strong> — via WALLIX Access Manager / Web Session Manager; no plug-ins.</li>
+<li><strong>Session recording for OT</strong> — video-style playback, keystroke logging, command capture, <strong>OCR</strong> for graphical sessions; real-time monitoring/intervention.</li>
+<li><strong>Protocol support</strong> — <strong>RDP, SSH, VNC, Telnet, HTTP/HTTPS</strong> to Windows/Linux systems, network devices, HMIs, engineering workstations, plus industrial-protocol encapsulation in SSH tunnels.</li>
+<li><strong>Strong authentication (MFA)</strong> via WALLIX Authenticator.</li>
+<li><strong>Password/credential management</strong> via WALLIX Password Manager with <strong>automatic credential injection</strong> (operators never see passwords).</li>
+<li><strong>Just-in-Time access &amp; least privilege / PEDM</strong> — time-limited, task-scoped elevation; sessions terminate on completion.</li>
+</ul>
+<h3 id="architecture-it-ot-boundary-positioning">Architecture / IT-OT boundary positioning<a class="headerlink" href="#architecture-it-ot-boundary-positioning" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Operates as a <strong>centralized brokered access point (bastion/jump host)</strong> between users/remote vendors and OT assets; all privileged sessions route through WALLIX Bastion (authentication, credential injection, protocol proxying, recording).</li>
+<li>In the <strong>Purdue Reference Model</strong>, this is the role of a jump/bastion host in the <strong>Level 3.5 Industrial DMZ</strong> between OT (Levels 0–3) and IT/enterprise (Levels 4–5). <em>Flag: the explicit "Level 3.5" label comes from general OT-architecture sources; WALLIX pages speak of "IT/OT boundary" and segmentation rather than publishing a Level 3.5 diagram.</em></li>
+<li><strong>Deployment:</strong> on-prem, private/public cloud, hybrid, and SaaS (WALLIX Remote Access / WALLIX One). Agentless on the target side.</li>
+</ul>
+<h3 id="standards-compliance">Standards / compliance<a class="headerlink" href="#standards-compliance" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>ISA/IEC 62443</strong> — central OT standard; WALLIX publishes a whitepaper mapping Bastion PAM to 62443 essentials. (Detailed zone/conduit/Foundational-Requirement/SL mappings are in the gated whitepaper PDF, not the public page.)</li>
+<li><strong>NIS2 Directive (EU)</strong> — cited as a driver (traceability/monitoring for audit-readiness).</li>
+<li><strong>NIST Cybersecurity Framework and NIST SP 800-82</strong> (ICS guidance).</li>
+<li><strong>NERC CIP</strong> — named in the Schneider i-PAM context and broader OT messaging, alongside the NIS Directive, France's LPM, and ISO 27001.</li>
+<li>European credentials: ANSSI certification and the "Cybersecurity Made in Europe" label.</li>
+</ul>
+<h3 id="partnerships-otics-vendors">Partnerships (OT/ICS vendors)<a class="headerlink" href="#partnerships-otics-vendors" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Schneider Electric</strong> — the most substantive OT alliance. Joint <strong>Industrial PAM (i-PAM)</strong> solution; WALLIX provides <strong>"WALLIX Inside,"</strong> an embedded form of its PAM tech that Schneider embeds into its <strong>Harmony P6 "Edge Box"</strong> line. Positioned for NIS, LPM, ISO 27001, NERC CIP, NIST SP 800-82. Schneider is a WALLIX "Elite Partner."</li>
+<li><strong>Cisco</strong> — partnership strengthened (announced 27 June 2024) integrating PAM4OT with <strong>Cisco Cyber Vision</strong> (OT asset discovery) for centralized monitoring, JIT access, protocol restriction, and traceability.</li>
+<li><strong>Nozomi Networks</strong> — technology alliance (20 September 2022) integrating PAM4OT with Nozomi's OT/IoT asset discovery and behavioral threat detection toward a Zero-Trust OT architecture.</li>
+</ul>
+<blockquote>
+<p><strong>Flags:</strong> PAM4OT = packaging of Bastion/WALLIX PAM for OT (confirmed via WALLIX's launch PR). Some richest feature detail (protocol encapsulation, OCR, direct-PLC connection, agentless no-performance-impact) came from search extracts of WALLIX/reseller pages rather than fully fetched primary HTML — credible and consistent, but verify against a WALLIX datasheet PDF if exact wording is needed.</p>
+</blockquote>
+<hr />
+<h2 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<h3 id="wallix-bastion-pam">WALLIX Bastion / PAM<a class="headerlink" href="#wallix-bastion-pam" title="Permanent link">&para;</a></h3>
+<ul>
+<li>https://www.wallix.com/products/privileged-access-management/</li>
+<li>https://www.wallix.com/wp-content/uploads/2021/10/DATASHEET_2021_BASTION_EN.pdf</li>
+<li>https://pam.wallix.one/documentation/admin-doc/bastion_en_administration_guide.pdf (served version 12.3.2)</li>
+<li>https://marketplace-wallix.s3.amazonaws.com/bastion_12.0.2_en_deployment_guide.pdf</li>
+<li>https://www.wallix.com/wp-content/uploads/2020/07/WALLIX_BASTION_ACCESS_MANAGER_EN.pdf</li>
+<li>https://pam.wallix.one/documentation/admin-doc/am-admin-guide_en.pdf (served version 5.2.4.0)</li>
+<li>https://www.wallix.com/wp-content/uploads/2020/08/20200113-CSPN_EnglishVersion.pdf</li>
+<li>https://www.wallix.com/news/wallix-bastion-honored-again-cspn-certification</li>
+<li>https://www.wallix.com/en/actualites/wallix-bastion-distingue-certification-cspn-anssi</li>
+<li>https://support.wallix.com/hc/en-us/articles/24928252714013-Compatibility-Between-Bastion-and-Access-Manager (referenced in WAM guide)</li>
+<li>https://support.wallix.com/s/article/Wallix-Bastion-sizing (referenced in deployment guide)</li>
+</ul>
+<h3 id="wallix-one">WALLIX One<a class="headerlink" href="#wallix-one" title="Permanent link">&para;</a></h3>
+<ul>
+<li>https://www.wallix.com/products/wallix-one/</li>
+<li>https://www.wallix.com/press/2023/introducing-wallix-one-the-cybersecurity-saas-platform-designed-to-meet-the-digital-and-economic-challenges-of-companies-aiming-to-safeguard-their-access-and-identities/</li>
+<li>https://pam.wallix.one/</li>
+<li>https://www.wallix.com/products/enterprise-vault/</li>
+<li>https://pam.wallix.one/documentation/deployment/getting-started/architecture.html</li>
+<li>https://www.prnewswire.com/news-releases/introducing-wallix-one-the-cybersecurity-saas-platform-designed-to-meet-the-digital-and-economic-challenges-of-companies-aiming-to-safeguard-their-access-and-identities-302013994.html</li>
+<li>https://www.wallix.com/products/remote-access/</li>
+<li>https://www.wallix.com/blogpost/winning-the-future-of-pam-in-the-cloud-how-wallix-saas-is-redefining-security-for-mses-and-smbs/</li>
+<li>https://incyber.org/en/article/wallix-launches-saas-platform-dedicated-to-access-and-identity/</li>
+<li>https://aws.amazon.com/marketplace/pp/prodview-n5llbkfguwale</li>
+</ul>
+<h3 id="wallix-trustelem-idaas-mfa-sso">WALLIX Trustelem (IDaaS / MFA / SSO)<a class="headerlink" href="#wallix-trustelem-idaas-mfa-sso" title="Permanent link">&para;</a></h3>
+<ul>
+<li>https://www.wallix.com/products/idaas/</li>
+<li>https://www.wallix.com/products/multi-factor-authentication-mfa/</li>
+<li>https://trustelem-doc.wallix.com/books/trustelem-administration/page/summary</li>
+<li>https://trustelem-doc.wallix.com/books/trustelem-administration/page/multi-factors-authentication</li>
+<li>https://trustelem-doc.wallix.com/books/trustelem-administration/page/ldap-radius-trustelem-connect</li>
+<li>https://trustelem-doc.wallix.com/books/trustelem-administration/page/active-directory-users-trustelem-adconnect</li>
+<li>https://trustelem-doc.wallix.com/books/trustelem-administration/page/azure-ad-users</li>
+<li>https://trustelem-doc.wallix.com/books/trustelem-administration/page/access-rules</li>
+<li>https://trustelem-doc.wallix.com/books/trustelem-administration/page/scim-client</li>
+<li>https://trustelem-doc.wallix.com/books/trustelem-administration/page/self-service-password-reset</li>
+<li>https://trustelem-doc.wallix.com/books/trustelem-applications/page/wallix-access-manager</li>
+<li>https://trustelem-doc.wallix.com/books/trustelem-applications/export/html</li>
+<li>https://trustelem-doc.wallix.com/books/wallix-authenticator/page/presentation</li>
+</ul>
+<h3 id="wallix-bestsafe-epm">WALLIX BestSafe (EPM)<a class="headerlink" href="#wallix-bestsafe-epm" title="Permanent link">&para;</a></h3>
+<ul>
+<li>https://www.wallix.com/endpoint-privilege-management/</li>
+<li>https://www.wallix.com/blogpost/endpoint-privilege-management-a-new-generation-of-007-2/</li>
+<li>https://www.wallix.com/wp-content/uploads/2020/09/WALLIX_BESTSAFE_2020_EN.pdf</li>
+<li>https://www.wallix.com/wp-content/uploads/2021/10/DATASHEET_2021_BESTSAFE_EN.pdf</li>
+<li>https://www.solutions-numeriques.com/avec-bestsafe-wallix-ajoute-le-endpoint-privilege-management-a-ses-solutions/</li>
+<li>https://idency.com/products/networking/security-management/network-management-security-management/wallix-bestsafe-endpoint-privilege-management-epm/</li>
+</ul>
+<h3 id="wallix-iag-identity-access-governance-kleverware-inwebo">WALLIX IAG (Identity &amp; Access Governance) / Kleverware / inWebo<a class="headerlink" href="#wallix-iag-identity-access-governance-kleverware-inwebo" title="Permanent link">&para;</a></h3>
+<ul>
+<li>https://www.wallix.com/products/identity-and-access-governance/</li>
+<li>https://www.wallix.com/blogpost/what-is-identity-and-access-governance-iag/</li>
+<li>https://www.wallix.com/wp-content/uploads/2024/02/DATASHEET_2024_WALLIX_IAG_ENG.pdf</li>
+<li>https://www.wallix.com/alliances/inwebo</li>
+<li>https://www.actusnews.com/en/wallix/pr/2023/05/16/wallix-acquires-kleverware-a-leading-player-in-identity-and-access-governance</li>
+<li>https://kleverware.com/en/wallix-acquires-kleverware-a-leading-player-in-identity-and-access-governance/</li>
+<li>https://www.wallix.com/press/2023/wallix-signs-a-technological-alliance-with-kleverware-to-strengthen-cloud-security/</li>
+<li>https://www.kuppingercole.com/research/bc81430/identity-and-access-governance-wallix</li>
+<li>https://www.wallix.com/blogpost/iga-and-pam-how-identity-governance-administration-connects-with-pam/</li>
+<li>https://docs.trustbuilder.com/mfa/general-overview-getting-started-with-inwebo</li>
+<li>https://inwebo.group/wp-content/uploads/2022/01/PR_inWebo_Technologies_and_Trustbuilder_join_inWebo_Group.pdf</li>
+</ul>
+<h3 id="wallix-pam4ot-ot-security">WALLIX PAM4OT / OT security<a class="headerlink" href="#wallix-pam4ot-ot-security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>https://www.wallix.com/ot-security/</li>
+<li>https://www.wallix.com/ot-security/ot-products/ot-pam4ot/</li>
+<li>https://www.wallix.com/blogpost/scada-security-and-privileged-access-management-pam/</li>
+<li>https://www.wallix.com/ot/ot-whitepaper/how-wallix-helps-achieve-isa62443-compliance/</li>
+<li>https://www.wallix.com/press/wallix-strengthened-its-partnership-with-cisco-to-cyber-secure-industrial-networks/</li>
+<li>https://www.wallix.com/product-lp/ot-operations-with-remote-access/</li>
+<li>https://www.wallix.com/press/2022/wallix-accelerates-in-the-industry-market-by-launching-ot-security-by-wallix-its-brand-dedicated-to-industrial-cybersecurity/</li>
+<li>https://www.wallix.com/ot-homepage/ot-use-case-secure-remote-access/</li>
+<li>https://www.wallix.com/schneider-electric-i-pam-industrial-privileged-access-management/</li>
+<li>https://www.wallix.com/alliances/schneider-electric</li>
+</ul>
+<h3 id="company-background_1">Company background<a class="headerlink" href="#company-background_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>https://www.wallix.com/company/about-wallix/</li>
+<li>https://www.wallix.com/press/wallix-is-ramping-up-its-ai-strategy-with-the-acquisition-of-french-start-up-malizen/</li>
+<li>https://live.euronext.com/en/products/equities/company-news/2025-06-17-wallix-new-european-leader-cybersecurity-celebrates-ten</li>
+<li>https://www.wallix.com/news/wallix-acquires-simarks-workstation-pam-offer-leading-global-player</li>
+<li>https://www.actusnews.com/en/wallix/pr/2020/02/20/wallix-announces-the-launch-of-bestsafe-its-new-endpoint-privilege-management-epm-solution</li>
+<li>https://www.wallix.com/press/wallix-recognized-as-a-visionary-for-the-third-consecutive-year-in-the-2025-gartner-magic-quadrant-for-pam-solutions/</li>
+<li>https://www.wallix.com/press/wallix-recognized-for-the-fifth-consecutive-year-as-an-overall-leader-in-kuppingercole-s-leadership-compass-pam-2026/</li>
+<li>https://www.wallix.com/press/2022/wallix-named-a-leader-in-the-2022-gartner-magic-quadrant-for-privileged-access-management/</li>
+<li>https://www.wallix.com/press/wallix-achieves-dual-certifications-in-germany-and-france-reinforcing-its-position-as-a-trusted-european-cybersecurity/</li>
+<li>https://www.globalsecuritymag.com/WALLIX-has-been-awarded-CSPN,20200113,94520.html</li>
+<li>https://www.trustbuilder.com/en/2-years-of-trustbuilder-after-inwebo/</li>
+</ul>
+<hr />
+<h2 id="key-uncertainties-flagged-summary">Key uncertainties flagged (summary)<a class="headerlink" href="#key-uncertainties-flagged-summary" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>inWebo was NOT acquired by WALLIX</strong> — it is a technology partner; WALLIX Authenticator (MFA) is <em>powered by</em> inWebo. Confirmed acquisitions: <strong>Trustelem (2019), Simarks (2019), Kleverware (2023), Malizen (2025)</strong>.</li>
+<li><strong>WALLIX IAG = the Kleverware product</strong> (rebranded), unrelated to inWebo.</li>
+<li><strong>PAM4OT is a packaging of WALLIX Bastion/PAM for OT</strong>, not a separate engine.</li>
+<li><strong>"BestSafe" is a product</strong> (from the Simarks acquisition), not an acquired company; <strong>macOS support is unconfirmed/likely absent</strong>.</li>
+<li><strong>"AAPM"</strong> is a marketing label for Bastion's REST-API + vault-plugin mechanism (not named in the 12.3.2 admin guide).</li>
+<li><strong>No Common Criteria EAL</strong> level confirmed for Bastion — only <strong>ANSSI CSPN</strong> (FR) and <strong>BSI BSZ</strong> (DE).</li>
+<li><strong>WALLIX One</strong> is the SaaS platform/umbrella; <strong>EPM/BestSafe and PAM4OT were not presented as WALLIX One SaaS services</strong> in the sources reviewed. Single-tenant/Azure hosting is reported by secondary sources only.</li>
+<li><strong>Trustelem app-catalog size</strong> (80+ vs 1000+) and a few datasheet-level auth methods are secondary-source only.</li>
+<li><strong>Purdue "Level 3.5"</strong> placement for PAM4OT is standard industry framing, not explicit WALLIX page labeling.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.top", "content.code.copy", "search.suggest"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
