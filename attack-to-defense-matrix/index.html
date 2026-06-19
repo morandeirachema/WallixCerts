@@ -4970,12 +4970,12 @@ controls.</p>
     S6["6. IMPACT&lt;br/&gt;ransomware, data theft, sabotage&lt;br/&gt;(TA0040)"]
     S1 --&gt; S2 --&gt; S3 --&gt; S4 --&gt; S5 --&gt; S6
 
-    D1["Gateway + MFA; no target password to phish&lt;br/&gt;(it lives in the vault). User awareness training."]
-    D2["Credential injection: target secret never lands&lt;br/&gt;on the endpoint. Aggressive rotation voids any scrape."]
-    D3["Least privilege / JIT; remove local admin (EPM);&lt;br/&gt;app-level (not user-level) elevation."]
-    D4["Brokered, recorded sessions are the only path;&lt;br/&gt;unique + rotated creds per host kill hash/ticket reuse."]
-    D5["No standing Domain-Admin to steal; approval + recording&lt;br/&gt;make new accounts visible. AD hardening (general)."]
-    D6["Session kill + restriction rules; anti-ransomware (EPM);&lt;br/&gt;backups + segmentation (general). Full audit trail."]
+    D1["Gateway + MFA; no target password to&lt;br/&gt;phish&lt;br/&gt;(it lives in the vault). User awareness&lt;br/&gt;training."]
+    D2["Credential injection: target secret&lt;br/&gt;never lands&lt;br/&gt;on the endpoint. Aggressive rotation&lt;br/&gt;voids any scrape."]
+    D3["Least privilege / JIT; remove local&lt;br/&gt;admin (EPM);&lt;br/&gt;app-level (not user-level) elevation."]
+    D4["Brokered, recorded sessions are the only&lt;br/&gt;path;&lt;br/&gt;unique + rotated creds per host kill&lt;br/&gt;hash/ticket reuse."]
+    D5["No standing Domain-Admin to steal;&lt;br/&gt;approval + recording&lt;br/&gt;make new accounts visible. AD hardening&lt;br/&gt;(general)."]
+    D6["Session kill + restriction rules;&lt;br/&gt;anti-ransomware (EPM);&lt;br/&gt;backups + segmentation (general). Full&lt;br/&gt;audit trail."]
 
     S1 -. "defence" .-&gt; D1
     S2 -. "defence" .-&gt; D2

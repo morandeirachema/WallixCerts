@@ -5322,9 +5322,9 @@ LAPS and PAM are complementary layers of the same least-privilege philosophy.</p
 <p>To stop a single compromised admin from cascading into total domain takeover, Microsoft
 defines <strong>administrative tiers</strong> that must not cross:</p>
 <pre class="mermaid"><code>flowchart TD
-    T0["Tier 0 — Identity / control plane (highest)&lt;br/&gt;Domain Controllers, AD, PKI, Domain/Enterprise Admins&lt;br/&gt;Credentials here can control everything below"]
+    T0["Tier 0 — Identity / control plane&lt;br/&gt;(highest)&lt;br/&gt;Domain Controllers, AD, PKI,&lt;br/&gt;Domain/Enterprise Admins&lt;br/&gt;Credentials here can control everything&lt;br/&gt;below"]
     T1["Tier 1 — Servers and applications&lt;br/&gt;Member servers, databases, business apps"]
-    T2["Tier 2 — Workstations / end-user devices (lowest)&lt;br/&gt;Helpdesk, user PCs"]
+    T2["Tier 2 — Workstations / end-user devices&lt;br/&gt;(lowest)&lt;br/&gt;Helpdesk, user PCs"]
     T0 --&gt; T1 --&gt; T2</code></pre>
 <blockquote>
 <p><strong>Rule:</strong> a Tier-0 admin credential must <strong>never</strong> be typed on a Tier-1/2 machine — or it can be stolen and used to climb back up.</p>

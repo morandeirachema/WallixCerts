@@ -5104,7 +5104,7 @@ the VMs WALLIX provides preconfigured. Counts are taken directly from the cert d
         BASTION1 --&gt;|"HA Database Replication"| BASTION2
     end
 
-    subgraph TARGETS["AD domain: users, DNS, Kerberos KDC for all hosts"]
+    subgraph TARGETS["AD domain: users, DNS, Kerberos KDC for&lt;br/&gt;all hosts"]
         DC["Domain Controller&lt;br/&gt;(AD/DNS/Kerberos)&lt;br/&gt;Win 2016"]
         WINSRV["Windows Server 2016&lt;br/&gt;(RDP target / jump server)"]
         LINUX["Linux Server&lt;br/&gt;(SSH target)"]

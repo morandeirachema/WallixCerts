@@ -5184,12 +5184,12 @@ Certificate Authority · SMTP = Simple Mail Transfer Protocol. Full list:
 <hr />
 <h2 id="1-troubleshooting-methodology">1. Troubleshooting methodology<a class="headerlink" href="#1-troubleshooting-methodology" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TD
-    Reproduce["1. REPRODUCE&lt;br/&gt;-&gt; exact user, target, protocol, time; capture the error text"]
-    Isolate["2. ISOLATE LEG&lt;br/&gt;-&gt; client -&gt; Bastion (primary) OR Bastion -&gt; target (secondary)?&lt;br/&gt;(web GUI login works but proxy fails =&amp;gt; secondary-leg/authz)"]
-    ReadLogs["3. READ LOGS&lt;br/&gt;-&gt; System &gt; Status / Syslog (GUI) ; CLI logs under /var/log/wab*&lt;br/&gt;WAM: Settings &gt; Logs, /var/log/wallix/wabam"]
-    Services["4. SERVICES&lt;br/&gt;-&gt; System &gt; Service control ; watchdog state (e-mail templates)"]
-    Database["5. DATABASE&lt;br/&gt;-&gt; MariaDB up? replication healthy? (bastion-replication --monitoring)"]
-    Escalate["6. ESCALATE&lt;br/&gt;-&gt; set logs DEBUG, generate archive, open WALLIX support case"]
+    Reproduce["1. REPRODUCE&lt;br/&gt;-&gt; exact user, target, protocol, time;&lt;br/&gt;capture the error text"]
+    Isolate["2. ISOLATE LEG&lt;br/&gt;-&gt; client -&gt; Bastion (primary) OR&lt;br/&gt;Bastion -&gt; target (secondary)?&lt;br/&gt;(web GUI login works but proxy fails&lt;br/&gt;=&amp;gt; secondary-leg/authz)"]
+    ReadLogs["3. READ LOGS&lt;br/&gt;-&gt; System &gt; Status / Syslog (GUI) ; CLI&lt;br/&gt;logs under /var/log/wab*&lt;br/&gt;WAM: Settings &gt; Logs,&lt;br/&gt;/var/log/wallix/wabam"]
+    Services["4. SERVICES&lt;br/&gt;-&gt; System &gt; Service control ; watchdog&lt;br/&gt;state (e-mail templates)"]
+    Database["5. DATABASE&lt;br/&gt;-&gt; MariaDB up? replication healthy?&lt;br/&gt;(bastion-replication --monitoring)"]
+    Escalate["6. ESCALATE&lt;br/&gt;-&gt; set logs DEBUG, generate archive,&lt;br/&gt;open WALLIX support case"]
     Reproduce --&gt; Isolate --&gt; ReadLogs --&gt; Services --&gt; Database --&gt; Escalate</code></pre>
 <p>Golden rule for isolation: if the user can <strong>log in to the web GUI</strong> but a <strong>session fails</strong>,
 the problem is on the <strong>secondary leg</strong> (authorization, account mapping, vault, connection
@@ -5447,8 +5447,8 @@ Default templates (in <code>/var/wab/etc/notifier/</code>):</p>
 <h2 id="5-debugging-password-rotation-plugins">5. Debugging password-rotation plugins<a class="headerlink" href="#5-debugging-password-rotation-plugins" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TD
     Celery["wallixcelery&lt;br/&gt;(rotation job)"] --&gt;|"plugin over SSH/API/SMB&lt;br/&gt;(change scheduled)"| Target["TARGET device or global server&lt;br/&gt;(Cisco/Windows/Unix/LDAP/...)"]
-    Target --&gt;|"on MISMATCH&lt;br/&gt;(Bastion vault secret ==? actual secret on target)"| Reconcile["RECONCILIATION:&lt;br/&gt;'Administrator account' on the domain&lt;br/&gt;re-sets the pw when Bastion &amp;lt;&amp;gt; target"]
-    Reconcile --&gt; Result["Result -&gt; credential_change_success.txt / _failure.txt / _summary.txt"]</code></pre>
+    Target --&gt;|"on MISMATCH&lt;br/&gt;(Bastion vault secret ==? actual secret on target)"| Reconcile["RECONCILIATION:&lt;br/&gt;'Administrator account' on the domain&lt;br/&gt;re-sets the pw when Bastion &amp;lt;&amp;gt;&lt;br/&gt;target"]
+    Reconcile --&gt; Result["Result -&gt; credential_change_success.txt&lt;br/&gt;/ _failure.txt / _summary.txt"]</code></pre>
 <p><em>Password change / verify (and where it breaks).</em></p>
 <p>Debug checklist:</p>
 <ul>
@@ -5472,7 +5472,7 @@ Default templates (in <code>/var/wab/etc/notifier/</code>):</p>
 <h2 id="6-decision-tree-user-cannot-connect-to-a-target">6. Decision tree — "user cannot connect to a target"<a class="headerlink" href="#6-decision-tree-user-cannot-connect-to-a-target" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TD
     Start["USER CANNOT CONNECT TO TARGET"] --&gt; GUI{"Can the user log in to the&lt;br/&gt;Bastion/WAM web GUI?"}
-    GUI --&gt;|NO| Primary["PRIMARY-LEG problem&lt;br/&gt;- domain / mapping&lt;br/&gt;- external auth (LDAP/Kerberos/X509/SAML/OIDC)&lt;br/&gt;- user Disabled/expired&lt;br/&gt;-&gt; External auth + Authentication domains + Mappings"]
+    GUI --&gt;|NO| Primary["PRIMARY-LEG problem&lt;br/&gt;- domain / mapping&lt;br/&gt;- external auth&lt;br/&gt;(LDAP/Kerberos/X509/SAML/OIDC)&lt;br/&gt;- user Disabled/expired&lt;br/&gt;-&gt; External auth + Authentication&lt;br/&gt;domains + Mappings"]
     GUI --&gt;|YES| Authz{"Does the target appear under&lt;br/&gt;'My authorizations'?"}
     Authz --&gt;|NO| AuthzProblem["AUTHORIZATION missing/wrong&lt;br/&gt;- usergroup &amp;lt;-&amp;gt; targetgroup&lt;br/&gt;- time frame&lt;br/&gt;- approval pending"]
     Authz --&gt;|YES| Session{"Session opens but fails / drops?"}

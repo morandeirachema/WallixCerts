@@ -5163,7 +5163,7 @@
 <pre class="mermaid"><code>flowchart LR
     FrontLeg["FRONT LEG&lt;br/&gt;(user -&gt; Bastion)"] --&gt;|"governed by"| ProxyConfig["PROXY CONFIGURATION"]
     BackLeg["BACK LEG&lt;br/&gt;(Bastion -&gt; target)"] --&gt;|"governed by"| ConnPolicy["CONNECTION POLICY"]
-    BackLeg --&gt;|"secret from"| Vault["VAULT (PASSWORD_VAULT) / mapping / interactive"]</code></pre>
+    BackLeg --&gt;|"secret from"| Vault["VAULT (PASSWORD_VAULT) / mapping /&lt;br/&gt;interactive"]</code></pre>
 <p>Because the legs are decoupled, you can (for example) let a user reach the Bastion over RDP with SAML+MFA on the front leg, while the back leg uses <code>PASSWORD_VAULT</code> with a vaulted Windows account — and the user never types or sees that Windows password.</p>
 <hr />
 <h2 id="3-network-placement-the-dmz-and-connection-direction">3. Network placement — the DMZ and connection direction<a class="headerlink" href="#3-network-placement-the-dmz-and-connection-direction" title="Permanent link">&para;</a></h2>
@@ -5317,7 +5317,7 @@ wabsystemconfiguration  syslog-ng  acpid  cron  wab-backupdaemon  mariadb
 </table>
 <p>Storage sits on <strong>LVM</strong> under <code>/var/wab</code> (recordings, database, logs), encrypted with <strong>LUKS</strong>; the volume can be extended to grow recording retention.</p>
 <pre class="mermaid"><code>flowchart TB
-    subgraph APPLIANCE["WALLIX BASTION APPLIANCE (Debian + LUKS at rest)"]
+    subgraph APPLIANCE["WALLIX BASTION APPLIANCE (Debian + LUKS&lt;br/&gt;at rest)"]
         subgraph ADMIN["ADMIN / API PLANE"]
             wabgui["wabgui (443)&lt;br/&gt;wabrestapi"]
             sashimi["sashimi /&lt;br/&gt;wallixsession"]

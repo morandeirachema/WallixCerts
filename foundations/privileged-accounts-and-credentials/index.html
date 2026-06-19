@@ -5158,8 +5158,8 @@ credential is vaulted at birth, injected (never exposed) during use, rotated on 
 schedule or after every use, and cleanly retired at the end.</p>
 <pre class="mermaid"><code>flowchart LR
     P["1. PROVISION (onboard)&lt;br/&gt;• create account with LEAST privilege&lt;br/&gt;• store secret in the VAULT&lt;br/&gt;• record owner &amp; purpose"]
-    U["2. USE (access)&lt;br/&gt;• user authNs to the PAM gateway (with MFA)&lt;br/&gt;• PAM CHECKS OUT the secret &amp; INJECTS it&lt;br/&gt;• session RECORDED"]
-    R["3. ROTATE (refresh)&lt;br/&gt;• change pwd/key on a schedule or AFTER use&lt;br/&gt;• re-vault new secret&lt;br/&gt;• old secret is now worthless"]
+    U["2. USE (access)&lt;br/&gt;• user authNs to the PAM gateway (with&lt;br/&gt;MFA)&lt;br/&gt;• PAM CHECKS OUT the secret &amp; INJECTS it&lt;br/&gt;• session RECORDED"]
+    R["3. ROTATE (refresh)&lt;br/&gt;• change pwd/key on a schedule or AFTER&lt;br/&gt;use&lt;br/&gt;• re-vault new secret&lt;br/&gt;• old secret is now worthless"]
     D["4. DEPROVISION (retire)&lt;br/&gt;• disable &amp; delete the account&lt;br/&gt;• remove SSH keys / certs / tokens&lt;br/&gt;• revoke cloud roles&lt;br/&gt;• close the audit record"]
     P --&gt; U --&gt; R --&gt; D
     U &lt;--&gt;|"CHECK-OUT / CHECK-IN loop&lt;br/&gt;(steps 2 ↔ 3 repeat)"| R</code></pre>
@@ -5168,7 +5168,7 @@ schedule or after every use, and cleanly retired at the end.</p>
     Req["request"] --&gt; CO["CHECK-OUT secret&lt;br/&gt;(lock account so no one else uses it)"]
     CO --&gt; Use["use (recorded)"]
     Use --&gt; CI["CHECK-IN (return)"]
-    CI --&gt; Rot["ROTATE&lt;br/&gt;'change password at check-in' forces rotation"]
+    CI --&gt; Rot["ROTATE&lt;br/&gt;'change password at check-in' forces&lt;br/&gt;rotation"]
     Rot --&gt; Req</code></pre>
 <blockquote>
 <p>authN = authenticate · MFA = Multi-Factor Authentication.</p>

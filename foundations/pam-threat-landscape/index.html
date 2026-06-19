@@ -4992,12 +4992,12 @@ Full list: <a href="../../reference/acronyms/">reference/acronyms.md</a>.</p>
 <strong>MITRE ATT&amp;CK</strong> tactic names. Privileged credentials are the fuel for the middle
 stages.</p>
 <pre class="mermaid"><code>flowchart LR
-    S1["1. INITIAL ACCESS&lt;br/&gt;phishing, stolen creds,&lt;br/&gt;exploit, drive-by&lt;br/&gt;&lt;br/&gt;ATT&amp;CK: TA0001 Initial Access"]
-    S2["2. CREDENTIAL THEFT&lt;br/&gt;dump LSASS, Mimikatz,&lt;br/&gt;Kerberoasting&lt;br/&gt;&lt;br/&gt;ATT&amp;CK: TA0006 Credential Access"]
-    S3["3. PRIVILEGE ESCALATION&lt;br/&gt;exploit / abuse token, UAC&lt;br/&gt;bypass, sudo misconfig&lt;br/&gt;&lt;br/&gt;ATT&amp;CK: TA0004 Privilege Escalation"]
-    S4["4. LATERAL MOVEMENT&lt;br/&gt;PtH / PtT to hop host to host,&lt;br/&gt;reuse local-admin reuse&lt;br/&gt;&lt;br/&gt;ATT&amp;CK: TA0008 Lateral Movement"]
-    S5["5. PERSISTENCE&lt;br/&gt;create backdoor accounts, Golden&lt;br/&gt;Ticket, scheduled tasks, DCSync&lt;br/&gt;&lt;br/&gt;ATT&amp;CK: TA0003 Persistence"]
-    S6["6. IMPACT&lt;br/&gt;ransomware, data theft,&lt;br/&gt;sabotage, extortion&lt;br/&gt;&lt;br/&gt;ATT&amp;CK: TA0040 Impact"]
+    S1["1. INITIAL ACCESS&lt;br/&gt;phishing, stolen creds,&lt;br/&gt;exploit, drive-by&lt;br/&gt;ATT&amp;CK: TA0001 Initial Access"]
+    S2["2. CREDENTIAL THEFT&lt;br/&gt;dump LSASS, Mimikatz,&lt;br/&gt;Kerberoasting&lt;br/&gt;ATT&amp;CK: TA0006 Credential Access"]
+    S3["3. PRIVILEGE ESCALATION&lt;br/&gt;exploit / abuse token, UAC&lt;br/&gt;bypass, sudo misconfig&lt;br/&gt;ATT&amp;CK: TA0004 Privilege Escalation"]
+    S4["4. LATERAL MOVEMENT&lt;br/&gt;PtH / PtT to hop host to host,&lt;br/&gt;reuse local-admin reuse&lt;br/&gt;ATT&amp;CK: TA0008 Lateral Movement"]
+    S5["5. PERSISTENCE&lt;br/&gt;create backdoor accounts, Golden&lt;br/&gt;Ticket, scheduled tasks, DCSync&lt;br/&gt;ATT&amp;CK: TA0003 Persistence"]
+    S6["6. IMPACT&lt;br/&gt;ransomware, data theft,&lt;br/&gt;sabotage, extortion&lt;br/&gt;ATT&amp;CK: TA0040 Impact"]
     S1 --&gt; S2 --&gt; S3 --&gt; S4 --&gt; S5 --&gt; S6</code></pre>
 <blockquote>
 <p>The middle four stages (2–5) all turn on PRIVILEGED CREDENTIALS. That is where PAM
@@ -5146,12 +5146,12 @@ abuse <strong>visible and reversible</strong>. Defense-in-depth still applies.</
     subgraph WITHOUT["WITHOUT PAM"]
         direction TB
         WO1["Admin types target password directly"]
-        WO2["Password CACHED / hash in LSASS on endpoint"]
+        WO2["Password CACHED / hash in LSASS on&lt;br/&gt;endpoint"]
         WO3["[attacker phishes the endpoint]"]
-        WO4["DUMP LSASS (Mimikatz) → get hash/password"]
-        WO5["PASS-THE-HASH to next server&lt;br/&gt;(reused local-admin password works everywhere)"]
+        WO4["DUMP LSASS (Mimikatz) → get&lt;br/&gt;hash/password"]
+        WO5["PASS-THE-HASH to next server&lt;br/&gt;(reused local-admin password works&lt;br/&gt;everywhere)"]
         WO6["LATERAL MOVEMENT across the estate"]
-        WO7["reach Domain Controller → DOMAIN TAKEOVER"]
+        WO7["reach Domain Controller → DOMAIN&lt;br/&gt;TAKEOVER"]
         WO8["PERSISTENCE (Golden Ticket) + RANSOMWARE"]
         WOR["Result: full compromise, no audit trail"]
         WO1 --&gt; WO2 --&gt; WO3 --&gt; WO4 --&gt; WO5 --&gt; WO6 --&gt; WO7 --&gt; WO8 --&gt; WOR
@@ -5163,9 +5163,9 @@ abuse <strong>visible and reversible</strong>. Defense-in-depth still applies.</
         WI3["[attacker phishes the endpoint]"]
         WI4["endpoint holds NO target secret →&lt;br/&gt;nothing useful to dump"]
         WI5["unique + ROTATED creds per target →&lt;br/&gt;stolen value is already worthless"]
-        WI6["every privileged hop must go through the&lt;br/&gt;gateway → BLOCKED / RECORDED / time-boxed"]
+        WI6["every privileged hop must go through the&lt;br/&gt;gateway → BLOCKED / RECORDED /&lt;br/&gt;time-boxed"]
         WI7["attack stalls at the endpoint; auditor&lt;br/&gt;sees the attempt; access auto-expires"]
-        WIR["Result: contained, attributed, reversible"]
+        WIR["Result: contained, attributed,&lt;br/&gt;reversible"]
         WI1 --&gt; WI2 --&gt; WI3 --&gt; WI4 --&gt; WI5 --&gt; WI6 --&gt; WI7 --&gt; WIR
     end</code></pre>
 <blockquote>

@@ -5023,12 +5023,12 @@
 <h2 id="the-five-phases-and-where-tools-fit">The five phases (and where tools fit)<a class="headerlink" href="#the-five-phases-and-where-tools-fit" title="Permanent link">&para;</a></h2>
 <p>The CEH methodology has five phases. Most tools map cleanly to one or two of them. See <a href="../../00-overview/five-phases-of-hacking/">../00-overview/five-phases-of-hacking.md</a> for the full methodology.</p>
 <pre class="mermaid"><code>flowchart TD
-    Recon["Phase 1&lt;br/&gt;Reconnaissance / Footprinting"] --&gt; OSINT["OSINT &amp;amp; footprinting tools&lt;br/&gt;(Maltego, theHarvester, Recon-ng, Shodan)"]
+    Recon["Phase 1&lt;br/&gt;Reconnaissance / Footprinting"] --&gt; OSINT["OSINT &amp;amp; footprinting tools&lt;br/&gt;(Maltego, theHarvester, Recon-ng,&lt;br/&gt;Shodan)"]
     Scan["Phase 2&lt;br/&gt;Scanning &amp;amp; Enumeration"] --&gt; ScanCat["Network scanners &amp;amp; vuln scanners&lt;br/&gt;(Nmap, Nessus, OpenVAS, Nikto)"]
     Scan --&gt; Sniff["Packet capture &amp;amp; analysis&lt;br/&gt;(Wireshark, tcpdump)"]
     Access["Phase 3&lt;br/&gt;Gaining Access"] --&gt; Exploit["Exploitation frameworks&lt;br/&gt;(Metasploit Framework)"]
     Access --&gt; WebTest["Web app testing proxies&lt;br/&gt;(Burp Suite, OWASP ZAP, sqlmap)"]
-    Access --&gt; CredAttack["Credential / password attacks&lt;br/&gt;(Hydra, John the Ripper, Hashcat, Responder)"]
+    Access --&gt; CredAttack["Credential / password attacks&lt;br/&gt;(Hydra, John the Ripper, Hashcat,&lt;br/&gt;Responder)"]
     Access --&gt; Wireless["Wireless tools&lt;br/&gt;(Aircrack-ng suite)"]
     Maintain["Phase 4&lt;br/&gt;Maintaining Access"] --&gt; Pivot["Connectivity / listeners&lt;br/&gt;(netcat, Metasploit Framework)"]
     Tracks["Phase 5&lt;br/&gt;Clearing Tracks"] --&gt; LogCat["Log / artefact handling&lt;br/&gt;(see module material)"]</code></pre>

@@ -5197,7 +5197,7 @@ time-limited</strong> privileged access.</p>
 <p>PAM is one layer in a defense-in-depth stack. It is closely related to identity tools
 but plays a distinct, narrower, deeper role.</p>
 <pre class="mermaid"><code>flowchart TD
-    subgraph STACK["SECURITY STACK (simplified, top = closest to the user)"]
+    subgraph STACK["SECURITY STACK (simplified, top =&lt;br/&gt;closest to the user)"]
         direction TB
         GOV["GOVERNANCE — IGA / IAG&lt;br/&gt;'who SHOULD have access?'&lt;br/&gt;(access reviews, certification, SoD)"]
         IDENT["IDENTITY — IAM / IDaaS&lt;br/&gt;'who is this user?'&lt;br/&gt;SSO + MFA for the whole workforce"]
@@ -5206,8 +5206,8 @@ but plays a distinct, narrower, deeper role.</p>
             PAM["PAM&lt;br/&gt;session + secrets&lt;br/&gt;for admins/targets"]
             EPM["EPM / PEDM&lt;br/&gt;endpoint elevation&lt;br/&gt;remove local admin"]
         end
-        ENDP["ENDPOINT/NET — EDR · firewall · network segmentation"]
-        MON["MONITORING — SIEM · SOC · log correlation · alerting"]
+        ENDP["ENDPOINT/NET — EDR · firewall · network&lt;br/&gt;segmentation"]
+        MON["MONITORING — SIEM · SOC · log&lt;br/&gt;correlation · alerting"]
         GOV --- IDENT --- PRIV --- ENDP --- MON
     end</code></pre>
 <blockquote>

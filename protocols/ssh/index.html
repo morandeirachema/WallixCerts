@@ -5273,8 +5273,8 @@ layer secures it, the user authenticates once, and then the connection layer car
 single secure pipe into many independent <strong>channels</strong>.</p>
 <pre class="mermaid"><code>flowchart TB
   app["Your activity&lt;br/&gt;(shell, file copy, tunnel)"]
-  conn["Connection layer (RFC 4254)&lt;br/&gt;multiplexed channels: session, SFTP, port-forward"]
-  auth["User authentication layer (RFC 4252)&lt;br/&gt;publickey / password / keyboard-interactive / GSSAPI"]
+  conn["Connection layer (RFC 4254)&lt;br/&gt;multiplexed channels: session, SFTP,&lt;br/&gt;port-forward"]
+  auth["User authentication layer (RFC 4252)&lt;br/&gt;publickey / password /&lt;br/&gt;keyboard-interactive / GSSAPI"]
   trans["Transport layer (RFC 4253)&lt;br/&gt;key exchange, server host-key check,&lt;br/&gt;encryption + integrity of every packet"]
   tcp["TCP connection (port 22)"]
   app --&gt; conn

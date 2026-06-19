@@ -5688,7 +5688,7 @@ nodes simultaneously (duplicate IDs) — see <a href="../high-availability-and-d
     API --&gt;|"200 + JSON"| Pipeline
     Pipeline --&gt;|"POST/PUT/DELETE"| API
     API --&gt;|"201/200/204"| Pipeline
-    Pipeline --&gt; Idempotent["idempotent: 409 on existing authz = 'already converged'"]</code></pre>
+    Pipeline --&gt; Idempotent["idempotent: 409 on existing authz =&lt;br/&gt;'already converged'"]</code></pre>
 <p>Practical patterns:</p>
 <ul>
 <li>Keep the <strong>API key in the CI secret store</strong> (never in the repo); inject as an env var only

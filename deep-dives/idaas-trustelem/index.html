@@ -5307,8 +5307,8 @@ OIDC</strong>, all factors are supported and the user can pick an alternative at
     Rule --&gt;|"No auth"| Allow["Allow (no factor)"]
     Rule --&gt;|"1 factor"| OneF["Password / certificate / Kerberos"]
     Rule --&gt;|"2 factors"| Proto{"Authentication channel?"}
-    Proto --&gt;|"Web / SAML / OIDC"| AllFactors["Any factor: Authenticator push/TOTP, FIDO2 key, SMS, email"]
-    Proto --&gt;|"LDAP / RADIUS"| NoKey["Push or TOTP only (no FIDO2 security key)"]
+    Proto --&gt;|"Web / SAML / OIDC"| AllFactors["Any factor: Authenticator push/TOTP,&lt;br/&gt;FIDO2 key, SMS, email"]
+    Proto --&gt;|"LDAP / RADIUS"| NoKey["Push or TOTP only (no FIDO2 security&lt;br/&gt;key)"]
     OneF --&gt; Grant["Grant session"]
     AllFactors --&gt; Grant
     NoKey --&gt; Grant</code></pre>

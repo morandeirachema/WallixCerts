@@ -4984,6 +4984,10 @@ Mermaid and new diagrams must match. Pick the fitting type:</p>
 (<code>id["Text (parens), a/b"]</code>), use <code>&lt;br/&gt;</code> for line breaks, keep node IDs alphanumeric, and
 never use reserved words (<code>end</code>, <code>graph</code>, <code>subgraph</code>) as IDs. Leave genuine
 code/CLI/config blocks as code. Translate faithfully — never invent steps or facts.</p>
+<p><strong>Boxes must fit their text.</strong> Mermaid sizes a node box to its widest line, so keep each
+node-label line short (≈ ≤ 40 characters) and <strong>wrap long labels with <code>&lt;br/&gt;</code></strong> into a few
+short lines. Run <strong><code>python scripts/wrap-mermaid-labels.py</code></strong> to auto-wrap them; the quality
+gate (<code>scripts/check-docs.py</code>) fails on over-wide flowchart labels.</p>
 <h2 id="adding-a-new-page">Adding a new page<a class="headerlink" href="#adding-a-new-page" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Put it in the right section folder (<code>foundations/</code>, <code>prerequisites/</code>, <code>docs/</code>,

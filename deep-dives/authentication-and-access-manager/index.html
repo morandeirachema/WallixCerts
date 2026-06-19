@@ -5589,11 +5589,11 @@ FQDN in the cluster). Domain + group mappings mirror SAML.</p>
 <h2 id="2-the-2fa-mfa-decision-model">2. The 2FA / MFA decision model<a class="headerlink" href="#2-the-2fa-mfa-decision-model" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TD
     Connect["User connects (HTTPS / SSH / RDP)"] --&gt; Resolve["Resolve Authentication domain&lt;br/&gt;(from login @domain or URL)"]
-    Resolve --&gt; Primary["PRIMARY authentication&lt;br/&gt;(local / LDAP / Kerberos / SAML / OIDC ...)"]
+    Resolve --&gt; Primary["PRIMARY authentication&lt;br/&gt;(local / LDAP / Kerberos / SAML / OIDC&lt;br/&gt;...)"]
     Primary --&gt;|fail| Deny1["DENY"]
     Primary --&gt;|ok| Secondary{"SECONDARY auth set?"}
-    Secondary --&gt;|no| AllowPrimary["Authorization check passed at PRIMARY -&gt; ALLOW"]
-    Secondary --&gt;|"yes (2FA)"| Factor2["RADIUS push / OTP / Kerberos-Pwd as 2nd factor"]
+    Secondary --&gt;|no| AllowPrimary["Authorization check passed at PRIMARY -&gt;&lt;br/&gt;ALLOW"]
+    Secondary --&gt;|"yes (2FA)"| Factor2["RADIUS push / OTP / Kerberos-Pwd as 2nd&lt;br/&gt;factor"]
     Factor2 --&gt;|fail| Deny2["DENY"]
     Factor2 --&gt;|ok| Allow2["ALLOW"]</code></pre>
 <blockquote>
@@ -5692,11 +5692,11 @@ WALLIX Bastion can belong only to a single organization."</em></p>
 plus authenticators <strong>RADIUS</strong> and <strong>BASTION</strong>; X.509 cert auth can be toggled on a domain
 (<em>Allow X509 Cert. Authentication</em>). The MFA engine is built from two orthogonal fields:</p>
 <pre class="mermaid"><code>flowchart TD
-    subgraph FactorOrder["FACTOR = ORDER of challenge (defines the MFA chain)"]
+    subgraph FactorOrder["FACTOR = ORDER of challenge (defines the&lt;br/&gt;MFA chain)"]
         direction LR
         F1["Factor 1&lt;br/&gt;LDAP bind"] --&gt; F2["Factor 2&lt;br/&gt;RADIUS push"] --&gt; F3["Factor 3&lt;br/&gt;X.509"]
     end
-    subgraph Priority["PRIORITY = HA FALLBACK among authenticators of SAME factor"]
+    subgraph Priority["PRIORITY = HA FALLBACK among&lt;br/&gt;authenticators of SAME factor"]
         direction LR
         PA["LDAP-A prio1"] --&gt;|failover| PB["LDAP-B prio2"]
     end

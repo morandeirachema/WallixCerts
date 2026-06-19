@@ -5444,7 +5444,7 @@ See protocol details in
 to require MFA, and put the host behind </em><em>WALLIX PAM</em><em> (Bastion) for session
 recording."</em> When in doubt, expand the acronym.</p>
 <pre class="mermaid"><code>flowchart LR
-    subgraph LPAM["/etc/pam.d/sshd — Linux PAM stack (one host)"]
+    subgraph LPAM["/etc/pam.d/sshd — Linux PAM stack (one&lt;br/&gt;host)"]
         A["pam_unix.so (password)"]
         B["pam_*_otp (2nd factor)"]
         C["pam_limits.so (resource)"]

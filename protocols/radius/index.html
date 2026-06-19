@@ -5333,7 +5333,7 @@ keystream and XORs it back to recover the password.</p>
     PW["User-Password&lt;br/&gt;(padded to 16-byte blocks)"] --&gt; X(("XOR"))
     KS --&gt; X
     X --&gt; HID["Hidden User-Password&lt;br/&gt;(this is what is sent)"]
-    Note["Longer passwords: chain —&lt;br/&gt;next block uses MD5(secret + previous cipher block)"]
+    Note["Longer passwords: chain —&lt;br/&gt;next block uses MD5(secret + previous&lt;br/&gt;cipher block)"]
     HID -.-&gt; Note</code></pre>
 <p><strong>Why this is weak (do not overstate it):</strong></p>
 <ul>

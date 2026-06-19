@@ -5351,23 +5351,23 @@
 <hr />
 <h2 id="8-runtime-evaluation-flow-how-an-authorization-is-evaluated-when-a-user-connects">8. Runtime evaluation flow — "how an authorization is evaluated when a user connects"<a class="headerlink" href="#8-runtime-evaluation-flow-how-an-authorization-is-evaluated-when-a-user-connects" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TD
-    Start["USER initiates connection (front leg) to Bastion"] --&gt; S1
-    S1["[1] AUTHENTICATE the user&lt;br/&gt;(local/LDAP/SAML/OIDC/Kerberos/X.509 + MFA)"] --&gt;|"fail"| Reject["reject"]
+    Start["USER initiates connection (front leg) to&lt;br/&gt;Bastion"] --&gt; S1
+    S1["[1] AUTHENTICATE the user&lt;br/&gt;(local/LDAP/SAML/OIDC/Kerberos/X.509 +&lt;br/&gt;MFA)"] --&gt;|"fail"| Reject["reject"]
     S1 --&gt; S2["[2] Resolve the user's USER GROUP(S)"]
-    S2 --&gt; S3["[3] Find an AUTHORIZATION whose user group covers this user&lt;br/&gt;AND whose target group contains the requested TARGET"]
+    S2 --&gt; S3["[3] Find an AUTHORIZATION whose user&lt;br/&gt;group covers this user&lt;br/&gt;AND whose target group contains the&lt;br/&gt;requested TARGET"]
     S3 --&gt;|"none"| Denied["ACCESS DENIED"]
-    S3 --&gt; S4["[4] Does the authorization grant the needed RIGHT?&lt;br/&gt;(Sessions for a session, Secrets for a checkout)&lt;br/&gt;-- cumulative across auths"]
+    S3 --&gt; S4["[4] Does the authorization grant the&lt;br/&gt;needed RIGHT?&lt;br/&gt;(Sessions for a session, Secrets for a&lt;br/&gt;checkout)&lt;br/&gt;-- cumulative across auths"]
     S4 --&gt;|"no"| DeniedAction["denied for that action"]
-    S4 --&gt; S5["[5] Is the requested PROTOCOL/SUB-PROTOCOL allowed?&lt;br/&gt;-- e.g. SSH_SCP_UP?"]
+    S4 --&gt; S5["[5] Is the requested&lt;br/&gt;PROTOCOL/SUB-PROTOCOL allowed?&lt;br/&gt;-- e.g. SSH_SCP_UP?"]
     S5 --&gt;|"no"| Blocked["sub-action blocked"]
     S5 --&gt; S6{"[6] TIME FRAME check&lt;br/&gt;(attached to the user group)"}
     S6 --&gt;|"inside frame"| S7a["[7a] Approval setting (inside):&lt;br/&gt;No approval / Automatic /&lt;br/&gt;Approval with quorum"]
     S6 --&gt;|"outside frame"| S7b["[7b] Approval setting (outside):&lt;br/&gt;Access blocked / Automatic /&lt;br/&gt;Approval with quorum"]
-    S7a --&gt; S8["[8] If quorum required: create APPROVAL REQUEST -&gt; notify approvers&lt;br/&gt;(mandatory comment/ticket?) -&gt; wait for quorum or reject/timeout"]
+    S7a --&gt; S8["[8] If quorum required: create APPROVAL&lt;br/&gt;REQUEST -&gt; notify approvers&lt;br/&gt;(mandatory comment/ticket?) -&gt; wait for&lt;br/&gt;quorum or reject/timeout"]
     S7b --&gt; S8
     S8 --&gt;|"rejected/timeout"| DeniedReq["denied"]
-    S8 --&gt; S9["[9] OPEN SESSION (back leg): obtain credential per mapping mode&lt;br/&gt;- account mapping: user's own credential (PASSWORD_MAPPING / VTR)&lt;br/&gt;- specific account: vaulted secret (PASSWORD_VAULT) &amp;lt;-- check-out/lock&lt;br/&gt;- interactive: user types it (PASSWORD_INTERACTIVE)"]
-    S9 --&gt; S10["[10] PROXY + RECORD + apply restriction rules (kill/notify, OCR) + stream to SIEM"]</code></pre>
+    S8 --&gt; S9["[9] OPEN SESSION (back leg): obtain&lt;br/&gt;credential per mapping mode&lt;br/&gt;- account mapping: user's own credential&lt;br/&gt;(PASSWORD_MAPPING / VTR)&lt;br/&gt;- specific account: vaulted secret&lt;br/&gt;(PASSWORD_VAULT) &amp;lt;-- check-out/lock&lt;br/&gt;- interactive: user types it&lt;br/&gt;(PASSWORD_INTERACTIVE)"]
+    S9 --&gt; S10["[10] PROXY + RECORD + apply restriction&lt;br/&gt;rules (kill/notify, OCR) + stream to&lt;br/&gt;SIEM"]</code></pre>
 <p><strong>Notes that trip people up:</strong>
 - An <em>accepted</em> approval that <strong>starts inside</strong> the allowed time frame may <strong>continue into blocked hours</strong> — only the <strong>start</strong> time is checked against the time frame ("approval is more important than time frame").
 - Rights are <strong>cumulative</strong> across all of a user's authorizations and permission profiles (highest wins on profiles), but a single user-group/target-group pair can only ever be one authorization.</p>

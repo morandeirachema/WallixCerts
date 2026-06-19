@@ -5304,8 +5304,8 @@ Master; do NOT use "Change password at check-in"; approvals requested/validated 
 replication was <em>installed</em> on) and a <strong>secondary Master</strong>. Each node requests updates from
 the other on <strong>outbound 3307 â†’ inbound 3306</strong>.</p>
 <pre class="mermaid"><code>flowchart LR
-    Primary["PRIMARY MASTER&lt;br/&gt;- replication installed here&lt;br/&gt;- ALL password actions + rotation scheduled HERE ONLY&lt;br/&gt;- approvals replicated&lt;br/&gt;MariaDB :3306"]
-    Secondary["SECONDARY MASTER&lt;br/&gt;- second node&lt;br/&gt;- own audit / session tables (not replic.)&lt;br/&gt;- approvals replicated&lt;br/&gt;MariaDB :3306"]
+    Primary["PRIMARY MASTER&lt;br/&gt;- replication installed here&lt;br/&gt;- ALL password actions + rotation&lt;br/&gt;scheduled HERE ONLY&lt;br/&gt;- approvals replicated&lt;br/&gt;MariaDB :3306"]
+    Secondary["SECONDARY MASTER&lt;br/&gt;- second node&lt;br/&gt;- own audit / session tables (not&lt;br/&gt;replic.)&lt;br/&gt;- approvals replicated&lt;br/&gt;MariaDB :3306"]
     Primary &lt;--&gt;|"autossh SSH :2242 tunnel&lt;br/&gt;repl 3307 &amp;lt;-&amp;gt; 3306"| Secondary</code></pre>
 <p><em>Master / Master: exactly 2 nodes, bidirectional.</em> API provisioning must NOT run
 simultaneously on both (duplicate IDs / UUID issues). Password rotation scheduled on the
@@ -5477,7 +5477,7 @@ single entry point. Two complementary WAM mechanisms (WAM Administration Guide Â
 <pre class="mermaid"><code>flowchart TD
     Browsers["browsers (HTML5)"] --&gt; LB["Load balancer (front)"]
     LB --&gt; WAM1["WAM node 1&lt;br/&gt;/var/wab/etc/wabam"]
-    LB --&gt; WAM2["WAM node 2&lt;br/&gt;/var/wab/etc/wabam&lt;br/&gt;(HA: copy crypto.install.key, db.*, user.admin*)"]
+    LB --&gt; WAM2["WAM node 2&lt;br/&gt;/var/wab/etc/wabam&lt;br/&gt;(HA: copy crypto.install.key, db.*,&lt;br/&gt;user.admin*)"]
     WAM1 --&gt; Cluster{{"one WAM 'farm'; any node serves any user&lt;br/&gt;Bastion CLUSTER (same auth names)"}}
     WAM2 --&gt; Cluster
     Cluster --&gt; BastionA["Bastion A"]
@@ -5506,10 +5506,10 @@ config stays consistent via replication; live sessions spread across nodes via W
 <h2 id="6-failover-flow">6. Failover flow<a class="headerlink" href="#6-failover-flow" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TD
     Healthy["Master healthy"] --&gt;|"replication monitoring (cron / e-mail)"| OK["OK"]
-    Healthy --&gt;|"Master fails (hardware / network / crash)"| Detect["1. Detection&lt;br/&gt;- bastion-replication --monitoring shows Master fault&lt;br/&gt;- e-mail alert ha_master_fault.txt (if notification set)"]
+    Healthy --&gt;|"Master fails (hardware / network / crash)"| Detect["1. Detection&lt;br/&gt;- bastion-replication --monitoring shows&lt;br/&gt;Master fault&lt;br/&gt;- e-mail alert ha_master_fault.txt (if&lt;br/&gt;notification set)"]
     Detect --&gt; Promote["2. Promote a Slave&lt;br/&gt;bastion-replication --elevate-master&lt;br/&gt;(Slave becomes the new writer)"]
-    Promote --&gt; Redirect["3. Redirect users&lt;br/&gt;- point clients / WAM Bastion 'Host' to the new Master&lt;br/&gt;- resume password rotation / approvals on new Master"]
-    Redirect --&gt; Recover["4. Recover old Master&lt;br/&gt;- rebuild as a Slave of the new Master, then&lt;br/&gt;bastion-replication --resync (or --dump-resync)"]</code></pre>
+    Promote --&gt; Redirect["3. Redirect users&lt;br/&gt;- point clients / WAM Bastion 'Host' to&lt;br/&gt;the new Master&lt;br/&gt;- resume password rotation / approvals&lt;br/&gt;on new Master"]
+    Redirect --&gt; Recover["4. Recover old Master&lt;br/&gt;- rebuild as a Slave of the new Master,&lt;br/&gt;then&lt;br/&gt;bastion-replication --resync (or&lt;br/&gt;--dump-resync)"]</code></pre>
 <p><em>Failover (Master/Slave example).</em> E-mail templates: <code>ha_master_fault.txt</code> /
 <code>ha_master_up.txt</code> / <code>ha_slave_missing.txt</code>.</p>
 <blockquote>

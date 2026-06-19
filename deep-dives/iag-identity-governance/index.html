@@ -5073,9 +5073,9 @@ lifecycle</em> (scoping → iterations → go-live → campaigns), but the <em>c
 these four.</p>
 <pre class="mermaid"><code>flowchart TD
     P1["1. Identification / Modelization&lt;br/&gt;map identities to entitlements (ETL)"]
-    P2["2. Lifecycle (Joiner-Mover-Leaver)&lt;br/&gt;validate access on arrival, mobility, departure"]
-    P3["3. Risk control&lt;br/&gt;orphan accounts, over-entitlement, SoD / toxic combos"]
-    P4["4. Audit and compliance&lt;br/&gt;recertification campaigns, reports, remediation"]
+    P2["2. Lifecycle (Joiner-Mover-Leaver)&lt;br/&gt;validate access on arrival, mobility,&lt;br/&gt;departure"]
+    P3["3. Risk control&lt;br/&gt;orphan accounts, over-entitlement, SoD /&lt;br/&gt;toxic combos"]
+    P4["4. Audit and compliance&lt;br/&gt;recertification campaigns, reports,&lt;br/&gt;remediation"]
     P1 --&gt; P2 --&gt; P3 --&gt; P4
     P4 -. "findings feed back into the model" .-&gt; P1</code></pre>
 <table>

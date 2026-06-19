@@ -5227,7 +5227,7 @@
 </ul>
 <pre class="mermaid"><code>flowchart TD
     Live["LIVE SESSION"] --&gt; Capture["proxy captures"]
-    Capture --&gt; Rec["VIDEO (RDP) / TRANSCRIPT (SSH)&lt;br/&gt;encrypted, Bastion-bound, on /var/wab (LVM)"]
+    Capture --&gt; Rec["VIDEO (RDP) / TRANSCRIPT (SSH)&lt;br/&gt;encrypted, Bastion-bound, on /var/wab&lt;br/&gt;(LVM)"]
     Capture --&gt; Probe["Session Probe metadata (RDP)"]
     Capture --&gt; Restr["restriction-rule events"]
     Capture --&gt; Lifecycle["session lifecycle events"]
@@ -5235,7 +5235,7 @@
     Restr --&gt; Syslog
     Lifecycle --&gt; Syslog
     Syslog --&gt; SIEM["SIEM"]
-    Rec --&gt; Replay["AUDITOR replay (embedded player)  /&lt;br/&gt;Access Manager cross-Bastion search"]</code></pre>
+    Rec --&gt; Replay["AUDITOR replay (embedded player) /&lt;br/&gt;Access Manager cross-Bastion search"]</code></pre>
 <h3 id="the-session-probe-rdp-windows-only">The Session Probe (RDP / Windows only)<a class="headerlink" href="#the-session-probe-rdp-windows-only" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>Glossary: "Mode only available on RDP Windows target servers allowing the collection of a rich set of session metadata … It creates <strong>passive monitoring</strong> … and interrupts neither sessions nor user actions." <strong>Enabled by default</strong> on the RDP connection policy.</p>
@@ -5365,14 +5365,14 @@ $kbd:del\s+.*                # keyboard &quot;del ...&quot; command
 <li>Quorum <strong>N must be ≤ number of approvers</strong> available in the selected groups. Approvers can <strong>reduce</strong> a request's duration (decreases cumulatively).</li>
 </ul>
 <pre class="mermaid"><code>flowchart TD
-    Req["USER requests access (web or at SSH/RDP connect)"] --&gt; Enabled{"Approval workflow enabled?"}
+    Req["USER requests access (web or at SSH/RDP&lt;br/&gt;connect)"] --&gt; Enabled{"Approval workflow enabled?"}
     Enabled --&gt;|"no"| Direct["direct access"]
     Enabled --&gt;|"yes"| Frame{"inside time frame?"}
     Frame --&gt;|"yes"| Inside["No approval / Automatic /&lt;br/&gt;Approval with quorum"]
     Frame --&gt;|"no"| Outside["Access blocked / Automatic /&lt;br/&gt;Approval with quorum"]
     Inside --&gt; Quorum{"quorum reached?"}
     Outside --&gt; Quorum
-    Quorum --&gt;|"no"| Pending["pending ... -&gt; rejected / timeout -&gt; CLOSED"]
+    Quorum --&gt;|"no"| Pending["pending ... -&gt; rejected / timeout -&gt;&lt;br/&gt;CLOSED"]
     Quorum --&gt;|"yes"| Accepted["ACCEPTED -&gt; session may start&lt;br/&gt;(Single connection? then one shot)&lt;br/&gt;(comment/ticket recorded; SIEM logged)"]</code></pre>
 <blockquote>
 <p><strong>Gotcha (verbatim intent):</strong> with <em>Access blocked</em> outside hours, an approval that <strong>starts inside</strong> the allowed window can <strong>continue into blocked hours</strong> — only the start time is checked; the session ends when the <strong>approval</strong> ends, not when the time frame ends. Also: <strong>scenario accounts cannot be used with authorizations that include an approval workflow</strong> (use a separate authorization without approval).</p>

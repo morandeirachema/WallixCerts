@@ -5237,13 +5237,13 @@ openssl<span class="w"> </span>x509<span class="w"> </span>-in<span class="w"> <
 CAs</strong> to the <strong>leaf</strong> (end-entity) certificate. A client trusts the leaf because it can
 follow the signatures back up to a Root CA already in its <strong>trust store</strong>.</p>
 <pre class="mermaid"><code>flowchart TD
-    Root["Root CA (trust anchor)&lt;br/&gt;self-signed; pre-installed in OS/browser trust store"]
+    Root["Root CA (trust anchor)&lt;br/&gt;self-signed; pre-installed in OS/browser&lt;br/&gt;trust store"]
     Inter["Intermediate CA&lt;br/&gt;signed by Root; issues end-entity certs"]
-    Leaf["Leaf / End-entity certificate&lt;br/&gt;e.g. CN=bastion.corp.example.com (the server cert)"]
+    Leaf["Leaf / End-entity certificate&lt;br/&gt;e.g. CN=bastion.corp.example.com (the&lt;br/&gt;server cert)"]
     Root --&gt;|signs| Inter
     Inter --&gt;|signs| Leaf
 
-    V["VERIFICATION (client walks UP the chain):&lt;br/&gt;leaf signature -&gt; valid? (checked with Intermediate's public key)&lt;br/&gt;intermediate -&gt; valid? (checked with Root's public key)&lt;br/&gt;Root -&gt; present in my trust store? AND&lt;br/&gt;each cert -&gt; not expired? not in CRL / OCSP says 'good'? -&gt; TRUST"]
+    V["VERIFICATION (client walks UP the&lt;br/&gt;chain):&lt;br/&gt;leaf signature -&gt; valid? (checked with&lt;br/&gt;Intermediate's public key)&lt;br/&gt;intermediate -&gt; valid? (checked with&lt;br/&gt;Root's public key)&lt;br/&gt;Root -&gt; present in my trust store? AND&lt;br/&gt;each cert -&gt; not expired? not in CRL /&lt;br/&gt;OCSP says 'good'? -&gt; TRUST"]
     Leaf -.-&gt;|verify back up to| V</code></pre>
 <blockquote>
 <p><strong>Bastion tie-in:</strong> Bastion/WAM present server certificates (verified via this chain),
@@ -5314,7 +5314,7 @@ network needed at generation time.</p>
     HMAC["HMAC-SHA1(seed, time_step)"]
     Trunc["dynamic truncation"]
     Code["6-digit code e.g. 492 731"]
-    Server["Server computes the SAME value independently and compares.&lt;br/&gt;Codes match (within a small time window) -&gt; accept."]
+    Server["Server computes the SAME value&lt;br/&gt;independently and compares.&lt;br/&gt;Codes match (within a small time window)&lt;br/&gt;-&gt; accept."]
     Seed --&gt; HMAC
     Time --&gt; HMAC
     HMAC --&gt; Trunc

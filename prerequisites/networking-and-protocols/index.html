@@ -5106,13 +5106,13 @@ assume the standard ports.</p>
 </table>
 <h3 id="two-families-to-keep-straight">Two families to keep straight<a class="headerlink" href="#two-families-to-keep-straight" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>flowchart TD
-    subgraph SESSION["SESSION protocols — Bastion PROXIES the live connection"]
-        S1["SSH (22) · RDP (3389) · VNC (5900) · Telnet (23) · RLOGIN (513)"]
-        S2["→ recorded, credential-injected, sub-protocol controlled"]
+    subgraph SESSION["SESSION protocols — Bastion PROXIES the&lt;br/&gt;live connection"]
+        S1["SSH (22) · RDP (3389) · VNC (5900) ·&lt;br/&gt;Telnet (23) · RLOGIN (513)"]
+        S2["→ recorded, credential-injected,&lt;br/&gt;sub-protocol controlled"]
         S1 --- S2
     end
-    subgraph INFRA["INFRASTRUCTURE protocols — Bastion RELIES on these around the session"]
-        I1["Auth / federation:&lt;br/&gt;LDAP (389/636) · RADIUS (1812) · TACACS+ (49) · Kerberos (88) · SAML · OIDC/OAuth2 · SCIM"]
+    subgraph INFRA["INFRASTRUCTURE protocols — Bastion&lt;br/&gt;RELIES on these around the session"]
+        I1["Auth / federation:&lt;br/&gt;LDAP (389/636) · RADIUS (1812) · TACACS+&lt;br/&gt;(49) · Kerberos (88) · SAML ·&lt;br/&gt;OIDC/OAuth2 · SCIM"]
         I2["Transport: TLS/SSL (443)"]
         I3["Ops / audit: SNMP (161) · Syslog (514)"]
     end

@@ -5037,8 +5037,8 @@
 <pre class="mermaid"><code>flowchart TD
     User["USER"] --&gt;|"request"| Policy["CHECKOUT POLICY&lt;br/&gt;validates"]
     Policy --&gt;|"lock (optional)"| Locked["ACCOUNT LOCKED"]
-    User --&gt; Use["sees login/password/SSH key/cert&lt;br/&gt;uses it (duration; optional extension; max cap)"]
-    Use --&gt; CheckIn["CHECK-IN&lt;br/&gt;(manual return or duration/timeout reached)"]
+    User --&gt; Use["sees login/password/SSH key/cert&lt;br/&gt;uses it (duration; optional extension;&lt;br/&gt;max cap)"]
+    Use --&gt; CheckIn["CHECK-IN&lt;br/&gt;(manual return or duration/timeout&lt;br/&gt;reached)"]
     Locked --&gt; Decide
     CheckIn --&gt; Decide{"Change password at check-in = ON?"}
     Decide --&gt;|"yes"| Rotate["ROTATE secret on target&lt;br/&gt;(new secret stored in vault)"]
@@ -5070,7 +5070,7 @@
 </blockquote>
 <p><strong>Automatic rotation triggers</strong> (per account where the option is enabled): modifying the policy on a domain, applying a new policy to a domain, the scheduled periodicity, or <strong>change-on-check-in</strong>. Parallelism is tunable (<code>Modify the maximum number of parallel secret rotations</code>).</p>
 <pre class="mermaid"><code>flowchart TD
-    Trigger["schedule (periodicity) OR policy change OR check-in"] --&gt; Worker["wallixcelery worker&lt;br/&gt;reads password change policy (complexity/keys)"]
+    Trigger["schedule (periodicity) OR policy change&lt;br/&gt;OR check-in"] --&gt; Worker["wallixcelery worker&lt;br/&gt;reads password change policy&lt;br/&gt;(complexity/keys)"]
     Worker --&gt;|"for each account with auto-change enabled&lt;br/&gt;generate new secret"| Attempt["attempt change"]
     Attempt --&gt;|"1) connect AS the target acct"| Plugin["PASSWORD CHANGE PLUGIN (per device)&lt;br/&gt;Cisco/Windows/Unix/F5/Oracle/..."]
     Attempt --&gt;|"2) on failure: use the RECONCILIATION account"| Plugin
