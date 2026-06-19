@@ -53,6 +53,7 @@ flowchart LR
 | 6 | **Exam prep** — study plan, 54 practice Qs, cheat sheet | [exam-prep/](exam-prep/README.md) |
 | 7 | **Career** — roadmap & adjacent certifications | [career/](career/README.md) |
 | 📚 | **Reference** — glossary, acronyms, compliance, sources | [reference/](reference/README.md) |
+| 🔌 | **Protocols** — how Kerberos, RADIUS, AD, LDAP & TLS actually work (mechanisms, encryption, diagrams) | [protocols/](protocols/README.md) |
 
 ## 🧭 Other certification content in this repo
 

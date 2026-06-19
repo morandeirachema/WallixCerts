@@ -15,6 +15,10 @@ each tied explicitly to *how Bastion uses it*.
 ➡️ Next: the [WALLIX product portfolio](../docs/00-overview/product-portfolio.md) and the
 [certification tracks](../docs/pam-bastion/README.md).
 
+> 🔌 **Want the full mechanism?** See **[protocols/](../protocols/README.md)** for
+> step-by-step, RFC-grounded explanations of **Kerberos, RADIUS, Active Directory, LDAP,
+> and TLS** — message flows, what's encrypted and how, with Mermaid sequence diagrams.
+
 > 🔁 **Same fundamentals, offensive angle:** the [CEH hub](../ceh/README.md) covers this
 > ground from an attacker's perspective — e.g. [cryptography](../ceh/domains/20-cryptography.md),
 > [scanning & networking](../ceh/domains/03-scanning-networks.md),
