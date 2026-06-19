@@ -17,6 +17,6 @@ exam format, and where it fits a career path — **not** full module-by-module s
 | **CISSP** | ISC2 | Senior / managerial (8 domains) | [cissp.md](cissp.md) |
 | **Cloud security** | Microsoft / AWS | Azure & AWS security (AZ-500 / SCS) | [cloud-security.md](cloud-security.md) |
 
-See the **[learning roadmap](../learning-roadmap.md)** for how these slot in around the
+See the **[learning roadmap](../learning/roadmap.md)** for how these slot in around the
 CEH and WALLIX/PAM tracks, and the CEH hub's
 [career & adjacent certs](../ceh/career/ceh-career-and-adjacent-certs.md) page.

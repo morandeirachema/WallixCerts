@@ -2,7 +2,7 @@
 
 A curated, honest guide to the strongest third-party platforms for **learning** and
 **practising** cybersecurity, grouped by purpose and mapped to this repo's
-[learning roadmap](learning-roadmap.md). It is aimed at a systems administrator moving into
+[learning roadmap](roadmap.md). It is aimed at a systems administrator moving into
 security who wants to know where to actually build skill — not just read about it. Free
 options are highlighted throughout, and offensive practice is deliberately balanced with
 defensive (blue-team) practice.
@@ -11,21 +11,21 @@ defensive (blue-team) practice.
 > Anything volatile — pricing, exact subscription tiers, free-vs-paid boundaries — is stated
 > only in general terms; always **check current pricing on each platform's own site** before
 > committing. This page is the broader master list; the CEH hands-on subset lives in
-> [ceh/labs/practice-ranges.md](ceh/labs/practice-ranges.md).
+> [ceh/labs/practice-ranges.md](../ceh/labs/practice-ranges.md).
 
 > **Authorised use only.** The hands-on offensive platforms below are legal to attack
 > **only inside the platform's own provided environment** (its hosted labs, its downloadable
 > vulnerable VMs run in your isolated lab, or your own cloud account for cloud-security tools).
 > Pointing these techniques at any system you do not own or are not explicitly authorised to
 > test is illegal in most jurisdictions. See
-> [ceh/00-overview/legal-and-ethics.md](ceh/00-overview/legal-and-ethics.md).
+> [ceh/00-overview/legal-and-ethics.md](../ceh/00-overview/legal-and-ethics.md).
 
 ## Learning objectives
 
 - Identify reputable platforms for each stage and purpose of a security learning path.
 - Distinguish course/training platforms from hands-on practice ranges.
 - Prefer free, hands-on resources first, and balance offensive practice with defensive.
-- Map a platform (or two) to each step of the [roadmap](learning-roadmap.md).
+- Map a platform (or two) to each step of the [roadmap](roadmap.md).
 
 ## Foundations and exam-prep courses
 
@@ -35,10 +35,10 @@ skill.
 
 | Platform | What it is | Free / paid | Best for | Link |
 | --- | --- | --- | --- | --- |
-| Professor Messer | Free instructional video courses for CompTIA certs (A+, Network+, Security+), with quizzes | Both — videos free; optional paid notes/practice-exam bundles | Self-studying CompTIA [Security+](adjacent-certs/security-plus.md) on a budget | https://www.professormesser.com |
+| Professor Messer | Free instructional video courses for CompTIA certs (A+, Network+, Security+), with quizzes | Both — videos free; optional paid notes/practice-exam bundles | Self-studying CompTIA [Security+](../adjacent-certs/security-plus.md) on a budget | https://www.professormesser.com |
 | Microsoft Learn | Microsoft's official training: modules and paths for Azure, Microsoft Security, and the SC-/AZ- certifications, with hands-on sandboxes | Both — training content free; exams paid | Microsoft/Azure identity and cloud-security paths | https://learn.microsoft.com |
 | AWS Skill Builder | Amazon's official cloud-skills centre: on-demand courses, learning plans, labs, and AWS exam prep | Both — large free catalogue; paid subscription adds labs/practice exams | AWS cloud and AWS security foundations | https://skillbuilder.aws |
-| TCM Security Academy | Affordable hands-on courses and cert pathways (Practical Ethical Hacking, PNPT) from TCM Security | Both — some free fundamentals; paid courses / all-access membership | Budget-friendly offensive learning and the [PNPT](adjacent-certs/pnpt.md) | https://tcm-sec.com/academy/ |
+| TCM Security Academy | Affordable hands-on courses and cert pathways (Practical Ethical Hacking, PNPT) from TCM Security | Both — some free fundamentals; paid courses / all-access membership | Budget-friendly offensive learning and the [PNPT](../adjacent-certs/pnpt.md) | https://tcm-sec.com/academy/ |
 | Cybrary | Online security education: cert-prep courses, virtual labs, and career/skill paths | Both — free intro content; paid subscription and business plans | Broad self-paced cert prep and skill paths | https://www.cybrary.it |
 | INE (formerly eLearnSecurity) | Scenario-based networking and security training; INE Security now offers the eJPT / eCPPT certs | Primarily paid — subscription plans; limited free demos | Lab-driven offensive learning and INE certs | https://ine.com |
 | Pluralsight | Broad tech-skills platform with expert-led courses and hands-on labs across cloud, security, and IT | Both — free trial; paid individual/enterprise plans | Filling specific topic gaps across a wide catalogue | https://www.pluralsight.com |
@@ -56,9 +56,9 @@ Hosted vulnerable machines and challenges where you practise the attacker's pers
 | TryHackMe | Browser-based, beginner-friendly guided "rooms" and learning paths covering networking, Linux, and ethical hacking | Both — free rooms; paid premium subscription | Your first hands-on steps; gentle, structured practice | https://tryhackme.com |
 | Hack The Box | Subscription platform of hosted vulnerable machines and challenges for open-ended practice | Both — free community labs; paid subscriptions | Realistic, less-guided boxes once fundamentals click | https://www.hackthebox.com |
 | Hack The Box Academy | HTB's structured, curriculum-driven training with modules, skill paths, and certifications | Both — free tier; paid skill paths and certs | Guided theory + practice alongside the HTB labs | https://academy.hackthebox.com |
-| OffSec Proving Grounds | Pentest lab platform — PG Play (free, community machines) and PG Practice (paid, OffSec-designed, Windows/Linux/macOS) | Both — PG Play free; PG Practice paid | [OSCP](adjacent-certs/oscp.md)-style practice and exam warm-up | https://www.offsec.com/products/proving-grounds/ |
+| OffSec Proving Grounds | Pentest lab platform — PG Play (free, community machines) and PG Practice (paid, OffSec-designed, Windows/Linux/macOS) | Both — PG Play free; PG Practice paid | [OSCP](../adjacent-certs/oscp.md)-style practice and exam warm-up | https://www.offsec.com/products/proving-grounds/ |
 | pwn.college | Free hands-on education (belt/dojo progression) maintained by a team at Arizona State University | Free | Binary exploitation and low-level fundamentals | https://pwn.college |
-| VulnHub | Library of downloadable, intentionally vulnerable VMs you run in your own isolated lab | Free | Fully offline practice in your [home lab](ceh/labs/building-a-ceh-lab.md) | https://www.vulnhub.com |
+| VulnHub | Library of downloadable, intentionally vulnerable VMs you run in your own isolated lab | Free | Fully offline practice in your [home lab](../ceh/labs/building-a-ceh-lab.md) | https://www.vulnhub.com |
 
 ## Web security
 
@@ -106,17 +106,17 @@ account. Deploying the AWS tools may incur charges in your own account.
 ## Vendor / certification-specific
 
 Official environments tied to a specific certification. See each cert's overview under
-[adjacent-certs/](adjacent-certs/README.md).
+[adjacent-certs/](../adjacent-certs/README.md).
 
 | Platform | What it is | Free / paid | Best for | Link |
 | --- | --- | --- | --- | --- |
-| EC-Council iLabs · CEH Engage · CEH Compete | Official CEH practical components — a virtualised lab range (iLabs), a four-phase mock engagement (Engage), and monthly CTF challenges (Compete) | Paid (part of the CEH program) | Practice aligned to the [CEH](ceh/README.md) curriculum | https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/ |
-| OffSec PEN-200 (OSCP) | OffSec's hands-on penetration-testing course and lab that prepares you for the OSCP/OSCP+ exam | Paid (course + labs + exam bundles) | The [OSCP](adjacent-certs/oscp.md) journey | https://www.offsec.com/courses/pen-200/ |
-| TCM Security Academy (PNPT) | The Practical Ethical Hacking path and PNPT exam from TCM Security | Both — free fundamentals; paid courses/exam | The [PNPT](adjacent-certs/pnpt.md), an affordable practical cert | https://tcm-sec.com/academy/ |
-| WALLIX Academy | WALLIX's official training and certification for its products (PAM/Bastion, plus IAG/IDaaS/OT), across the WCA-P → WCP-P → WCE-P levels | Paid instructor-led training; some free partner e-learning | The WALLIX/PAM certs — see the [WALLIX hub](README.md) | https://www.wallix.com/support-services/wallix-academy/ |
+| EC-Council iLabs · CEH Engage · CEH Compete | Official CEH practical components — a virtualised lab range (iLabs), a four-phase mock engagement (Engage), and monthly CTF challenges (Compete) | Paid (part of the CEH program) | Practice aligned to the [CEH](../ceh/README.md) curriculum | https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/ |
+| OffSec PEN-200 (OSCP) | OffSec's hands-on penetration-testing course and lab that prepares you for the OSCP/OSCP+ exam | Paid (course + labs + exam bundles) | The [OSCP](../adjacent-certs/oscp.md) journey | https://www.offsec.com/courses/pen-200/ |
+| TCM Security Academy (PNPT) | The Practical Ethical Hacking path and PNPT exam from TCM Security | Both — free fundamentals; paid courses/exam | The [PNPT](../adjacent-certs/pnpt.md), an affordable practical cert | https://tcm-sec.com/academy/ |
+| WALLIX Academy | WALLIX's official training and certification for its products (PAM/Bastion, plus IAG/IDaaS/OT), across the WCA-P → WCP-P → WCE-P levels | Paid instructor-led training; some free partner e-learning | The WALLIX/PAM certs — see the [WALLIX hub](../README.md) | https://www.wallix.com/support-services/wallix-academy/ |
 
 > **WALLIX Academy labs are gated to enrolled trainees.** This repo's
-> [labs/README.md](labs/README.md) and [home-lab build](labs/building-a-home-lab.md) explain
+> [labs/README.md](../labs/README.md) and [home-lab build](../labs/building-a-home-lab.md) explain
 > what you can practise on a self-built AD + Windows + Linux substrate where the official
 > labs are not available to you.
 
@@ -138,7 +138,7 @@ to test.**
 
 ## Which platform at which stage
 
-Aligned to the [learning roadmap](learning-roadmap.md). Pick one or two per stage rather than
+Aligned to the [learning roadmap](roadmap.md). Pick one or two per stage rather than
 spreading thin.
 
 ```mermaid
@@ -163,7 +163,7 @@ flowchart TD
 - **Hands-on beats passive.** Watching a course is not learning a skill. Treat courses as
   scaffolding and spend most of your time on labs, ranges, and CTFs.
 - **Balance offence with defence.** It is easy to chase only hacking platforms. For most
-  roles — including a [PAM/identity engineer](README.md) — defensive practice
+  roles — including a [PAM/identity engineer](../README.md) — defensive practice
   (LetsDefend, CyberDefenders, Blue Team Labs Online) is at least as valuable.
 - **Match the platform to the cert.** Use the vendor-specific environments
   (EC-Council for CEH, OffSec for OSCP, TCM for PNPT, WALLIX Academy for the PAM certs) when
@@ -174,11 +174,11 @@ flowchart TD
 
 ## Where to go next
 
-- [learning-roadmap.md](learning-roadmap.md) — the certification path these platforms support.
-- [ceh/labs/practice-ranges.md](ceh/labs/practice-ranges.md) — the CEH hands-on subset of this list.
-- [ceh/labs/building-a-ceh-lab.md](ceh/labs/building-a-ceh-lab.md) — build the isolated home lab the offline platforms complement.
-- [labs/README.md](labs/README.md) — the WALLIX/PAM hands-on lab pages.
-- [adjacent-certs/README.md](adjacent-certs/README.md) — overviews of the certs the vendor platforms map to.
+- [learning-roadmap.md](roadmap.md) — the certification path these platforms support.
+- [ceh/labs/practice-ranges.md](../ceh/labs/practice-ranges.md) — the CEH hands-on subset of this list.
+- [ceh/labs/building-a-ceh-lab.md](../ceh/labs/building-a-ceh-lab.md) — build the isolated home lab the offline platforms complement.
+- [labs/README.md](../labs/README.md) — the WALLIX/PAM hands-on lab pages.
+- [adjacent-certs/README.md](../adjacent-certs/README.md) — overviews of the certs the vendor platforms map to.
 
 ## Sources
 

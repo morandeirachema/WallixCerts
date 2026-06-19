@@ -56,9 +56,11 @@ plugins:
 # Curated learning order (friendlier than the auto/alphabetical default).
 nav:
   - Home: README.md
-  - Learning roadmap: learning-roadmap.md
+  - Learning:
+      - learning/README.md
+      - Roadmap: learning/roadmap.md
+      - Platforms: learning/platforms.md
   - Attack → Defense matrix: attack-to-defense-matrix.md
-  - Learning platforms: learning-platforms.md
   - Foundations:
       - foundations/README.md
       - What is PAM?: foundations/what-is-pam.md

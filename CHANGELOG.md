@@ -32,7 +32,7 @@ This is a documentation repo, so "changes" are content additions and corrections
 - **PAM4OT (Operational Technology) deep dive** and the **OT certification** scope/tips.
 - **CEH topics**: "AI in ethical hacking" (the v13 "CEH AI" theme + OWASP LLM Top 10) and
   "Engagement methodology & reporting" (PTES / NIST SP 800-115 / OSSTMM, the report).
-- **Cross-hub learning roadmap** (`learning-roadmap.md`) connecting foundations → Security+
+- **Cross-hub learning roadmap** (`learning/roadmap.md`) connecting foundations → Security+
   → CEH/PAM → OSCP/cloud → CISSP.
 - **Scope, exam-focus & study-tips** sections on the IAG and IDaaS cert docs (matching PAM/OT).
 - **MkDocs Material** site config (`mkdocs.yml`) + a GitHub Pages deploy workflow, and

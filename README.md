@@ -16,11 +16,11 @@ into cybersecurity**, anchored on **Privileged Access Management (PAM)** and **W
 ![Facts](https://img.shields.io/badge/facts-source--grounded%2C%20no%20fabrication-success)
 
 **[🌐 Read the site](https://morandeirachema.github.io/WallixCerts/)** ·
-[🗺️ Roadmap](learning-roadmap.md) ·
+[🗺️ Roadmap](learning/roadmap.md) ·
 [🛡️ WALLIX/PAM](docs/pam-bastion/README.md) ·
 [⚔️ CEH](ceh/README.md) ·
 [🔌 Protocols](protocols/README.md) ·
-[🧰 Platforms](learning-platforms.md)
+[🧰 Platforms](learning/platforms.md)
 
 </div>
 
@@ -39,8 +39,8 @@ into cybersecurity**, anchored on **Privileged Access Management (PAM)** and **W
 | 🛡️ **Get into PAM / pass a WALLIX cert** | [WALLIX / PAM hub](docs/pam-bastion/README.md) · [product portfolio](docs/00-overview/product-portfolio.md) |
 | ⚔️ **Learn ethical hacking (CEH)** | [CEH v13 hub](ceh/README.md) · [the 20 modules](ceh/domains/README.md) |
 | 🔌 **Understand a protocol** (Kerberos, TLS, SAML…) | [Protocols](protocols/README.md) |
-| 🧭 **Plan a cybersecurity career** | [Learning roadmap](learning-roadmap.md) |
-| 🧰 **Find the best platforms to practice** | [Learning platforms](learning-platforms.md) |
+| 🧭 **Plan a cybersecurity career** | [Learning roadmap](learning/roadmap.md) |
+| 🧰 **Find the best platforms to practice** | [Learning platforms](learning/platforms.md) |
 | ⚔️🛡️ **See how attacks map to defenses** | [Attack → Defense matrix](attack-to-defense-matrix.md) |
 
 ## 🗺️ The big picture
@@ -100,7 +100,7 @@ flowchart TB
 
 **🧭 Cross-cutting & reference**
 
-[Learning roadmap](learning-roadmap.md) · [Attack → Defense matrix](attack-to-defense-matrix.md) · [Learning platforms](learning-platforms.md) · [Glossary](reference/glossary.md) · [Acronyms](reference/acronyms.md) · [Compliance & standards](reference/compliance-and-standards.md) · [Sources](reference/sources.md)
+[Learning roadmap](learning/roadmap.md) · [Attack → Defense matrix](attack-to-defense-matrix.md) · [Learning platforms](learning/platforms.md) · [Glossary](reference/glossary.md) · [Acronyms](reference/acronyms.md) · [Compliance & standards](reference/compliance-and-standards.md) · [Sources](reference/sources.md)
 
 ## 🎓 The WALLIX certification framework
 
