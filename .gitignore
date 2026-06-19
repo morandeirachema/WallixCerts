@@ -5,8 +5,10 @@
 .idea/
 .vscode/
 
-# Local tooling / session dirs
+# Claude Code — local / internal files (never commit these)
 .claude/
+CLAUDE.local.md
+*.local.json
 
 # Downloaded source PDFs (large; linked from docs instead)
 *.pdf
