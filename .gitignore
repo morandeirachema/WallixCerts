@@ -10,3 +10,7 @@
 
 # Downloaded source PDFs (large; linked from docs instead)
 *.pdf
+
+# MkDocs build output / assembled docs_dir
+site/
+site-src/

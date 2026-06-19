@@ -22,5 +22,7 @@ jobs:
           python-version: '3.x'
       - name: Install MkDocs Material
         run: pip install mkdocs-material
-      - name: Build and deploy
+      - name: Assemble docs_dir (content lives at repo root)
+        run: bash scripts/build-site.sh
+      - name: Build and deploy to gh-pages
         run: mkdocs gh-deploy --force

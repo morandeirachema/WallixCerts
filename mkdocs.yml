@@ -1,17 +1,17 @@
 # MkDocs Material configuration to render this repo as a browsable site.
-# Verify locally before relying on Pages:  pip install mkdocs-material && mkdocs serve
+#
+# This repo keeps its Markdown at the root (foundations/, ceh/, deep-dives/, ...) rather
+# than under a single docs/ folder, and MkDocs 1.6 requires docs_dir to be a CHILD of the
+# config file. So scripts/build-site.sh copies the content into ./site-src (the docs_dir).
+#
+# Local preview:  pip install mkdocs-material && bash scripts/build-site.sh && mkdocs serve
 site_name: "WallixCerts — PAM & Cybersecurity Certification Study Hub"
 site_description: "Source-grounded study notes for WALLIX/PAM, CEH, and adjacent cybersecurity certifications."
 repo_url: https://github.com/morandeirachema/WallixCerts
 repo_name: morandeirachema/WallixCerts
 
-# Content lives at the repo root (not in a docs/ subfolder), so point docs_dir at "."
-docs_dir: .
+docs_dir: site-src
 site_dir: site
-exclude_docs: |
-  .github/
-  site/
-  mkdocs.yml
 
 theme:
   name: material
