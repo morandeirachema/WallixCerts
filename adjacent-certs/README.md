@@ -11,7 +11,7 @@ exam format, and where it fits a career path — **not** full module-by-module s
 
 | Cert | Provider | Level / focus | Page |
 |------|----------|---------------|------|
-| **CompTIA Security+** | CompTIA | Vendor-neutral entry / baseline | [security-plus.md](security-plus.md) |
+| **CompTIA Security+** | CompTIA | Vendor-neutral entry / baseline | [overview](security-plus.md) · **[full hub →](../security-plus/README.md)** |
 | **OSCP / OSCP+** | OffSec | Hands-on offensive (24-hour exam) | [oscp.md](oscp.md) |
 | **PNPT** | TCM Security | Practical offensive (5-day exam) | [pnpt.md](pnpt.md) |
 | **CISSP** | ISC2 | Senior / managerial (8 domains) | [cissp.md](cissp.md) |

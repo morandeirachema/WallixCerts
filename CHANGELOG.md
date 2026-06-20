@@ -3,6 +3,17 @@
 Notable changes to this study repo. Dates are when the work landed on `main`.
 This is a documentation repo, so "changes" are content additions and corrections.
 
+## 2026-06-20
+
+### Added
+- **CompTIA Security+ (SY0-701) full study hub** (`security-plus/`) — a third full hub
+  alongside CEH and WALLIX/PAM: overview + exam & objectives, all **5 domains** taught to
+  the official objectives (general concepts · threats/vulns · architecture · operations ·
+  program management), exam prep (study plan, 52 practice questions, cheat sheet), and a
+  long acronyms + glossary reference. Vendor-neutral, source-cited (CompTIA + NIST).
+- The one-page `adjacent-certs/security-plus.md` now points to the full hub.
+- Wired into the curated nav, root README, and learning roadmap.
+
 ## 2026-06-19
 
 ### Added

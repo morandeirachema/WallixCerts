@@ -38,6 +38,7 @@ into cybersecurity**, anchored on **Privileged Access Management (PAM)** and **W
 |------------|-------|
 | 🛡️ **Get into PAM / pass a WALLIX cert** | [WALLIX / PAM hub](docs/pam-bastion/README.md) · [product portfolio](docs/00-overview/product-portfolio.md) |
 | ⚔️ **Learn ethical hacking (CEH)** | [CEH v13 hub](ceh/README.md) · [the 20 modules](ceh/domains/README.md) |
+| 🧱 **Get the vendor-neutral baseline (Security+)** | [Security+ hub](security-plus/README.md) · [the 5 domains](security-plus/domains/README.md) |
 | 🔌 **Understand a protocol** (Kerberos, TLS, SAML…) | [Protocols](protocols/README.md) |
 | 🧭 **Plan a cybersecurity career** | [Learning roadmap](learning/roadmap.md) |
 | 🧰 **Find the best platforms to practice** | [Learning platforms](learning/platforms.md) |
@@ -94,9 +95,17 @@ flowchart TB
 | [The 20 modules](ceh/domains/README.md) | Recon → scanning → system hacking → malware → web → wireless → cloud → crypto, each with countermeasures |
 | [Tools](ceh/tools/tools-by-phase.md) · [Labs](ceh/labs/building-a-ceh-lab.md) · [Exam prep](ceh/exam-prep/study-plan.md) | Tools by phase, safe-lab setup, study plan, 56 practice Qs, cheat sheet |
 
+**🧱 CompTIA Security+ hub** *(vendor-neutral, foundational baseline)*
+
+| Section | Covers |
+|---------|--------|
+| [Security+ hub](security-plus/README.md) | What it is, exam & objectives (SY0-701) |
+| [The 5 domains](security-plus/domains/README.md) | General concepts · threats/vulns · architecture · operations · program management — taught to the objectives |
+| [Exam prep](security-plus/exam-prep/study-plan.md) · [Reference](security-plus/reference/acronyms.md) | Study plan, 52 practice Qs, cheat sheet, acronyms & glossary |
+
 **🧩 Adjacent certifications** — concise, provider-cited overviews
 
-[CompTIA Security+](adjacent-certs/security-plus.md) · [OSCP](adjacent-certs/oscp.md) · [PNPT](adjacent-certs/pnpt.md) · [CISSP](adjacent-certs/cissp.md) · [Cloud security (AZ-500 / AWS)](adjacent-certs/cloud-security.md)
+[OSCP](adjacent-certs/oscp.md) · [PNPT](adjacent-certs/pnpt.md) · [CISSP](adjacent-certs/cissp.md) · [Cloud security (AZ-500 / AWS)](adjacent-certs/cloud-security.md) *(Security+ has its own [full hub](security-plus/README.md) above)*
 
 **🧭 Cross-cutting & reference**
 

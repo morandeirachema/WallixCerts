@@ -35,7 +35,7 @@ flowchart TD
 | Stage | What & why | In this repo |
 |-------|-----------|--------------|
 | **0 · Foundations** | The infrastructure PAM and security sit on | [foundations/](../foundations/README.md) · [prerequisites/](../prerequisites/README.md) · [protocols/](../protocols/README.md) |
-| **1 · Entry** | Broad, vendor-neutral baseline (Security+) | [adjacent-certs/security-plus.md](../adjacent-certs/security-plus.md) |
+| **1 · Entry** | Broad, vendor-neutral baseline (Security+) | [Security+ hub](../security-plus/README.md) (the [5 domains](../security-plus/domains/README.md)) |
 | **2a · Identity / PAM** | Specialise in privileged access (the repo's core) | [WALLIX hub](../README.md) · [PAM/Bastion track](../docs/pam-bastion/README.md) · [deep dives](../deep-dives/README.md) |
 | **2b · Offensive** | Understand the attacker (CEH → hands-on) | [CEH hub](../ceh/README.md) → [OSCP](../adjacent-certs/oscp.md) · [PNPT](../adjacent-certs/pnpt.md) |
 | **2c · Cloud** | Secure cloud identities & workloads | [adjacent-certs/cloud-security.md](../adjacent-certs/cloud-security.md) · [CEH cloud module](../ceh/domains/19-cloud-computing.md) |

@@ -134,6 +134,25 @@ nav:
           - Acronyms: reference/acronyms.md
           - Compliance & standards: reference/compliance-and-standards.md
           - Sources: reference/sources.md
+  - CompTIA Security+:
+      - security-plus/README.md
+      - Overview:
+          - What is Security+: security-plus/00-overview/what-is-security-plus.md
+          - Exam & objectives: security-plus/00-overview/exam-and-objectives.md
+      - The 5 domains:
+          - security-plus/domains/README.md
+          - 1 · General security concepts: security-plus/domains/01-general-security-concepts.md
+          - 2 · Threats, vulnerabilities & mitigations: security-plus/domains/02-threats-vulnerabilities-mitigations.md
+          - 3 · Security architecture: security-plus/domains/03-security-architecture.md
+          - 4 · Security operations: security-plus/domains/04-security-operations.md
+          - 5 · Program management & oversight: security-plus/domains/05-security-program-management-oversight.md
+      - Exam prep:
+          - Study plan: security-plus/exam-prep/study-plan.md
+          - Practice questions: security-plus/exam-prep/practice-questions.md
+          - Cheat sheet: security-plus/exam-prep/cheat-sheet.md
+      - Reference:
+          - Acronyms: security-plus/reference/acronyms.md
+          - Glossary: security-plus/reference/glossary.md
   - CEH (Certified Ethical Hacker):
       - ceh/README.md
       - Overview:

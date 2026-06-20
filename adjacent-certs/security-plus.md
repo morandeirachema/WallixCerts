@@ -1,5 +1,9 @@
 # CompTIA Security+ (SY0-701) — Overview
 
+> 📚 **There's now a full Security+ study hub** → **[../security-plus/](../security-plus/README.md)**
+> — the five domains taught in depth, exam prep, practice questions, cheat sheet, and a long
+> acronym/glossary reference. This page stays as a one-screen orientation.
+
 CompTIA **Security+** is a vendor-neutral, foundational cybersecurity certification from **CompTIA** (the Computing Technology Industry Association). It validates the core knowledge needed for entry-level security roles and is one of the most widely requested baseline credentials in job postings. The current exam at the time of writing is **SY0-701** *(verify on [CompTIA](https://www.comptia.org/en-us/certifications/security/) — specifics change)*; CompTIA refreshes the exam code roughly every three years.
 
 > **Unofficial & no fabrication.** Not affiliated with or endorsed by CompTIA. Exam specifics below are from CompTIA's official Security+ page; anything volatile (price, exam code, retirement date) should be re-checked there before you rely on it. Compiled **2026-06-18**.
