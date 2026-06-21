@@ -8171,7 +8171,7 @@ $kbd:del\s+.*                # keyboard &quot;del ...&quot; command
     Frame --&gt;|"no"| Outside["Access blocked / Automatic /&lt;br/&gt;Approval with quorum"]
     Inside --&gt; Quorum{"quorum reached?"}
     Outside --&gt; Quorum
-    Quorum --&gt;|"no"| Pending["pending ... -&gt; rejected / timeout -&gt;&lt;br/&gt;CLOSED"]
+    Quorum --&gt;|"no"| Pending["pending ... -&gt; rejected /&lt;br/&gt;timeout -&gt; CLOSED"]
     Quorum --&gt;|"yes"| Accepted["ACCEPTED -&gt; session may start&lt;br/&gt;(Single connection? then one shot)&lt;br/&gt;(comment/ticket&lt;br/&gt;recorded; SIEM logged)"]</code></pre>
 <blockquote>
 <p><strong>Gotcha (verbatim intent):</strong> with <em>Access blocked</em> outside hours, an approval that <strong>starts inside</strong> the allowed window can <strong>continue into blocked hours</strong> — only the start time is checked; the session ends when the <strong>approval</strong> ends, not when the time frame ends. Also: <strong>scenario accounts cannot be used with authorizations that include an approval workflow</strong> (use a separate authorization without approval).</p>

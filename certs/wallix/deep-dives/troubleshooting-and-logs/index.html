@@ -8246,7 +8246,7 @@ Default templates (in <code>/var/wab/etc/notifier/</code>):</p>
 <h2 id="5-debugging-password-rotation-plugins">5. Debugging password-rotation plugins<a class="headerlink" href="#5-debugging-password-rotation-plugins" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TD
     Celery["wallixcelery&lt;br/&gt;(rotation job)"] --&gt;|"plugin over SSH/API/SMB&lt;br/&gt;(change scheduled)"| Target["TARGET device or global server&lt;br/&gt;(Cisco/Windows/Unix/LDAP/...)"]
-    Target --&gt;|"on MISMATCH&lt;br/&gt;(Bastion vault secret ==? actual secret on target)"| Reconcile["RECONCILIATION:&lt;br/&gt;'Administrator&lt;br/&gt;account' on the domain&lt;br/&gt;re-sets the pw when Bastion &amp;lt;&amp;gt;&lt;br/&gt;target"]
+    Target --&gt;|"on MISMATCH&lt;br/&gt;(Bastion vault secret ==? actual secret on target)"| Reconcile["RECONCILIATION:&lt;br/&gt;'Administrator account' on the&lt;br/&gt;domain re-sets the pw when&lt;br/&gt;Bastion &amp;lt;&amp;gt; target"]
     Reconcile --&gt; Result["Result -&gt;&lt;br/&gt;credential_change_success.txt&lt;br/&gt;/ _failure.txt / _summary.txt"]</code></pre>
 <p><em>Password change / verify (and where it breaks).</em></p>
 <p>Debug checklist:</p>

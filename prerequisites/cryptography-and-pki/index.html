@@ -8042,7 +8042,7 @@ follow the signatures back up to a Root CA already in its <strong>trust store</s
     Root --&gt;|signs| Inter
     Inter --&gt;|signs| Leaf
 
-    V["VERIFICATION (client walks UP the&lt;br/&gt;chain):&lt;br/&gt;leaf signature -&gt;&lt;br/&gt;valid? (checked with&lt;br/&gt;Intermediate's public key)&lt;br/&gt;intermediate -&gt; valid? (checked with&lt;br/&gt;Root's public key)&lt;br/&gt;Root -&gt; present in&lt;br/&gt;my trust store? AND&lt;br/&gt;each cert -&gt; not&lt;br/&gt;expired? not in CRL /&lt;br/&gt;OCSP says 'good'? -&gt; TRUST"]
+    V["VERIFICATION (client walks UP&lt;br/&gt;the chain):&lt;br/&gt;leaf signature -&gt;&lt;br/&gt;valid? (checked with&lt;br/&gt;Intermediate's public key)&lt;br/&gt;intermediate -&gt; valid? (checked with&lt;br/&gt;Root's public key)&lt;br/&gt;Root -&gt; present in&lt;br/&gt;my trust store? AND&lt;br/&gt;each cert -&gt; not&lt;br/&gt;expired? not in CRL /&lt;br/&gt;OCSP says 'good'? -&gt; TRUST"]
     Leaf -.-&gt;|verify back up to| V</code></pre>
 <blockquote>
 <p><strong>Bastion tie-in:</strong> Bastion/WAM present server certificates (verified via this chain),
