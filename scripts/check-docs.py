@@ -42,20 +42,25 @@ HEADING_RE = re.compile(r'^(#{1,6})\s+(.*)')
 
 
 def slugs(path):
+    """Heading anchor slugs, computed exactly like GitHub (github-slugger):
+    lowercase, strip HTML, remove all but [word, space, hyphen], spaces -> '-',
+    NO trimming of leading/trailing hyphens (so emoji headings keep their leading
+    '-'), and append -1/-2 for duplicates. Matching is exact — no leniency — so a
+    link that would 404 on GitHub fails here too."""
     out, counts = [], {}
     for line in open(path, encoding='utf-8'):
         m = HEADING_RE.match(line)
         if not m:
             continue
         text = re.sub(r'#+\s*$', '', m.group(2).strip()).strip()
-        s = re.sub(r'[^\w\- ]', '', re.sub(r'<[^>]+>', '', text.lower())).strip().replace(' ', '-')
+        s = re.sub(r'[^\w\- ]', '', re.sub(r'<[^>]+>', '', text.lower())).replace(' ', '-')
         if s in counts:
             counts[s] += 1
             out.append(f"{s}-{counts[s]}")
         else:
             counts[s] = 0
             out.append(s)
-    return set(out), {x.strip('-') for x in out}
+    return set(out)
 
 
 SLUGMAP = {os.path.normpath(f): slugs(f) for f in MD}
@@ -99,8 +104,7 @@ for f in MD:
                 continue
             if tgt.startswith('#'):
                 a = tgt[1:]
-                full, stripped = SLUGMAP[os.path.normpath(f)]
-                if a not in full and a.strip('-') not in stripped:
+                if a not in SLUGMAP[os.path.normpath(f)]:
                     issues.append(f"Broken anchor: {f}:{ln} -> {tgt}")
                 continue
             pp, a = (tgt.split('#', 1) + [None])[:2]
@@ -108,10 +112,8 @@ for f in MD:
             if not os.path.exists(tf):
                 issues.append(f"Broken link: {f}:{ln} -> {tgt}")
                 continue
-            if a and tf in SLUGMAP:
-                full, stripped = SLUGMAP[tf]
-                if a not in full and a.strip('-') not in stripped:
-                    issues.append(f"Broken anchor: {f}:{ln} -> {tgt}")
+            if a and tf in SLUGMAP and a not in SLUGMAP[tf]:
+                issues.append(f"Broken anchor: {f}:{ln} -> {tgt}")
 
 if issues:
     print(f"❌ {len(issues)} issue(s) found:\n")

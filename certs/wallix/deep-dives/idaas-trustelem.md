@@ -167,7 +167,7 @@ flowchart TD
     Rule -->|"1 factor"| OneF["Password / certificate / Kerberos"]
     Rule -->|"2 factors"| Proto{"Authentication channel?"}
     Proto -->|"Web / SAML / OIDC"| AllFactors["Any factor: Authenticator push/TOTP,<br/>FIDO2 key, SMS, email"]
-    Proto -->|"LDAP / RADIUS"| NoKey["Push or TOTP only (no FIDO2 security<br/>key)"]
+    Proto -->|"LDAP / RADIUS"| NoKey["Push or TOTP only<br/>(no FIDO2 security key)"]
     OneF --> Grant["Grant session"]
     AllFactors --> Grant
     NoKey --> Grant

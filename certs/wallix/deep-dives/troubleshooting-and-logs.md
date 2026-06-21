@@ -177,7 +177,7 @@ See §6.
 ```mermaid
 flowchart TD
     Celery["wallixcelery<br/>(rotation job)"] -->|"plugin over SSH/API/SMB<br/>(change scheduled)"| Target["TARGET device or global server<br/>(Cisco/Windows/Unix/LDAP/...)"]
-    Target -->|"on MISMATCH<br/>(Bastion vault secret ==? actual secret on target)"| Reconcile["RECONCILIATION:<br/>'Administrator<br/>account' on the domain<br/>re-sets the pw when Bastion &lt;&gt;<br/>target"]
+    Target -->|"on MISMATCH<br/>(Bastion vault secret ==? actual secret on target)"| Reconcile["RECONCILIATION:<br/>'Administrator account' on the<br/>domain re-sets the pw when<br/>Bastion &lt;&gt; target"]
     Reconcile --> Result["Result -><br/>credential_change_success.txt<br/>/ _failure.txt / _summary.txt"]
 ```
 

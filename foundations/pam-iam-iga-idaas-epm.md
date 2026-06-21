@@ -158,7 +158,7 @@ privilege*, and note where the circles touch.
 ```mermaid
 flowchart TD
     subgraph GOVL["GOVERNANCE LAYER — 'who SHOULD have<br/>access, and can we prove it?'"]
-        IGA["IGA / IAG<br/>access reviews · SoD · role mining ·<br/>compliance<br/>governs BOTH ordinary and privileged<br/>access"]
+        IGA["IGA / IAG<br/>access reviews · SoD ·<br/>role mining · compliance<br/>governs BOTH ordinary and<br/>privileged access"]
     end
     subgraph IDL["IDENTITY LAYER (everyday)<br/>— 'who is this<br/>user?'"]
         IAM["IAM<br/>AuthN · AuthZ · lifecycle<br/>SSO + MFA<br/>delivered via IDaaS<br/>(WALLIX Trustelem)"]

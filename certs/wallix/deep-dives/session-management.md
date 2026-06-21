@@ -232,7 +232,7 @@ flowchart TD
     Frame -->|"no"| Outside["Access blocked / Automatic /<br/>Approval with quorum"]
     Inside --> Quorum{"quorum reached?"}
     Outside --> Quorum
-    Quorum -->|"no"| Pending["pending ... -> rejected / timeout -><br/>CLOSED"]
+    Quorum -->|"no"| Pending["pending ... -> rejected /<br/>timeout -> CLOSED"]
     Quorum -->|"yes"| Accepted["ACCEPTED -> session may start<br/>(Single connection? then one shot)<br/>(comment/ticket<br/>recorded; SIEM logged)"]
 ```
 

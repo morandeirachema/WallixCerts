@@ -18,7 +18,7 @@ and **[adjacent-cert](../certs/adjacent-certs/README.md)** material into one jou
 
 ```mermaid
 flowchart TD
-    F["Foundations<br/>this repo: foundations/<br/>+ prerequisites/<br/>(Linux · Windows/AD · networking ·<br/>crypto)"] --> SP["CompTIA Security+<br/>vendor-neutral entry"]
+    F["Foundations<br/>this repo: foundations/<br/>+ prerequisites/<br/>(Linux · Windows/AD ·<br/>networking · crypto)"] --> SP["CompTIA Security+<br/>vendor-neutral entry"]
     SP --> DEF["Defensive / identity"]
     SP --> SOC["Blue team / SOC<br/>CySA+"]
     SP --> OFF["Offensive"]

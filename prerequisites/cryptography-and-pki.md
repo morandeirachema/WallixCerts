@@ -151,7 +151,7 @@ flowchart TD
     Root -->|signs| Inter
     Inter -->|signs| Leaf
 
-    V["VERIFICATION (client walks UP the<br/>chain):<br/>leaf signature -><br/>valid? (checked with<br/>Intermediate's public key)<br/>intermediate -> valid? (checked with<br/>Root's public key)<br/>Root -> present in<br/>my trust store? AND<br/>each cert -> not<br/>expired? not in CRL /<br/>OCSP says 'good'? -> TRUST"]
+    V["VERIFICATION (client walks UP<br/>the chain):<br/>leaf signature -><br/>valid? (checked with<br/>Intermediate's public key)<br/>intermediate -> valid? (checked with<br/>Root's public key)<br/>Root -> present in<br/>my trust store? AND<br/>each cert -> not<br/>expired? not in CRL /<br/>OCSP says 'good'? -> TRUST"]
     Leaf -.->|verify back up to| V
 ```
 

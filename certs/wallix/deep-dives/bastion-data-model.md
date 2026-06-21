@@ -230,7 +230,7 @@ flowchart LR
 ```mermaid
 flowchart TD
     Start["USER initiates connection<br/>(front leg) to<br/>Bastion"] --> S1
-    S1["[1] AUTHENTICATE the user<br/>(local/LDAP/SAML/OIDC/Kerberos/X.509<br/>+<br/>MFA)"] -->|"fail"| Reject["reject"]
+    S1["[1] AUTHENTICATE the user<br/>(local/LDAP/SAML/OIDC/<br/>Kerberos/X.509 + MFA)"] -->|"fail"| Reject["reject"]
     S1 --> S2["[2] Resolve the user's USER GROUP(S)"]
     S2 --> S3["[3] Find an AUTHORIZATION whose user<br/>group covers this user<br/>AND whose target group contains the<br/>requested TARGET"]
     S3 -->|"none"| Denied["ACCESS DENIED"]
@@ -245,7 +245,7 @@ flowchart TD
     S7b --> S8
     S8 -->|"rejected/timeout"| DeniedReq["denied"]
     S8 --> S9["[9] OPEN SESSION (back leg): obtain<br/>credential per mapping mode<br/>- account mapping:<br/>user's own credential<br/>(PASSWORD_MAPPING / VTR)<br/>- specific account: vaulted secret<br/>(PASSWORD_VAULT)<br/>&lt;-- check-out/lock<br/>- interactive: user types it<br/>(PASSWORD_INTERACTIVE)"]
-    S9 --> S10["[10] PROXY + RECORD<br/>+ apply restriction<br/>rules (kill/notify, OCR) + stream to<br/>SIEM"]
+    S9 --> S10["[10] PROXY + RECORD<br/>+ apply restriction rules<br/>(kill/notify, OCR)<br/>+ stream to SIEM"]
 ```
 
 **Notes that trip people up:**
