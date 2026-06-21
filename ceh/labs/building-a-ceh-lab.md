@@ -99,7 +99,7 @@ A home lab is excellent for free, open-ended practice. EC-Council also provides 
 | **EC-Council iLabs** | Cloud-hosted virtual lab environment used with official CEH courseware |
 | **CEH Engage / Cyber Range** | A mock, simulated engagement where you apply the full methodology against a practice target organisation, part of the "Learn \| Certify \| Engage \| Compete" model |
 
-Confirm current access, inclusion with courseware, and pricing on EC-Council, as these change between versions. For other legitimate practice options, see [practice-ranges.md](./practice-ranges.md).
+Confirm current access, inclusion with courseware, and pricing on EC-Council, as these change between versions. For other legitimate practice options, see [practice-ranges.md](practice-ranges.md).
 
 ## Quick build checklist
 
@@ -114,7 +114,7 @@ Confirm current access, inclusion with courseware, and pricing on EC-Council, as
 
 ## Where to go next
 
-- [practice-ranges.md](./practice-ranges.md) — legitimate online platforms for further practice.
+- [practice-ranges.md](practice-ranges.md) — legitimate online platforms for further practice.
 - [../tools/tools-by-phase.md](../tools/tools-by-phase.md) — what the tools in your attacker VM are for.
 - [../00-overview/five-phases-of-hacking.md](../00-overview/five-phases-of-hacking.md) — the methodology to practise.
 - [../00-overview/legal-and-ethics.md](../00-overview/legal-and-ethics.md) — authorisation and the law.

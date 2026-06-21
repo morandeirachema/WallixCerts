@@ -58,9 +58,9 @@ These are the heart of AD compromise. Each **reuses authentication material** ra
 
 | Attack idea | What it abuses | Defense / detection |
 | --- | --- | --- |
-| Reuse recovered credentials/hashes/tickets to authenticate host-to-host (remote execution, remote management), hunting for higher-privileged sessions to harvest | **Shared or reused admin credentials** and **flat networks** let one compromise spread; an admin logged into a workstation leaves credential material to steal | **Network segmentation / microsegmentation** limits reachable hosts; **tiered admin** stops workstation creds reaching servers/DCs; **unique local-admin passwords (LAPS)**; a **PAM jump host** is the only sanctioned admin path, with session recording; EDR flags anomalous remote logons. Pivoting mechanics: [06-pivoting-and-tunneling.md](./06-pivoting-and-tunneling.md) |
+| Reuse recovered credentials/hashes/tickets to authenticate host-to-host (remote execution, remote management), hunting for higher-privileged sessions to harvest | **Shared or reused admin credentials** and **flat networks** let one compromise spread; an admin logged into a workstation leaves credential material to steal | **Network segmentation / microsegmentation** limits reachable hosts; **tiered admin** stops workstation creds reaching servers/DCs; **unique local-admin passwords (LAPS)**; a **PAM jump host** is the only sanctioned admin path, with session recording; EDR flags anomalous remote logons. Pivoting mechanics: [06-pivoting-and-tunneling.md](06-pivoting-and-tunneling.md) |
 
-A PAM bastion that **mediates and records every privileged session** removes the attacker's free movement and gives defenders a reviewable trail — the WALLIX model in [../../docs/pam-bastion/README.md](../../docs/pam-bastion/README.md) and [../../deep-dives/session-management.md](../../deep-dives/session-management.md).
+A PAM bastion that **mediates and records every privileged session** removes the attacker's free movement and gives defenders a reviewable trail — the WALLIX model in [../../docs/pam-bastion/README.md](../../wallix/pam-bastion/README.md) and [../../deep-dives/session-management.md](../../wallix/deep-dives/session-management.md).
 
 ## Domain compromise
 
@@ -78,7 +78,7 @@ Each stage has a control that either **prevents** it or **detects** it — that 
 - **Think in chains, not single hosts** — a foothold's value is the credential material it yields for the next hop.
 - **Understand the *concept* of PtH/PtT/Kerberoasting** (what trust each abuses) so you recognize when a target is vulnerable, rather than blindly running tools.
 - **Document the full path** — initial access, each lateral move, and final domain compromise must be reproducible in the report.
-- **Practice only in authorized AD labs** — OffSec Proving Grounds, Hack The Box AD scenarios, or [../../labs/README.md](../../labs/README.md).
+- **Practice only in authorized AD labs** — OffSec Proving Grounds, Hack The Box AD scenarios, or [../../labs/README.md](../../wallix/labs/README.md).
 
 > **Authorized use only.** AD attack techniques are legal solely against systems you own or are explicitly authorized in writing to test.
 
@@ -88,5 +88,5 @@ Each stage has a control that either **prevents** it or **detects** it — that 
 - OffSec — OSCP+ Exam Guide / Exam FAQ (AD set scoring, domain-compromise chain): https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide
 - MITRE ATT&CK — credential access & lateral movement (Pass-the-Hash, Pass-the-Ticket, Kerberoasting techniques): https://attack.mitre.org/
 - Microsoft — securing privileged access / tiered administration model: https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-access-model
-- Related in this repo: [../../protocols/kerberos.md](../../protocols/kerberos.md) · [../../protocols/active-directory.md](../../protocols/active-directory.md) · [../../attack-to-defense-matrix.md](../../attack-to-defense-matrix.md) · [../../foundations/pam-threat-landscape.md](../../foundations/pam-threat-landscape.md) · [../../docs/pam-bastion/README.md](../../docs/pam-bastion/README.md) · [../../deep-dives/session-management.md](../../deep-dives/session-management.md)
+- Related in this repo: [../../protocols/kerberos.md](../../protocols/kerberos.md) · [../../protocols/active-directory.md](../../protocols/active-directory.md) · [../../attack-to-defense-matrix.md](../../attack-to-defense-matrix.md) · [../../foundations/pam-threat-landscape.md](../../foundations/pam-threat-landscape.md) · [../../docs/pam-bastion/README.md](../../wallix/pam-bastion/README.md) · [../../deep-dives/session-management.md](../../wallix/deep-dives/session-management.md)
 - Verify volatile OSCP specifics on OffSec's site — programs change.

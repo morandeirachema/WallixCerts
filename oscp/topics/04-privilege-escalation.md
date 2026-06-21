@@ -76,7 +76,7 @@ Every class above is, at root, **excess privilege or excess trust** — a proces
 - **Read what enumeration actually reports**: a SUID binary, a sudo rule, a writable service path. Triage the highest-confidence path first.
 - **Keep platform checklists** (Linux: sudo, SUID, cron, creds, kernel; Windows: services, permissions, tokens, stored creds, tasks) so nothing is skipped under time pressure.
 - **Document every step with screenshots** showing host and current user before and after — an undocumented escalation earns no points.
-- **Stay in scope.** Practice only on OffSec Proving Grounds, Hack The Box, or this repo's [../../labs/README.md](../../labs/README.md).
+- **Stay in scope.** Practice only on OffSec Proving Grounds, Hack The Box, or this repo's [../../labs/README.md](../../wallix/labs/README.md).
 
 > **Authorized use only.** Privilege escalation is legal solely against systems you own or are explicitly authorized in writing to test.
 

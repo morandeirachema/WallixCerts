@@ -86,7 +86,7 @@ CompTIA recommends — but does not **require** — the following before attempt
 These are guidance, not gatekeeping: there is **no mandatory prerequisite exam** or formal
 eligibility application. A sysadmin's existing operating-system, networking, and logging
 knowledge maps directly onto the material. See
-[exam-and-objectives.md](./exam-and-objectives.md) for the full exam detail.
+[exam-and-objectives.md](exam-and-objectives.md) for the full exam detail.
 
 ## Where CySA+ sits in a certification path
 
@@ -143,7 +143,7 @@ appears in US government and defence-contractor job requirements.
 
 ## Where to go next
 
-- [exam-and-objectives.md](./exam-and-objectives.md) — exam format, the four domains and
+- [exam-and-objectives.md](exam-and-objectives.md) — exam format, the four domains and
   weightings, performance-based questions (PBQs), and renewal.
 - [../domains/README.md](../domains/README.md) — the four domain pages written to the
   CS0-003 objectives.

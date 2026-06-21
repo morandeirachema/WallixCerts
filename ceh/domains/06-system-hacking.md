@@ -16,7 +16,7 @@
 
 ## The system-hacking methodology (four conceptual phases)
 
-System hacking sits *after* reconnaissance, scanning, and vulnerability analysis in the broader [five phases of hacking](../00-overview/five-phases-of-hacking.md). By this point the attacker knows which hosts, users, and services exist and which look weak (see [./05-vulnerability-analysis.md](./05-vulnerability-analysis.md)). The four phases are sequential goals, each mapping to one or more **MITRE ATT&CK** tactics — the standard catalog of adversary behaviors.
+System hacking sits *after* reconnaissance, scanning, and vulnerability analysis in the broader [five phases of hacking](../00-overview/five-phases-of-hacking.md). By this point the attacker knows which hosts, users, and services exist and which look weak (see [./05-vulnerability-analysis.md](05-vulnerability-analysis.md)). The four phases are sequential goals, each mapping to one or more **MITRE ATT&CK** tactics — the standard catalog of adversary behaviors.
 
 ```mermaid
 flowchart TD
@@ -50,7 +50,7 @@ Vertical escalation typically abuses misconfigurations, unpatched local vulnerab
 
 ### 3. Maintaining access (persistence)
 
-Having gained (and escalated) access, an attacker wants to **return later** without repeating the work. This is **persistence** in ATT&CK terms. Conceptually it relies on **backdoors** (hidden access paths) and **rootkits** (malware that hides its own presence, often at a deep level of the operating system). Detailed malware mechanics are covered in [./07-malware-threats.md](./07-malware-threats.md); here the point is the *goal*: durable, stealthy re-entry.
+Having gained (and escalated) access, an attacker wants to **return later** without repeating the work. This is **persistence** in ATT&CK terms. Conceptually it relies on **backdoors** (hidden access paths) and **rootkits** (malware that hides its own presence, often at a deep level of the operating system). Detailed malware mechanics are covered in [./07-malware-threats.md](07-malware-threats.md); here the point is the *goal*: durable, stealthy re-entry.
 
 **Defender's view:** monitor for new or unexpected services, scheduled tasks, autorun entries, new accounts, unsigned kernel drivers, and unexplained outbound connections. **File integrity monitoring** and application **allow-listing** are central controls.
 
@@ -66,9 +66,9 @@ Passwords are the most attacked credential. CEH groups password attacks into cat
 
 | Category | Concept | Example idea |
 | --- | --- | --- |
-| **Non-electronic / social** | No technology against the system itself; the human is the target | **Shoulder surfing** (watching someone type a password), dumpster diving, and social-engineering a password out of a person (see [./09-social-engineering.md](./09-social-engineering.md)) |
+| **Non-electronic / social** | No technology against the system itself; the human is the target | **Shoulder surfing** (watching someone type a password), dumpster diving, and social-engineering a password out of a person (see [./09-social-engineering.md](09-social-engineering.md)) |
 | **Active online** | Interacting **directly** with the live authentication system to try credentials | Guessing or trying credentials against a login service; noisy and detectable |
-| **Passive online** | **Observing** credentials in transit without touching the login directly | **Sniffing** cleartext credentials or a **Man-in-the-Middle (MITM)** position capturing authentication data (see [./08-sniffing.md](./08-sniffing.md)) |
+| **Passive online** | **Observing** credentials in transit without touching the login directly | **Sniffing** cleartext credentials or a **Man-in-the-Middle (MITM)** position capturing authentication data (see [./08-sniffing.md](08-sniffing.md)) |
 | **Offline** | Attacking **captured password hashes** away from the system, with no rate limits | Working against a stolen hash dump on the attacker's own hardware |
 
 ### Offline attack subtypes (concept only)
@@ -134,7 +134,7 @@ Defense in this module is largely about **identity, privilege, integrity, and lo
 - **Multi-Factor Authentication (MFA).** Even a cracked or stolen password is not enough on its own — the single highest-value control against credential attacks.
 - **Account lockout / throttling.** Limit and slow repeated failed attempts to blunt **active online** guessing. Balance against denial-of-service abuse.
 - **Salted, slow (work-factor) password hashing.** Store secrets with a unique salt and a deliberately expensive hash function. This defeats **rainbow tables** and dramatically slows **offline** brute force.
-- **Encrypt authentication in transit** and disable legacy/cleartext protocols and weak name-resolution (e.g., LLMNR/NBT-NS) to counter **passive online** sniffing and poisoning (see [./08-sniffing.md](./08-sniffing.md)).
+- **Encrypt authentication in transit** and disable legacy/cleartext protocols and weak name-resolution (e.g., LLMNR/NBT-NS) to counter **passive online** sniffing and poisoning (see [./08-sniffing.md](08-sniffing.md)).
 - **Defend against shoulder surfing** and other **non-electronic** attacks with privacy practices, clean-desk policy, and awareness training.
 
 ### Limit privilege (defeats escalation)
@@ -148,7 +148,7 @@ Defense in this module is largely about **identity, privilege, integrity, and lo
 
 - **File integrity monitoring** and **application allow-listing** to catch backdoors and unauthorized binaries.
 - **Baseline and alert** on new services, scheduled tasks, autoruns, accounts, and unsigned kernel drivers (a rootkit indicator).
-- Rootkits are covered as malware in [./07-malware-threats.md](./07-malware-threats.md); the key defense is preventing the privileged access they need to install.
+- Rootkits are covered as malware in [./07-malware-threats.md](07-malware-threats.md); the key defense is preventing the privileged access they need to install.
 
 ### Protect the record (defeats clearing tracks)
 

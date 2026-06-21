@@ -17,7 +17,7 @@ An ordered route through this `cysa-plus/` hub for the **CompTIA Cybersecurity A
 Use the hub in three passes:
 
 1. **Pass 1 — Learn (Weeks 1–5):** read each [domain page](../domains/README.md) in priority order, build SOC vocabulary, and expand every acronym on first use.
-2. **Pass 2 — Practise (Week 6):** work the [practice questions](./practice-questions.md) and rehearse PBQ-style analysis hands-on (read real log excerpts, score sample Common Vulnerabilities and Exposures (CVEs) with CVSS).
+2. **Pass 2 — Practise (Week 6):** work the [practice questions](practice-questions.md) and rehearse PBQ-style analysis hands-on (read real log excerpts, score sample Common Vulnerabilities and Exposures (CVEs) with CVSS).
 3. **Pass 3 — Polish (Week 7):** drill the [glossary](../reference/glossary.md), take timed mock exams, and fix weak areas.
 
 > **Always study against the official objectives PDF.** It is the authoritative checklist of every term and acronym for CS0-003 — download it from CompTIA and tick off coverage as you go. See [../00-overview/exam-and-objectives.md](../00-overview/exam-and-objectives.md).
@@ -72,7 +72,7 @@ flowchart TD
 - **Milestone:** you can describe what a remediation report and an incident report each contain and who reads them.
 
 ### Week 6 — Practice & PBQ rehearsal — suggested ~8–10 h
-- Work the [practice questions](./practice-questions.md) domain by domain; review every miss against the relevant domain page.
+- Work the [practice questions](practice-questions.md) domain by domain; review every miss against the relevant domain page.
 - Rehearse **CySA+ PBQ-style analysis hands-on** (see tips below): read real log/SIEM excerpts, decode CVSS vectors, and order IR steps.
 - **Milestone:** consistently above your target score on each domain set.
 
@@ -131,7 +131,7 @@ CySA+ rewards the operational instincts a sysadmin already has — reading logs,
 
 ## Where to go next
 
-- [practice-questions.md](./practice-questions.md) — 45+ unofficial practice questions grouped by domain, including CVSS-reasoning and log-analysis items.
+- [practice-questions.md](practice-questions.md) — 45+ unofficial practice questions grouped by domain, including CVSS-reasoning and log-analysis items.
 - [../reference/glossary.md](../reference/glossary.md) — CySA+ / SOC / blue-team term reference.
 - [../domains/README.md](../domains/README.md) — the four domain pages, written to the objectives.
 - [../00-overview/exam-and-objectives.md](../00-overview/exam-and-objectives.md) — exam format, weightings, PBQs, and the objectives PDF.

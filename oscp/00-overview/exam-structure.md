@@ -106,5 +106,5 @@ The exam is not just "get the flags." OffSec requires a **professional penetrati
 - OffSec — PEN-200 / OSCP official course page (24-hour proctored exam, 3 standalone machines = 60 pts, 1 AD set of 3 machines = 40 pts): https://www.offsec.com/courses/pen-200/
 - OffSec — OSCP+ Exam Guide / Exam FAQ (100 total points, 70/100 to pass, AD set = 40 pts, no bonus points since 1 November 2024, separate report window, proctoring): https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide
 - NIST SP 800-115, Technical Guide to Information Security Testing and Assessment (reporting and evidence-handling framing): https://csrc.nist.gov/pubs/sp/800/115/final
-- Related in this repo: [what-is-oscp.md](./what-is-oscp.md) · [../topics/README.md](../topics/README.md) · [../../adjacent-certs/oscp.md](../../adjacent-certs/oscp.md)
+- Related in this repo: [what-is-oscp.md](what-is-oscp.md) · [../topics/README.md](../topics/README.md) · [../../adjacent-certs/oscp.md](../../adjacent-certs/oscp.md)
 - Verify all volatile specifics (exact machine counts, weighting, proctoring rules, price) on OffSec's site — programs change.

@@ -116,7 +116,7 @@ Official environments tied to a specific certification. See each cert's overview
 | WALLIX Academy | WALLIX's official training and certification for its products (PAM/Bastion, plus IAG/IDaaS/OT), across the WCA-P → WCP-P → WCE-P levels | Paid instructor-led training; some free partner e-learning | The WALLIX/PAM certs — see the [WALLIX hub](../README.md) | https://www.wallix.com/support-services/wallix-academy/ |
 
 > **WALLIX Academy labs are gated to enrolled trainees.** This repo's
-> [labs/README.md](../labs/README.md) and [home-lab build](../labs/building-a-home-lab.md) explain
+> [labs/README.md](../wallix/labs/README.md) and [home-lab build](../wallix/labs/building-a-home-lab.md) explain
 > what you can practise on a self-built AD + Windows + Linux substrate where the official
 > labs are not available to you.
 
@@ -177,7 +177,7 @@ flowchart TD
 - [learning-roadmap.md](roadmap.md) — the certification path these platforms support.
 - [ceh/labs/practice-ranges.md](../ceh/labs/practice-ranges.md) — the CEH hands-on subset of this list.
 - [ceh/labs/building-a-ceh-lab.md](../ceh/labs/building-a-ceh-lab.md) — build the isolated home lab the offline platforms complement.
-- [labs/README.md](../labs/README.md) — the WALLIX/PAM hands-on lab pages.
+- [labs/README.md](../wallix/labs/README.md) — the WALLIX/PAM hands-on lab pages.
 - [adjacent-certs/README.md](../adjacent-certs/README.md) — overviews of the certs the vendor platforms map to.
 
 ## Sources

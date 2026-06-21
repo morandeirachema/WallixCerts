@@ -4,7 +4,7 @@ Scanning is the second phase of the ethical hacking lifecycle. After footprintin
 
 > **Authorization first.** Active scanning sends packets *to* systems you do not own. It is legal only with **explicit written authorization** (a signed scope/rules-of-engagement document). Scanning networks without permission can be a criminal offense in most jurisdictions. This page is **conceptual, defense-oriented exam preparation** — it explains *what* techniques are and *how to defend against them*, not operational attack playbooks.
 
-This module connects backward to [Footprinting and Reconnaissance](./02-footprinting-and-reconnaissance.md) and forward to [Enumeration](./04-enumeration.md), and it sits inside the broader [five phases of hacking](../00-overview/five-phases-of-hacking.md). Acronyms used here are also collected in the [acronyms reference](../reference/acronyms.md).
+This module connects backward to [Footprinting and Reconnaissance](02-footprinting-and-reconnaissance.md) and forward to [Enumeration](04-enumeration.md), and it sits inside the broader [five phases of hacking](../00-overview/five-phases-of-hacking.md). Acronyms used here are also collected in the [acronyms reference](../reference/acronyms.md).
 
 ## Learning objectives
 
@@ -31,7 +31,7 @@ The main objectives of scanning are to discover:
 - **Operating system (OS)** — the family and approximate version of the OS, inferred from how the host responds.
 - **Network topology** — how hosts, routers, and segments relate to one another.
 
-The output of scanning becomes the input to [enumeration](./04-enumeration.md), where the tester extracts detailed information (user accounts, shares, etc.) from the services found.
+The output of scanning becomes the input to [enumeration](04-enumeration.md), where the tester extracts detailed information (user accounts, shares, etc.) from the services found.
 
 ## Host discovery (live-host detection)
 

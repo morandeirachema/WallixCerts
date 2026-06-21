@@ -1,6 +1,6 @@
 # Legitimate Online Practice Ranges
 
-Once you have a local lab ([building-a-ceh-lab.md](./building-a-ceh-lab.md)), online practice platforms let you keep building hands-on skill against legally provided targets without maintaining the infrastructure yourself. This page lists well-known, legitimate platforms, each described factually with its purpose.
+Once you have a local lab ([building-a-ceh-lab.md](building-a-ceh-lab.md)), online practice platforms let you keep building hands-on skill against legally provided targets without maintaining the infrastructure yourself. This page lists well-known, legitimate platforms, each described factually with its purpose.
 
 > **The one rule that governs all of them: only practise on systems you own or are explicitly authorised to use.** Every platform below provides targets it owns or has arranged for you to attack, and your authorisation is limited to those targets. Pointing these skills at anything outside the platform's sandbox — a real website, a company, a neighbour's network — is unauthorised and illegal in most jurisdictions. See [../00-overview/legal-and-ethics.md](../00-overview/legal-and-ethics.md).
 
@@ -32,7 +32,7 @@ Once you have a local lab ([building-a-ceh-lab.md](./building-a-ceh-lab.md)), on
 | Gentle, guided introductions | TryHackMe |
 | Free, focused web-application practice | PortSwigger Web Security Academy |
 | Open-ended boxes that mirror real engagements | Hack The Box |
-| Practice fully offline in your own lab | VulnHub (see [building-a-ceh-lab.md](./building-a-ceh-lab.md)) |
+| Practice fully offline in your own lab | VulnHub (see [building-a-ceh-lab.md](building-a-ceh-lab.md)) |
 | Fundamentals via command-line challenges | OverTheWire |
 
 ## Suggested skill-progression path
@@ -53,7 +53,7 @@ flowchart TD
 
 ## Where to go next
 
-- [building-a-ceh-lab.md](./building-a-ceh-lab.md) — build the local lab these platforms complement.
+- [building-a-ceh-lab.md](building-a-ceh-lab.md) — build the local lab these platforms complement.
 - [../tools/tools-by-phase.md](../tools/tools-by-phase.md) — the tools you will use on these ranges.
 - [../00-overview/five-phases-of-hacking.md](../00-overview/five-phases-of-hacking.md) — the methodology to practise.
 - [../00-overview/legal-and-ethics.md](../00-overview/legal-and-ethics.md) — authorisation and the law.

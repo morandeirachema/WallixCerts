@@ -9,7 +9,7 @@ gateway.
 
 > This is a *concepts* page. It is product-neutral. For how WALLIX implements these
 > ideas (Bastion, Access Manager, the Vault), see the
-> [product portfolio](../docs/00-overview/product-portfolio.md).
+> [product portfolio](../wallix/overview/product-portfolio.md).
 
 ## Learning objectives
 
@@ -178,7 +178,7 @@ flowchart TD
 - **PAM complements EPM/PEDM**: PAM controls the *session* to a target; EPM controls
   *privilege on the endpoint itself* (removing local admin). WALLIX pairs Bastion (PAM)
   with BestSafe (EPM) under its "PAM4ALL" least-privilege vision — see the
-  [product portfolio](../docs/00-overview/product-portfolio.md#4-wallix-bestsafe--endpoint-privilege-management-epm).
+  [product portfolio](../wallix/overview/product-portfolio.md#4-wallix-bestsafe--endpoint-privilege-management-epm).
 
 ---
 
@@ -240,7 +240,7 @@ policed gateway.
 
 For the WALLIX-specific realization of this flow (Session Manager, Password
 Manager/Vault, Access Manager, credential injection, "Redemption" RDP proxy), see the
-[product portfolio Bastion section](../docs/00-overview/product-portfolio.md#1-wallix-bastion--privileged-access-management-pam).
+[product portfolio Bastion section](../wallix/overview/product-portfolio.md#1-wallix-bastion--privileged-access-management-pam).
 
 ---
 
@@ -266,7 +266,7 @@ Manager/Vault, Access Manager, credential injection, "Redemption" RDP proxy), se
 - [PAM threat landscape](pam-threat-landscape.md) — why these accounts are attacked.
 - [Core concepts: least privilege, JIT, Zero Trust](core-concepts-least-privilege-jit-zero-trust.md)
 - [PAM vs IAM / IGA / IDaaS / EPM](pam-iam-iga-idaas-epm.md) — the acronym soup.
-- [WALLIX product portfolio](../docs/00-overview/product-portfolio.md)
+- [WALLIX product portfolio](../wallix/overview/product-portfolio.md)
 - [Acronyms](../reference/acronyms.md) · [Glossary](../reference/glossary.md)
 
 ---

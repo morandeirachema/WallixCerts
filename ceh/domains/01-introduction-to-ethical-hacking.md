@@ -96,7 +96,7 @@ CEH groups attacks several ways. You should know all of these lenses:
 **By target classification:**
 - **Network attacks** — target the network infrastructure and protocols (e.g., session hijacking, denial of service, man-in-the-middle).
 - **Host attacks** — target an individual system or operating system (e.g., malware, privilege escalation, password attacks).
-- **Application attacks** — target software, especially web applications (e.g., injection flaws, broken authentication — see the **OWASP Top 10** and [Module 5 — Vulnerability Analysis](./05-vulnerability-analysis.md)).
+- **Application attacks** — target software, especially web applications (e.g., injection flaws, broken authentication — see the **OWASP Top 10** and [Module 5 — Vulnerability Analysis](05-vulnerability-analysis.md)).
 
 **By interaction with the target:**
 - **Passive attacks** — the attacker monitors or analyzes without altering data, making them hard to detect (e.g., traffic sniffing, eavesdropping, footprinting).
@@ -147,7 +147,7 @@ flowchart TD
 
 | Stage | What happens | Defensive idea |
 |---|---|---|
-| **1. Reconnaissance** | Attacker gathers information about the target (open-source research, scanning). | Limit public exposure; monitor for scanning. See [Module 2 — Footprinting and Reconnaissance](./02-footprinting-and-reconnaissance.md). |
+| **1. Reconnaissance** | Attacker gathers information about the target (open-source research, scanning). | Limit public exposure; monitor for scanning. See [Module 2 — Footprinting and Reconnaissance](02-footprinting-and-reconnaissance.md). |
 | **2. Weaponization** | Attacker pairs an exploit with a deliverable payload. | Hardening, vulnerability management, threat intelligence. |
 | **3. Delivery** | The weaponized payload is transmitted (e.g., email, web, removable media). | Email filtering, web proxies, disabling autorun, user awareness. |
 | **4. Exploitation** | The payload triggers a vulnerability to execute on the target. | Patching, exploit mitigations, least privilege. |
@@ -242,7 +242,7 @@ Ethical hackers must operate within the law and help organizations meet complian
 This section consolidates the defensive takeaways. As an ethical hacker, your purpose is to find weaknesses **so they can be fixed** — defense is the end goal of all offensive testing.
 
 - **Reduce the attack surface.** Disable unused services and ports, remove default accounts, and minimize publicly exposed information (counters reconnaissance and the early Kill Chain stages).
-- **Patch and manage vulnerabilities** continuously to remove the weaknesses threats exploit (addresses Exploitation; see [Module 5 — Vulnerability Analysis](./05-vulnerability-analysis.md)).
+- **Patch and manage vulnerabilities** continuously to remove the weaknesses threats exploit (addresses Exploitation; see [Module 5 — Vulnerability Analysis](05-vulnerability-analysis.md)).
 - **Enforce least privilege and strong authentication**, including multi-factor authentication (MFA), to protect confidentiality and limit lateral movement.
 - **Encrypt data** at rest and in transit (confidentiality) and use **hashing/digital signatures** for integrity and non-repudiation.
 - **Layer controls (defense-in-depth)** and segment networks so a single failure does not compromise everything; apply **egress filtering** and DNS monitoring to disrupt Command and Control (C2).
@@ -281,4 +281,4 @@ This section consolidates the defensive takeaways. As an ethical hacker, your pu
 
 ---
 
-*Related: [Course overview](../00-overview/what-is-ceh.md) · [Five phases of hacking](../00-overview/five-phases-of-hacking.md) · [Module 2 — Footprinting and Reconnaissance](./02-footprinting-and-reconnaissance.md) · [Module 5 — Vulnerability Analysis](./05-vulnerability-analysis.md) · [Acronyms](../reference/acronyms.md)*
+*Related: [Course overview](../00-overview/what-is-ceh.md) · [Five phases of hacking](../00-overview/five-phases-of-hacking.md) · [Module 2 — Footprinting and Reconnaissance](02-footprinting-and-reconnaissance.md) · [Module 5 — Vulnerability Analysis](05-vulnerability-analysis.md) · [Acronyms](../reference/acronyms.md)*

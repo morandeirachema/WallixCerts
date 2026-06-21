@@ -2,7 +2,7 @@
 
 Footprinting and reconnaissance is the first active phase of an ethical-hacking engagement: the systematic collection of information about a target organisation, its people, and its technology before any deeper testing begins. The goal is to build a detailed *profile* of the target — its internet-facing systems, domains, network ranges, technologies, and employees — so that later phases are focused and efficient.
 
-This module teaches the concepts from a defender's standpoint. Everything here is **educational** and **defence-oriented**. These techniques are legal **only** with explicit written authorisation from the system owner, performed within a defined scope and Rules of Engagement (RoE). Using them against systems you do not own or are not authorised to test is a crime in most jurisdictions. See [./01-introduction-to-ethical-hacking.md](./01-introduction-to-ethical-hacking.md) and the overview at [../00-overview/five-phases-of-hacking.md](../00-overview/five-phases-of-hacking.md).
+This module teaches the concepts from a defender's standpoint. Everything here is **educational** and **defence-oriented**. These techniques are legal **only** with explicit written authorisation from the system owner, performed within a defined scope and Rules of Engagement (RoE). Using them against systems you do not own or are not authorised to test is a crime in most jurisdictions. See [./01-introduction-to-ethical-hacking.md](01-introduction-to-ethical-hacking.md) and the overview at [../00-overview/five-phases-of-hacking.md](../00-overview/five-phases-of-hacking.md).
 
 > For a systems administrator moving into security: footprinting is mostly *passive research using public sources*. Much of what an attacker learns about your organisation is information you (or your colleagues, or third-party services) have already published. Reconnaissance is therefore as much a defensive discipline — knowing your own exposure — as an offensive one.
 
@@ -21,7 +21,7 @@ This module teaches the concepts from a defender's standpoint. Everything here i
 
 **Reconnaissance** is the broad activity of gathering information about a target. **Footprinting** is the structured, methodical sub-process of building a "footprint" — a map of an organisation's externally visible presence and attack surface. In practice the two terms are used closely together; CEH treats footprinting as the disciplined methodology that delivers reconnaissance results.
 
-Footprinting is the **first phase** because information drives every later decision. Before scanning networks (covered in [./03-scanning-networks.md](./03-scanning-networks.md)) or attempting access, an attacker — or an authorised tester — needs to know *what* exists: which domains, IP (Internet Protocol) address ranges, hosts, services, technologies, and people belong to the target. Good reconnaissance reduces noise, narrows scope, and reveals the most promising avenues.
+Footprinting is the **first phase** because information drives every later decision. Before scanning networks (covered in [./03-scanning-networks.md](03-scanning-networks.md)) or attempting access, an attacker — or an authorised tester — needs to know *what* exists: which domains, IP (Internet Protocol) address ranges, hosts, services, technologies, and people belong to the target. Good reconnaissance reduces noise, narrows scope, and reveals the most promising avenues.
 
 Typical objectives of footprinting include identifying:
 
@@ -150,7 +150,7 @@ A historically significant DNS concept is the **zone transfer** (the DNS query t
 
 ### Network footprinting
 
-Network footprinting determines the **IP address ranges** and **network topology** belonging to the target. Conceptually it combines RIR/WHOIS data (which blocks are allocated to the organisation) with reachability/path information to understand how the network is laid out. The output is a list of in-scope network ranges and live hosts that feeds directly into the scanning phase ([./03-scanning-networks.md](./03-scanning-networks.md)).
+Network footprinting determines the **IP address ranges** and **network topology** belonging to the target. Conceptually it combines RIR/WHOIS data (which blocks are allocated to the organisation) with reachability/path information to understand how the network is laid out. The output is a list of in-scope network ranges and live hosts that feeds directly into the scanning phase ([./03-scanning-networks.md](03-scanning-networks.md)).
 
 ### Footprinting through social engineering (conceptual)
 
@@ -203,8 +203,8 @@ Footprinting exploits information you have already made public, so most defences
 
 ## Where to go next
 
-- [./01-introduction-to-ethical-hacking.md](./01-introduction-to-ethical-hacking.md) — ethics, scope, and authorisation foundations.
-- [./03-scanning-networks.md](./03-scanning-networks.md) — the next phase, where footprinting output is used.
+- [./01-introduction-to-ethical-hacking.md](01-introduction-to-ethical-hacking.md) — ethics, scope, and authorisation foundations.
+- [./03-scanning-networks.md](03-scanning-networks.md) — the next phase, where footprinting output is used.
 - [../00-overview/five-phases-of-hacking.md](../00-overview/five-phases-of-hacking.md) — the overall methodology.
 - [../reference/acronyms.md](../reference/acronyms.md) — expanded acronyms used across this hub.
 

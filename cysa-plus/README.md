@@ -69,7 +69,7 @@ step **after** [Security+](../security-plus/README.md).
   [Security+ Domain 4](../security-plus/domains/04-security-operations.md).
 - **Pairs with** the [attack → defense matrix](../attack-to-defense-matrix.md): CySA+ is the
   defender reading the telemetry the attacks generate.
-- **Connects to PAM** — privileged-session monitoring and audit ([WALLIX deep dives](../deep-dives/session-management.md)) feed SOC detection.
+- **Connects to PAM** — privileged-session monitoring and audit ([WALLIX deep dives](../wallix/deep-dives/session-management.md)) feed SOC detection.
 
 ## 🔗 Quick links
 

@@ -36,7 +36,7 @@ flowchart LR
 | Visibility in logs | Lower | Higher (sessions are recorded) |
 | CEH phase | Phase 2 | Phase 3 |
 
-For the scanning phase that precedes this, see [./03-scanning-networks.md](./03-scanning-networks.md). For what comes next, see [./05-vulnerability-analysis.md](./05-vulnerability-analysis.md).
+For the scanning phase that precedes this, see [./03-scanning-networks.md](03-scanning-networks.md). For what comes next, see [./05-vulnerability-analysis.md](05-vulnerability-analysis.md).
 
 ## Common default ports to remember
 

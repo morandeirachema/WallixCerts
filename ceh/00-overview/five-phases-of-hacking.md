@@ -2,7 +2,7 @@
 
 Every structured attack — and every authorised penetration test that simulates one — follows a repeatable lifecycle. The Certified Ethical Hacker (CEH) program organises this lifecycle into **five phases**. Knowing them gives you a mental map for the whole certification: almost every module slots into one of these phases. This page explains each phase from first principles, maps the phases to CEH modules, and relates them to two industry models you will keep meeting: the **Cyber Kill Chain** and **MITRE ATT&CK**.
 
-> Reminder: these techniques are taught for **defence and authorised testing only**. None of the phases below should be performed against systems you do not own or are not explicitly authorised — in writing — to test. See [legal-and-ethics.md](./legal-and-ethics.md).
+> Reminder: these techniques are taught for **defence and authorised testing only**. None of the phases below should be performed against systems you do not own or are not explicitly authorised — in writing — to test. See [legal-and-ethics.md](legal-and-ethics.md).
 
 ## Learning objectives
 
@@ -159,8 +159,8 @@ Unlike the linear five phases, ATT&CK is a **matrix**, not a strict sequence, re
 ## Where to go next
 
 - [../domains/01-introduction-to-ethical-hacking.md](../domains/01-introduction-to-ethical-hacking.md) — methodology and frameworks in detail.
-- [legal-and-ethics.md](./legal-and-ethics.md) — the authorisation that makes any of this legal.
-- [what-is-ceh.md](./what-is-ceh.md) — how the phases relate to the credential.
+- [legal-and-ethics.md](legal-and-ethics.md) — the authorisation that makes any of this legal.
+- [what-is-ceh.md](what-is-ceh.md) — how the phases relate to the credential.
 - [../reference/acronyms.md](../reference/acronyms.md) — expanded acronyms (OSINT, C2, TCP/UDP, etc.).
 
 ## Sources

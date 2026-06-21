@@ -228,4 +228,4 @@ This maps directly to **defense-in-depth**: no single control stops everything, 
 
 ---
 
-*Related: [Domain 1 — General Security Concepts](./01-general-security-concepts.md) · [PAM Threat Landscape](../../foundations/pam-threat-landscape.md) · [Attack-to-Defense Matrix](../../attack-to-defense-matrix.md) · [CEH — Footprinting & Reconnaissance](../../ceh/domains/02-footprinting-and-reconnaissance.md) · [CEH — Social Engineering](../../ceh/domains/09-social-engineering.md) · [Acronyms](../reference/acronyms.md)*
+*Related: [Domain 1 — General Security Concepts](01-general-security-concepts.md) · [PAM Threat Landscape](../../foundations/pam-threat-landscape.md) · [Attack-to-Defense Matrix](../../attack-to-defense-matrix.md) · [CEH — Footprinting & Reconnaissance](../../ceh/domains/02-footprinting-and-reconnaissance.md) · [CEH — Social Engineering](../../ceh/domains/09-social-engineering.md) · [Acronyms](../reference/acronyms.md)*

@@ -76,7 +76,7 @@ Everything you do *before* an incident: an **incident-response plan** and playbo
 
 Recognize that something is happening and characterize it. Sources include SIEM correlation, **IDS/IPS** and EDR alerts, log anomalies, and user/third-party reports. The analyst's job here:
 
-- **Validate** the alert (true incident vs. false positive — see [Domain 2 validation](./02-vulnerability-management.md)).
+- **Validate** the alert (true incident vs. false positive — see [Domain 2 validation](02-vulnerability-management.md)).
 - **Triage and classify** by type (malware, intrusion, data breach, denial-of-service, insider, policy violation).
 - Determine **scope** (which assets/accounts/data), **impact**, and **severity** (see §3).
 - Document a **timeline** and preserve evidence from the start.
@@ -94,7 +94,7 @@ The improvement loop, and the one analysts most often skip:
 - **Lessons-learned** meeting — held promptly, blameless, asking what happened, how well we responded, and what to change.
 - **Root-cause analysis (RCA)** — determine the *underlying* cause, not just the symptom, so the fix is durable.
 - **IoC generation** — turn what you found (malicious hashes, domains/IPs, registry keys, behaviors) into **indicators of compromise** you push into detection tooling and share with peers/ISACs.
-- **Reporting** and evidence retention per policy and regulation (covered in [Domain 4](./04-reporting-and-communication.md)).
+- **Reporting** and evidence retention per policy and regulation (covered in [Domain 4](04-reporting-and-communication.md)).
 - Update the **plan, playbooks, and controls** with what you learned — closing the loop back to Preparation.
 
 ---
@@ -107,7 +107,7 @@ Beyond the named phases, CompTIA tests the analyst's hands-on management activit
 |---|---|
 | **Detection & analysis** | Correlate alerts, separate signal from noise, confirm an incident. |
 | **Evidence acquisition** | Preserve data defensibly — maintain **chain of custody**, follow the **order of volatility** (capture RAM/cache before disk before archives), hash to prove integrity, work on copies. |
-| **Data and log analysis** | Examine SIEM, endpoint, network, DNS, authentication, and application logs to reconstruct the attack. See [Troubleshooting & Logs](../../deep-dives/troubleshooting-and-logs.md). |
+| **Data and log analysis** | Examine SIEM, endpoint, network, DNS, authentication, and application logs to reconstruct the attack. See [Troubleshooting & Logs](../../wallix/deep-dives/troubleshooting-and-logs.md). |
 | **Scope and impact** | Identify every affected system, account, and data set, and the business consequence (downtime, data loss, regulatory exposure). |
 | **Severity / prioritization** | Rank the incident using functional impact, information impact, and recoverability — drives resourcing and escalation. |
 
@@ -141,4 +141,4 @@ A clear, well-managed incident produces three durable outputs: a **timeline** of
 
 ---
 
-*Related: [Domain 2 — Vulnerability Management](./02-vulnerability-management.md) · [Domain 4 — Reporting & Communication](./04-reporting-and-communication.md) · [Security+ — Security Operations](../../security-plus/domains/04-security-operations.md) · [CEH — Engagement Methodology & Reporting](../../ceh/00-overview/engagement-methodology-and-reporting.md) · [Troubleshooting & Logs](../../deep-dives/troubleshooting-and-logs.md) · [Attack-to-Defense Matrix](../../attack-to-defense-matrix.md) · [Acronyms](../../security-plus/reference/acronyms.md)*
+*Related: [Domain 2 — Vulnerability Management](02-vulnerability-management.md) · [Domain 4 — Reporting & Communication](04-reporting-and-communication.md) · [Security+ — Security Operations](../../security-plus/domains/04-security-operations.md) · [CEH — Engagement Methodology & Reporting](../../ceh/00-overview/engagement-methodology-and-reporting.md) · [Troubleshooting & Logs](../../wallix/deep-dives/troubleshooting-and-logs.md) · [Attack-to-Defense Matrix](../../attack-to-defense-matrix.md) · [Acronyms](../../security-plus/reference/acronyms.md)*

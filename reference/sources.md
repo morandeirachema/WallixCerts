@@ -14,7 +14,7 @@ Where a served document version differed from its URL label, the served version 
 ## Products (technical background)
 
 The full per-product source list lives at the end of
-[docs/00-overview/product-portfolio.md](../docs/00-overview/product-portfolio.md#sources).
+[docs/00-overview/product-portfolio.md](../wallix/overview/product-portfolio.md#sources).
 Key entry points:
 
 - WALLIX Bastion (PAM): https://www.wallix.com/products/privileged-access-management/

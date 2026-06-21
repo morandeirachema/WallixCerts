@@ -7,15 +7,15 @@ An alphabetical glossary of Privileged Access Management (PAM), identity and bro
 cybersecurity terms, each defined **in PAM context** for a sysadmin starting a career in
 access security with WALLIX. Where a term is treated in depth elsewhere in this repo, the
 entry cross-links to the relevant [foundations](../foundations/),
-[deep-dives](../deep-dives/), or
-[product portfolio](../docs/00-overview/product-portfolio.md) page.
+[deep-dives](../wallix/deep-dives/), or
+[product portfolio](../wallix/overview/product-portfolio.md) page.
 
 For the expansions of acronyms, see [acronyms.md](acronyms.md). For how these concepts
 map to regulations, see [compliance-and-standards.md](compliance-and-standards.md).
 
 > Conventions: WALLIX-specific objects (Account, Authorization, Device, Target, etc.) are
 > capitalised when referring to the Bastion data model — see
-> [bastion-data-model.md](../deep-dives/bastion-data-model.md).
+> [bastion-data-model.md](../wallix/deep-dives/bastion-data-model.md).
 
 ---
 
@@ -23,12 +23,12 @@ map to regulations, see [compliance-and-standards.md](compliance-and-standards.m
 
 **Access Control List (ACL)** — A set of rules stating which subjects may perform which
 actions on which objects. WALLIX Bastion's rights engine is built on ACLs binding user
-groups to target groups — see [bastion-data-model.md](../deep-dives/bastion-data-model.md).
+groups to target groups — see [bastion-data-model.md](../wallix/deep-dives/bastion-data-model.md).
 
 **Access certification (recertification)** — A periodic governance review where managers
 re-confirm that each person's access is still appropriate; stale rights are revoked. A
 core IAG capability — see the
-[IAG section](../docs/00-overview/product-portfolio.md#5-wallix-iag--identity--access-governance).
+[IAG section](../wallix/overview/product-portfolio.md#5-wallix-iag--identity--access-governance).
 
 **Account (target account)** — In Bastion, the entity used to authenticate to a system
 (`{device, service, account}`); it always belongs to a domain. Types include global,
@@ -41,7 +41,7 @@ agents. Contrast with the agent-based BestSafe endpoint model.
 **Application-to-Application (A2A)** — Machine-to-machine authentication where one
 application retrieves a credential to talk to another, with no human involved; the use
 case behind AAPM (removing hard-coded passwords). See
-[secrets-and-password-management.md](../deep-dives/secrets-and-password-management.md).
+[secrets-and-password-management.md](../wallix/deep-dives/secrets-and-password-management.md).
 
 **Attack surface** — The total set of points an attacker could exploit. PAM shrinks it by
 removing standing local-admin accounts, vaulting credentials and brokering all privileged
@@ -53,14 +53,14 @@ gateway authenticates the human (often with MFA) before any privileged access.
 **Authorization (AuthZ)** — Determining *what you may do* once authenticated. In Bastion
 the **Authorization** object binds exactly one user group to one target group, carrying
 **Sessions** and **Secrets** rights — see
-[bastion-data-model.md](../deep-dives/bastion-data-model.md).
+[bastion-data-model.md](../wallix/deep-dives/bastion-data-model.md).
 
 ## B
 
 **Bastion host / jump server** — A hardened intermediary that all privileged connections
 pass through, so administrators never connect directly to targets. WALLIX Bastion *is* the
 PAM bastion; see [what-is-pam.md](../foundations/what-is-pam.md) and
-[bastion-architecture.md](../deep-dives/bastion-architecture.md).
+[bastion-architecture.md](../wallix/deep-dives/bastion-architecture.md).
 
 **Blast radius** — How much damage a single compromise can cause. Least privilege and
 session isolation keep the blast radius small.
@@ -72,21 +72,21 @@ time-limited. See [core-concepts](../foundations/core-concepts-least-privilege-j
 **Broker (proxy)** — The PAM gateway sits *between* user and target, terminating the user
 side and opening a separate, credential-injected connection to the target. This brokering
 gives isolation, recording and credential hiding. See
-[session-management.md](../deep-dives/session-management.md).
+[session-management.md](../wallix/deep-dives/session-management.md).
 
 ## C
 
 **Check-out / check-in** — The borrow-and-return model for vaulted secrets: a user checks
 out a credential (optionally locking it for exclusive use), uses it, then checks it in — at
 which point it can be automatically rotated. See
-[secrets-and-password-management.md](../deep-dives/secrets-and-password-management.md).
+[secrets-and-password-management.md](../wallix/deep-dives/secrets-and-password-management.md).
 
 **Credential** — A secret used to authenticate (password, SSH key, certificate, API key).
 PAM's job is to vault, rotate and hide credentials from the human user.
 
 **Credential injection** — The gateway supplies the target credential to the session
 *directly* so the user never sees or types it; defeats credential theft from the
-workstation. See [session-management.md](../deep-dives/session-management.md).
+workstation. See [session-management.md](../wallix/deep-dives/session-management.md).
 
 **Credential vault (secrets vault)** — An encrypted central store for passwords, SSH keys
 and certificates, replacing secrets scattered on endpoints, scripts and spreadsheets. The
@@ -94,7 +94,7 @@ WALLIX Bastion Password Manager is the vault.
 
 **Critical target** — In Bastion, a target flagged critical (on the Authorization) so it
 receives extra controls such as mandatory approval. See
-[bastion-data-model.md](../deep-dives/bastion-data-model.md).
+[bastion-data-model.md](../wallix/deep-dives/bastion-data-model.md).
 
 ## D
 
@@ -106,11 +106,11 @@ subnet; the basis of a Service and ultimately a Target.
 
 **Disaster Recovery (DR)** — Restoring service after a major outage. For Bastion specifics
 (replication scope, what is and isn't replicated), see
-[high-availability-and-dr.md](../deep-dives/high-availability-and-dr.md).
+[high-availability-and-dr.md](../wallix/deep-dives/high-availability-and-dr.md).
 
 **Domain (global vs local)** — In Bastion, a grouping that an Account belongs to: a
 **global domain** spans multiple devices (vault Local or External); a **local domain**
-covers a single device. See [bastion-data-model.md](../deep-dives/bastion-data-model.md).
+covers a single device. See [bastion-data-model.md](../wallix/deep-dives/bastion-data-model.md).
 
 **Dual control (four-eyes)** — A real-time form of SoD requiring two people for a sensitive
 action: one performs it, one approves/watches. In Bastion: approval workflows and
@@ -138,7 +138,7 @@ maps entitlements; CIEM right-sizes them in the cloud.
 
 **Federation** — Trusting another system's authentication so a user can SSO across domains,
 via SAML/OIDC. Trustelem and WAM use federation for SSO/MFA. See
-[authentication-and-access-manager.md](../deep-dives/authentication-and-access-manager.md).
+[authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md).
 
 **Four-eyes principle** — See **Dual control**.
 
@@ -159,7 +159,7 @@ tightening configuration and applying secure defaults; expected of a bastion app
 **High Availability (HA)** — Configuration that avoids single points of failure. In Bastion
 v12, HA is database replication (Master/Slave or Master/Master) over an SSH tunnel; audit
 and session tables are *not* replicated. See
-[high-availability-and-dr.md](../deep-dives/high-availability-and-dr.md).
+[high-availability-and-dr.md](../wallix/deep-dives/high-availability-and-dr.md).
 
 ## I
 
@@ -203,7 +203,7 @@ necessary (NIST SP 800-53 AC-6); the foundational rule of access security. See
 **Multi-Factor Authentication (MFA)** — Requiring two or more independent factors (know /
 have / are). A PAM gateway typically requires MFA before privileged access; WALLIX provides
 MFA via Trustelem / WALLIX Authenticator. See
-[authentication-and-access-manager.md](../deep-dives/authentication-and-access-manager.md).
+[authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md).
 
 ## N
 
@@ -261,18 +261,18 @@ accounts (pairing WALLIX IAG with Bastion).
 **Purdue Model** — A reference model layering industrial networks (Levels 0–5). A PAM
 jump/bastion host typically sits in the **Industrial DMZ (Level 3.5)** between OT and IT.
 See [acronyms.md](acronyms.md) and the
-[PAM4OT section](../docs/00-overview/product-portfolio.md#6-wallix-pam4ot--operational-technology-ot-security).
+[PAM4OT section](../wallix/overview/product-portfolio.md#6-wallix-pam4ot--operational-technology-ot-security).
 
 ## R
 
 **Reconciliation account** — A privileged "administrator" account the PAM tool uses to
 reset/fix a target credential when its vaulted value has drifted out of sync with the
 target. See
-[secrets-and-password-management.md](../deep-dives/secrets-and-password-management.md).
+[secrets-and-password-management.md](../wallix/deep-dives/secrets-and-password-management.md).
 
 **Resource** — In Bastion, a Service combined with a Device or Application; combined with a
 target Account it forms a **Target**. See
-[bastion-data-model.md](../deep-dives/bastion-data-model.md).
+[bastion-data-model.md](../wallix/deep-dives/bastion-data-model.md).
 
 **Reverse proxy** — A server that fronts internal services and forwards requests to them;
 WALLIX Access Manager is an HTML5 reverse proxy in front of Bastion(s).
@@ -282,7 +282,7 @@ bundle permissions, simplifying administration and reviews.
 
 **Rotation (credential rotation)** — Automatically changing secrets on a schedule or after
 each use, so a leaked secret quickly becomes worthless. See
-[secrets-and-password-management.md](../deep-dives/secrets-and-password-management.md).
+[secrets-and-password-management.md](../wallix/deep-dives/secrets-and-password-management.md).
 
 ## S
 
@@ -291,7 +291,7 @@ each use, so a leaked secret quickly becomes worthless. See
 
 **Secret** — Any sensitive authentication material: password, SSH key, certificate, API
 token. Stored in the vault, never on endpoints. See
-[secrets-and-password-management.md](../deep-dives/secrets-and-password-management.md).
+[secrets-and-password-management.md](../wallix/deep-dives/secrets-and-password-management.md).
 
 **Segregation/Separation of Duties (SoD)** — Splitting a sensitive process so no single
 person controls all of it (e.g. requester ≠ approver). Governance detects "toxic
@@ -305,7 +305,7 @@ and the credential never reaches the workstation.
 **Session recording** — Capturing a privileged session (video, keystrokes, commands,
 metadata) for forensics, dispute resolution and compliance; the basis of non-repudiation.
 Bastion encrypts recordings to the originating Bastion. See
-[session-management.md](../deep-dives/session-management.md).
+[session-management.md](../wallix/deep-dives/session-management.md).
 
 **Service** — In Bastion, a protocol + port + connection policy on a Device.
 
@@ -320,13 +320,13 @@ stolen between tasks. JIT/ZSP aim to eliminate standing privilege.
 
 **Sub-protocol** — In Bastion, a granular, authorization-gated capability within a protocol
 (e.g. SSH: shell, SCP, SFTP, X11; RDP: clipboard, drive, printer). See
-[session-management.md](../deep-dives/session-management.md).
+[session-management.md](../wallix/deep-dives/session-management.md).
 
 ## T
 
 **Target** — In Bastion, a **Resource + a target Account** — i.e. *what* a user is
 authorized to reach. The unit authorizations are granted against. See
-[bastion-data-model.md](../deep-dives/bastion-data-model.md).
+[bastion-data-model.md](../wallix/deep-dives/bastion-data-model.md).
 
 **Target group** — A collection of similar Targets that share authorizations.
 
@@ -338,13 +338,13 @@ violating SoD (e.g. create a vendor *and* approve its payment); flagged by gover
 **User mapping (account mapping)** — A Bastion secondary-connection mode where the user
 reaches the target with *their own* directory credentials, injected automatically. Contrast
 with a vault-stored "specific account" or manual "interactive login". See
-[bastion-data-model.md](../deep-dives/bastion-data-model.md).
+[bastion-data-model.md](../wallix/deep-dives/bastion-data-model.md).
 
 ## V
 
 **Vaulting** — Storing secrets in an encrypted central vault rather than on endpoints,
 scripts or notes. See **Credential vault** and
-[secrets-and-password-management.md](../deep-dives/secrets-and-password-management.md).
+[secrets-and-password-management.md](../wallix/deep-dives/secrets-and-password-management.md).
 
 ## Z
 
@@ -372,14 +372,14 @@ onto the network as a VPN does.
 - [Core concepts: least privilege, JIT, Zero Trust](../foundations/core-concepts-least-privilege-jit-zero-trust.md)
 - [Privileged accounts & credentials](../foundations/privileged-accounts-and-credentials.md)
 - [PAM threat landscape](../foundations/pam-threat-landscape.md)
-- [Bastion data model](../deep-dives/bastion-data-model.md)
-- [WALLIX product portfolio](../docs/00-overview/product-portfolio.md)
+- [Bastion data model](../wallix/deep-dives/bastion-data-model.md)
+- [WALLIX product portfolio](../wallix/overview/product-portfolio.md)
 
 ---
 
 ## Sources
 
-- WALLIX product portfolio (this repo, with primary WALLIX sources): [../docs/00-overview/product-portfolio.md](../docs/00-overview/product-portfolio.md)
+- WALLIX product portfolio (this repo, with primary WALLIX sources): [../docs/00-overview/product-portfolio.md](../wallix/overview/product-portfolio.md)
 - WALLIX Bastion Administration Guide (served v12.3.2) — data-model objects, sessions, recording, check-out/check-in, reconciliation: https://pam.wallix.one/documentation/admin-doc/bastion_en_administration_guide.pdf
 - WALLIX Access Manager Administration Guide (served v5.2.4.0): https://pam.wallix.one/documentation/admin-doc/am-admin-guide_en.pdf
 - WALLIX Bastion product page (broker/vault/record/JIT framing): https://www.wallix.com/products/privileged-access-management/

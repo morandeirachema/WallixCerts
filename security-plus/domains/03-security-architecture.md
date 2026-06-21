@@ -4,7 +4,7 @@ Domain 3 of CompTIA Security+ (SY0-701) is about **where you put security and wh
 
 This domain weights **18%** of the scored exam content *(verify on [CompTIA](https://www.comptia.org/en-us/certifications/security/) — weightings change per exam version)*. It maps to four objective areas — architecture models (3.1), enterprise infrastructure security principles (3.2), data protection (3.3), and resilience and recovery (3.4) — but treat the official **objectives PDF** as the authoritative checklist for exact wording; see [how to get it](../00-overview/exam-and-objectives.md#how-to-get-the-official-exam-objectives).
 
-Where this hub already covers a topic in depth, this page **cross-links** rather than duplicates: cloud and OT attack surfaces from the attacker's side in the [CEH cloud module](../../ceh/domains/19-cloud-computing.md) and [CEH IoT/OT module](../../ceh/domains/18-iot-and-ot-hacking.md); transport security in [Transport Layer Security (TLS)](../../protocols/tls.md); and high availability and disaster recovery in the [HA & DR deep dive](../../deep-dives/high-availability-and-dr.md).
+Where this hub already covers a topic in depth, this page **cross-links** rather than duplicates: cloud and OT attack surfaces from the attacker's side in the [CEH cloud module](../../ceh/domains/19-cloud-computing.md) and [CEH IoT/OT module](../../ceh/domains/18-iot-and-ot-hacking.md); transport security in [Transport Layer Security (TLS)](../../protocols/tls.md); and high availability and disaster recovery in the [HA & DR deep dive](../../wallix/deep-dives/high-availability-and-dr.md).
 
 ## Learning objectives
 
@@ -87,11 +87,11 @@ These constrained or specialized systems share a theme: **availability and safet
 | **Real-time operating system (RTOS)** | An OS guaranteeing response within strict time bounds, used in control and safety systems. | Minimal security features by design; updates risk breaking timing guarantees, so patching is rare. |
 | **Embedded systems** | Special-purpose computers built into a larger device (medical, automotive, appliances). | Fixed function, limited memory/compute, hard or impossible to patch; long service life means old vulnerabilities persist. |
 
-The attacker's perspective on these is in the [CEH IoT and OT module](../../ceh/domains/18-iot-and-ot-hacking.md). WALLIX's OT-specific packaging of Privileged Access Management is in the [PAM4OT deep dive](../../deep-dives/pam4ot-operational-technology.md).
+The attacker's perspective on these is in the [CEH IoT and OT module](../../ceh/domains/18-iot-and-ot-hacking.md). WALLIX's OT-specific packaging of Privileged Access Management is in the [PAM4OT deep dive](../../wallix/deep-dives/pam4ot-operational-technology.md).
 
 ### High availability as a model property
 
-**High availability (HA)** is the property that a service stays reachable despite failures — built through redundancy and no single points of failure. It is both an architecture choice and a resilience outcome; covered in depth in [§3.4](#34-resilience-and-recovery) and the [HA & DR deep dive](../../deep-dives/high-availability-and-dr.md).
+**High availability (HA)** is the property that a service stays reachable despite failures — built through redundancy and no single points of failure. It is both an architecture choice and a resilience outcome; covered in depth in [§3.4](#34-resilience-and-recovery) and the [HA & DR deep dive](../../wallix/deep-dives/high-availability-and-dr.md).
 
 ### Considerations that drive the choice
 
@@ -215,7 +215,7 @@ You cannot protect data you have not classified, and the right protection method
 
 ## 3.4 Resilience and recovery
 
-Resilience is the architecture's ability to **keep running and recover** when things fail. This section overlaps heavily with business continuity in Domain 5 and is covered hands-on in the [high availability & DR deep dive](../../deep-dives/high-availability-and-dr.md).
+Resilience is the architecture's ability to **keep running and recover** when things fail. This section overlaps heavily with business continuity in Domain 5 and is covered hands-on in the [high availability & DR deep dive](../../wallix/deep-dives/high-availability-and-dr.md).
 
 ### High availability, load balancing, and clustering
 
@@ -269,5 +269,5 @@ A frequently tested trade-off of recovery speed vs. cost for a recovery site:
 - IETF RFC 8446 — The Transport Layer Security (TLS) Protocol Version 1.3: https://www.rfc-editor.org/rfc/rfc8446
 - IETF RFC 4301 — Security Architecture for the Internet Protocol (IPSec): https://www.rfc-editor.org/rfc/rfc4301
 - IEEE 802.1X-2020 — Port-Based Network Access Control: https://standards.ieee.org/standard/802_1X-2020.html
-- Related in this repo: [TLS](../../protocols/tls.md) · [RADIUS](../../protocols/radius.md) · [High availability & DR](../../deep-dives/high-availability-and-dr.md) · [PAM4OT](../../deep-dives/pam4ot-operational-technology.md) · [CEH cloud](../../ceh/domains/19-cloud-computing.md) · [CEH IoT/OT](../../ceh/domains/18-iot-and-ot-hacking.md)
+- Related in this repo: [TLS](../../protocols/tls.md) · [RADIUS](../../protocols/radius.md) · [High availability & DR](../../wallix/deep-dives/high-availability-and-dr.md) · [PAM4OT](../../wallix/deep-dives/pam4ot-operational-technology.md) · [CEH cloud](../../ceh/domains/19-cloud-computing.md) · [CEH IoT/OT](../../ceh/domains/18-iot-and-ot-hacking.md)
 - Domain weightings are version-sensitive — *verify on CompTIA* before relying on them.

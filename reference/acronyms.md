@@ -12,12 +12,12 @@ category they are listed in a table of **Acronym | Expansion | one-line context*
 Where an expansion or behaviour is uncertain or vendor-specific, it is flagged inline
 rather than asserted. WALLIX product detail is summarised here and treated
 authoritatively in the
-[product portfolio](../docs/00-overview/product-portfolio.md); the concepts behind these
+[product portfolio](../wallix/overview/product-portfolio.md); the concepts behind these
 acronyms are defined in the [glossary](glossary.md) and the
 [foundations](../foundations/) folder.
 
 > **How to read certification codes first:** see
-> [certification framework](../docs/00-overview/certification-framework.md). The decode
+> [certification framework](../wallix/overview/certification-framework.md). The decode
 > chart below is repeated from there for convenience.
 
 A code reads `W C x - y` (an `e-` prefix marks the self-paced e-learning variant):
@@ -72,7 +72,7 @@ A code reads `W C x - y` (an `e-` prefix marks the self-paced e-learning variant
 | **IGA** | Identity Governance & Administration | The analyst-preferred name for the same governance discipline as IAG (near-synonyms). |
 | **AAPM** | Application-to-Application Password Management | Eliminating hard-coded passwords in scripts/config (DevOps/RPA). *Flag: a marketing term; technically realised via the Bastion REST API + vault plugins.* |
 | **WAAPM** | WALLIX AAPM | WALLIX's branding of the Application-to-Application Password Management capability. |
-| **WAM** | WALLIX Access Manager | HTML5 web access gateway / reverse proxy in front of one or more Bastions; single secured HTTPS entry point. See [authentication & WAM](../deep-dives/authentication-and-access-manager.md). |
+| **WAM** | WALLIX Access Manager | HTML5 web access gateway / reverse proxy in front of one or more Bastions; single secured HTTPS entry point. See [authentication & WAM](../wallix/deep-dives/authentication-and-access-manager.md). |
 | **WAB** | WALLIX Bastion (Web Access Bastion) | Internal/legacy product prefix seen in Bastion service names (e.g. `wabgui`, `wabrestapi`, `WABSecurityLevel`). |
 | **OT.security** | OT.security by WALLIX | WALLIX brand (launched 2022) for industrial cybersecurity; houses **PAM4OT**. |
 | **PAM4OT** | PAM for Operational Technology | OT-specific packaging of WALLIX Bastion for ICS/SCADA/PLC environments. |
@@ -83,7 +83,7 @@ A code reads `W C x - y` (an `e-` prefix marks the self-paced e-learning variant
 
 > See [PAM vs IAM/IGA/IDaaS/EPM](../foundations/pam-iam-iga-idaas-epm.md) for how these
 > disciplines overlap, and the
-> [product portfolio](../docs/00-overview/product-portfolio.md) for product detail.
+> [product portfolio](../wallix/overview/product-portfolio.md) for product detail.
 
 ---
 
@@ -173,8 +173,8 @@ A code reads `W C x - y` (an `e-` prefix marks the self-paced e-learning variant
 
 > **Crypto policy note:** Bastion's cryptographic level is selectable via
 > `WABSecurityLevel`, with **SOG-IS CES 1.3** (valid to 2030) recommended. See
-> [Bastion architecture](../deep-dives/bastion-architecture.md) and
-> [secrets & password management](../deep-dives/secrets-and-password-management.md).
+> [Bastion architecture](../wallix/deep-dives/bastion-architecture.md) and
+> [secrets & password management](../wallix/deep-dives/secrets-and-password-management.md).
 
 ---
 
@@ -196,7 +196,7 @@ A code reads `W C x - y` (an `e-` prefix marks the self-paced e-learning variant
 | **LPM** | Loi de Programmation Militaire | France's military-programming law imposing security obligations on critical operators (cited in WALLIX OT messaging). |
 
 > See the OT discussion in the
-> [product portfolio PAM4OT section](../docs/00-overview/product-portfolio.md#6-wallix-pam4ot--operational-technology-ot-security).
+> [product portfolio PAM4OT section](../wallix/overview/product-portfolio.md#6-wallix-pam4ot--operational-technology-ot-security).
 
 ---
 
@@ -240,7 +240,7 @@ A code reads `W C x - y` (an `e-` prefix marks the self-paced e-learning variant
 
 | Acronym | Expansion | Context / meaning |
 |---|---|---|
-| **HA** | High Availability | Resilient configuration avoiding single points of failure; Bastion v12 HA = DB replication. See [HA & DR](../deep-dives/high-availability-and-dr.md). |
+| **HA** | High Availability | Resilient configuration avoiding single points of failure; Bastion v12 HA = DB replication. See [HA & DR](../wallix/deep-dives/high-availability-and-dr.md). |
 | **DR** | Disaster Recovery | The capability to restore service after a major outage/disaster. |
 | **DRP** | Disaster Recovery Plan | The documented procedure executing DR (objectives, steps, roles). |
 | **RPO** | Recovery Point Objective | Max acceptable data loss (time) in a disaster — relevant to Bastion replication scope. |
@@ -248,7 +248,7 @@ A code reads `W C x - y` (an `e-` prefix marks the self-paced e-learning variant
 | **SIEM** | Security Information and Event Management | Central log/event correlation platform; Bastion forwards events via Syslog. |
 | **SOAR** | Security Orchestration, Automation and Response | Automates incident response on top of SIEM (context for API-driven PAM actions). |
 | **UEBA** | User and Entity Behavior Analytics | Anomaly detection from user/entity behaviour (WALLIX's Malizen acquisition area). |
-| **API** | Application Programming Interface | Programmatic interface; Bastion exposes a **REST API** (`wabrestapi`). See [REST API & automation](../deep-dives/rest-api-and-automation.md). |
+| **API** | Application Programming Interface | Programmatic interface; Bastion exposes a **REST API** (`wabrestapi`). See [REST API & automation](../wallix/deep-dives/rest-api-and-automation.md). |
 | **REST** | Representational State Transfer | The architectural style of Bastion's HTTP/JSON API. |
 | **JSON** | JavaScript Object Notation | The data format used by the Bastion REST API. |
 | **ETL** | Extract, Transform, Load | Data-integration pattern; WALLIX IAG uses an ETL to consolidate identity data from many sources. |
@@ -277,15 +277,15 @@ A code reads `W C x - y` (an `e-` prefix marks the self-paced e-learning variant
 - [Compliance & standards](compliance-and-standards.md) — how PAM maps to each framework.
 - [PAM vs IAM/IGA/IDaaS/EPM](../foundations/pam-iam-iga-idaas-epm.md)
 - [Core concepts: least privilege, JIT, Zero Trust](../foundations/core-concepts-least-privilege-jit-zero-trust.md)
-- [WALLIX product portfolio](../docs/00-overview/product-portfolio.md)
-- [Certification framework](../docs/00-overview/certification-framework.md)
+- [WALLIX product portfolio](../wallix/overview/product-portfolio.md)
+- [Certification framework](../wallix/overview/certification-framework.md)
 
 ---
 
 ## Sources
 
-- WALLIX Academy / certification framework (this repo): [../docs/00-overview/certification-framework.md](../docs/00-overview/certification-framework.md); WALLIX Academy: https://www.wallix.com/support-services/wallix-academy/; Training catalog 2025–2026 (EN): https://www.wallix.com/wp-content/uploads/2024/04/WALLIX_TRAINING_2025-2026_ENG.pdf
-- WALLIX product portfolio (this repo, with primary WALLIX sources): [../docs/00-overview/product-portfolio.md](../docs/00-overview/product-portfolio.md)
+- WALLIX Academy / certification framework (this repo): [../docs/00-overview/certification-framework.md](../wallix/overview/certification-framework.md); WALLIX Academy: https://www.wallix.com/support-services/wallix-academy/; Training catalog 2025–2026 (EN): https://www.wallix.com/wp-content/uploads/2024/04/WALLIX_TRAINING_2025-2026_ENG.pdf
+- WALLIX product portfolio (this repo, with primary WALLIX sources): [../docs/00-overview/product-portfolio.md](../wallix/overview/product-portfolio.md)
 - WALLIX Bastion Administration Guide (served v12.3.2): https://pam.wallix.one/documentation/admin-doc/bastion_en_administration_guide.pdf
 - WALLIX Bastion Deployment Guide (v12.0.2): https://marketplace-wallix.s3.amazonaws.com/bastion_12.0.2_en_deployment_guide.pdf
 - WALLIX Access Manager Administration Guide (served v5.2.4.0): https://pam.wallix.one/documentation/admin-doc/am-admin-guide_en.pdf

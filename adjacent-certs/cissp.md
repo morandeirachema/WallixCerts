@@ -9,7 +9,7 @@ The **CISSP (Certified Information Systems Security Professional)** is a manager
 - List the **eight CBK (Common Body of Knowledge) domains** and their scope.
 - Summarise the **exam format** (CAT — Computerized Adaptive Testing) with verified, cited specifics.
 - State the **experience requirement** and the **Associate of (ISC)²** route.
-- Explain **how CISSP fits** alongside the [CEH](../ceh/README.md) and [WALLIX/PAM](../docs/00-overview/product-portfolio.md) tracks.
+- Explain **how CISSP fits** alongside the [CEH](../ceh/README.md) and [WALLIX/PAM](../wallix/overview/product-portfolio.md) tracks.
 
 ## What it is
 
@@ -82,7 +82,7 @@ flowchart LR
 ```
 
 - **Relation to [CEH](../ceh/README.md):** CEH proves you can *find and exploit* weaknesses; CISSP proves you can *govern and design* the controls that prevent them. CISSP **Domain 6 (Security Assessment and Testing)** frames penetration testing from the management side that CEH performs hands-on.
-- **Relation to WALLIX / PAM ([product portfolio](../docs/00-overview/product-portfolio.md)):** CISSP **Domain 5 (IAM)** covers the identity, least-privilege, and access-control principles that a **Privileged Access Management (PAM)** product like WALLIX Bastion *enforces in practice*. CISSP gives you the policy and risk vocabulary; the [WALLIX certification framework](../docs/00-overview/certification-framework.md) gives you the product-level skills.
+- **Relation to WALLIX / PAM ([product portfolio](../wallix/overview/product-portfolio.md)):** CISSP **Domain 5 (IAM)** covers the identity, least-privilege, and access-control principles that a **Privileged Access Management (PAM)** product like WALLIX Bastion *enforces in practice*. CISSP gives you the policy and risk vocabulary; the [WALLIX certification framework](../wallix/overview/certification-framework.md) gives you the product-level skills.
 - **Sequencing:** Most sysadmins reach CISSP **after** gaining the five years' experience, often holding CEH and/or a PAM credential first. The exam can be passed earlier via the Associate route.
 
 ## Study resources
@@ -97,7 +97,7 @@ flowchart LR
 
 - [Cloud security certifications](cloud-security.md) — sibling adjacent-cert overview.
 - [CEH hub](../ceh/README.md) and [CEH cloud-computing domain](../ceh/domains/19-cloud-computing.md).
-- [WALLIX product portfolio](../docs/00-overview/product-portfolio.md) and [certification framework](../docs/00-overview/certification-framework.md).
+- [WALLIX product portfolio](../wallix/overview/product-portfolio.md) and [certification framework](../wallix/overview/certification-framework.md).
 
 ## Sources
 

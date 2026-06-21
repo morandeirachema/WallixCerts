@@ -88,7 +88,7 @@ The fix is to **restore the code/data boundary** the application broke. Defences
 
 3. **Input validation (allow-listing).** Validate type, length, format, and range; prefer allow-lists ("only digits") over block-lists. This is a *defence-in-depth* layer, **not** a substitute for parameterisation, because escaping/filtering alone is error-prone.
 
-4. **Least privilege for the database account.** The application should connect with an account that has only the rights it needs (e.g., read/write specific tables, no schema or administrative rights). This limits blast radius if injection succeeds. See [05-vulnerability-analysis.md](./05-vulnerability-analysis.md) for related hardening concepts.
+4. **Least privilege for the database account.** The application should connect with an account that has only the rights it needs (e.g., read/write specific tables, no schema or administrative rights). This limits blast radius if injection succeeds. See [05-vulnerability-analysis.md](05-vulnerability-analysis.md) for related hardening concepts.
 
 5. **Suppress detailed errors.** Show generic error pages to users; log full details server-side only. This blunts error-based SQLi.
 

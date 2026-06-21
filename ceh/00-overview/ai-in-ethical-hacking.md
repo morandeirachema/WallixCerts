@@ -2,7 +2,7 @@
 
 The Certified Ethical Hacker (CEH) version 13 is marketed by the EC-Council as **"CEH AI"** because it weaves artificial intelligence (AI) into all of its modules. For a systems administrator studying CEH, this page explains *why* AI was added, *how* AI assists each of the five phases of ethical hacking at a conceptual level, the AI-driven *threats* a defender must understand, and how to *secure* the AI systems your organisation is increasingly deploying. AI is presented here strictly as a tool that accelerates an *authorised* tester and that defenders must learn to anticipate — never as a way to do anything you could not lawfully do by hand.
 
-> Everything on this page is **educational and defence-oriented**. AI does not change the law: every technique remains legal **only** with explicit written authorisation, an agreed scope, and Rules of Engagement (RoE). See [legal-and-ethics.md](./legal-and-ethics.md) — the most important page in this hub.
+> Everything on this page is **educational and defence-oriented**. AI does not change the law: every technique remains legal **only** with explicit written authorisation, an agreed scope, and Rules of Engagement (RoE). See [legal-and-ethics.md](legal-and-ethics.md) — the most important page in this hub.
 
 ## Learning objectives
 
@@ -27,7 +27,7 @@ CEH v13 responds to all three. The EC-Council positions "CEH AI" as teaching can
 
 ## How AI assists the five phases
 
-The [five phases of ethical hacking](./five-phases-of-hacking.md) are Reconnaissance, Scanning and Enumeration, Gaining Access, Maintaining Access, and Clearing Tracks. AI can assist an *authorised* tester at every phase — conceptually, by reducing manual effort and surfacing patterns a human might miss.
+The [five phases of ethical hacking](five-phases-of-hacking.md) are Reconnaissance, Scanning and Enumeration, Gaining Access, Maintaining Access, and Clearing Tracks. AI can assist an *authorised* tester at every phase — conceptually, by reducing manual effort and surfacing patterns a human might miss.
 
 ```mermaid
 flowchart LR
@@ -45,7 +45,7 @@ flowchart LR
 | **Gaining Access (vulnerability triage)** | Explaining a vulnerability in plain language, ranking findings by likely exploitability, and drafting *test* payloads for an authorised tester to review before use. | Patch and harden by risk; AI-assisted triage on the defensive side closes the same gaps faster. |
 | **Maintaining Access** | Reasoning about persistence options so a tester can *document* (not maliciously deploy) what an attacker could do. | Tamper-evident, centralised logging and behavioural monitoring detect persistence regardless of how it was devised. |
 | **Clearing Tracks** | Helping a tester *describe* how an attacker might hide activity, to justify defensive controls. | Centralised, write-once log shipping and a strong Security Operations Centre (SOC) defeat track-clearing. |
-| **Reporting (cross-phase)** | Drafting executive summaries, structuring findings, and suggesting remediation wording — always reviewed and verified by the human tester. | A faster report means faster fixes. See [engagement-methodology-and-reporting.md](./engagement-methodology-and-reporting.md). |
+| **Reporting (cross-phase)** | Drafting executive summaries, structuring findings, and suggesting remediation wording — always reviewed and verified by the human tester. | A faster report means faster fixes. See [engagement-methodology-and-reporting.md](engagement-methodology-and-reporting.md). |
 
 > Critical guardrail: AI **drafts**, the human **decides**. AI output can be wrong (it can "hallucinate" — produce confident but false content). A tester must verify every AI-suggested finding and never run an AI-generated payload outside the authorised scope. AI never expands what you are permitted to do.
 
@@ -138,7 +138,7 @@ Two complementary references round out the defensive picture:
 
 AI raises the stakes on the rules you already know. The boundary is unchanged: **permission, scope, and law come first.**
 
-- **AI never grants authorisation.** Using AI to generate a payload, a phishing lure, or an OSINT profile is only lawful inside an authorised engagement and scope. See [legal-and-ethics.md](./legal-and-ethics.md).
+- **AI never grants authorisation.** Using AI to generate a payload, a phishing lure, or an OSINT profile is only lawful inside an authorised engagement and scope. See [legal-and-ethics.md](legal-and-ethics.md).
 - **Protect confidential data.** Do not paste client data, credentials, or findings into third-party AI services unless the engagement's terms and the provider's data handling explicitly allow it — this can breach confidentiality, Non-Disclosure Agreements (NDAs), and privacy law.
 - **Verify everything AI produces.** AI hallucinates. Unverified AI findings in a report damage credibility and can mislead remediation.
 - **Stay within the EC-Council Code of Ethics.** Honesty, competence, confidentiality, and lawful conduct apply equally whether you used AI or not.
@@ -148,11 +148,11 @@ AI raises the stakes on the rules you already know. The boundary is unchanged: *
 
 ## Where to go next
 
-- [five-phases-of-hacking.md](./five-phases-of-hacking.md) — the methodology AI accelerates.
-- [engagement-methodology-and-reporting.md](./engagement-methodology-and-reporting.md) — how AI-drafted output fits a professional engagement.
+- [five-phases-of-hacking.md](five-phases-of-hacking.md) — the methodology AI accelerates.
+- [engagement-methodology-and-reporting.md](engagement-methodology-and-reporting.md) — how AI-drafted output fits a professional engagement.
 - [../domains/02-footprinting-and-reconnaissance.md](../domains/02-footprinting-and-reconnaissance.md) — AI-assisted OSINT and reconnaissance.
 - [../domains/09-social-engineering.md](../domains/09-social-engineering.md) — AI-assisted phishing and deepfakes.
-- [legal-and-ethics.md](./legal-and-ethics.md) — authorisation, ethics, and confidentiality.
+- [legal-and-ethics.md](legal-and-ethics.md) — authorisation, ethics, and confidentiality.
 - [../reference/acronyms.md](../reference/acronyms.md) — expanded acronyms (LLM, OSINT, MFA, OWASP, NIST).
 
 ## Sources

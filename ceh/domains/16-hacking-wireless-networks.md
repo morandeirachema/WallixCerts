@@ -95,7 +95,7 @@ Named for awareness; authorised testing only. No usage steps are given.
 
 1. **Use WPA3 where supported; WPA2-AES at minimum.** WPA3's SAE handshake resists offline guessing and adds forward secrecy. **Never use WEP or WPA-TKIP.** Disable mixed/legacy modes if not required.
 2. **Use strong, long, random pre-shared keys** (for WPA2/WPA3-Personal). Length defeats offline guessing; avoid dictionary words.
-3. **Prefer WPA2/WPA3-Enterprise with 802.1X + EAP** for organisations. **IEEE 802.1X** is port-based network access control: each user authenticates individually (e.g., via certificates) to a **RADIUS** (Remote Authentication Dial-In User Service) server, so there is **no shared passphrase to crack**. See [16-hacking-wireless-networks.md](./16-hacking-wireless-networks.md) cross-references and network access control concepts.
+3. **Prefer WPA2/WPA3-Enterprise with 802.1X + EAP** for organisations. **IEEE 802.1X** is port-based network access control: each user authenticates individually (e.g., via certificates) to a **RADIUS** (Remote Authentication Dial-In User Service) server, so there is **no shared passphrase to crack**. See [16-hacking-wireless-networks.md](16-hacking-wireless-networks.md) cross-references and network access control concepts.
 4. **Disable WPS** (Wi-Fi Protected Setup) — the PIN is brute-forceable.
 5. **Network segmentation.** Put guest and untrusted wireless on separate Virtual Local Area Networks (VLANs) isolated from sensitive systems; place a firewall between wireless and the core network.
 6. **Deploy WIDS/WIPS** to detect rogue APs, evil twins, and deauth floods; maintain an inventory of authorised APs.

@@ -24,7 +24,7 @@ An *ethical hacker* (sometimes called a *white-hat hacker* or *penetration teste
 - within a defined **scope** and **Rules of Engagement (RoE)**, and
 - to **improve** security rather than to cause harm.
 
-The legal and ethical boundary is everything. Performing these techniques without authorisation is a crime in most jurisdictions. See [legal-and-ethics.md](./legal-and-ethics.md) for the full treatment — this is the most important page in this hub.
+The legal and ethical boundary is everything. Performing these techniques without authorisation is a crime in most jurisdictions. See [legal-and-ethics.md](legal-and-ethics.md) for the full treatment — this is the most important page in this hub.
 
 > For a systems administrator: think of the difference between *you* running a vulnerability scan on servers you administer (authorised, in scope) versus a stranger scanning them from the internet (unauthorised). Same packets, completely different legality.
 
@@ -38,7 +38,7 @@ CEH is not a single exam. There are three related credentials:
 | **CEH Practical** | A hands-on, performance-based exam in a live lab range | 6 hours, 20 real-world challenges |
 | **CEH Master** | A *title*, not a separate exam — earned by passing **both** the CEH knowledge exam **and** CEH Practical | n/a (composite) |
 
-For exact passing scores, eligibility, and delivery details, see [exam-and-eligibility.md](./exam-and-eligibility.md).
+For exact passing scores, eligibility, and delivery details, see [exam-and-eligibility.md](exam-and-eligibility.md).
 
 ```mermaid
 flowchart LR
@@ -88,12 +88,12 @@ The acronym **CTF (Capture the Flag)** refers to gamified security challenges wh
 
 CEH is designed to demonstrate that the holder can:
 
-- Apply the **5 phases of ethical hacking** (Reconnaissance → Scanning & Enumeration → Gaining Access → Maintaining Access → Clearing Tracks). See [five-phases-of-hacking.md](./five-phases-of-hacking.md).
+- Apply the **5 phases of ethical hacking** (Reconnaissance → Scanning & Enumeration → Gaining Access → Maintaining Access → Clearing Tracks). See [five-phases-of-hacking.md](five-phases-of-hacking.md).
 - Use common offensive **tools and techniques** to identify vulnerabilities.
 - Understand attacks across networks, web applications, wireless, cloud, mobile, Internet of Things (IoT), and Operational Technology (OT).
 - Operate within **legal and ethical** constraints.
 
-CEH is principally a **breadth** certification: it covers a very wide range of topics at a working level, which makes it a strong foundation. It is widely recognised, including in the United States Department of Defense (DoD) workforce framework (verify current accreditation status on EC-Council — see [exam-and-eligibility.md](./exam-and-eligibility.md)).
+CEH is principally a **breadth** certification: it covers a very wide range of topics at a working level, which makes it a strong foundation. It is widely recognised, including in the United States Department of Defense (DoD) workforce framework (verify current accreditation status on EC-Council — see [exam-and-eligibility.md](exam-and-eligibility.md)).
 
 ## Who CEH is for
 
@@ -108,9 +108,9 @@ CEH suits people moving toward offensive-security and broader security roles, in
 
 ## Where to go next
 
-- [exam-and-eligibility.md](./exam-and-eligibility.md) — exam format, eligibility routes, costs, and validity.
-- [five-phases-of-hacking.md](./five-phases-of-hacking.md) — the core methodology in depth.
-- [legal-and-ethics.md](./legal-and-ethics.md) — authorisation, scope, and the law.
+- [exam-and-eligibility.md](exam-and-eligibility.md) — exam format, eligibility routes, costs, and validity.
+- [five-phases-of-hacking.md](five-phases-of-hacking.md) — the core methodology in depth.
+- [legal-and-ethics.md](legal-and-ethics.md) — authorisation, scope, and the law.
 - [../reference/acronyms.md](../reference/acronyms.md) — expanded acronyms used across this hub.
 
 ## Sources

@@ -65,7 +65,7 @@ The PNPT is the **budget-friendly, engagement-style** practical cert:
 - A realistic lead-in or alternative to [OSCP](../oscp/README.md); more report- and
   consultant-focused than the knowledge-based [CEH](../ceh/README.md).
 - **Defender's mirror** → its AD-compromise and lateral-movement focus is exactly what the
-  [attack → defense matrix](../attack-to-defense-matrix.md) and [WALLIX / PAM hub](../docs/pam-bastion/README.md)
+  [attack → defense matrix](../attack-to-defense-matrix.md) and [WALLIX / PAM hub](../wallix/pam-bastion/README.md)
   exist to prevent and audit.
 
 ## 🔗 Quick links

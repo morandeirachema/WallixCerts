@@ -19,8 +19,8 @@ CEH v13 is taught as **20 modules**. The exam itself is organised around domains
 Use this plan in three passes:
 
 1. **Pass 1 — Learn (Weeks 1–6):** read each module's hub page, build vocabulary, expand acronyms.
-2. **Pass 2 — Practise (Weeks 7–8):** do the hands-on labs and the [practice questions](./practice-questions.md).
-3. **Pass 3 — Polish (Week 9):** drill the [cheat sheet](./cheat-sheet.md), take timed mock exams, fix weak areas.
+2. **Pass 2 — Practise (Weeks 7–8):** do the hands-on labs and the [practice questions](practice-questions.md).
+3. **Pass 3 — Polish (Week 9):** drill the [cheat sheet](cheat-sheet.md), take timed mock exams, fix weak areas.
 
 ## The 20 modules mapped to the 5 phases
 
@@ -117,8 +117,8 @@ flowchart TD
 - **Milestone:** distinguish symmetric from asymmetric crypto and name the shared-responsibility boundary.
 
 ### Week 9 — Consolidation (suggested ~8–10 h)
-- Take the [practice questions](./practice-questions.md) under time pressure; review every wrong answer.
-- Drill the [cheat sheet](./cheat-sheet.md) until ports, scan types, and CVSS bands are automatic.
+- Take the [practice questions](practice-questions.md) under time pressure; review every wrong answer.
+- Drill the [cheat sheet](cheat-sheet.md) until ports, scan types, and CVSS bands are automatic.
 - Re-read the two or three weakest modules.
 - **Milestone:** consistently score above your target threshold on mock sets.
 
@@ -145,7 +145,7 @@ flowchart TD
 ## Study tips for a sysadmin
 
 - **Leverage what you know.** You already understand TCP/IP, DNS, Active Directory, SMB, and services. CEH mostly asks you to view them from the attacker's side — relabel your existing mental model rather than learning it fresh.
-- **Master the ports and scan types cold.** These are high-frequency, low-effort points. The [cheat sheet](./cheat-sheet.md) port table is your single best return on study time.
+- **Master the ports and scan types cold.** These are high-frequency, low-effort points. The [cheat sheet](cheat-sheet.md) port table is your single best return on study time.
 - **Learn tools by *category*, not just by name.** The exam tests "which tool for which job" (scanner vs sniffer vs cracker). Knowing one representative tool per category beats memorising hundreds.
 - **Watch the qualifier words.** CEH questions hinge on words like *passive*, *active*, *stealth*, *best*, *first*, and *most likely*. Read every option before answering.
 - **Do everything in a legal lab.** Only practise on systems you own or are explicitly authorised to test. See [../00-overview/what-is-ceh.md](../00-overview/what-is-ceh.md) and the hub's legal/ethics page.
@@ -153,8 +153,8 @@ flowchart TD
 
 ## Where to go next
 
-- [practice-questions.md](./practice-questions.md) — 50+ unofficial practice questions by module.
-- [cheat-sheet.md](./cheat-sheet.md) — dense quick reference for the final review.
+- [practice-questions.md](practice-questions.md) — 50+ unofficial practice questions by module.
+- [cheat-sheet.md](cheat-sheet.md) — dense quick reference for the final review.
 - [../00-overview/what-is-ceh.md](../00-overview/what-is-ceh.md) — credential family and program overview.
 - [../reference/acronyms.md](../reference/acronyms.md) — expanded acronyms used across this hub.
 

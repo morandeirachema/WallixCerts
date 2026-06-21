@@ -62,9 +62,9 @@ The PNPT assessment simulates a full external-to-internal engagement and evaluat
 
 The PNPT sits on the **practical offensive** track, typically after a breadth foundation and often **before, or instead of, the OSCP**.
 
-- **Budget-friendly OSCP alternative:** the PNPT is markedly cheaper than OSCP and is engagement-style (OSINT → external → AD → report → debrief) rather than a points-based flag exam. Many use it as a confidence-building lead-in to [OSCP](./oscp.md), or as a standalone practical credential. The free retake lowers the cost of a first failure.
+- **Budget-friendly OSCP alternative:** the PNPT is markedly cheaper than OSCP and is engagement-style (OSINT → external → AD → report → debrief) rather than a points-based flag exam. Many use it as a confidence-building lead-in to [OSCP](oscp.md), or as a standalone practical credential. The free retake lowers the cost of a first failure.
 - **Relative to this repo's CEH hub:** **CEH** (EC-Council Certified Ethical Hacker) is largely **knowledge/breadth** (mostly multiple-choice); the PNPT is **fully hands-on and report-driven**. CEH gives the methodology vocabulary; the PNPT proves you can run an end-to-end engagement. See [../ceh/README.md](../ceh/README.md) and the [CEH career & adjacent certs page](../ceh/career/ceh-career-and-adjacent-certs.md).
-- **Foundational baseline first:** if you need a vendor-neutral baseline, start with [security-plus.md](./security-plus.md).
+- **Foundational baseline first:** if you need a vendor-neutral baseline, start with [security-plus.md](security-plus.md).
 - **Relative to WALLIX / Privileged Access Management (PAM):** the PNPT's AD-compromise and lateral-movement focus mirrors exactly the privileged-credential abuse that PAM platforms such as WALLIX aim to prevent and audit — strong attacker context for defenders working with PAM.
 
 ```mermaid
@@ -89,5 +89,5 @@ flowchart LR
 
 - TCM Security — PNPT official certification page (5-day practical exam, 2-day report window, live 15-minute debrief, OSINT/AD/AV-bypass/pivoting scope, free retake, bundled training, non-expiring cert): https://certifications.tcm-sec.com/pnpt/
 - TCM Security — certifications hub (PJPT and related): https://certifications.tcm-sec.com/
-- Related in this repo: [../ceh/README.md](../ceh/README.md) · [../ceh/career/ceh-career-and-adjacent-certs.md](../ceh/career/ceh-career-and-adjacent-certs.md) · [security-plus.md](./security-plus.md) · [oscp.md](./oscp.md)
+- Related in this repo: [../ceh/README.md](../ceh/README.md) · [../ceh/career/ceh-career-and-adjacent-certs.md](../ceh/career/ceh-career-and-adjacent-certs.md) · [security-plus.md](security-plus.md) · [oscp.md](oscp.md)
 - Verify all volatile specifics (price, exact structure, voucher/retake terms) on TCM Security's site — programs change.

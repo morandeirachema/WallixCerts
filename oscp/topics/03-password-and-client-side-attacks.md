@@ -38,7 +38,7 @@ The attacker submits guesses to a real login (web, SMB, SSH, RDP, etc.).
 
 - **Brute force:** try every combination in a keyspace. Thorough but slow; effective only against short or weak secrets.
 - **Dictionary attack:** try a curated wordlist of likely passwords instead of every combination — far faster because most weak passwords are predictable.
-- **Password spraying:** try *one* common password across *many* accounts. By staying below the per-account failure threshold, it evades lockout and is a common Active Directory technique — see [./05-active-directory-attacks.md](./05-active-directory-attacks.md).
+- **Password spraying:** try *one* common password across *many* accounts. By staying below the per-account failure threshold, it evades lockout and is a common Active Directory technique — see [./05-active-directory-attacks.md](05-active-directory-attacks.md).
 
 ### Offline attacks — cracking captured hashes
 If an attacker obtains password **hashes** (one-way transformations stored instead of plaintext), they can crack them **offline** on their own hardware. This matters because offline cracking is unlimited and silent: **account lockout and rate limits do not apply**, since the target service is never touched. Speed depends on the hash algorithm (slow, salted hashes resist cracking far better than fast, unsalted ones) and on password strength.

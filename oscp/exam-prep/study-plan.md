@@ -53,7 +53,7 @@ Volume and variety build the pattern-recognition the exam rewards. Work machines
 | --- | --- | --- |
 | **OffSec Proving Grounds** | OffSec's own practice machines, closest in style to the exam | Practice/Play tiers; authorized lab use |
 | **Hack The Box** | Large, varied machine and AD-scenario library | Includes AD chains for the 40-point set |
-| **This repo's labs** | Self-hosted, authorized practice environment | [../../labs/README.md](../../labs/README.md) and the CEH lab build [../../ceh/labs/building-a-ceh-lab.md](../../ceh/labs/building-a-ceh-lab.md) |
+| **This repo's labs** | Self-hosted, authorized practice environment | [../../labs/README.md](../../wallix/labs/README.md) and the CEH lab build [../../ceh/labs/building-a-ceh-lab.md](../../ceh/labs/building-a-ceh-lab.md) |
 | **Platform overview** | Compare legitimate practice options | [../../learning/platforms.md](../../learning/platforms.md) |
 
 > **Stay authorized.** Practice only on platforms that explicitly permit it or systems you own. Never point exam techniques at third-party systems.

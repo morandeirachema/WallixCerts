@@ -3,6 +3,19 @@
 Notable changes to this study repo. Dates are when the work landed on `main`.
 This is a documentation repo, so "changes" are content additions and corrections.
 
+## 2026-06-21 (later)
+
+### Changed — folder reorganization
+- **Consolidated all WALLIX-specific material under a single top-level `wallix/` folder**:
+  `wallix/overview/` (was `docs/00-overview/`), `wallix/pam-bastion/` · `iag/` · `idaas/` ·
+  `ot-pam4ot/` (was under `docs/`), and `wallix/deep-dives/`, `wallix/labs/`,
+  `wallix/exam-prep/`, `wallix/career/`. Added `wallix/README.md` as the WALLIX hub index.
+- **Shared fundamentals stay at the repo root** (`foundations/`, `prerequisites/`,
+  `protocols/`, `reference/`, `learning/`) since every cert hub uses them; the other cert
+  hubs remain their own top-level folders.
+- All ~738 affected cross-links were recomputed automatically; the curated nav, root README
+  (layout diagram + WALLIX section), `CLAUDE.md`, and `CONTRIBUTING.md` were updated.
+
 ## 2026-06-21
 
 ### Added

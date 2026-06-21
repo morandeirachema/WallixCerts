@@ -11,23 +11,27 @@ in Privileged Access Management (PAM) with the WALLIX suite and its
 There is nothing to build or run — work is editing `.md` files; validation is review/
 preview of Markdown only.
 
-Two layers of content:
-- **Reference docs** under `docs/` — the certification framework and the WALLIX product
-  portfolio (this layout mirrors WALLIX's certification taxonomy; see below).
-- **Learning-path sections** as sibling top-level folders, meant to be read in order:
-  `foundations/` (PAM concepts) → `prerequisites/` (Linux, AD, networking, crypto) →
-  `docs/` (products & certs) → `deep-dives/` (Bastion internals) → `labs/` →
-  `exam-prep/` → `career/`, plus `reference/` (glossary, acronyms, compliance, sources).
-  Each folder has a `README.md` index; the root `README.md` is the learning-path hub.
-  Cross-folder links are relative siblings: `../<folder>/<file>.md`.
+**Folder layout (reorganized 2026-06):** all WALLIX-specific material lives under a single
+top-level **`wallix/`** folder: `wallix/overview/` (certification framework + product
+portfolio), `wallix/pam-bastion/` · `wallix/iag/` · `wallix/idaas/` · `wallix/ot-pam4ot/`
+(the certification tracks), `wallix/deep-dives/` (Bastion & suite internals),
+`wallix/labs/`, `wallix/exam-prep/`, `wallix/career/`. Each has a `README.md`;
+`wallix/README.md` is the WALLIX hub index. **Shared fundamentals** stay at the repo root
+because every hub uses them: `foundations/` (PAM concepts) → `prerequisites/` (Linux, AD,
+networking, crypto) → `protocols/` (Kerberos, TLS, SAML… mechanisms), plus `reference/`
+(glossary, acronyms, compliance, sources) and `learning/` (roadmap, platforms). The
+suggested WALLIX reading order is foundations → prerequisites → `wallix/` (products & certs
+→ deep-dives → labs → exam-prep → career). Cross-folder links are relative
+(`../<folder>/<file>.md`); the root `README.md` is the whole-repo hub.
 
-**Multiple certifications (since 2026-06):** the repo is now a multi-certification study
-collection. **WALLIX / PAM is the primary hub** (the root `README.md` and the folders
-above). A parallel, self-contained hub lives under **`ceh/`** — an EC-Council **CEH v13**
-study hub with its own `README.md`, `00-overview/`, `domains/` (the 20 modules), `tools/`,
-`labs/`, `exam-prep/`, `career/`, and `reference/`. Keep each certification's material
-inside its own hub; both follow the same conventions (Mermaid-only diagrams, no
-fabrication, a `Sources` section per page). **CEH offensive topics stay
+**Multiple certifications (since 2026-06):** the repo is a multi-certification study
+collection. **WALLIX / PAM is the primary hub** (`wallix/`). Other self-contained hubs are
+each their own top-level folder: **`ceh/`** (EC-Council CEH v13), **`security-plus/`**,
+**`cysa-plus/`**, **`pentest-plus/`** (CompTIA), **`oscp/`** (OffSec PEN-200), and
+**`pnpt/`** (TCM Security); `adjacent-certs/` holds one-page overviews (CISSP, cloud).
+Keep each certification's material inside its own hub; all follow the same conventions
+(Mermaid-only diagrams, no fabrication, a `Sources` section per page). **CEH and the other
+offensive hubs' attack topics stay
 conceptual/defensive** — countermeasures + written-authorization framing, never weaponized
 how-tos.
 
@@ -41,8 +45,8 @@ must understand the taxonomy to know where content belongs:
 - **Code format** is `WC{level}-{track}`; an `e` prefix means the e-learning variant
   (e.g. `eWCP-P`). Track suffixes: `P` = PAM/Bastion, `G` = IAG, `I` = IDaaS,
   `P-OT` = OT.
-- Each **track** is a folder under `docs/` (`pam-bastion/`, `iag/`, `idaas/`,
-  `ot-pam4ot/`); each **certification** is one file inside it. `docs/00-overview/` holds
+- Each **track** is a folder under `wallix/` (`pam-bastion/`, `iag/`, `idaas/`,
+  `ot-pam4ot/`); each **certification** is one file inside it. `wallix/overview/` holds
   the cross-cutting framework doc and the product-portfolio technical reference.
 
 Known wrinkle to preserve: the WALLIX **website and the catalog use inconsistent codes**
@@ -52,7 +56,7 @@ one.
 ## Per-certification doc convention
 
 When adding or editing a certification doc, follow the established structure (see
-`docs/pam-bastion/wcp-p-professional.md` as the canonical example): a title + summary
+`wallix/pam-bastion/wcp-p-professional.md` as the canonical example): a title + summary
 table (code / level / product / duration / format / prerequisite / exam / status),
 then **Target audience → Prerequisites → Objective → Curriculum/modules (as a table) →
 Lab environment → Assessment → Path/links → Sources**. Curricula are transcribed module-
@@ -84,7 +88,7 @@ is clearly labeled as a pedagogical example/estimate.
 
 The **EPM / `WCP-E` (BestSafe) certification is intentionally excluded** — it was
 "FUTURE" in the 2023 catalog and absent from the current one. BestSafe remains in
-`docs/00-overview/product-portfolio.md` as a current *product*, but do not re-add it as a
+`wallix/overview/product-portfolio.md` as a current *product*, but do not re-add it as a
 certification track unless WALLIX publishes one.
 
 ## Conventions

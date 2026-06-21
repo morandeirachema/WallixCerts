@@ -10,7 +10,7 @@ A bank of **50+ multiple-choice practice questions** organised by module/topic, 
 2. **Read the explanation even when you are right** — the reasoning is the point, not the letter.
 3. **Track misses by module.** If you miss two or more in a module, re-read that module before moving on.
 4. **Simulate pressure.** In your final week, answer in blocks under a timer (the real exam averages ~1.9 minutes per question).
-5. **Pair with the** [study-plan.md](./study-plan.md) **schedule and the** [cheat-sheet.md](./cheat-sheet.md) **for the facts these questions lean on.**
+5. **Pair with the** [study-plan.md](study-plan.md) **schedule and the** [cheat-sheet.md](cheat-sheet.md) **for the facts these questions lean on.**
 
 > **Acronyms** are expanded on first use throughout. A consolidated list lives in [../reference/acronyms.md](../reference/acronyms.md).
 
@@ -534,8 +534,8 @@ A bank of **50+ multiple-choice practice questions** organised by module/topic, 
 
 ## Where to go next
 
-- [study-plan.md](./study-plan.md) — the week-by-week schedule these questions support.
-- [cheat-sheet.md](./cheat-sheet.md) — ports, scan types, CVSS bands, and tools to memorise.
+- [study-plan.md](study-plan.md) — the week-by-week schedule these questions support.
+- [cheat-sheet.md](cheat-sheet.md) — ports, scan types, CVSS bands, and tools to memorise.
 - [../00-overview/what-is-ceh.md](../00-overview/what-is-ceh.md) — program and credential overview.
 - [../reference/acronyms.md](../reference/acronyms.md) — full acronym list.
 

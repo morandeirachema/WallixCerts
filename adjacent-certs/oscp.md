@@ -72,8 +72,8 @@ This is the key contrast for this repo:
 
 A common progression is **CEH for breadth/methodology vocabulary → a practical credential → OSCP for depth.** See this repo's [CEH hub](../ceh/README.md) and the [CEH career & adjacent certs page](../ceh/career/ceh-career-and-adjacent-certs.md).
 
-- **Budget-friendly stepping stone:** the TCM Security **PNPT** is frequently used as a more affordable, also-practical lead-in or alternative to OSCP — see [pnpt.md](./pnpt.md).
-- **Foundational baseline first:** if you lack a vendor-neutral security baseline, [security-plus.md](./security-plus.md) comes earlier.
+- **Budget-friendly stepping stone:** the TCM Security **PNPT** is frequently used as a more affordable, also-practical lead-in or alternative to OSCP — see [pnpt.md](pnpt.md).
+- **Foundational baseline first:** if you lack a vendor-neutral security baseline, [security-plus.md](security-plus.md) comes earlier.
 - **Relative to WALLIX / Privileged Access Management (PAM):** OSCP's AD-attack and privilege-escalation focus is exactly the lateral-movement and credential-abuse activity that PAM platforms such as WALLIX are designed to constrain — useful attacker context for defenders deploying PAM.
 
 ```mermaid
@@ -98,5 +98,5 @@ flowchart LR
 
 - OffSec — PEN-200 / OSCP official course page (course scope, 24-hour proctored exam, 3 standalone machines = 60 pts, 1 AD set of 3 machines = 40 pts, OSCP vs OSCP+ 3-year validity): https://www.offsec.com/courses/pen-200/
 - OffSec — OSCP+ Exam Guide / Exam FAQ (70/100 to pass, 100 total points, AD set = 40 pts, no bonus points since 1 Nov 2024, report window): https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide
-- Related in this repo: [../ceh/README.md](../ceh/README.md) · [../ceh/career/ceh-career-and-adjacent-certs.md](../ceh/career/ceh-career-and-adjacent-certs.md) · [security-plus.md](./security-plus.md) · [pnpt.md](./pnpt.md)
+- Related in this repo: [../ceh/README.md](../ceh/README.md) · [../ceh/career/ceh-career-and-adjacent-certs.md](../ceh/career/ceh-career-and-adjacent-certs.md) · [security-plus.md](security-plus.md) · [pnpt.md](pnpt.md)
 - Verify all volatile specifics (price, exact exam structure, validity/CPE terms) on OffSec's site — programs change.

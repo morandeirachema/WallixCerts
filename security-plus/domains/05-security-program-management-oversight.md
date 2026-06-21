@@ -325,8 +325,8 @@ flowchart LR
 
 ## Where to go next
 
-- [README.md](./README.md) — the five-domain index and weightings.
-- [04-security-operations.md](./04-security-operations.md) — the largest domain (28%); where governance decisions become daily operations.
+- [README.md](README.md) — the five-domain index and weightings.
+- [04-security-operations.md](04-security-operations.md) — the largest domain (28%); where governance decisions become daily operations.
 - [../exam-prep/study-plan.md](../exam-prep/study-plan.md) · [../exam-prep/practice-questions.md](../exam-prep/practice-questions.md) · [../exam-prep/cheat-sheet.md](../exam-prep/cheat-sheet.md)
 - [../../reference/compliance-and-standards.md](../../reference/compliance-and-standards.md) — the underlying compliance frameworks and standards.
 - [../../foundations/core-concepts-least-privilege-jit-zero-trust.md](../../foundations/core-concepts-least-privilege-jit-zero-trust.md) — least-privilege and access-control concepts behind these policies.

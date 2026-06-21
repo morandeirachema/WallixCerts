@@ -4,7 +4,7 @@ Domain 4 is the **largest** domain on CompTIA Security+ (SY0-701) and the one th
 
 This domain weights **28%** of the scored exam content *(verify on [CompTIA](https://www.comptia.org/en-us/certifications/security/) — weightings change per exam version)*. It spans roughly nine objective areas — baselines and hardening, mobile/wireless, application/asset/vulnerability management, monitoring and enterprise capabilities, identity and access management (IAM), automation/orchestration, and incident response/investigation. The official **objectives PDF** remains the authoritative checklist; see [how to get it](../00-overview/exam-and-objectives.md#how-to-get-the-official-exam-objectives).
 
-Because **Privileged Access Management (PAM) is itself a Security+ topic**, this page links into the WALLIX material this repo specializes in: the [PAM / Bastion track](../../docs/pam-bastion/README.md), [secrets & password management](../../deep-dives/secrets-and-password-management.md), and [session management](../../deep-dives/session-management.md). Federation links into the [SAML](../../protocols/saml.md) and [OIDC/OAuth2](../../protocols/oidc-oauth2.md) protocol pages, and investigation/reporting parallels the [CEH engagement methodology](../../ceh/00-overview/engagement-methodology-and-reporting.md).
+Because **Privileged Access Management (PAM) is itself a Security+ topic**, this page links into the WALLIX material this repo specializes in: the [PAM / Bastion track](../../wallix/pam-bastion/README.md), [secrets & password management](../../wallix/deep-dives/secrets-and-password-management.md), and [session management](../../wallix/deep-dives/session-management.md). Federation links into the [SAML](../../protocols/saml.md) and [OIDC/OAuth2](../../protocols/oidc-oauth2.md) protocol pages, and investigation/reporting parallels the [CEH engagement methodology](../../ceh/00-overview/engagement-methodology-and-reporting.md).
 
 ## Learning objectives
 
@@ -68,7 +68,7 @@ A **secure baseline** is the documented, approved secure configuration for a cla
 Securing the software itself:
 
 - **Input validation:** never trust input — validate type, length, format, and range to defeat injection and overflow attacks.
-- **Secure cookies:** flag session cookies `Secure` (HTTPS only) and `HttpOnly` (no script access) to protect session tokens (see [session management](../../deep-dives/session-management.md)).
+- **Secure cookies:** flag session cookies `Secure` (HTTPS only) and `HttpOnly` (no script access) to protect session tokens (see [session management](../../wallix/deep-dives/session-management.md)).
 - **Static code analysis (SAST):** inspects source code *without running it* to find flaws early.
 - **Dynamic code analysis (DAST):** tests the *running* application for flaws (e.g., fuzzing with unexpected inputs).
 - **Sandboxing:** runs untrusted code in an isolated environment so it cannot harm the host.
@@ -183,10 +183,10 @@ Underpinning all of them: **least privilege** — grant the minimum access neede
 **PAM** secures the *most powerful* accounts (admin/root/service) — the ones attackers want most. Core PAM tooling (a Security+ objective, and this repo's specialty):
 
 - **Just-in-time (JIT) access:** grant elevated rights only for the moment they are needed, then revoke — no standing privilege.
-- **Password vaulting:** store privileged credentials in a secured vault; users check them out without ever seeing the secret. See [secrets & password management](../../deep-dives/secrets-and-password-management.md).
+- **Password vaulting:** store privileged credentials in a secured vault; users check them out without ever seeing the secret. See [secrets & password management](../../wallix/deep-dives/secrets-and-password-management.md).
 - **Ephemeral credentials:** short-lived, single-use credentials that expire automatically, shrinking the window of exposure.
 
-PAM also brings **session recording/monitoring** and an audited single point of entry (the jump server from [Domain 3](03-security-architecture.md#network-appliances)). The WALLIX implementation is the [PAM / Bastion track](../../docs/pam-bastion/README.md) and [session management deep dive](../../deep-dives/session-management.md).
+PAM also brings **session recording/monitoring** and an audited single point of entry (the jump server from [Domain 3](03-security-architecture.md#network-appliances)). The WALLIX implementation is the [PAM / Bastion track](../../wallix/pam-bastion/README.md) and [session management deep dive](../../wallix/deep-dives/session-management.md).
 
 ```mermaid
 flowchart LR
@@ -278,5 +278,5 @@ Know where evidence comes from: **firewall logs**, **application logs**, **endpo
 - FIRST — Common Vulnerability Scoring System (CVSS): https://www.first.org/cvss/
 - MITRE — CVE program: https://www.cve.org/ · MITRE — CWE: https://cwe.mitre.org/
 - IETF RFC 7208 (SPF), RFC 6376 (DKIM), RFC 7489 (DMARC): https://www.rfc-editor.org/rfc/rfc7208 · https://www.rfc-editor.org/rfc/rfc6376 · https://www.rfc-editor.org/rfc/rfc7489
-- Related in this repo: [PAM / Bastion track](../../docs/pam-bastion/README.md) · [Secrets & password management](../../deep-dives/secrets-and-password-management.md) · [Session management](../../deep-dives/session-management.md) · [SAML](../../protocols/saml.md) · [OIDC/OAuth2](../../protocols/oidc-oauth2.md) · [LDAP](../../protocols/ldap.md) · [RADIUS](../../protocols/radius.md) · [CEH engagement methodology](../../ceh/00-overview/engagement-methodology-and-reporting.md)
+- Related in this repo: [PAM / Bastion track](../../wallix/pam-bastion/README.md) · [Secrets & password management](../../wallix/deep-dives/secrets-and-password-management.md) · [Session management](../../wallix/deep-dives/session-management.md) · [SAML](../../protocols/saml.md) · [OIDC/OAuth2](../../protocols/oidc-oauth2.md) · [LDAP](../../protocols/ldap.md) · [RADIUS](../../protocols/radius.md) · [CEH engagement methodology](../../ceh/00-overview/engagement-methodology-and-reporting.md)
 - Domain weightings are version-sensitive — *verify on CompTIA* before relying on them.

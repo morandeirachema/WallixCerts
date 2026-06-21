@@ -82,11 +82,11 @@ A common progression is **CEH for breadth/methodology vocabulary → a practical
 
 ## Why this matters to defenders (and PAM)
 
-OSCP's focus on **Active Directory (AD) attacks, privilege escalation, and lateral movement** is exactly the credential-abuse and lateral-movement activity that Privileged Access Management (PAM) platforms such as WALLIX are designed to constrain. Understanding how attackers chain a foothold into domain compromise makes you a sharper defender. See the [attack-to-defense matrix](../../attack-to-defense-matrix.md) and the [WALLIX / PAM hub](../../docs/pam-bastion/README.md).
+OSCP's focus on **Active Directory (AD) attacks, privilege escalation, and lateral movement** is exactly the credential-abuse and lateral-movement activity that Privileged Access Management (PAM) platforms such as WALLIX are designed to constrain. Understanding how attackers chain a foothold into domain compromise makes you a sharper defender. See the [attack-to-defense matrix](../../attack-to-defense-matrix.md) and the [WALLIX / PAM hub](../../wallix/pam-bastion/README.md).
 
 ## Where to go next
 
-- [exam-structure.md](./exam-structure.md) — the 24-hour exam, scoring, and the report requirement in depth.
+- [exam-structure.md](exam-structure.md) — the 24-hour exam, scoring, and the report requirement in depth.
 - [../topics/README.md](../topics/README.md) — the PEN-200 practical skill areas.
 - [../../adjacent-certs/oscp.md](../../adjacent-certs/oscp.md) — this repo's concise adjacent-certs summary.
 

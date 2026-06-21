@@ -4,7 +4,7 @@
 
 A comprehensive, categorised reference of acronyms and initialisms you will meet across the Certified Ethical Hacker (CEH) curriculum and this study hub. Each table gives the **acronym**, its **expansion**, and a **one-line context** to anchor it in CEH terms. Acronyms are expanded on first use throughout the hub; this page is the master list.
 
-Where a term is offensive, it is described **neutrally with a defensive framing** — the point of CEH is to understand attacks so you can defend against them. For broader prose definitions, see the [glossary](./glossary.md).
+Where a term is offensive, it is described **neutrally with a defensive framing** — the point of CEH is to understand attacks so you can defend against them. For broader prose definitions, see the [glossary](glossary.md).
 
 > Tip for a sysadmin: skim the **Protocols & ports** and **Defense & operations** tables first — much of that vocabulary you already know from administration; CEH reframes it from the attacker's viewpoint.
 
@@ -182,7 +182,7 @@ Default ports are the common assignments; services can be reconfigured, so alway
 
 ## Where to go next
 
-- [glossary.md](./glossary.md) — prose definitions of CEH terms, cross-linked to the modules.
+- [glossary.md](glossary.md) — prose definitions of CEH terms, cross-linked to the modules.
 - [what-is-ceh.md](../00-overview/what-is-ceh.md) — what CEH is and who issues it.
 - [exam-and-eligibility.md](../00-overview/exam-and-eligibility.md) — exam format, eligibility, and accreditations.
 - [../career/ceh-career-and-adjacent-certs.md](../career/ceh-career-and-adjacent-certs.md) — where CEH fits in a career.

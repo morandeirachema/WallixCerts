@@ -38,9 +38,9 @@ By the end of this page you should be able to:
 
 See [../prerequisites/networking-and-protocols.md](../prerequisites/networking-and-protocols.md)
 for ports/transport, [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md)
-for MD5/TLS background, [./tls.md](./tls.md) for the TLS that RadSec rides on,
-[./kerberos.md](./kerberos.md) for an alternative ticket-based scheme, and
-[../deep-dives/authentication-and-access-manager.md](../deep-dives/authentication-and-access-manager.md)
+for MD5/TLS background, [./tls.md](tls.md) for the TLS that RadSec rides on,
+[./kerberos.md](kerberos.md) for an alternative ticket-based scheme, and
+[../deep-dives/authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md)
 for how WALLIX uses RADIUS as an authentication domain and MFA second factor.
 
 ---

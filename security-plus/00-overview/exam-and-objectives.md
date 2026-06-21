@@ -86,7 +86,7 @@ Security+ is **not permanent**; it must be maintained. CompTIA certifications ar
 
 ## Where to go next
 
-- [what-is-security-plus.md](./what-is-security-plus.md) — what the credential is and where it sits.
+- [what-is-security-plus.md](what-is-security-plus.md) — what the credential is and where it sits.
 - [../domains/README.md](../domains/README.md) — the five domain pages written to the SY0-701 objectives.
 - [../../ceh/00-overview/exam-and-eligibility.md](../../ceh/00-overview/exam-and-eligibility.md) — the equivalent exam page for the CEH sibling hub.
 - [../../reference/README.md](../../reference/README.md) — repo-wide glossary, acronyms, and standards.

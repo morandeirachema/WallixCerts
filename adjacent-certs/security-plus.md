@@ -73,7 +73,7 @@ Security+ is typically a **first or early** security certification — the bread
 
 - **Relative to this repo's CEH hub:** Security+ and **CEH** (EC-Council Certified Ethical Hacker) are both vendor-neutral and breadth-focused, but Security+ leans **defensive/foundational** while CEH adds the **offensive lens** on top. A common order is Security+ then CEH. See [../ceh/README.md](../ceh/README.md) and the [CEH career & adjacent certs page](../ceh/career/ceh-career-and-adjacent-certs.md).
 - **Relative to WALLIX / Privileged Access Management (PAM):** Security+ gives you the access-control, identity, and least-privilege concepts that PAM products such as WALLIX operationalise — useful background before working with a specific PAM platform.
-- **Next steps:** depth-focused hands-on certs follow once you pick a track — see the offensive siblings [oscp.md](./oscp.md) and [pnpt.md](./pnpt.md).
+- **Next steps:** depth-focused hands-on certs follow once you pick a track — see the offensive siblings [oscp.md](oscp.md) and [pnpt.md](pnpt.md).
 
 ```mermaid
 flowchart LR
@@ -94,5 +94,5 @@ flowchart LR
 
 - CompTIA — Security+ (SY0-701) official certification page (exam code, ~90 questions, 90 minutes, 750/100–900 passing score, domain weightings, recommended experience, DoD 8140 alignment): https://www.comptia.org/en-us/certifications/security/
 - US DoD Cyber Workforce, Directives 8140 / 8570 (verify current Security+ mapping): https://public.cyber.mil/
-- Related in this repo: [../ceh/README.md](../ceh/README.md) · [../ceh/career/ceh-career-and-adjacent-certs.md](../ceh/career/ceh-career-and-adjacent-certs.md) · [oscp.md](./oscp.md) · [pnpt.md](./pnpt.md)
+- Related in this repo: [../ceh/README.md](../ceh/README.md) · [../ceh/career/ceh-career-and-adjacent-certs.md](../ceh/career/ceh-career-and-adjacent-certs.md) · [oscp.md](oscp.md) · [pnpt.md](pnpt.md)
 - Verify all volatile specifics (price, exam code, retirement date, CEU renewal) on CompTIA's site — programs change.

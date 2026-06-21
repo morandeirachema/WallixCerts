@@ -30,7 +30,7 @@ This is defence-oriented exam preparation. Attacking, rooting, or installing sof
 | --- | --- |
 | **Malicious / repackaged apps** | Trojanised apps (often from third-party stores or sideloading) request excessive permissions or hide spyware |
 | **Smishing / phishing** | SMS or messaging-app lures that harvest credentials or push malware links |
-| **Insecure / rogue Wi-Fi** | Public or evil-twin networks intercept traffic (links to [16-hacking-wireless-networks.md](./16-hacking-wireless-networks.md)) |
+| **Insecure / rogue Wi-Fi** | Public or evil-twin networks intercept traffic (links to [16-hacking-wireless-networks.md](16-hacking-wireless-networks.md)) |
 | **Rooting / jailbreaking** | Removes sandbox and update protections, expanding the attack surface |
 | **Outdated OS / unpatched apps** | Known vulnerabilities remain exploitable |
 | **Excessive permissions** | Apps over-collecting contacts, location, camera, or microphone |
@@ -114,7 +114,7 @@ Named for awareness; authorised use only.
 3. **Enforce device encryption, strong passcodes/biometrics, and auto-lock** via MDM.
 4. **Block rooted/jailbroken devices** from corporate resources (MDM attestation).
 5. **Use containerisation/UEM** to separate and protect corporate data on BYOD; enable remote wipe of the work container.
-6. **Require encrypted communication** (Transport Layer Security, TLS) and avoid untrusted Wi-Fi; use a VPN. See [16-hacking-wireless-networks.md](./16-hacking-wireless-networks.md).
+6. **Require encrypted communication** (Transport Layer Security, TLS) and avoid untrusted Wi-Fi; use a VPN. See [16-hacking-wireless-networks.md](16-hacking-wireless-networks.md).
 7. **Apply least-privilege app permissions** and use Mobile Threat Defense to flag malicious apps.
 8. **User awareness training** against smishing/phishing.
 9. **Developers:** follow the OWASP **Mobile Application Security Verification Standard (MASVS)** — secure storage, strong authentication, certificate validation, and no hard-coded secrets.

@@ -129,7 +129,7 @@ higher-level certification, or other approved activities).
 
 ## Where to go next
 
-- [what-is-cysa-plus.md](./what-is-cysa-plus.md) — what the credential is and where it sits.
+- [what-is-cysa-plus.md](what-is-cysa-plus.md) — what the credential is and where it sits.
 - [../domains/README.md](../domains/README.md) — the four domain pages written to the CS0-003
   objectives.
 - [../../security-plus/00-overview/exam-and-objectives.md](../../security-plus/00-overview/exam-and-objectives.md)

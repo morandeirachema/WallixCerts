@@ -23,7 +23,7 @@ encrypted, and what a client must verify*.
 > This page assumes you understand digital signatures, public/private keys, and hashing.
 > If not, read
 > [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md) first.
-> **Everything here mandates TLS (Transport Layer Security)** — see [./tls.md](./tls.md).
+> **Everything here mandates TLS (Transport Layer Security)** — see [./tls.md](tls.md).
 
 ## Learning objectives
 
@@ -305,9 +305,9 @@ Keep the two mechanisms distinct, exactly as in SAML:
 
 For how WALLIX brokers these protocols — Access Manager / Bastion as OAuth client and OIDC
 relying party, WALLIX One IDaaS as the OpenID Provider — see
-[../deep-dives/authentication-and-access-manager.md](../deep-dives/authentication-and-access-manager.md)
-and [../deep-dives/idaas-trustelem.md](../deep-dives/idaas-trustelem.md). For the XML-based
-predecessor solving the same SSO problem, see [./saml.md](./saml.md).
+[../deep-dives/authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md)
+and [../deep-dives/idaas-trustelem.md](../wallix/deep-dives/idaas-trustelem.md). For the XML-based
+predecessor solving the same SSO problem, see [./saml.md](saml.md).
 
 ---
 
@@ -326,6 +326,6 @@ predecessor solving the same SSO problem, see [./saml.md](./saml.md).
 - **OAuth 2.0 Security Best Current Practice (RFC 9700)**:
   <https://www.rfc-editor.org/rfc/rfc9700>
 - Related: [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md),
-  [./tls.md](./tls.md), [./saml.md](./saml.md),
-  [../deep-dives/authentication-and-access-manager.md](../deep-dives/authentication-and-access-manager.md),
-  [../deep-dives/idaas-trustelem.md](../deep-dives/idaas-trustelem.md)
+  [./tls.md](tls.md), [./saml.md](saml.md),
+  [../deep-dives/authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md),
+  [../deep-dives/idaas-trustelem.md](../wallix/deep-dives/idaas-trustelem.md)

@@ -18,7 +18,7 @@ After working through this page you should be able to:
 
 ## 1. Vulnerability management reporting and communication
 
-The output of the vulnerability program (see [Domain 2](./02-vulnerability-management.md)) only creates value when it is reported to people who can act.
+The output of the vulnerability program (see [Domain 2](02-vulnerability-management.md)) only creates value when it is reported to people who can act.
 
 ### What gets reported
 
@@ -55,7 +55,7 @@ CompTIA explicitly tests the real-world reasons a fix does **not** simply happen
 | **Legacy systems** | Out-of-support software may have **no patch available** at all. |
 | **Proprietary systems** | Vendor-locked/closed systems cannot be modified by the customer; you wait on the vendor. |
 
-When remediation is blocked, the analyst recommends **compensating controls** or documented **risk acceptance** (see [Domain 2 §5](./02-vulnerability-management.md)) — and reports the residual risk to the risk owner so the decision is made with eyes open.
+When remediation is blocked, the analyst recommends **compensating controls** or documented **risk acceptance** (see [Domain 2 §5](02-vulnerability-management.md)) — and reports the residual risk to the risk owner so the decision is made with eyes open.
 
 ### Stakeholders and due diligence
 
@@ -65,7 +65,7 @@ The analyst **identifies stakeholders** (asset owners, IT ops, management, compl
 
 ## 2. Incident response reporting and communication
 
-When an incident occurs (see [Domain 3](./03-incident-response-and-management.md)), communication is part of the response, not an afterthought — and getting it wrong (too slow, too loud, to the wrong party) can cause more damage than the breach.
+When an incident occurs (see [Domain 3](03-incident-response-and-management.md)), communication is part of the response, not an afterthought — and getting it wrong (too slow, too loud, to the wrong party) can cause more damage than the breach.
 
 ### Declaration, escalation, and stakeholders
 
@@ -103,7 +103,7 @@ flowchart TD
 ### Closing the loop — RCA, lessons learned, metrics
 
 - **Root-cause analysis (RCA)** — the report states the *underlying* cause, not just the symptom, so leadership funds the durable fix.
-- **Lessons learned** — documented improvements to the plan, controls, and detections, fed back into [Preparation](./03-incident-response-and-management.md).
+- **Lessons learned** — documented improvements to the plan, controls, and detections, fed back into [Preparation](03-incident-response-and-management.md).
 - **Incident metrics** — **mean time to detect (MTTD)**, **mean time to respond/contain**, **mean time to recover**, number of incidents, and dwell time — these quantify response performance for leadership and drive investment.
 
 The offensive-engagement reporting discipline — findings, evidence, and an executive summary tailored to the reader — is covered in [CEH — Engagement Methodology and Reporting](../../ceh/00-overview/engagement-methodology-and-reporting.md); the regulatory frameworks that drive many disclosure obligations are mapped in [Compliance & Standards](../../reference/compliance-and-standards.md).
@@ -132,4 +132,4 @@ The offensive-engagement reporting discipline — findings, evidence, and an exe
 
 ---
 
-*Related: [Domain 2 — Vulnerability Management](./02-vulnerability-management.md) · [Domain 3 — Incident Response & Management](./03-incident-response-and-management.md) · [Security+ — Security Program Management & Oversight](../../security-plus/domains/05-security-program-management-oversight.md) · [CEH — Engagement Methodology & Reporting](../../ceh/00-overview/engagement-methodology-and-reporting.md) · [Compliance & Standards](../../reference/compliance-and-standards.md) · [Acronyms](../../security-plus/reference/acronyms.md)*
+*Related: [Domain 2 — Vulnerability Management](02-vulnerability-management.md) · [Domain 3 — Incident Response & Management](03-incident-response-and-management.md) · [Security+ — Security Program Management & Oversight](../../security-plus/domains/05-security-program-management-oversight.md) · [CEH — Engagement Methodology & Reporting](../../ceh/00-overview/engagement-methodology-and-reporting.md) · [Compliance & Standards](../../reference/compliance-and-standards.md) · [Acronyms](../../security-plus/reference/acronyms.md)*

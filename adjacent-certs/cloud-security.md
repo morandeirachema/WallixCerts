@@ -73,7 +73,7 @@ flowchart TD
     PAMCLOUD --> WALLIX["WALLIX Bastion /<br/>One IDaaS"]
 ```
 
-- **Relation to PAM (privileged cloud identities):** The cloud's biggest risk is **over-permissioned identities** — root accounts, admin roles, access keys, and service principals. A **Privileged Access Management (PAM)** solution like **WALLIX Bastion** brokers, vaults, rotates, and records access to these privileged cloud identities, enforcing the **least-privilege** and **just-in-time** access that AZ-500/SC-500 (Entra ID) and AWS Security (IAM) teach you to configure. Cloud security certifications teach you *how the platform's access model works*; PAM is *how you keep that access controlled and auditable*. See the [WALLIX product portfolio](../docs/00-overview/product-portfolio.md) and [certification framework](../docs/00-overview/certification-framework.md).
+- **Relation to PAM (privileged cloud identities):** The cloud's biggest risk is **over-permissioned identities** — root accounts, admin roles, access keys, and service principals. A **Privileged Access Management (PAM)** solution like **WALLIX Bastion** brokers, vaults, rotates, and records access to these privileged cloud identities, enforcing the **least-privilege** and **just-in-time** access that AZ-500/SC-500 (Entra ID) and AWS Security (IAM) teach you to configure. Cloud security certifications teach you *how the platform's access model works*; PAM is *how you keep that access controlled and auditable*. See the [WALLIX product portfolio](../wallix/overview/product-portfolio.md) and [certification framework](../wallix/overview/certification-framework.md).
 - **Relation to [CEH](../ceh/README.md):** The **[CEH cloud-computing module](../ceh/domains/19-cloud-computing.md)** introduces the same **shared-responsibility model**, IaaS/PaaS/SaaS distinctions, container and serverless risks, and **misconfiguration** as the leading breach cause. CEH frames these from a **testing/offensive** angle; the vendor and CCSP/CCSK exams frame them from a **build-and-defend** angle. They reinforce each other.
 
 ## Study resources
@@ -90,7 +90,7 @@ flowchart TD
 
 - [CISSP overview](cissp.md) — managerial breadth credential (CCSP is its cloud sibling).
 - [CEH hub](../ceh/README.md) and [CEH cloud-computing domain](../ceh/domains/19-cloud-computing.md).
-- [WALLIX product portfolio](../docs/00-overview/product-portfolio.md) and [certification framework](../docs/00-overview/certification-framework.md).
+- [WALLIX product portfolio](../wallix/overview/product-portfolio.md) and [certification framework](../wallix/overview/certification-framework.md).
 
 ## Sources
 

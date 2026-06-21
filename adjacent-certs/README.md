@@ -5,7 +5,7 @@ these now have their **own full study hubs** (linked below); the pages here rema
 one-screen orientations — what each cert is, its scope, exam format, and where it fits a
 career path.
 
-> Full hubs in this repo: [WALLIX/PAM](../docs/pam-bastion/README.md) · [CEH](../ceh/README.md) ·
+> Full hubs in this repo: [WALLIX/PAM](../wallix/pam-bastion/README.md) · [CEH](../ceh/README.md) ·
 > [Security+](../security-plus/README.md) · [CySA+](../cysa-plus/README.md) ·
 > [PenTest+](../pentest-plus/README.md) · [OSCP](../oscp/README.md) · [PNPT](../pnpt/README.md).
 

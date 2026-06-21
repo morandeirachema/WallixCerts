@@ -163,7 +163,7 @@ The complementary **endpoint** control — removing local admin so there is no
 standing privilege to escalate or reuse in the first place — is **Endpoint Privilege
 Management (EPM)**; WALLIX delivers it via BestSafe. See
 [pam-iam-iga-idaas-epm.md](pam-iam-iga-idaas-epm.md) and the
-[product portfolio](../docs/00-overview/product-portfolio.md#4-wallix-bestsafe--endpoint-privilege-management-epm).
+[product portfolio](../wallix/overview/product-portfolio.md#4-wallix-bestsafe--endpoint-privilege-management-epm).
 
 ---
 
@@ -189,7 +189,7 @@ Management (EPM)**; WALLIX delivers it via BestSafe. See
 - [Privileged accounts & credentials](privileged-accounts-and-credentials.md)
 - [Core concepts: least privilege, JIT, Zero Trust](core-concepts-least-privilege-jit-zero-trust.md)
 - [PAM vs IAM / IGA / IDaaS / EPM](pam-iam-iga-idaas-epm.md)
-- [WALLIX product portfolio](../docs/00-overview/product-portfolio.md)
+- [WALLIX product portfolio](../wallix/overview/product-portfolio.md)
 - [Acronyms](../reference/acronyms.md) · [Glossary](../reference/glossary.md)
 
 ---

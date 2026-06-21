@@ -11,7 +11,7 @@ A bank of **45+ multiple-choice practice questions** grouped by the four CompTIA
 3. **Track misses by domain.** If you miss two or more in a domain, re-read that [domain page](../domains/README.md) before moving on.
 4. **Practise the analysis, not just recall.** For the CVSS and log items, work the data by hand before checking — that *is* the PBQ skill.
 5. **Simulate pressure.** In your final week, answer in timed blocks (the real exam averages ~1.9 minutes per item).
-6. **Pair with the** [study-plan.md](./study-plan.md) **schedule and the** [../reference/glossary.md](../reference/glossary.md) **for the terms these lean on.**
+6. **Pair with the** [study-plan.md](study-plan.md) **schedule and the** [../reference/glossary.md](../reference/glossary.md) **for the terms these lean on.**
 
 > **Acronyms** are expanded on first use. A consolidated SOC/blue-team list lives in [../reference/glossary.md](../reference/glossary.md); for general security acronyms see the [Security+ acronyms](../../security-plus/reference/acronyms.md).
 
@@ -431,7 +431,7 @@ This request is an attempt at:
 
 ## Where to go next
 
-- [study-plan.md](./study-plan.md) — the weight-prioritised schedule these questions support.
+- [study-plan.md](study-plan.md) — the weight-prioritised schedule these questions support.
 - [../reference/glossary.md](../reference/glossary.md) — SOC/blue-team terms, CVSS metric groups, and frameworks these lean on.
 - [../domains/README.md](../domains/README.md) — the four domain pages written to the objectives.
 - [../00-overview/exam-and-objectives.md](../00-overview/exam-and-objectives.md) — exam format and the objectives PDF.

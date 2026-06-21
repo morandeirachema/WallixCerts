@@ -261,7 +261,7 @@ continue** — that is how the client discovers what the server will accept.
 | `password` | §8 (OPTIONAL) | Client sends the password (protected by transport encryption); `SSH_MSG_USERAUTH_PASSWD_CHANGEREQ` (60) handles expiry |
 | `keyboard-interactive` | RFC 4256 | Server sends one or more prompts; client returns responses — used for **one-time passwords**, **multi-factor authentication (MFA)** |
 | `hostbased` | §9 (OPTIONAL) | The **client host** signs with its host key, vouching for a local user |
-| `gssapi-with-mic` | RFC 4462 | **GSSAPI**, in practice **Kerberos**, for single sign-on; see [./kerberos.md](./kerberos.md) |
+| `gssapi-with-mic` | RFC 4462 | **GSSAPI**, in practice **Kerberos**, for single sign-on; see [./kerberos.md](kerberos.md) |
 
 `keyboard-interactive` (RFC 4256) and GSSAPI (RFC 4462) are defined in companion RFCs, not in
 4252 itself.
@@ -395,9 +395,9 @@ multiplexing is exactly why port forwarding is so useful — and why a bastion m
   target secret so the user never learns it), enforces the **single trusted point** that fixes
   the TOFU/host-key trust problem at scale, controls which channels are allowed (e.g. block
   port forwarding or SFTP per policy), and **records the session** for audit and replay. See
-  [../deep-dives/bastion-architecture.md](../deep-dives/bastion-architecture.md) for how this
+  [../deep-dives/bastion-architecture.md](../wallix/deep-dives/bastion-architecture.md) for how this
   proxy/record design works. Compare with the parallel mechanisms in
-  [./tls.md](./tls.md) and [./kerberos.md](./kerberos.md).
+  [./tls.md](tls.md) and [./kerberos.md](kerberos.md).
 
 ---
 
@@ -415,5 +415,5 @@ multiplexing is exactly why port forwarding is so useful — and why a bastion m
 
 > Cross-references: [../prerequisites/linux-essentials-for-pam.md](../prerequisites/linux-essentials-for-pam.md) ·
 > [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md) ·
-> [../deep-dives/bastion-architecture.md](../deep-dives/bastion-architecture.md) ·
-> [./tls.md](./tls.md) · [./kerberos.md](./kerberos.md)
+> [../deep-dives/bastion-architecture.md](../wallix/deep-dives/bastion-architecture.md) ·
+> [./tls.md](tls.md) · [./kerberos.md](kerberos.md)

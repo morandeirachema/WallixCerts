@@ -27,7 +27,7 @@ CEH exams use multiple exam *forms* (different sets of questions). Because some 
 
 ### CEH Master
 
-There is no separate "CEH Master" exam. **CEH Master** is a *title* awarded to candidates who pass **both** the CEH knowledge exam **and** the CEH Practical. See [what-is-ceh.md](./what-is-ceh.md) for the credential family.
+There is no separate "CEH Master" exam. **CEH Master** is a *title* awarded to candidates who pass **both** the CEH knowledge exam **and** the CEH Practical. See [what-is-ceh.md](what-is-ceh.md) for the credential family.
 
 ## Eligibility: the two routes
 
@@ -125,9 +125,9 @@ To avoid relying on outdated or invented figures, get a current quote directly f
 
 ## Where to go next
 
-- [what-is-ceh.md](./what-is-ceh.md) — the credential family and what CEH proves.
-- [five-phases-of-hacking.md](./five-phases-of-hacking.md) — the methodology the exam tests.
-- [legal-and-ethics.md](./legal-and-ethics.md) — the legal framework behind authorised testing.
+- [what-is-ceh.md](what-is-ceh.md) — the credential family and what CEH proves.
+- [five-phases-of-hacking.md](five-phases-of-hacking.md) — the methodology the exam tests.
+- [legal-and-ethics.md](legal-and-ethics.md) — the legal framework behind authorised testing.
 - [../reference/acronyms.md](../reference/acronyms.md) — expanded acronyms.
 
 ## Sources

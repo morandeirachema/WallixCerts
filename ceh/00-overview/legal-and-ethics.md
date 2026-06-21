@@ -144,8 +144,8 @@ If any box is unchecked, **do not proceed.**
 
 ## Where to go next
 
-- [five-phases-of-hacking.md](./five-phases-of-hacking.md) — the methodology these rules govern.
-- [what-is-ceh.md](./what-is-ceh.md) — the credential and what it expects of you.
+- [five-phases-of-hacking.md](five-phases-of-hacking.md) — the methodology these rules govern.
+- [what-is-ceh.md](what-is-ceh.md) — the credential and what it expects of you.
 - [../domains/01-introduction-to-ethical-hacking.md](../domains/01-introduction-to-ethical-hacking.md) — fuller treatment of laws and standards.
 - [../reference/acronyms.md](../reference/acronyms.md) — expanded acronyms (RoE, SoW, NDA, CFAA, GDPR, CVE).
 

@@ -1,6 +1,6 @@
 # Security+ (SY0-701) Cheat Sheet
 
-A dense, last-mile quick reference for the **CompTIA Security+ (SY0-701)** exam. Use it for spaced review and final-week drilling, paired with the [study-plan.md](./study-plan.md) and [practice-questions.md](./practice-questions.md).
+A dense, last-mile quick reference for the **CompTIA Security+ (SY0-701)** exam. Use it for spaced review and final-week drilling, paired with the [study-plan.md](study-plan.md) and [practice-questions.md](practice-questions.md).
 
 > This is a condensed reference, not a teaching page. Each line assumes you have already read the relevant [domain page](../domains/README.md). Acronyms are expanded on first use.
 
@@ -210,8 +210,8 @@ flowchart LR
 
 ## Where to go next
 
-- [study-plan.md](./study-plan.md) — the schedule that builds toward this reference.
-- [practice-questions.md](./practice-questions.md) — apply these facts under exam conditions.
+- [study-plan.md](study-plan.md) — the schedule that builds toward this reference.
+- [practice-questions.md](practice-questions.md) — apply these facts under exam conditions.
 - [../domains/README.md](../domains/README.md) — the five domain pages.
 - [../reference/acronyms.md](../reference/acronyms.md) — full acronym expansions.
 

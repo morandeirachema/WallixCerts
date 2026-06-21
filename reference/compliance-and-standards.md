@@ -41,7 +41,7 @@ Almost every framework below expects, in some form:
 |---|---|---|---|
 | **NIS2** (Directive (EU) 2022/2555) | EU; essential & important entities (broad sectors) | Risk-management measures incl. access control, MFA, incident handling, and accountability of management; strong emphasis on traceability and securing administrative/remote access. | PAM enforces least privilege & JIT, requires MFA, records & audits all privileged sessions, and feeds SIEM for incident detection. WALLIX explicitly positions Bastion/PAM4OT for NIS2 audit-readiness. |
 | **ISO/IEC 27001** (+ 27002 controls) | International; any organisation (ISMS) | Access control & privileged-access management are explicit themes (27002:2022 controls incl. **8.2 privileged access rights**, **5.15 access control**, **8.15 logging**, **8.5 secure authentication**). Certification requires managing and reviewing them. | PAM operationalises privileged-access-rights restriction, secure authentication (MFA), logging of privileged activity, and supports access reviews via IAG. WALLIX holds **ISO/IEC 27001:2022** as a company. |
-| **ISA/IEC 62443** | International; OT / ICS (industrial) | Zones & conduits, identification & authentication control (FR1), use control (FR2), and least-privilege/role-based access for OT; control and audit of remote & maintenance access. | Agentless PAM brokers and records OT access (incl. third-party maintenance), enforces least privilege/JIT, and segments at the IT/OT boundary. WALLIX publishes a whitepaper mapping Bastion to 62443 essentials. See [PAM4OT](../docs/00-overview/product-portfolio.md#6-wallix-pam4ot--operational-technology-ot-security). |
+| **ISA/IEC 62443** | International; OT / ICS (industrial) | Zones & conduits, identification & authentication control (FR1), use control (FR2), and least-privilege/role-based access for OT; control and audit of remote & maintenance access. | Agentless PAM brokers and records OT access (incl. third-party maintenance), enforces least privilege/JIT, and segments at the IT/OT boundary. WALLIX publishes a whitepaper mapping Bastion to 62443 essentials. See [PAM4OT](../wallix/overview/product-portfolio.md#6-wallix-pam4ot--operational-technology-ot-security). |
 | **DORA** (Regulation (EU) 2022/2554) | EU; financial entities & their ICT providers | ICT risk management incl. strong access control, least privilege, segregation of duties, logging, and oversight of third-party/ICT-provider access. | PAM controls & records privileged and third-party access, enforces least privilege & SoD, and provides the audit trail; IAG adds access certification. WALLIX cites DORA as a driver. |
 | **GDPR** (Regulation (EU) 2016/679) | EU; processors/controllers of personal data | Art. 32 "appropriate technical & organisational measures" — confidentiality, integrity, access control over personal data; accountability (Art. 5) and breach handling. *(PAM is an enabling control, not a named GDPR requirement.)* | PAM restricts and records who can access systems holding personal data, vaults credentials, and provides accountability evidence — **supporting** Art. 32 security-of-processing. |
 | **PCI DSS** (v4.0.1) | Global; entities handling payment-card data | Restrict access by business need-to-know & least privilege (Req. 7), unique IDs & strong auth incl. **MFA** (Req. 8), and log/monitor all access (Req. 10) — explicit on privileged users. | PAM gives each admin a unique identity, enforces MFA & least privilege to the cardholder environment, and records/forwards privileged-session logs for Req. 10. |
@@ -65,7 +65,7 @@ Almost every framework below expects, in some form:
 
 These are certifications **of WALLIX / its products**, distinct from the customer
 compliance frameworks above. (See the
-[product portfolio](../docs/00-overview/product-portfolio.md#market-positioning--company-level-certifications)
+[product portfolio](../wallix/overview/product-portfolio.md#market-positioning--company-level-certifications)
 for full detail and caveats.)
 
 | Certification | Body / Region | What it is | WALLIX status (per sources) |
@@ -88,14 +88,14 @@ for full detail and caveats.)
 - [Glossary](glossary.md) — least privilege, SoD, non-repudiation, break-glass, etc.
 - [Core concepts: least privilege, JIT, Zero Trust](../foundations/core-concepts-least-privilege-jit-zero-trust.md)
 - [PAM threat landscape](../foundations/pam-threat-landscape.md)
-- [WALLIX product portfolio](../docs/00-overview/product-portfolio.md)
-- [PAM4OT / OT security](../docs/00-overview/product-portfolio.md#6-wallix-pam4ot--operational-technology-ot-security)
+- [WALLIX product portfolio](../wallix/overview/product-portfolio.md)
+- [PAM4OT / OT security](../wallix/overview/product-portfolio.md#6-wallix-pam4ot--operational-technology-ot-security)
 
 ---
 
 ## Sources
 
-- WALLIX product portfolio (this repo; company & product certifications, OT/NIS2/62443/DORA positioning): [../docs/00-overview/product-portfolio.md](../docs/00-overview/product-portfolio.md)
+- WALLIX product portfolio (this repo; company & product certifications, OT/NIS2/62443/DORA positioning): [../docs/00-overview/product-portfolio.md](../wallix/overview/product-portfolio.md)
 - **NIS2** Directive (EU) 2022/2555 (official text): https://eur-lex.europa.eu/eli/dir/2022/2555/oj · ENISA NIS2 resources: https://www.enisa.europa.eu/topics/nis-directive
 - **ISO/IEC 27001:2022**: https://www.iso.org/standard/27001 · ISO/IEC 27002:2022 controls: https://www.iso.org/standard/75652.html
 - **ISA/IEC 62443** series (ISA overview): https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards · WALLIX 62443 whitepaper: https://www.wallix.com/ot/ot-whitepaper/how-wallix-helps-achieve-isa62443-compliance/

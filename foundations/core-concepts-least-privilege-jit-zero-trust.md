@@ -102,7 +102,7 @@ handed out. (NIST SP 800-207 defines Zero Trust Architecture.)
 Classic example: the person who *requests* a privileged change should not be the same
 person who *approves* it. SoD prevents both fraud and single-point error. Governance
 tools (IGA/IAG) detect **SoD violations** / "toxic combinations" of rights — see the
-[WALLIX IAG section](../docs/00-overview/product-portfolio.md#5-wallix-iag--identity--access-governance).
+[WALLIX IAG section](../wallix/overview/product-portfolio.md#5-wallix-iag--identity--access-governance).
 
 ### Four-eyes / dual control
 
@@ -112,7 +112,7 @@ tools (IGA/IAG) detect **SoD violations** / "toxic combinations" of rights — s
 In PAM this appears two ways: an **approval workflow** (a second person must approve a
 session before it opens) and **live session monitoring** ("4-eyes" = watch only;
 "4-hands" = the supervisor can also take control). See
-[Bastion real-time monitoring](../docs/00-overview/product-portfolio.md#session-management).
+[Bastion real-time monitoring](../wallix/overview/product-portfolio.md#session-management).
 
 ### Session isolation
 
@@ -190,7 +190,7 @@ flowchart LR
 This is exactly the behaviour a PAM tool's **approval workflow + time-frame +
 single-connection** options provide; in WALLIX Bastion these live on the
 authorization's *Approval* tab — see
-[Bastion approval / four-eyes workflows](../docs/00-overview/product-portfolio.md#session-management).
+[Bastion approval / four-eyes workflows](../wallix/overview/product-portfolio.md#session-management).
 
 ---
 
@@ -263,7 +263,7 @@ policies usually combine both: a *time-limited* session that *also* needs approv
 - [Privileged accounts & credentials](privileged-accounts-and-credentials.md)
 - [PAM threat landscape](pam-threat-landscape.md)
 - [PAM vs IAM / IGA / IDaaS / EPM / CIEM](pam-iam-iga-idaas-epm.md)
-- [WALLIX product portfolio](../docs/00-overview/product-portfolio.md)
+- [WALLIX product portfolio](../wallix/overview/product-portfolio.md)
 - [Acronyms](../reference/acronyms.md) · [Glossary](../reference/glossary.md)
 
 ---

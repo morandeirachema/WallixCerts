@@ -47,7 +47,7 @@ CompTIA recommends — but does not **require** — the following before attempt
 | Prior certification | **CompTIA Network+** (networking fundamentals) |
 | Hands-on experience | **About two years** in a security or systems-administrator role |
 
-These are guidance, not gatekeeping: there is no mandatory prerequisite exam or formal eligibility application. A sysadmin's existing networking, operating-system, and identity knowledge maps directly onto the material. See [exam-and-objectives.md](./exam-and-objectives.md) for the full exam detail.
+These are guidance, not gatekeeping: there is no mandatory prerequisite exam or formal eligibility application. A sysadmin's existing networking, operating-system, and identity knowledge maps directly onto the material. See [exam-and-objectives.md](exam-and-objectives.md) for the full exam detail.
 
 ## Where Security+ sits in a certification path
 
@@ -66,7 +66,7 @@ flowchart LR
 How it relates to the other study hubs in this repository:
 
 - **Relative to this repo's CEH hub:** Security+ and the **CEH (Certified Ethical Hacker)** are both vendor-neutral and breadth-focused, but Security+ leans **defensive/foundational** while CEH adds the **offensive lens** on top. A common order is Security+ then CEH. See [../../ceh/README.md](../../ceh/README.md) and the [CEH career & adjacent certs page](../../ceh/career/ceh-career-and-adjacent-certs.md).
-- **Relative to WALLIX / Privileged Access Management (PAM):** Security+ teaches the access-control, identity, and least-privilege concepts that PAM products such as WALLIX **operationalise**. It is useful conceptual background before working with a specific PAM platform — see this repo's [WALLIX/PAM learning-path hub](../../README.md) and the [WALLIX product & certification docs](../../docs/00-overview/).
+- **Relative to WALLIX / Privileged Access Management (PAM):** Security+ teaches the access-control, identity, and least-privilege concepts that PAM products such as WALLIX **operationalise**. It is useful conceptual background before working with a specific PAM platform — see this repo's [WALLIX/PAM learning-path hub](../../README.md) and the [WALLIX product & certification docs](../../wallix/overview/).
 - **Shared fundamentals:** the cross-cutting [protocols reference](../../protocols/README.md) (TLS, Kerberos, LDAP, SAML, OIDC/OAuth2, RADIUS, SSH) and the repo [reference glossary and acronyms](../../reference/README.md) reinforce concepts that appear across Security+, CEH, and PAM.
 
 ## DoD 8140 relevance *(verify on DoD / CompTIA)*
@@ -77,7 +77,7 @@ Security+ is long-established as a **United States Department of Defense (DoD)**
 
 ## Where to go next
 
-- [exam-and-objectives.md](./exam-and-objectives.md) — exam format, the five domains and weightings, performance-based questions (PBQs), and renewal.
+- [exam-and-objectives.md](exam-and-objectives.md) — exam format, the five domains and weightings, performance-based questions (PBQs), and renewal.
 - [../domains/README.md](../domains/README.md) — the five domain pages written to the SY0-701 objectives.
 - [../../ceh/README.md](../../ceh/README.md) — the offensive-leaning sibling hub.
 - [../../reference/README.md](../../reference/README.md) — repo-wide glossary, acronyms, and standards.

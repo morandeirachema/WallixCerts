@@ -164,7 +164,7 @@ Physical controls protect the facilities and hardware that everything else depen
 | **Lighting** | Deters intrusion and improves camera coverage. |
 | **Sensors** (infrared, pressure, microwave, ultrasonic) | Detect motion/intrusion. |
 
-Related people-facing attacks the controls counter: **tailgating/piggybacking** (following an authorized person through a door) and **shoulder surfing** (observing credentials) — both link to social engineering in [Domain 2](./02-threats-vulnerabilities-mitigations.md).
+Related people-facing attacks the controls counter: **tailgating/piggybacking** (following an authorized person through a door) and **shoulder surfing** (observing credentials) — both link to social engineering in [Domain 2](02-threats-vulnerabilities-mitigations.md).
 
 ---
 
@@ -303,4 +303,4 @@ sequenceDiagram
 
 ---
 
-*Related: [Cryptography and PKI](../../prerequisites/cryptography-and-pki.md) · [TLS](../../protocols/tls.md) · [Core Concepts: Least Privilege, JIT & Zero Trust](../../foundations/core-concepts-least-privilege-jit-zero-trust.md) · [Domain 2 — Threats, Vulnerabilities & Mitigations](./02-threats-vulnerabilities-mitigations.md) · [Acronyms](../reference/acronyms.md)*
+*Related: [Cryptography and PKI](../../prerequisites/cryptography-and-pki.md) · [TLS](../../protocols/tls.md) · [Core Concepts: Least Privilege, JIT & Zero Trust](../../foundations/core-concepts-least-privilege-jit-zero-trust.md) · [Domain 2 — Threats, Vulnerabilities & Mitigations](02-threats-vulnerabilities-mitigations.md) · [Acronyms](../reference/acronyms.md)*

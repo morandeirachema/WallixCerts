@@ -56,7 +56,7 @@ Pivoting only works because internal hosts are **reachable** from the foothold a
 | **Monitoring & EDR** | Watches for anomalous internal connections and tunneling | Pivot traffic and unexpected cross-segment flows become detectable, alertable events |
 | **Egress / east-west filtering** | Restricts outbound and lateral traffic | Limits tunnels reaching back out and relays moving sideways |
 
-Segmentation and zoning as an architecture discipline are covered in [../../security-plus/domains/03-security-architecture.md](../../security-plus/domains/03-security-architecture.md). The PAM bastion as the **single controlled admin path** is the WALLIX model in [../../docs/pam-bastion/README.md](../../docs/pam-bastion/README.md).
+Segmentation and zoning as an architecture discipline are covered in [../../security-plus/domains/03-security-architecture.md](../../security-plus/domains/03-security-architecture.md). The PAM bastion as the **single controlled admin path** is the WALLIX model in [../../docs/pam-bastion/README.md](../../wallix/pam-bastion/README.md).
 
 ## Pivot vs. jump host — same shape, opposite intent
 
@@ -73,7 +73,7 @@ That is the core defensive insight: **make the only relay into sensitive segment
 - **Map the foothold's networks first** (its interfaces, reachable subnets, internal hosts) before forwarding anything.
 - **Keep your tunnels organized and documented** — note which port maps to which internal service so the report is reproducible.
 - **Prefer the simplest forwarding that reaches the target**; layered pivots add fragility and clock cost.
-- **Practice only in authorized multi-network labs** — OffSec Proving Grounds, Hack The Box, or [../../labs/README.md](../../labs/README.md).
+- **Practice only in authorized multi-network labs** — OffSec Proving Grounds, Hack The Box, or [../../labs/README.md](../../wallix/labs/README.md).
 
 > **Authorized use only.** Pivoting and tunneling are legal solely against systems you own or are explicitly authorized in writing to test.
 
@@ -83,5 +83,5 @@ That is the core defensive insight: **make the only relay into sensitive segment
 - OffSec — OSCP+ Exam Guide / Exam FAQ (multi-network / AD set requiring pivoting): https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide
 - NIST SP 800-207, Zero Trust Architecture (segmentation, controlled access paths): https://csrc.nist.gov/pubs/sp/800/207/final
 - MITRE ATT&CK — lateral movement & proxy/tunneling techniques: https://attack.mitre.org/
-- Related in this repo: [../../attack-to-defense-matrix.md](../../attack-to-defense-matrix.md) · [../../security-plus/domains/03-security-architecture.md](../../security-plus/domains/03-security-architecture.md) · [../../docs/pam-bastion/README.md](../../docs/pam-bastion/README.md) · [../../protocols/ssh.md](../../protocols/ssh.md)
+- Related in this repo: [../../attack-to-defense-matrix.md](../../attack-to-defense-matrix.md) · [../../security-plus/domains/03-security-architecture.md](../../security-plus/domains/03-security-architecture.md) · [../../docs/pam-bastion/README.md](../../wallix/pam-bastion/README.md) · [../../protocols/ssh.md](../../protocols/ssh.md)
 - Verify volatile OSCP specifics on OffSec's site — programs change.

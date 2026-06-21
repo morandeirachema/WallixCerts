@@ -91,7 +91,7 @@ and sends back keyboard/mouse input. Modern RDP adds:
 - **Kerberos:** preferred authentication when available.
 
 > **Bastion tie-in:** Bastion's RDP proxy engine is WALLIX's open-source **"Redemption."**
-> Per the [product portfolio](../docs/00-overview/product-portfolio.md#session-management),
+> Per the [product portfolio](../wallix/overview/product-portfolio.md#session-management),
 > Redemption supports **NLA (default on)**, **Kerberos (default on from 12.0.1)**, and
 > TLS controls. It records the RDP session as **full-color video**, and the **Session
 > Probe** on Windows targets collects rich metadata (window titles, process start/stop,
@@ -159,7 +159,7 @@ sequenceDiagram
 > *to* the Bastion and as a way the Bastion authenticates *to* targets. The WCE-P
 > (Expert) curriculum covers **"Kerberos Explicit" and "Kerberos Transparent"** as
 > advanced authentication modes
-> (see [wce-p-expert.md](../docs/pam-bastion/wce-p-expert.md)). Bastion's RDP proxy uses
+> (see [wce-p-expert.md](../wallix/pam-bastion/wce-p-expert.md)). Bastion's RDP proxy uses
 > Kerberos by default from version 12.0.1.
 
 ---
@@ -192,7 +192,7 @@ agent, a database service). They are dangerous because they often have:
 > removing static credentials from scripts and config files. WALLIX markets the
 > script/RPA case as **AAPM (Application-to-Application Password Management)**, realized
 > via the Bastion REST API + vault plugins (see
-> [product portfolio](../docs/00-overview/product-portfolio.md#password--secrets-management)).
+> [product portfolio](../wallix/overview/product-portfolio.md#password--secrets-management)).
 
 ---
 
@@ -208,7 +208,7 @@ securely in AD, rotating it on a schedule.
 > Bastion vaults and rotates privileged credentials centrally. (On the endpoint side,
 > **WALLIX BestSafe** rotates local-account passwords to be *unique per computer, per
 > account, per day* — see the
-> [product portfolio](../docs/00-overview/product-portfolio.md#4-wallix-bestsafe--endpoint-privilege-management-epm).)
+> [product portfolio](../wallix/overview/product-portfolio.md#4-wallix-bestsafe--endpoint-privilege-management-epm).)
 > LAPS and PAM are complementary layers of the same least-privilege philosophy.
 
 ---
@@ -243,7 +243,7 @@ lower tier is more exposed to compromise.
 - **WCA-P / WCP-P:** RDP and proxy concepts plus AD/LDAP integration are foundational.
 - **WCE-P (Expert):** **Advanced authentication** module covers RADIUS, **Kerberos
   Explicit/Transparent**, X.509, and SAML — the AD/Kerberos understanding here is a
-  direct prerequisite (see [wce-p-expert.md](../docs/pam-bastion/wce-p-expert.md)).
+  direct prerequisite (see [wce-p-expert.md](../wallix/pam-bastion/wce-p-expert.md)).
 
 ---
 
@@ -257,4 +257,4 @@ lower tier is more exposed to compromise.
 - Microsoft — Remote Desktop Protocol: https://learn.microsoft.com/en-us/windows/win32/termserv/remote-desktop-protocol
 - Microsoft — Local Administrator Password Solution (Windows LAPS): https://learn.microsoft.com/en-us/windows-server/identity/laps/laps-overview
 - Microsoft — Enterprise access model / tiered administration: https://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-access-model
-- WALLIX Bastion AD/LDAP, Kerberos, RDP "Redemption": [product-portfolio.md](../docs/00-overview/product-portfolio.md) (compiled from WALLIX Bastion 12.3.2 Administration Guide and 12.0.2 Deployment Guide)
+- WALLIX Bastion AD/LDAP, Kerberos, RDP "Redemption": [product-portfolio.md](../wallix/overview/product-portfolio.md) (compiled from WALLIX Bastion 12.3.2 Administration Guide and 12.0.2 Deployment Guide)

@@ -67,7 +67,7 @@ flowchart TD
 
 For the WALLIX data model that represents many of these (accounts, domains, devices,
 services, the vault), see the
-[Bastion ACL data model](../docs/00-overview/product-portfolio.md#core-pam-concepts--the-acl-data-model).
+[Bastion ACL data model](../wallix/overview/product-portfolio.md#core-pam-concepts--the-acl-data-model).
 
 ---
 
@@ -144,7 +144,7 @@ flowchart LR
 The **check-out / check-in** loop (with optional account locking and "change password
 at check-in") is exactly how WALLIX Bastion's Password Manager implements steps 2–3 —
 see the
-[Bastion password/secrets management section](../docs/00-overview/product-portfolio.md#password--secrets-management).
+[Bastion password/secrets management section](../wallix/overview/product-portfolio.md#password--secrets-management).
 
 ---
 
@@ -182,7 +182,7 @@ see the
 - [PAM threat landscape](pam-threat-landscape.md) — how each account type is attacked.
 - [Core concepts: least privilege, JIT, vaulting, rotation](core-concepts-least-privilege-jit-zero-trust.md)
 - [PAM vs IAM / IGA / IDaaS / EPM / CIEM](pam-iam-iga-idaas-epm.md)
-- [WALLIX product portfolio](../docs/00-overview/product-portfolio.md)
+- [WALLIX product portfolio](../wallix/overview/product-portfolio.md)
 - [Acronyms](../reference/acronyms.md) · [Glossary](../reference/glossary.md)
 
 ---

@@ -17,12 +17,12 @@ This section breaks down the hands-on skills exercised by **OSCP** (Offensive Se
 
 | # | Page | Theme (one line) |
 | --- | --- | --- |
-| 01 | [Enumeration & information gathering](./01-enumeration-and-information-gathering.md) | The master skill — "enumerate everything": passive/active recon, port/service/web/SMB/SNMP enumeration. |
-| 02 | [Web application attacks](./02-web-application-attacks.md) | How injection, inclusion, upload, and traversal flaws arise — and how to defend the web attack surface. |
-| 03 | [Password & client-side attacks](./03-password-and-client-side-attacks.md) | Brute force, spraying, hash cracking, and malicious-document concepts — plus MFA/EDR defenses. |
-| 04 | [Privilege escalation](./04-privilege-escalation.md) | Turning a low-privileged foothold into admin/root on Windows and Linux, and how to harden against it. |
-| 05 | [Active Directory attacks](./05-active-directory-attacks.md) | Credential abuse and lateral movement across a Windows domain — the high-value exam set. |
-| 06 | [Pivoting & tunneling](./06-pivoting-and-tunneling.md) | Reaching internal networks through a compromised host via port forwarding and tunnels. |
+| 01 | [Enumeration & information gathering](01-enumeration-and-information-gathering.md) | The master skill — "enumerate everything": passive/active recon, port/service/web/SMB/SNMP enumeration. |
+| 02 | [Web application attacks](02-web-application-attacks.md) | How injection, inclusion, upload, and traversal flaws arise — and how to defend the web attack surface. |
+| 03 | [Password & client-side attacks](03-password-and-client-side-attacks.md) | Brute force, spraying, hash cracking, and malicious-document concepts — plus MFA/EDR defenses. |
+| 04 | [Privilege escalation](04-privilege-escalation.md) | Turning a low-privileged foothold into admin/root on Windows and Linux, and how to harden against it. |
+| 05 | [Active Directory attacks](05-active-directory-attacks.md) | Credential abuse and lateral movement across a Windows domain — the high-value exam set. |
+| 06 | [Pivoting & tunneling](06-pivoting-and-tunneling.md) | Reaching internal networks through a compromised host via port forwarding and tunnels. |
 
 ## How the skills chain together
 

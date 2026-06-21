@@ -1,8 +1,8 @@
 # Engagement Methodology and Reporting
 
-Knowing attack techniques is only half of being a Certified Ethical Hacker (CEH). The other half is conducting a **professional engagement**: agreeing what will be tested and how, working safely and lawfully within those limits, handling evidence properly, and — most importantly to the client — delivering a **report** that turns findings into fixes. This page walks through the engagement lifecycle from pre-engagement scoping to final retest, maps the [five phases of ethical hacking](./five-phases-of-hacking.md) onto a real engagement, and shows what CEH expects you to think about at each step. It also references the recognised methodologies CEH draws on: PTES, NIST SP 800-115, OSSTMM, and MITRE ATT&CK.
+Knowing attack techniques is only half of being a Certified Ethical Hacker (CEH). The other half is conducting a **professional engagement**: agreeing what will be tested and how, working safely and lawfully within those limits, handling evidence properly, and — most importantly to the client — delivering a **report** that turns findings into fixes. This page walks through the engagement lifecycle from pre-engagement scoping to final retest, maps the [five phases of ethical hacking](five-phases-of-hacking.md) onto a real engagement, and shows what CEH expects you to think about at each step. It also references the recognised methodologies CEH draws on: PTES, NIST SP 800-115, OSSTMM, and MITRE ATT&CK.
 
-> Everything here assumes the legal foundation is already in place: explicit written authorisation, an agreed scope, and Rules of Engagement (RoE). See [legal-and-ethics.md](./legal-and-ethics.md) — without those, *none* of this is lawful.
+> Everything here assumes the legal foundation is already in place: explicit written authorisation, an agreed scope, and Rules of Engagement (RoE). See [legal-and-ethics.md](legal-and-ethics.md) — without those, *none* of this is lawful.
 
 ## Learning objectives
 
@@ -40,7 +40,7 @@ Scoping defines:
 
 - **Targets** — IP (Internet Protocol) ranges, domains, applications, accounts, and physical locations that are *in* scope.
 - **Exclusions** — assets that must **not** be touched (e.g. production payroll, medical or safety systems).
-- **Engagement type** — black-box, white-box, or grey-box (how much prior knowledge the tester is given). See [legal-and-ethics.md](./legal-and-ethics.md).
+- **Engagement type** — black-box, white-box, or grey-box (how much prior knowledge the tester is given). See [legal-and-ethics.md](legal-and-ethics.md).
 - **Permitted techniques** — whether social engineering, Denial-of-Service (DoS) testing, or physical entry are allowed (often explicitly excluded).
 - **Timing windows** — when testing may occur, to limit business impact.
 - **Goals and "crown jewels"** — what the client most wants protected, which focuses the test.
@@ -49,7 +49,7 @@ Scoping defines:
 
 ## Rules of Engagement and authorisation
 
-The **Rules of Engagement (RoE)** is the document that operationalises scope into a working playbook. The **authorisation letter** (the signed "get-out-of-jail-free" letter) proves the testing is permitted. Together with a contract / Statement of Work (SoW) and a Non-Disclosure Agreement (NDA), they form the legal basis of the engagement (covered fully in [legal-and-ethics.md](./legal-and-ethics.md)).
+The **Rules of Engagement (RoE)** is the document that operationalises scope into a working playbook. The **authorisation letter** (the signed "get-out-of-jail-free" letter) proves the testing is permitted. Together with a contract / Statement of Work (SoW) and a Non-Disclosure Agreement (NDA), they form the legal basis of the engagement (covered fully in [legal-and-ethics.md](legal-and-ethics.md)).
 
 For methodology purposes, the RoE must pin down:
 
@@ -61,7 +61,7 @@ For methodology purposes, the RoE must pin down:
 
 ## The testing methodology — mapping the five phases
 
-CEH's [five phases of hacking](./five-phases-of-hacking.md) are the *technical engine* inside the engagement lifecycle. In a real engagement they map cleanly onto the testing work between authorisation and reporting.
+CEH's [five phases of hacking](five-phases-of-hacking.md) are the *technical engine* inside the engagement lifecycle. In a real engagement they map cleanly onto the testing work between authorisation and reporting.
 
 | CEH phase | In a real engagement | Notes |
 | --- | --- | --- |
@@ -132,7 +132,7 @@ How findings are shared depends on the engagement:
 - **Internal engagement** — findings go to the client under the NDA; distribution is controlled and need-to-know.
 - **Coordinated / responsible disclosure** — when a flaw is found in a *third party's* product (e.g. a vendor whose software the client uses), it is reported privately to that vendor with reasonable time to fix before any public disclosure. A widely referenced standard is **ISO/IEC 29147** (vulnerability disclosure); vendors track issues with **Common Vulnerabilities and Exposures (CVE)** identifiers.
 
-See [legal-and-ethics.md](./legal-and-ethics.md) for the full treatment of disclosure, bug bounties, and full vs responsible disclosure.
+See [legal-and-ethics.md](legal-and-ethics.md) for the full treatment of disclosure, bug bounties, and full vs responsible disclosure.
 
 ## Recognised methodologies (how CEH expects you to think)
 
@@ -150,10 +150,10 @@ CEH is methodology-aware: it expects you to recognise the major standards and un
 
 ## Where to go next
 
-- [legal-and-ethics.md](./legal-and-ethics.md) — authorisation, scope, RoE, and disclosure (the legal foundation).
-- [five-phases-of-hacking.md](./five-phases-of-hacking.md) — the technical methodology inside the engagement.
+- [legal-and-ethics.md](legal-and-ethics.md) — authorisation, scope, RoE, and disclosure (the legal foundation).
+- [five-phases-of-hacking.md](five-phases-of-hacking.md) — the technical methodology inside the engagement.
 - [../domains/05-vulnerability-analysis.md](../domains/05-vulnerability-analysis.md) — CVSS, findings, and the vulnerability-management lifecycle.
-- [ai-in-ethical-hacking.md](./ai-in-ethical-hacking.md) — how AI assists triage and report drafting (with verification).
+- [ai-in-ethical-hacking.md](ai-in-ethical-hacking.md) — how AI assists triage and report drafting (with verification).
 - [../reference/acronyms.md](../reference/acronyms.md) — expanded acronyms (RoE, SoW, NDA, CVSS, CVE, PTES, OSSTMM).
 
 ## Sources

@@ -1,6 +1,6 @@
 # Linux CLI Deep Dive for WCE-P
 
-The **WALLIX Certified Expert – PAM ([WCE-P](../docs/pam-bastion/wce-p-expert.md))**
+The **WALLIX Certified Expert – PAM ([WCE-P](../wallix/pam-bastion/wce-p-expert.md))**
 explicitly requires **GNU/Linux command-line** skills, because the Expert tasks —
 troubleshooting, the REST Application Programming Interface (API), proxy tuning, and high
 availability — happen at the shell, not just the web GUI. This page is a focused,
@@ -54,7 +54,7 @@ exit                                 # leave the session
 ```
 
 > The exact administrative account, console behaviour, and management ports are
-> appliance-specific — see [Bastion architecture](../deep-dives/bastion-architecture.md).
+> appliance-specific — see [Bastion architecture](../wallix/deep-dives/bastion-architecture.md).
 > Always prefer **read-only** inspection first, and take a snapshot before changes.
 
 ## 2. Navigate & read files
@@ -90,7 +90,7 @@ journalctl -u <service> --since today # systemd journal for one unit
 
 > **Which** logs and databases to read for the Bastion and Access Manager — exact paths
 > and what each contains — are in
-> [Troubleshooting & logs](../deep-dives/troubleshooting-and-logs.md).
+> [Troubleshooting & logs](../wallix/deep-dives/troubleshooting-and-logs.md).
 
 ## 4. Services, processes & ports
 
@@ -105,7 +105,7 @@ ss -tn state established              # current connections
 
 The Bastion's internal services (database, the RDP proxy, REST API, schedulers, etc.) and
 their roles are listed in
-[Bastion architecture](../deep-dives/bastion-architecture.md#4-internal-components--services).
+[Bastion architecture](../wallix/deep-dives/bastion-architecture.md#4-internal-components--services).
 
 ## 5. Text editing config files
 
@@ -136,7 +136,7 @@ curl -s -k -H "X-Auth-Key: <api-key>" \
 ```
 
 > The Bastion's actual authentication headers, resources, methods and response codes are
-> documented in [REST API & automation](../deep-dives/rest-api-and-automation.md) — use
+> documented in [REST API & automation](../wallix/deep-dives/rest-api-and-automation.md) — use
 > those exact values, not the placeholder above.
 
 ## 7. Network & crypto helpers — Module 1 (Advanced authentication)
@@ -155,7 +155,7 @@ date                          # clock skew breaks Kerberos — check the time
 
 Background on these protocols: [networking & protocols](networking-and-protocols.md) and
 [cryptography & PKI](cryptography-and-pki.md); the Bastion's auth methods are in
-[Authentication & Access Manager](../deep-dives/authentication-and-access-manager.md).
+[Authentication & Access Manager](../wallix/deep-dives/authentication-and-access-manager.md).
 
 ## 8. Scheduling & light scripting — Modules 2–4
 
@@ -170,7 +170,7 @@ command && echo OK || echo FAILED      # exit-code branching ($? holds the last 
 ```
 
 Password-rotation scheduling uses cron-style timing — see
-[Secrets & password management](../deep-dives/secrets-and-password-management.md).
+[Secrets & password management](../wallix/deep-dives/secrets-and-password-management.md).
 The Expert *application* scripting (Module 2) uses **AutoIt** on Windows, not bash, but the
 same automation mindset applies.
 
@@ -179,7 +179,7 @@ same automation mindset applies.
 HA replication, the autossh tunnel between nodes, and the `bastion-replication` control
 tool are operated from the shell. Don't memorise invented flags — the exact commands,
 modes and "what is/isn't replicated" are in
-[High availability & DR](../deep-dives/high-availability-and-dr.md). At the CLI you'll
+[High availability & DR](../wallix/deep-dives/high-availability-and-dr.md). At the CLI you'll
 mostly use `systemctl`, `ss`, log-reading, and the documented replication command.
 
 ## Quick-reference
@@ -205,6 +205,6 @@ files) unless you're certain, and only act within your **authorised** scope.
 - WALLIX Certified Expert prerequisite (GNU/Linux command lines): training catalog
   2025–2026 (EN) — https://www.wallix.com/wp-content/uploads/2024/04/WALLIX_TRAINING_2025-2026_ENG.pdf
 - WALLIX-specific CLI, logs, services, REST API and replication: this repo's
-  [deep dives](../deep-dives/README.md) (sourced from the official WALLIX Bastion guides).
+  [deep dives](../wallix/deep-dives/README.md) (sourced from the official WALLIX Bastion guides).
 - Linux command behaviour: standard GNU coreutils / `man` pages and
   [Linux essentials for PAM](linux-essentials-for-pam.md).

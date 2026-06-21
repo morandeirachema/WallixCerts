@@ -17,8 +17,8 @@ An ordered route through this `security-plus/` hub for the **CompTIA Security+ (
 Use the hub in three passes:
 
 1. **Pass 1 — Learn (Weeks 1–5):** read each [domain page](../domains/README.md) in priority order, build vocabulary, and expand every acronym.
-2. **Pass 2 — Practise (Week 6):** work the [practice questions](./practice-questions.md) and rehearse PBQ-style tasks hands-on.
-3. **Pass 3 — Polish (Week 7):** drill the [cheat sheet](./cheat-sheet.md), take timed mock exams, and fix weak areas.
+2. **Pass 2 — Practise (Week 6):** work the [practice questions](practice-questions.md) and rehearse PBQ-style tasks hands-on.
+3. **Pass 3 — Polish (Week 7):** drill the [cheat sheet](cheat-sheet.md), take timed mock exams, and fix weak areas.
 
 > **Always study against the official objectives PDF.** It is the authoritative checklist of every term and acronym — download it from CompTIA and tick off coverage as you go. See [../00-overview/exam-and-objectives.md](../00-overview/exam-and-objectives.md#how-to-get-the-official-exam-objectives).
 
@@ -76,12 +76,12 @@ flowchart TD
 - **Milestone:** compute an ALE from an AV/EF/ARO scenario and distinguish RTO from RPO.
 
 ### Week 6 — Practice & PBQ rehearsal — suggested ~8–10 h
-- Work the [practice questions](./practice-questions.md) domain by domain; review every miss against the relevant domain page.
+- Work the [practice questions](practice-questions.md) domain by domain; review every miss against the relevant domain page.
 - Rehearse **PBQ-style tasks hands-on** (see tips below).
 - **Milestone:** consistently above your target score on each domain set.
 
 ### Week 7 — Consolidation — suggested ~6–8 h
-- Drill the [cheat sheet](./cheat-sheet.md) until ports, control types, crypto facts, risk formulas, and acronyms are automatic.
+- Drill the [cheat sheet](cheat-sheet.md) until ports, control types, crypto facts, risk formulas, and acronyms are automatic.
 - Take **full-length timed mock exams** under exam conditions; re-read your two weakest domains.
 - **Milestone:** you finish a full mock within 90 minutes with margin above 750-equivalent.
 
@@ -91,7 +91,7 @@ flowchart TD
 
 - **Flag and skip first.** If the exam interface allows it, **flag a hard PBQ, do all the multiple-choice questions, then return** with the time you have left. Do not let one PBQ burn 15 minutes early. *(Verify the current interface permits skipping/returning — CompTIA's delivery can change.)*
 - **Practise the underlying task, not just the theory.** Actually configure a firewall rule, read a real log excerpt, lay out a small network, and order the IR phases. A sysadmin who has *done* these has a real edge here.
-- **Know the orderings cold.** IR lifecycle, risk-management lifecycle, and the document hierarchy are natural drag-to-order PBQs — drill them from the [cheat sheet](./cheat-sheet.md).
+- **Know the orderings cold.** IR lifecycle, risk-management lifecycle, and the document hierarchy are natural drag-to-order PBQs — drill them from the [cheat sheet](cheat-sheet.md).
 - **Read the whole scenario before touching anything.** PBQs bury constraints in the prompt; one missed line changes the right answer.
 - **Budget time.** With **max 90 questions in 90 minutes** you average **~1 minute/item**, but PBQs eat several minutes each — front-load the quick MCQs to bank time for them.
 
@@ -131,8 +131,8 @@ You already do most of Domain 4 and much of Domains 1–3 — Security+ mostly *
 
 ## Where to go next
 
-- [practice-questions.md](./practice-questions.md) — 50+ unofficial practice questions grouped by domain.
-- [cheat-sheet.md](./cheat-sheet.md) — dense last-mile quick reference.
+- [practice-questions.md](practice-questions.md) — 50+ unofficial practice questions grouped by domain.
+- [cheat-sheet.md](cheat-sheet.md) — dense last-mile quick reference.
 - [../domains/README.md](../domains/README.md) — the five domain pages, written to the objectives.
 - [../00-overview/exam-and-objectives.md](../00-overview/exam-and-objectives.md) — exam format, weightings, PBQs, and the objectives PDF.
 - [../../ceh/exam-prep/study-plan.md](../../ceh/exam-prep/study-plan.md) — the sibling offensive study plan.

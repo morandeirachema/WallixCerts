@@ -2,7 +2,7 @@
 
 A **web application** is the custom code that runs on top of a web server to deliver dynamic, interactive functionality — logins, shopping carts, dashboards, Application Programming Interfaces (APIs). Because this code processes attacker-controlled input and handles sensitive data, it is one of the largest attack surfaces in any organization. This module covers web-application architecture, the attack categories CEH expects, and the **OWASP Top 10** as the industry reference for the most critical risks.
 
-> All techniques here are described **conceptually for understanding and defense**. Testing web applications you do not own is illegal and is permitted **only with explicit written authorization**. See [../00-overview/what-is-ceh.md](../00-overview/what-is-ceh.md). For the underlying platform, see [13-hacking-web-servers.md](./13-hacking-web-servers.md).
+> All techniques here are described **conceptually for understanding and defense**. Testing web applications you do not own is illegal and is permitted **only with explicit written authorization**. See [../00-overview/what-is-ceh.md](../00-overview/what-is-ceh.md). For the underlying platform, see [13-hacking-web-servers.md](13-hacking-web-servers.md).
 
 ## Learning objectives
 
@@ -93,7 +93,7 @@ Web-app security is built into the **Software Development Life Cycle (SDLC)**, n
 - **Output encoding / context-aware escaping.** Encode data for the context it is rendered in (HTML, attribute, JavaScript, URL) to stop **XSS**.
 - **Parameterized queries / prepared statements.** Separate code from data so input cannot become a command — the definitive fix for **injection**.
 - **Enforce access control server-side.** Deny by default; check authorization on every request and object reference (counters **Broken Access Control**).
-- **Strong authentication and session management.** MFA, rate limiting/lockout, strong random session IDs, and `Secure`/`HttpOnly`/`SameSite` cookies (see [11-session-hijacking.md](./11-session-hijacking.md)).
+- **Strong authentication and session management.** MFA, rate limiting/lockout, strong random session IDs, and `Secure`/`HttpOnly`/`SameSite` cookies (see [11-session-hijacking.md](11-session-hijacking.md)).
 - **Anti-CSRF tokens** plus `SameSite` cookies.
 - **Proper cryptography.** TLS in transit, strong hashing for stored passwords (e.g., a slow, salted algorithm), and secrets kept out of source (counters **Cryptographic Failures**).
 - **Manage dependencies.** Track and patch third-party components; use SCA (counters **Vulnerable and Outdated Components**).

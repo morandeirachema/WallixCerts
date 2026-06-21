@@ -87,47 +87,47 @@ nav:
       - SAML: protocols/saml.md
       - OIDC / OAuth 2.0: protocols/oidc-oauth2.md
   - WALLIX / PAM:
-      - Certification framework: docs/00-overview/certification-framework.md
-      - Product portfolio: docs/00-overview/product-portfolio.md
+      - Certification framework: wallix/overview/certification-framework.md
+      - Product portfolio: wallix/overview/product-portfolio.md
       - PAM / Bastion track:
-          - docs/pam-bastion/README.md
-          - WCA-P — Administrator: docs/pam-bastion/wca-p-administrator.md
-          - WCP-P — Professional: docs/pam-bastion/wcp-p-professional.md
-          - WCE-P — Expert: docs/pam-bastion/wce-p-expert.md
-      - OT track (eWCP-P-OT): docs/ot-pam4ot/ewcp-p-ot-professional.md
-      - IDaaS track (eWCP-I): docs/idaas/ewcp-i-professional.md
+          - wallix/pam-bastion/README.md
+          - WCA-P — Administrator: wallix/pam-bastion/wca-p-administrator.md
+          - WCP-P — Professional: wallix/pam-bastion/wcp-p-professional.md
+          - WCE-P — Expert: wallix/pam-bastion/wce-p-expert.md
+      - OT track (eWCP-P-OT): wallix/ot-pam4ot/ewcp-p-ot-professional.md
+      - IDaaS track (eWCP-I): wallix/idaas/ewcp-i-professional.md
       - IAG track:
-          - docs/iag/README.md
-          - WCP-G — Professional: docs/iag/ewcp-g-professional.md
-          - WCA-G — Administrator (soon): docs/iag/wca-g-administrator.md
+          - wallix/iag/README.md
+          - WCP-G — Professional: wallix/iag/ewcp-g-professional.md
+          - WCA-G — Administrator (soon): wallix/iag/wca-g-administrator.md
       - Deep dives:
-          - deep-dives/README.md
-          - Bastion architecture: deep-dives/bastion-architecture.md
-          - Bastion data model: deep-dives/bastion-data-model.md
-          - Session management: deep-dives/session-management.md
-          - Secrets & password management: deep-dives/secrets-and-password-management.md
-          - Authentication & Access Manager: deep-dives/authentication-and-access-manager.md
-          - High availability & DR: deep-dives/high-availability-and-dr.md
-          - REST API & automation: deep-dives/rest-api-and-automation.md
-          - Troubleshooting & logs: deep-dives/troubleshooting-and-logs.md
-          - PAM4OT (OT): deep-dives/pam4ot-operational-technology.md
-          - IDaaS / Trustelem: deep-dives/idaas-trustelem.md
-          - IAG — Identity & Access Governance: deep-dives/iag-identity-governance.md
-          - EPM / BestSafe: deep-dives/epm-bestsafe.md
-          - WALLIX One & integrations: deep-dives/wallix-one-and-integrations.md
+          - wallix/deep-dives/README.md
+          - Bastion architecture: wallix/deep-dives/bastion-architecture.md
+          - Bastion data model: wallix/deep-dives/bastion-data-model.md
+          - Session management: wallix/deep-dives/session-management.md
+          - Secrets & password management: wallix/deep-dives/secrets-and-password-management.md
+          - Authentication & Access Manager: wallix/deep-dives/authentication-and-access-manager.md
+          - High availability & DR: wallix/deep-dives/high-availability-and-dr.md
+          - REST API & automation: wallix/deep-dives/rest-api-and-automation.md
+          - Troubleshooting & logs: wallix/deep-dives/troubleshooting-and-logs.md
+          - PAM4OT (OT): wallix/deep-dives/pam4ot-operational-technology.md
+          - IDaaS / Trustelem: wallix/deep-dives/idaas-trustelem.md
+          - IAG — Identity & Access Governance: wallix/deep-dives/iag-identity-governance.md
+          - EPM / BestSafe: wallix/deep-dives/epm-bestsafe.md
+          - WALLIX One & integrations: wallix/deep-dives/wallix-one-and-integrations.md
       - Labs:
-          - labs/README.md
-          - Build a home lab: labs/building-a-home-lab.md
-          - Hands-on exercises: labs/hands-on-exercises.md
+          - wallix/labs/README.md
+          - Build a home lab: wallix/labs/building-a-home-lab.md
+          - Hands-on exercises: wallix/labs/hands-on-exercises.md
       - Exam prep:
-          - exam-prep/README.md
-          - Study plan: exam-prep/study-plan.md
-          - Practice questions: exam-prep/practice-questions.md
-          - Cheat sheet: exam-prep/cheat-sheet.md
+          - wallix/exam-prep/README.md
+          - Study plan: wallix/exam-prep/study-plan.md
+          - Practice questions: wallix/exam-prep/practice-questions.md
+          - Cheat sheet: wallix/exam-prep/cheat-sheet.md
       - Career:
-          - career/README.md
-          - Sysadmin → PAM roadmap: career/sysadmin-to-pam-roadmap.md
-          - Skills & adjacent certs: career/skills-and-adjacent-certifications.md
+          - wallix/career/README.md
+          - Sysadmin → PAM roadmap: wallix/career/sysadmin-to-pam-roadmap.md
+          - Skills & adjacent certs: wallix/career/skills-and-adjacent-certifications.md
       - Reference:
           - reference/README.md
           - Glossary: reference/glossary.md

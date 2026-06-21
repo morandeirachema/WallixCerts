@@ -65,7 +65,7 @@ A short list of high-yield default ports (full table in [../../ceh/domains/04-en
 
 ## Per-service deep dives
 
-- **Web (HTTP/HTTPS).** Identify the server, framework, and content-management system; discover hidden directories and files; enumerate virtual hosts; read source, comments, and error messages. This is the most common OSCP initial-access surface — see [./02-web-application-attacks.md](./02-web-application-attacks.md).
+- **Web (HTTP/HTTPS).** Identify the server, framework, and content-management system; discover hidden directories and files; enumerate virtual hosts; read source, comments, and error messages. This is the most common OSCP initial-access surface — see [./02-web-application-attacks.md](02-web-application-attacks.md).
 - **SMB.** Enumerate shares, share permissions, users, groups, and the OS/version. Misconfigured anonymous/guest access can hand over files or a user list with no credentials.
 - **SNMP.** When default community strings (`public`/`private`) survive, the Management Information Base (MIB) can leak interfaces, routing tables, running processes, installed software, and user accounts.
 - **DNS.** Records and (on misconfigured servers) zone transfers map internal hosts and subdomains.

@@ -78,7 +78,7 @@ flowchart TD
 | Defense | Effect |
 | --- | --- |
 | **Network segmentation & micro-segmentation** | Stops a single host from bridging zones; contains pivoting and blast radius. See [../../security-plus/domains/03-security-architecture.md](../../security-plus/domains/03-security-architecture.md) |
-| **PAM-controlled admin paths** | Administration flows through a brokered, recorded bastion, so there are **no standing admin credentials on endpoints** to reuse laterally. See [../../docs/pam-bastion/README.md](../../docs/pam-bastion/README.md) |
+| **PAM-controlled admin paths** | Administration flows through a brokered, recorded bastion, so there are **no standing admin credentials on endpoints** to reuse laterally. See [../../docs/pam-bastion/README.md](../../wallix/pam-bastion/README.md) |
 | **EDR with behavioral detection** | Flags lateral-movement and escalation behavior, not just known malware |
 | **Default-deny egress filtering** | Limits outbound paths attackers use for pivoting relays and command-and-control |
 | **Least privilege & local-admin reduction** | Removes the privilege an attacker needs to move and escalate |

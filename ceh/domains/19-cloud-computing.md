@@ -113,7 +113,7 @@ Named for awareness; authorised use only and within the provider's rules.
 3. **Fix and prevent misconfigurations** with CSPM and IaC scanning; align to **CIS Benchmarks**.
 4. **Encrypt data** at rest and in transit; manage keys with a Key Management Service (KMS).
 5. **Lock down storage and network exposure.** No public buckets unless intended; restrict security groups; private endpoints where possible.
-6. **Enable comprehensive logging and monitoring** (cloud-native audit logs, threat detection) and alert on anomalies. See [05-vulnerability-analysis.md](./05-vulnerability-analysis.md) for monitoring concepts.
+6. **Enable comprehensive logging and monitoring** (cloud-native audit logs, threat detection) and alert on anomalies. See [05-vulnerability-analysis.md](05-vulnerability-analysis.md) for monitoring concepts.
 7. **Secure containers/serverless:** scan images, use minimal/trusted base images, never bake in secrets, restrict orchestration APIs, and apply least-privilege function roles.
 8. **Govern shadow IT** with discovery and a Cloud Access Security Broker (CASB).
 

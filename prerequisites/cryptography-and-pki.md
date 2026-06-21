@@ -53,7 +53,7 @@ key**, then fast symmetric crypto protects the bulk data. That is exactly what T
 SSH do.
 
 > **Bastion tie-in:** Per the
-> [product portfolio](../docs/00-overview/product-portfolio.md#architecture-deployment-ha-integrations),
+> [product portfolio](../wallix/overview/product-portfolio.md#architecture-deployment-ha-integrations),
 > Bastion uses **AES-256** (symmetric) for data, **SHA-2** for hashing, **ECC** and
 > **RSA (private keys ≥ 3072 bits)** for asymmetric operations, with a selectable crypto
 > policy (`WABSecurityLevel`, **SOG-IS CES 1.3** recommended).
@@ -183,7 +183,7 @@ ssh-keygen -t ecdsa -b 384            # elliptic-curve alternative
 > **Bastion tie-in:** Bastion **generates and rotates** SSH keys for target accounts and
 > supports **RSA / DSA / ECDSA** key generation; the default password-change policy uses
 > **RSA key size 4096**, and stored RSA private keys are **≥ 3072 bits** (per the
-> [product portfolio](../docs/00-overview/product-portfolio.md#password--secrets-management)).
+> [product portfolio](../wallix/overview/product-portfolio.md#password--secrets-management)).
 > Avoid legacy short RSA/DSA keys.
 
 ---
@@ -233,7 +233,7 @@ is why FIDO2 is called **phishing-resistant**.
 > **Bastion tie-in:** Bastion delivers MFA via **RADIUS/SAML** and **WALLIX Trustelem**;
 > Trustelem itself supports **TOTP**, the **WALLIX Authenticator** (push + TOTP), and
 > **FIDO2 security keys via WebAuthn**, plus smart cards (per the
-> [product portfolio](../docs/00-overview/product-portfolio.md#3-wallix-trustelem--idaas-sso--mfa--identity-federation)).
+> [product portfolio](../wallix/overview/product-portfolio.md#3-wallix-trustelem--idaas-sso--mfa--identity-federation)).
 > Note FIDO2/push are **not native to Access Manager** — they arrive through the
 > federated IdP over SAML/OIDC.
 
@@ -245,7 +245,7 @@ is why FIDO2 is called **phishing-resistant**.
   daily configuration (password policies, certificate setup, secret rotation).
 - **WCE-P (Expert):** **Advanced authentication** covers **X.509** and **2-factor**;
   understanding the TLS handshake, trust chains, CRL/OCSP, and key rotation is directly
-  exercised (see [wce-p-expert.md](../docs/pam-bastion/wce-p-expert.md)).
+  exercised (see [wce-p-expert.md](../wallix/pam-bastion/wce-p-expert.md)).
 
 ---
 
@@ -265,4 +265,4 @@ is why FIDO2 is called **phishing-resistant**.
 - FIDO Alliance — FIDO2 specifications: https://fidoalliance.org/specifications/
 - LUKS / cryptsetup (dm-crypt) documentation: https://gitlab.com/cryptsetup/cryptsetup/-/wikis/home
 - SOG-IS Agreed Cryptographic Mechanisms: https://www.sogis.eu/documents/cc/crypto/SOGIS-Agreed-Cryptographic-Mechanisms-1.3.pdf
-- WALLIX Bastion AES-256 / LUKS / RSA≥3072 / certificate auth: [product-portfolio.md](../docs/00-overview/product-portfolio.md)
+- WALLIX Bastion AES-256 / LUKS / RSA≥3072 / certificate auth: [product-portfolio.md](../wallix/overview/product-portfolio.md)

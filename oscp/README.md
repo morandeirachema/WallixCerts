@@ -66,7 +66,7 @@ OSCP is the **hands-on depth** milestone on the offensive track:
 - **After** the breadth of [CEH](../ceh/README.md) / [PenTest+](../pentest-plus/README.md) and
   often the practical [PNPT](../pnpt/README.md).
 - **Defender's mirror** → the AD-attack and privilege-escalation focus is exactly what the
-  [attack → defense matrix](../attack-to-defense-matrix.md) and [WALLIX / PAM hub](../docs/pam-bastion/README.md)
+  [attack → defense matrix](../attack-to-defense-matrix.md) and [WALLIX / PAM hub](../wallix/pam-bastion/README.md)
   defend against — strong attacker context for PAM practitioners.
 
 ## 🔗 Quick links

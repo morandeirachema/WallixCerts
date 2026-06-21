@@ -10,7 +10,7 @@ A bank of **50+ multiple-choice practice questions** grouped by the five CompTIA
 2. **Read the explanation even when you are right** — the reasoning is the point, not the letter.
 3. **Track misses by domain.** If you miss two or more in a domain, re-read that [domain page](../domains/README.md) before moving on.
 4. **Simulate pressure.** In your final week, answer in timed blocks (the real exam averages ~1 minute per item).
-5. **Pair with the** [study-plan.md](./study-plan.md) **schedule and the** [cheat-sheet.md](./cheat-sheet.md) **for the facts these lean on.**
+5. **Pair with the** [study-plan.md](study-plan.md) **schedule and the** [cheat-sheet.md](cheat-sheet.md) **for the facts these lean on.**
 
 > **Acronyms** are expanded on first use. A consolidated list lives in [../reference/acronyms.md](../reference/acronyms.md).
 
@@ -454,8 +454,8 @@ A bank of **50+ multiple-choice practice questions** grouped by the five CompTIA
 
 ## Where to go next
 
-- [study-plan.md](./study-plan.md) — the weight-prioritised schedule these questions support.
-- [cheat-sheet.md](./cheat-sheet.md) — ports, control types, crypto facts, and the risk formulas these lean on.
+- [study-plan.md](study-plan.md) — the weight-prioritised schedule these questions support.
+- [cheat-sheet.md](cheat-sheet.md) — ports, control types, crypto facts, and the risk formulas these lean on.
 - [../domains/README.md](../domains/README.md) — the five domain pages written to the objectives.
 - [../00-overview/exam-and-objectives.md](../00-overview/exam-and-objectives.md) — exam format and the objectives PDF.
 - [../reference/acronyms.md](../reference/acronyms.md) — full acronym expansions.

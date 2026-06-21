@@ -33,9 +33,9 @@ By the end of this page you should be able to:
 
 See [../prerequisites/networking-and-protocols.md](../prerequisites/networking-and-protocols.md)
 for ports and transport, [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md)
-for TLS and certificates, [./tls.md](./tls.md) for the TLS handshake itself,
-[./kerberos.md](./kerberos.md) for the GSSAPI/Kerberos bind mechanism, and
-[../deep-dives/authentication-and-access-manager.md](../deep-dives/authentication-and-access-manager.md)
+for TLS and certificates, [./tls.md](tls.md) for the TLS handshake itself,
+[./kerberos.md](kerberos.md) for the GSSAPI/Kerberos bind mechanism, and
+[../deep-dives/authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md)
 for how WALLIX consumes LDAP/AD identities.
 
 ---
@@ -139,7 +139,7 @@ three families. **Until a bind succeeds, the connection is treated as anonymous.
   directory deployments means **Kerberos v5**. The client presents a Kerberos service ticket
   for the directory's `ldap/host` Service Principal Name (SPN); no password is sent to the
   directory, and GSSAPI can additionally negotiate a signing/sealing (integrity/encryption)
-  layer over the LDAP messages. See [./kerberos.md](./kerberos.md).
+  layer over the LDAP messages. See [./kerberos.md](kerberos.md).
 - **DIGEST-MD5** — a legacy challenge/response so the password is not sent in cleartext.
   It is **deprecated and considered weak** (MD5-based, historical implementation problems);
   RFC sources mark it obsolete. Prefer GSSAPI or EXTERNAL over TLS. *Do not present

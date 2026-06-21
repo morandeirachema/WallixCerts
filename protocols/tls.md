@@ -329,9 +329,9 @@ to skip most of it:
   classic **LDAP** binds can send credentials in the clear; both are wrapped in TLS
   (**RadSec / RADIUS-over-TLS** and **LDAPS / StartTLS**) precisely to get the
   confidentiality, integrity, and server authentication described above. See
-  [./ldap.md](./ldap.md) and [./radius.md](./radius.md), and how the WALLIX
+  [./ldap.md](ldap.md) and [./radius.md](radius.md), and how the WALLIX
   **Access Manager** terminates and brokers these in
-  [../deep-dives/authentication-and-access-manager.md](../deep-dives/authentication-and-access-manager.md).
+  [../deep-dives/authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md).
 
 ---
 
@@ -353,5 +353,5 @@ to skip most of it:
   <https://www.rfc-editor.org/rfc/rfc7568>
 - Related: [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md),
   [../prerequisites/networking-and-protocols.md](../prerequisites/networking-and-protocols.md),
-  [./ldap.md](./ldap.md), [./radius.md](./radius.md),
-  [../deep-dives/authentication-and-access-manager.md](../deep-dives/authentication-and-access-manager.md)
+  [./ldap.md](ldap.md), [./radius.md](radius.md),
+  [../deep-dives/authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md)
