@@ -12,14 +12,14 @@ each tied explicitly to *how Bastion uses it*.
 | [Networking & protocols](networking-and-protocols.md) | SSH/RDP/VNC/LDAP/RADIUS/Kerberos/SAML/OIDC/SCIM/Syslog with ports & flows | Every protocol Bastion proxies or authenticates with |
 | [Cryptography & PKI](cryptography-and-pki.md) | Symmetric/asymmetric, hashing, TLS, PKI/X.509, SSH keys, TOTP/FIDO2 | AES-256, LUKS at rest, certificate auth, key rotation |
 
-➡️ Next: the [WALLIX product portfolio](../wallix/overview/product-portfolio.md) and the
-[certification tracks](../wallix/pam-bastion/README.md).
+➡️ Next: the [WALLIX product portfolio](../certs/wallix/overview/product-portfolio.md) and the
+[certification tracks](../certs/wallix/pam-bastion/README.md).
 
 > 🔌 **Want the full mechanism?** See **[protocols/](../protocols/README.md)** for
 > step-by-step, RFC-grounded explanations of **Kerberos, RADIUS, Active Directory, LDAP,
 > and TLS** — message flows, what's encrypted and how, with Mermaid sequence diagrams.
 
-> 🔁 **Same fundamentals, offensive angle:** the [CEH hub](../ceh/README.md) covers this
-> ground from an attacker's perspective — e.g. [cryptography](../ceh/domains/20-cryptography.md),
-> [scanning & networking](../ceh/domains/03-scanning-networks.md),
-> [Windows/AD attacks](../ceh/domains/06-system-hacking.md). They're complementary, not duplicated.
+> 🔁 **Same fundamentals, offensive angle:** the [CEH hub](../certs/ceh/README.md) covers this
+> ground from an attacker's perspective — e.g. [cryptography](../certs/ceh/domains/20-cryptography.md),
+> [scanning & networking](../certs/ceh/domains/03-scanning-networks.md),
+> [Windows/AD attacks](../certs/ceh/domains/06-system-hacking.md). They're complementary, not duplicated.

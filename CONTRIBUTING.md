@@ -64,14 +64,14 @@ gate (`scripts/check-docs.py`) fails on over-wide flowchart labels.
 
 ## Adding a new page
 
-1. Put it in the right section folder. WALLIX material goes under `wallix/`
-   (`wallix/overview/`, `wallix/pam-bastion/`, `wallix/deep-dives/`, `wallix/labs/`,
-   `wallix/exam-prep/`, `wallix/career/`); shared fundamentals stay at the root
+1. Put it in the right section folder. WALLIX material goes under `certs/wallix/`
+   (`certs/wallix/overview/`, `certs/wallix/pam-bastion/`, `certs/wallix/deep-dives/`, `certs/wallix/labs/`,
+   `certs/wallix/exam-prep/`, `certs/wallix/career/`); shared fundamentals stay at the root
    (`foundations/`, `prerequisites/`, `protocols/`, `reference/`); other certs are their
-   own top-level hubs (`ceh/`, `security-plus/`, `cysa-plus/`, `pentest-plus/`, `oscp/`, `pnpt/`).
+   own hubs under `certs/` (`certs/ceh/`, `certs/security-plus/`, `certs/cysa-plus/`, `certs/pentest-plus/`, `certs/oscp/`, `certs/pnpt/`).
 2. Add a row for it in that folder's `README.md` index.
 3. If it's a new certification, follow the structure of
-   `wallix/pam-bastion/wcp-p-professional.md` and add it to the matrix in the root `README.md`.
+   `certs/wallix/pam-bastion/wcp-p-professional.md` and add it to the matrix in the root `README.md`.
 4. Add any new authoritative URLs to `reference/sources.md`.
 
 ## Periodic verification checklist
@@ -85,10 +85,10 @@ and update the affected pages + their `## Sources`:
 - [ ] **WCA-G (IAG Administrator)** — listed "coming soon"; check if it has launched.
 - [ ] **Analyst placements (change yearly):** Gartner Magic Quadrant for PAM and
       KuppingerCole Leadership Compass for PAM — update WALLIX's position and the year.
-- [ ] **WALLIX product doc versions** referenced in `wallix/deep-dives/` (Bastion 12.3.2, Access
+- [ ] **WALLIX product doc versions** referenced in `certs/wallix/deep-dives/` (Bastion 12.3.2, Access
       Manager 5.2.4.0, Deployment 12.0.2) — note newer served versions.
 - [ ] **WALLIX product security certifications** — ANSSI CSPN / BSI BSZ versions and dates.
-- [ ] **Adjacent certifications** flagged as time-sensitive in `wallix/career/`: Microsoft
+- [ ] **Adjacent certifications** flagged as time-sensitive in `certs/wallix/career/`: Microsoft
       **AZ-500** (retirement date), **(ISC)² CC** (outline refresh), and the exact program
       names for CyberArk / Delinea / One Identity — verify on each provider's site.
 

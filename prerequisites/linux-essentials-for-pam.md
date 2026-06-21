@@ -172,7 +172,7 @@ alice  ALL=(root) NOPASSWD: /usr/bin/systemctl restart nginx
 > start of an SSH session — e.g., log in as an unprivileged account, then auto-elevate
 > to root using a vaulted password the user never sees. This is least-privilege +
 > credential injection in action. (Endpoint-side elevation is BestSafe's job; see the
-> [product portfolio](../wallix/overview/product-portfolio.md#4-wallix-bestsafe--endpoint-privilege-management-epm).)
+> [product portfolio](../certs/wallix/overview/product-portfolio.md#4-wallix-bestsafe--endpoint-privilege-management-epm).)
 
 ---
 
@@ -242,7 +242,7 @@ systemctl list-units --type=service   # all active services
 > **Bastion tie-in:** Bastion's internal components run as services/processes —
 > `redemption` (the RDP proxy engine), `wabgui` (admin GUI), `wabrestapi` (REST API),
 > MariaDB, `syslog-ng`, `wabwatchdog`, etc. (per the
-> [product portfolio](../wallix/overview/product-portfolio.md#architecture-deployment-ha-integrations)).
+> [product portfolio](../certs/wallix/overview/product-portfolio.md#architecture-deployment-ha-integrations)).
 > WCE-P troubleshooting often means checking whether one of these services is healthy —
 > exactly the `systemctl status` muscle memory you build here.
 
@@ -312,11 +312,11 @@ flowchart LR
 
 - **WCA-P / WCP-P** (Administrator / Professional): expect SSH, RDP, proxy concepts,
   and "Linux fundamentals" as stated prerequisites
-  (see [pam-bastion track](../wallix/pam-bastion/README.md)).
+  (see [pam-bastion track](../certs/wallix/pam-bastion/README.md)).
 - **WCE-P** (Expert): explicitly requires **GNU/Linux command-line** knowledge — the
   `systemctl`, `journalctl`, permissions, and SSH-config skills above are directly
   exercised in advanced deployment and troubleshooting labs
-  (see [wce-p-expert.md](../wallix/pam-bastion/wce-p-expert.md)).
+  (see [wce-p-expert.md](../certs/wallix/pam-bastion/wce-p-expert.md)).
 
 ---
 
@@ -329,4 +329,4 @@ flowchart LR
 - `sudo` / `sudoers` manual: https://www.sudo.ws/docs/man/sudoers.man/
 - systemd / `systemctl` documentation: https://www.freedesktop.org/software/systemd/man/latest/systemctl.html
 - `journalctl` documentation: https://www.freedesktop.org/software/systemd/man/latest/journalctl.html
-- WALLIX Bastion architecture/components: [product-portfolio.md](../wallix/overview/product-portfolio.md) (compiled from WALLIX Bastion 12.0.2 Deployment Guide and 12.3.2 Administration Guide)
+- WALLIX Bastion architecture/components: [product-portfolio.md](../certs/wallix/overview/product-portfolio.md) (compiled from WALLIX Bastion 12.0.2 Deployment Guide and 12.3.2 Administration Guide)

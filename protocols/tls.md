@@ -331,7 +331,7 @@ to skip most of it:
   confidentiality, integrity, and server authentication described above. See
   [./ldap.md](ldap.md) and [./radius.md](radius.md), and how the WALLIX
   **Access Manager** terminates and brokers these in
-  [../deep-dives/authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md).
+  [../deep-dives/authentication-and-access-manager.md](../certs/wallix/deep-dives/authentication-and-access-manager.md).
 
 ---
 
@@ -354,4 +354,4 @@ to skip most of it:
 - Related: [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md),
   [../prerequisites/networking-and-protocols.md](../prerequisites/networking-and-protocols.md),
   [./ldap.md](ldap.md), [./radius.md](radius.md),
-  [../deep-dives/authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md)
+  [../deep-dives/authentication-and-access-manager.md](../certs/wallix/deep-dives/authentication-and-access-manager.md)

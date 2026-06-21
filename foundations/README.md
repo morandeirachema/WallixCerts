@@ -13,4 +13,4 @@ the *why* before the *how* of any specific product. No prior security background
 | 6 | [PAM market landscape](pam-market-landscape.md) | Analyst frameworks (Gartner MQ, KuppingerCole) and how WALLIX is positioned vs competitors |
 
 ➡️ Next: the [prerequisites](../prerequisites/README.md) (sysadmin → cyber skill bridge),
-then the [WALLIX product portfolio](../wallix/overview/product-portfolio.md).
+then the [WALLIX product portfolio](../certs/wallix/overview/product-portfolio.md).

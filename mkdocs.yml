@@ -86,48 +86,50 @@ nav:
       - SSH: protocols/ssh.md
       - SAML: protocols/saml.md
       - OIDC / OAuth 2.0: protocols/oidc-oauth2.md
+  - Certifications: certs/README.md
   - WALLIX / PAM:
-      - Certification framework: wallix/overview/certification-framework.md
-      - Product portfolio: wallix/overview/product-portfolio.md
+      - certs/wallix/README.md
+      - Certification framework: certs/wallix/overview/certification-framework.md
+      - Product portfolio: certs/wallix/overview/product-portfolio.md
       - PAM / Bastion track:
-          - wallix/pam-bastion/README.md
-          - WCA-P — Administrator: wallix/pam-bastion/wca-p-administrator.md
-          - WCP-P — Professional: wallix/pam-bastion/wcp-p-professional.md
-          - WCE-P — Expert: wallix/pam-bastion/wce-p-expert.md
-      - OT track (eWCP-P-OT): wallix/ot-pam4ot/ewcp-p-ot-professional.md
-      - IDaaS track (eWCP-I): wallix/idaas/ewcp-i-professional.md
+          - certs/wallix/pam-bastion/README.md
+          - WCA-P — Administrator: certs/wallix/pam-bastion/wca-p-administrator.md
+          - WCP-P — Professional: certs/wallix/pam-bastion/wcp-p-professional.md
+          - WCE-P — Expert: certs/wallix/pam-bastion/wce-p-expert.md
+      - OT track (eWCP-P-OT): certs/wallix/ot-pam4ot/ewcp-p-ot-professional.md
+      - IDaaS track (eWCP-I): certs/wallix/idaas/ewcp-i-professional.md
       - IAG track:
-          - wallix/iag/README.md
-          - WCP-G — Professional: wallix/iag/ewcp-g-professional.md
-          - WCA-G — Administrator (soon): wallix/iag/wca-g-administrator.md
+          - certs/wallix/iag/README.md
+          - WCP-G — Professional: certs/wallix/iag/ewcp-g-professional.md
+          - WCA-G — Administrator (soon): certs/wallix/iag/wca-g-administrator.md
       - Deep dives:
-          - wallix/deep-dives/README.md
-          - Bastion architecture: wallix/deep-dives/bastion-architecture.md
-          - Bastion data model: wallix/deep-dives/bastion-data-model.md
-          - Session management: wallix/deep-dives/session-management.md
-          - Secrets & password management: wallix/deep-dives/secrets-and-password-management.md
-          - Authentication & Access Manager: wallix/deep-dives/authentication-and-access-manager.md
-          - High availability & DR: wallix/deep-dives/high-availability-and-dr.md
-          - REST API & automation: wallix/deep-dives/rest-api-and-automation.md
-          - Troubleshooting & logs: wallix/deep-dives/troubleshooting-and-logs.md
-          - PAM4OT (OT): wallix/deep-dives/pam4ot-operational-technology.md
-          - IDaaS / Trustelem: wallix/deep-dives/idaas-trustelem.md
-          - IAG — Identity & Access Governance: wallix/deep-dives/iag-identity-governance.md
-          - EPM / BestSafe: wallix/deep-dives/epm-bestsafe.md
-          - WALLIX One & integrations: wallix/deep-dives/wallix-one-and-integrations.md
+          - certs/wallix/deep-dives/README.md
+          - Bastion architecture: certs/wallix/deep-dives/bastion-architecture.md
+          - Bastion data model: certs/wallix/deep-dives/bastion-data-model.md
+          - Session management: certs/wallix/deep-dives/session-management.md
+          - Secrets & password management: certs/wallix/deep-dives/secrets-and-password-management.md
+          - Authentication & Access Manager: certs/wallix/deep-dives/authentication-and-access-manager.md
+          - High availability & DR: certs/wallix/deep-dives/high-availability-and-dr.md
+          - REST API & automation: certs/wallix/deep-dives/rest-api-and-automation.md
+          - Troubleshooting & logs: certs/wallix/deep-dives/troubleshooting-and-logs.md
+          - PAM4OT (OT): certs/wallix/deep-dives/pam4ot-operational-technology.md
+          - IDaaS / Trustelem: certs/wallix/deep-dives/idaas-trustelem.md
+          - IAG — Identity & Access Governance: certs/wallix/deep-dives/iag-identity-governance.md
+          - EPM / BestSafe: certs/wallix/deep-dives/epm-bestsafe.md
+          - WALLIX One & integrations: certs/wallix/deep-dives/wallix-one-and-integrations.md
       - Labs:
-          - wallix/labs/README.md
-          - Build a home lab: wallix/labs/building-a-home-lab.md
-          - Hands-on exercises: wallix/labs/hands-on-exercises.md
+          - certs/wallix/labs/README.md
+          - Build a home lab: certs/wallix/labs/building-a-home-lab.md
+          - Hands-on exercises: certs/wallix/labs/hands-on-exercises.md
       - Exam prep:
-          - wallix/exam-prep/README.md
-          - Study plan: wallix/exam-prep/study-plan.md
-          - Practice questions: wallix/exam-prep/practice-questions.md
-          - Cheat sheet: wallix/exam-prep/cheat-sheet.md
+          - certs/wallix/exam-prep/README.md
+          - Study plan: certs/wallix/exam-prep/study-plan.md
+          - Practice questions: certs/wallix/exam-prep/practice-questions.md
+          - Cheat sheet: certs/wallix/exam-prep/cheat-sheet.md
       - Career:
-          - wallix/career/README.md
-          - Sysadmin → PAM roadmap: wallix/career/sysadmin-to-pam-roadmap.md
-          - Skills & adjacent certs: wallix/career/skills-and-adjacent-certifications.md
+          - certs/wallix/career/README.md
+          - Sysadmin → PAM roadmap: certs/wallix/career/sysadmin-to-pam-roadmap.md
+          - Skills & adjacent certs: certs/wallix/career/skills-and-adjacent-certifications.md
       - Reference:
           - reference/README.md
           - Glossary: reference/glossary.md
@@ -135,133 +137,133 @@ nav:
           - Compliance & standards: reference/compliance-and-standards.md
           - Sources: reference/sources.md
   - CompTIA Security+:
-      - security-plus/README.md
+      - certs/security-plus/README.md
       - Overview:
-          - What is Security+: security-plus/00-overview/what-is-security-plus.md
-          - Exam & objectives: security-plus/00-overview/exam-and-objectives.md
+          - What is Security+: certs/security-plus/00-overview/what-is-security-plus.md
+          - Exam & objectives: certs/security-plus/00-overview/exam-and-objectives.md
       - The 5 domains:
-          - security-plus/domains/README.md
-          - 1 · General security concepts: security-plus/domains/01-general-security-concepts.md
-          - 2 · Threats, vulnerabilities & mitigations: security-plus/domains/02-threats-vulnerabilities-mitigations.md
-          - 3 · Security architecture: security-plus/domains/03-security-architecture.md
-          - 4 · Security operations: security-plus/domains/04-security-operations.md
-          - 5 · Program management & oversight: security-plus/domains/05-security-program-management-oversight.md
+          - certs/security-plus/domains/README.md
+          - 1 · General security concepts: certs/security-plus/domains/01-general-security-concepts.md
+          - 2 · Threats, vulnerabilities & mitigations: certs/security-plus/domains/02-threats-vulnerabilities-mitigations.md
+          - 3 · Security architecture: certs/security-plus/domains/03-security-architecture.md
+          - 4 · Security operations: certs/security-plus/domains/04-security-operations.md
+          - 5 · Program management & oversight: certs/security-plus/domains/05-security-program-management-oversight.md
       - Exam prep:
-          - Study plan: security-plus/exam-prep/study-plan.md
-          - Practice questions: security-plus/exam-prep/practice-questions.md
-          - Cheat sheet: security-plus/exam-prep/cheat-sheet.md
+          - Study plan: certs/security-plus/exam-prep/study-plan.md
+          - Practice questions: certs/security-plus/exam-prep/practice-questions.md
+          - Cheat sheet: certs/security-plus/exam-prep/cheat-sheet.md
       - Reference:
-          - Acronyms: security-plus/reference/acronyms.md
-          - Glossary: security-plus/reference/glossary.md
+          - Acronyms: certs/security-plus/reference/acronyms.md
+          - Glossary: certs/security-plus/reference/glossary.md
   - CEH (Certified Ethical Hacker):
-      - ceh/README.md
+      - certs/ceh/README.md
       - Overview:
-          - What is CEH: ceh/00-overview/what-is-ceh.md
-          - Exam & eligibility: ceh/00-overview/exam-and-eligibility.md
-          - The 5 phases: ceh/00-overview/five-phases-of-hacking.md
-          - Legal & ethics: ceh/00-overview/legal-and-ethics.md
-          - AI in ethical hacking: ceh/00-overview/ai-in-ethical-hacking.md
-          - Engagement methodology & reporting: ceh/00-overview/engagement-methodology-and-reporting.md
+          - What is CEH: certs/ceh/00-overview/what-is-ceh.md
+          - Exam & eligibility: certs/ceh/00-overview/exam-and-eligibility.md
+          - The 5 phases: certs/ceh/00-overview/five-phases-of-hacking.md
+          - Legal & ethics: certs/ceh/00-overview/legal-and-ethics.md
+          - AI in ethical hacking: certs/ceh/00-overview/ai-in-ethical-hacking.md
+          - Engagement methodology & reporting: certs/ceh/00-overview/engagement-methodology-and-reporting.md
       - The 20 modules:
-          - ceh/domains/README.md
-          - 01 · Introduction to ethical hacking: ceh/domains/01-introduction-to-ethical-hacking.md
-          - 02 · Footprinting & reconnaissance: ceh/domains/02-footprinting-and-reconnaissance.md
-          - 03 · Scanning networks: ceh/domains/03-scanning-networks.md
-          - 04 · Enumeration: ceh/domains/04-enumeration.md
-          - 05 · Vulnerability analysis: ceh/domains/05-vulnerability-analysis.md
-          - 06 · System hacking: ceh/domains/06-system-hacking.md
-          - 07 · Malware threats: ceh/domains/07-malware-threats.md
-          - 08 · Sniffing: ceh/domains/08-sniffing.md
-          - 09 · Social engineering: ceh/domains/09-social-engineering.md
-          - 10 · Denial-of-service: ceh/domains/10-denial-of-service.md
-          - 11 · Session hijacking: ceh/domains/11-session-hijacking.md
-          - 12 · Evading IDS, firewalls & honeypots: ceh/domains/12-evading-ids-firewalls-honeypots.md
-          - 13 · Hacking web servers: ceh/domains/13-hacking-web-servers.md
-          - 14 · Hacking web applications: ceh/domains/14-hacking-web-applications.md
-          - 15 · SQL injection: ceh/domains/15-sql-injection.md
-          - 16 · Hacking wireless networks: ceh/domains/16-hacking-wireless-networks.md
-          - 17 · Hacking mobile platforms: ceh/domains/17-hacking-mobile-platforms.md
-          - 18 · IoT & OT hacking: ceh/domains/18-iot-and-ot-hacking.md
-          - 19 · Cloud computing: ceh/domains/19-cloud-computing.md
-          - 20 · Cryptography: ceh/domains/20-cryptography.md
-      - Tools by phase: ceh/tools/tools-by-phase.md
+          - certs/ceh/domains/README.md
+          - 01 · Introduction to ethical hacking: certs/ceh/domains/01-introduction-to-ethical-hacking.md
+          - 02 · Footprinting & reconnaissance: certs/ceh/domains/02-footprinting-and-reconnaissance.md
+          - 03 · Scanning networks: certs/ceh/domains/03-scanning-networks.md
+          - 04 · Enumeration: certs/ceh/domains/04-enumeration.md
+          - 05 · Vulnerability analysis: certs/ceh/domains/05-vulnerability-analysis.md
+          - 06 · System hacking: certs/ceh/domains/06-system-hacking.md
+          - 07 · Malware threats: certs/ceh/domains/07-malware-threats.md
+          - 08 · Sniffing: certs/ceh/domains/08-sniffing.md
+          - 09 · Social engineering: certs/ceh/domains/09-social-engineering.md
+          - 10 · Denial-of-service: certs/ceh/domains/10-denial-of-service.md
+          - 11 · Session hijacking: certs/ceh/domains/11-session-hijacking.md
+          - 12 · Evading IDS, firewalls & honeypots: certs/ceh/domains/12-evading-ids-firewalls-honeypots.md
+          - 13 · Hacking web servers: certs/ceh/domains/13-hacking-web-servers.md
+          - 14 · Hacking web applications: certs/ceh/domains/14-hacking-web-applications.md
+          - 15 · SQL injection: certs/ceh/domains/15-sql-injection.md
+          - 16 · Hacking wireless networks: certs/ceh/domains/16-hacking-wireless-networks.md
+          - 17 · Hacking mobile platforms: certs/ceh/domains/17-hacking-mobile-platforms.md
+          - 18 · IoT & OT hacking: certs/ceh/domains/18-iot-and-ot-hacking.md
+          - 19 · Cloud computing: certs/ceh/domains/19-cloud-computing.md
+          - 20 · Cryptography: certs/ceh/domains/20-cryptography.md
+      - Tools by phase: certs/ceh/tools/tools-by-phase.md
       - Labs:
-          - Build a CEH lab: ceh/labs/building-a-ceh-lab.md
-          - Practice ranges: ceh/labs/practice-ranges.md
+          - Build a CEH lab: certs/ceh/labs/building-a-ceh-lab.md
+          - Practice ranges: certs/ceh/labs/practice-ranges.md
       - Exam prep:
-          - Study plan: ceh/exam-prep/study-plan.md
-          - Practice questions: ceh/exam-prep/practice-questions.md
-          - Cheat sheet: ceh/exam-prep/cheat-sheet.md
-      - Career & adjacent certs: ceh/career/ceh-career-and-adjacent-certs.md
+          - Study plan: certs/ceh/exam-prep/study-plan.md
+          - Practice questions: certs/ceh/exam-prep/practice-questions.md
+          - Cheat sheet: certs/ceh/exam-prep/cheat-sheet.md
+      - Career & adjacent certs: certs/ceh/career/ceh-career-and-adjacent-certs.md
       - Reference:
-          - Glossary: ceh/reference/glossary.md
-          - Acronyms: ceh/reference/acronyms.md
+          - Glossary: certs/ceh/reference/glossary.md
+          - Acronyms: certs/ceh/reference/acronyms.md
   - CompTIA CySA+:
-      - cysa-plus/README.md
+      - certs/cysa-plus/README.md
       - Overview:
-          - What is CySA+: cysa-plus/00-overview/what-is-cysa-plus.md
-          - Exam & objectives: cysa-plus/00-overview/exam-and-objectives.md
+          - What is CySA+: certs/cysa-plus/00-overview/what-is-cysa-plus.md
+          - Exam & objectives: certs/cysa-plus/00-overview/exam-and-objectives.md
       - The 4 domains:
-          - cysa-plus/domains/README.md
-          - 1 · Security operations: cysa-plus/domains/01-security-operations.md
-          - 2 · Vulnerability management: cysa-plus/domains/02-vulnerability-management.md
-          - 3 · Incident response & management: cysa-plus/domains/03-incident-response-and-management.md
-          - 4 · Reporting & communication: cysa-plus/domains/04-reporting-and-communication.md
+          - certs/cysa-plus/domains/README.md
+          - 1 · Security operations: certs/cysa-plus/domains/01-security-operations.md
+          - 2 · Vulnerability management: certs/cysa-plus/domains/02-vulnerability-management.md
+          - 3 · Incident response & management: certs/cysa-plus/domains/03-incident-response-and-management.md
+          - 4 · Reporting & communication: certs/cysa-plus/domains/04-reporting-and-communication.md
       - Exam prep:
-          - Study plan: cysa-plus/exam-prep/study-plan.md
-          - Practice questions: cysa-plus/exam-prep/practice-questions.md
-      - Glossary: cysa-plus/reference/glossary.md
+          - Study plan: certs/cysa-plus/exam-prep/study-plan.md
+          - Practice questions: certs/cysa-plus/exam-prep/practice-questions.md
+      - Glossary: certs/cysa-plus/reference/glossary.md
   - CompTIA PenTest+:
-      - pentest-plus/README.md
+      - certs/pentest-plus/README.md
       - Overview:
-          - What is PenTest+: pentest-plus/00-overview/what-is-pentest-plus.md
-          - Exam & objectives: pentest-plus/00-overview/exam-and-objectives.md
+          - What is PenTest+: certs/pentest-plus/00-overview/what-is-pentest-plus.md
+          - Exam & objectives: certs/pentest-plus/00-overview/exam-and-objectives.md
       - The 5 domains:
-          - pentest-plus/domains/README.md
-          - 1 · Engagement management: pentest-plus/domains/01-engagement-management.md
-          - 2 · Reconnaissance & enumeration: pentest-plus/domains/02-reconnaissance-and-enumeration.md
-          - 3 · Vulnerability discovery & analysis: pentest-plus/domains/03-vulnerability-discovery-and-analysis.md
-          - 4 · Attacks & exploits: pentest-plus/domains/04-attacks-and-exploits.md
-          - 5 · Post-exploitation & lateral movement: pentest-plus/domains/05-post-exploitation-and-lateral-movement.md
+          - certs/pentest-plus/domains/README.md
+          - 1 · Engagement management: certs/pentest-plus/domains/01-engagement-management.md
+          - 2 · Reconnaissance & enumeration: certs/pentest-plus/domains/02-reconnaissance-and-enumeration.md
+          - 3 · Vulnerability discovery & analysis: certs/pentest-plus/domains/03-vulnerability-discovery-and-analysis.md
+          - 4 · Attacks & exploits: certs/pentest-plus/domains/04-attacks-and-exploits.md
+          - 5 · Post-exploitation & lateral movement: certs/pentest-plus/domains/05-post-exploitation-and-lateral-movement.md
       - Exam prep:
-          - Study plan: pentest-plus/exam-prep/study-plan.md
-          - Practice questions: pentest-plus/exam-prep/practice-questions.md
-          - Cheat sheet: pentest-plus/exam-prep/cheat-sheet.md
-      - Glossary: pentest-plus/reference/glossary.md
+          - Study plan: certs/pentest-plus/exam-prep/study-plan.md
+          - Practice questions: certs/pentest-plus/exam-prep/practice-questions.md
+          - Cheat sheet: certs/pentest-plus/exam-prep/cheat-sheet.md
+      - Glossary: certs/pentest-plus/reference/glossary.md
   - OSCP / OSCP+:
-      - oscp/README.md
+      - certs/oscp/README.md
       - Overview:
-          - What is OSCP: oscp/00-overview/what-is-oscp.md
-          - Exam structure: oscp/00-overview/exam-structure.md
+          - What is OSCP: certs/oscp/00-overview/what-is-oscp.md
+          - Exam structure: certs/oscp/00-overview/exam-structure.md
       - Skill areas:
-          - oscp/topics/README.md
-          - 1 · Enumeration & information gathering: oscp/topics/01-enumeration-and-information-gathering.md
-          - 2 · Web application attacks: oscp/topics/02-web-application-attacks.md
-          - 3 · Password & client-side attacks: oscp/topics/03-password-and-client-side-attacks.md
-          - 4 · Privilege escalation: oscp/topics/04-privilege-escalation.md
-          - 5 · Active Directory attacks: oscp/topics/05-active-directory-attacks.md
-          - 6 · Pivoting & tunneling: oscp/topics/06-pivoting-and-tunneling.md
-      - Study plan: oscp/exam-prep/study-plan.md
+          - certs/oscp/topics/README.md
+          - 1 · Enumeration & information gathering: certs/oscp/topics/01-enumeration-and-information-gathering.md
+          - 2 · Web application attacks: certs/oscp/topics/02-web-application-attacks.md
+          - 3 · Password & client-side attacks: certs/oscp/topics/03-password-and-client-side-attacks.md
+          - 4 · Privilege escalation: certs/oscp/topics/04-privilege-escalation.md
+          - 5 · Active Directory attacks: certs/oscp/topics/05-active-directory-attacks.md
+          - 6 · Pivoting & tunneling: certs/oscp/topics/06-pivoting-and-tunneling.md
+      - Study plan: certs/oscp/exam-prep/study-plan.md
   - PNPT:
-      - pnpt/README.md
+      - certs/pnpt/README.md
       - Overview:
-          - What is PNPT: pnpt/00-overview/what-is-pnpt.md
-          - Exam structure: pnpt/00-overview/exam-structure.md
+          - What is PNPT: certs/pnpt/00-overview/what-is-pnpt.md
+          - Exam structure: certs/pnpt/00-overview/exam-structure.md
       - Engagement phases:
-          - pnpt/topics/README.md
-          - 1 · OSINT & reconnaissance: pnpt/topics/01-osint-and-reconnaissance.md
-          - 2 · External penetration testing: pnpt/topics/02-external-penetration-testing.md
-          - 3 · Active Directory exploitation: pnpt/topics/03-active-directory-exploitation.md
-          - 4 · Lateral movement & pivoting: pnpt/topics/04-lateral-movement-and-pivoting.md
-          - 5 · Reporting & the debrief: pnpt/topics/05-reporting-and-the-debrief.md
-      - Study plan: pnpt/exam-prep/study-plan.md
+          - certs/pnpt/topics/README.md
+          - 1 · OSINT & reconnaissance: certs/pnpt/topics/01-osint-and-reconnaissance.md
+          - 2 · External penetration testing: certs/pnpt/topics/02-external-penetration-testing.md
+          - 3 · Active Directory exploitation: certs/pnpt/topics/03-active-directory-exploitation.md
+          - 4 · Lateral movement & pivoting: certs/pnpt/topics/04-lateral-movement-and-pivoting.md
+          - 5 · Reporting & the debrief: certs/pnpt/topics/05-reporting-and-the-debrief.md
+      - Study plan: certs/pnpt/exam-prep/study-plan.md
   - Adjacent certifications:
-      - adjacent-certs/README.md
-      - CompTIA Security+: adjacent-certs/security-plus.md
-      - OSCP: adjacent-certs/oscp.md
-      - PNPT: adjacent-certs/pnpt.md
-      - CISSP: adjacent-certs/cissp.md
-      - Cloud security: adjacent-certs/cloud-security.md
+      - certs/adjacent-certs/README.md
+      - CompTIA Security+: certs/adjacent-certs/security-plus.md
+      - OSCP: certs/adjacent-certs/oscp.md
+      - PNPT: certs/adjacent-certs/pnpt.md
+      - CISSP: certs/adjacent-certs/cissp.md
+      - Cloud security: certs/adjacent-certs/cloud-security.md
   - About:
       - Contributing: CONTRIBUTING.md
       - Maintenance & verification: MAINTENANCE.md

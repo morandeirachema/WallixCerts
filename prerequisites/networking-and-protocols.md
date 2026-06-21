@@ -108,7 +108,7 @@ verifies the IdP's signature and logs the user in (7–8). The SP never sees the
 
 > **Bastion tie-in:** **Access Manager** acts as the **SAML Service Provider** (both
 > SP- and IdP-initiated), trusting IdPs like Trustelem/ADFS/Entra. Per the
-> [product portfolio](../wallix/overview/product-portfolio.md#access-manager-web-portal--single-point-of-access--gateway),
+> [product portfolio](../certs/wallix/overview/product-portfolio.md#access-manager-web-portal--single-point-of-access--gateway),
 > **FIDO2/OTP/push are not native to WAM — they arrive via the federated IdP** over
 > SAML/OIDC.
 
@@ -148,7 +148,7 @@ through the user's browser. The RP then validates the ID Token's signature (8).
 
 > **Bastion tie-in:** **Access Manager** supports **OIDC (Authorization Code Flow)** as
 > an authentication-domain type (per the
-> [product portfolio](../wallix/overview/product-portfolio.md#access-manager-web-portal--single-point-of-access--gateway)).
+> [product portfolio](../certs/wallix/overview/product-portfolio.md#access-manager-web-portal--single-point-of-access--gateway)).
 
 ---
 
@@ -185,7 +185,7 @@ an OTP (4a/4b), then finally **Access-Accept** or **Access-Reject** (5). Account
 > WALLIX **Trustelem** integrates with Bastion via **LDAP/RADIUS** to deliver MFA. Note
 > RADIUS typically carries PAP and is used as a "**2nd factor only**" mechanism in the
 > Trustelem integration (per the
-> [product portfolio](../wallix/overview/product-portfolio.md#supported-protocols--standards)).
+> [product portfolio](../certs/wallix/overview/product-portfolio.md#supported-protocols--standards)).
 
 ---
 
@@ -195,9 +195,9 @@ an OTP (4a/4b), then finally **Access-Accept** or **Access-Reject** (5). Account
   configure session protocols and LDAP/RADIUS auth.
 - **WCE-P (Expert):** the **Advanced authentication** module covers **RADIUS, Kerberos,
   X.509, and SAML** directly (see
-  [wce-p-expert.md](../wallix/pam-bastion/wce-p-expert.md)); SAML/OIDC are central to
+  [wce-p-expert.md](../certs/wallix/pam-bastion/wce-p-expert.md)); SAML/OIDC are central to
   Access Manager. The IDaaS track adds **SCIM, SAML, OIDC/OAuth 2.0**
-  (see [ewcp-i-professional.md](../wallix/idaas/ewcp-i-professional.md)).
+  (see [ewcp-i-professional.md](../certs/wallix/idaas/ewcp-i-professional.md)).
 
 ---
 
@@ -217,4 +217,4 @@ an OTP (4a/4b), then finally **Access-Accept** or **Access-Reject** (5). Account
 - RFC 5424 — The Syslog Protocol: https://www.rfc-editor.org/rfc/rfc5424
 - RFC 3416 — SNMPv2 protocol operations: https://www.rfc-editor.org/rfc/rfc3416
 - IANA Service Name and Transport Protocol Port Number Registry: https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml
-- WALLIX Bastion / Access Manager / Trustelem protocol support: [product-portfolio.md](../wallix/overview/product-portfolio.md)
+- WALLIX Bastion / Access Manager / Trustelem protocol support: [product-portfolio.md](../certs/wallix/overview/product-portfolio.md)

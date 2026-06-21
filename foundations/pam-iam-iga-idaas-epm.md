@@ -8,7 +8,7 @@ product line so you always know which tool does what. A big comparison table and
 
 > Builds on [what-is-pam.md](what-is-pam.md). For the WALLIX products themselves, the
 > authoritative reference is the
-> [product portfolio](../wallix/overview/product-portfolio.md) — this page links into
+> [product portfolio](../certs/wallix/overview/product-portfolio.md) — this page links into
 > it rather than repeating it.
 
 ## Learning objectives
@@ -82,7 +82,7 @@ it: **access reviews / certification campaigns** (periodically re-confirm who ha
 & over-entitled account** clean-up, and **compliance reporting**. The two acronyms are
 near-synonyms; analysts (e.g. Gartner) prefer **IGA**, while WALLIX brands its product
 **IAG** (the acquired Kleverware technology — see
-[IAG section](../wallix/overview/product-portfolio.md#5-wallix-iag--identity--access-governance)).
+[IAG section](../certs/wallix/overview/product-portfolio.md#5-wallix-iag--identity--access-governance)).
 Pairing IGA with PAM yields **Privileged Access Governance (PAG)** — governance applied
 specifically to privileged accounts.
 
@@ -105,7 +105,7 @@ workstations/servers, then grant elevation **per application/process** as policy
 This kills the "everyone is local admin" risk that fuels malware and lateral movement.
 WALLIX delivers EPM via **BestSafe**, which assigns privilege to **applications, not
 users** — see
-[BestSafe section](../wallix/overview/product-portfolio.md#4-wallix-bestsafe--endpoint-privilege-management-epm).
+[BestSafe section](../certs/wallix/overview/product-portfolio.md#4-wallix-bestsafe--endpoint-privilege-management-epm).
 
 > **PAM vs EPM — the key distinction:** PAM controls the **session/credential to a
 > remote target** (the *gateway* side). EPM controls **privilege on the local machine
@@ -119,7 +119,7 @@ grained **entitlements** (roles, policies, permissions). CIEM **discovers, analy
 right-sizes** those entitlements to enforce least privilege in the cloud — essentially
 "IGA-style governance + PAM-style least privilege, specialized for cloud IAM." *Flag: no
 dedicated WALLIX CIEM product is identified in the
-[product portfolio](../wallix/overview/product-portfolio.md); treat CIEM here as
+[product portfolio](../certs/wallix/overview/product-portfolio.md); treat CIEM here as
 context for the landscape, not a WALLIX offering.*
 
 > **Acronyms:** **AuthN** = Authentication · **AuthZ** = Authorization ·
@@ -214,7 +214,7 @@ flowchart TD
 - [Privileged accounts & credentials](privileged-accounts-and-credentials.md)
 - [PAM threat landscape](pam-threat-landscape.md)
 - [Core concepts: least privilege, JIT, Zero Trust](core-concepts-least-privilege-jit-zero-trust.md)
-- [WALLIX product portfolio](../wallix/overview/product-portfolio.md)
+- [WALLIX product portfolio](../certs/wallix/overview/product-portfolio.md)
 - [Acronyms](../reference/acronyms.md) · [Glossary](../reference/glossary.md)
 
 ---

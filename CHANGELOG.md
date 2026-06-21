@@ -3,6 +3,19 @@
 Notable changes to this study repo. Dates are when the work landed on `main`.
 This is a documentation repo, so "changes" are content additions and corrections.
 
+## 2026-06-22
+
+### Changed — folder reorganization
+- **Grouped every certification hub under one top-level `certs/` folder**:
+  `certs/wallix/`, `certs/ceh/`, `certs/security-plus/`, `certs/cysa-plus/`,
+  `certs/pentest-plus/`, `certs/oscp/`, `certs/pnpt/`, `certs/adjacent-certs/`. Added
+  `certs/README.md` indexing them.
+- The top level is now minimal: `certs/` + the shared knowledge it draws on
+  (`foundations/`, `prerequisites/`, `protocols/`, `reference/`, `learning/`,
+  `attack-to-defense-matrix.md`).
+- All affected cross-links recomputed via the path-aware migration; nav, root README,
+  `CLAUDE.md`, and `CONTRIBUTING.md` updated. Gate: 175 files, 0 broken links.
+
 ## 2026-06-21 (later)
 
 ### Changed — folder reorganization

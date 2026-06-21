@@ -395,7 +395,7 @@ multiplexing is exactly why port forwarding is so useful — and why a bastion m
   target secret so the user never learns it), enforces the **single trusted point** that fixes
   the TOFU/host-key trust problem at scale, controls which channels are allowed (e.g. block
   port forwarding or SFTP per policy), and **records the session** for audit and replay. See
-  [../deep-dives/bastion-architecture.md](../wallix/deep-dives/bastion-architecture.md) for how this
+  [../deep-dives/bastion-architecture.md](../certs/wallix/deep-dives/bastion-architecture.md) for how this
   proxy/record design works. Compare with the parallel mechanisms in
   [./tls.md](tls.md) and [./kerberos.md](kerberos.md).
 
@@ -415,5 +415,5 @@ multiplexing is exactly why port forwarding is so useful — and why a bastion m
 
 > Cross-references: [../prerequisites/linux-essentials-for-pam.md](../prerequisites/linux-essentials-for-pam.md) ·
 > [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md) ·
-> [../deep-dives/bastion-architecture.md](../wallix/deep-dives/bastion-architecture.md) ·
+> [../deep-dives/bastion-architecture.md](../certs/wallix/deep-dives/bastion-architecture.md) ·
 > [./tls.md](tls.md) · [./kerberos.md](kerberos.md)

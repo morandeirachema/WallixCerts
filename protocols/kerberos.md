@@ -29,7 +29,7 @@ By the end of this page you should be able to:
 See also [active-directory.md](active-directory.md),
 [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md),
 [../prerequisites/windows-and-active-directory.md](../prerequisites/windows-and-active-directory.md),
-and [../deep-dives/authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md).
+and [../deep-dives/authentication-and-access-manager.md](../certs/wallix/deep-dives/authentication-and-access-manager.md).
 
 ---
 

@@ -17,8 +17,8 @@ into cybersecurity**, anchored on **Privileged Access Management (PAM)** and **W
 
 **[🌐 Read the site](https://morandeirachema.github.io/WallixCerts/)** ·
 [🗺️ Roadmap](learning/roadmap.md) ·
-[🛡️ WALLIX/PAM](wallix/README.md) ·
-[⚔️ CEH](ceh/README.md) ·
+[🛡️ WALLIX/PAM](certs/wallix/README.md) ·
+[⚔️ CEH](certs/ceh/README.md) ·
 [🔌 Protocols](protocols/README.md) ·
 [🧰 Platforms](learning/platforms.md)
 
@@ -36,11 +36,11 @@ into cybersecurity**, anchored on **Privileged Access Management (PAM)** and **W
 
 | I want to… | Go to |
 |------------|-------|
-| 🛡️ **Get into PAM / pass a WALLIX cert** | [WALLIX / PAM hub](wallix/README.md) · [PAM/Bastion track](wallix/pam-bastion/README.md) |
-| ⚔️ **Learn ethical hacking (CEH)** | [CEH v13 hub](ceh/README.md) · [the 20 modules](ceh/domains/README.md) |
-| 🧱 **Get the vendor-neutral baseline (Security+)** | [Security+ hub](security-plus/README.md) · [the 5 domains](security-plus/domains/README.md) |
-| 🔵 **Become a blue-team / SOC analyst (CySA+)** | [CySA+ hub](cysa-plus/README.md) · [the 4 domains](cysa-plus/domains/README.md) |
-| 🟠 **Learn penetration testing (PenTest+ / OSCP / PNPT)** | [PenTest+](pentest-plus/README.md) · [OSCP](oscp/README.md) · [PNPT](pnpt/README.md) |
+| 🛡️ **Get into PAM / pass a WALLIX cert** | [WALLIX / PAM hub](certs/wallix/README.md) · [PAM/Bastion track](certs/wallix/pam-bastion/README.md) |
+| ⚔️ **Learn ethical hacking (CEH)** | [CEH v13 hub](certs/ceh/README.md) · [the 20 modules](certs/ceh/domains/README.md) |
+| 🧱 **Get the vendor-neutral baseline (Security+)** | [Security+ hub](certs/security-plus/README.md) · [the 5 domains](certs/security-plus/domains/README.md) |
+| 🔵 **Become a blue-team / SOC analyst (CySA+)** | [CySA+ hub](certs/cysa-plus/README.md) · [the 4 domains](certs/cysa-plus/domains/README.md) |
+| 🟠 **Learn penetration testing (PenTest+ / OSCP / PNPT)** | [PenTest+](certs/pentest-plus/README.md) · [OSCP](certs/oscp/README.md) · [PNPT](certs/pnpt/README.md) |
 | 🔌 **Understand a protocol** (Kerberos, TLS, SAML…) | [Protocols](protocols/README.md) |
 | 🧭 **Plan a cybersecurity career** | [Learning roadmap](learning/roadmap.md) |
 | 🧰 **Find the best platforms to practice** | [Learning platforms](learning/platforms.md) |
@@ -80,36 +80,36 @@ flowchart TB
 | [Prerequisites](prerequisites/README.md) | Linux · Windows/Active Directory · networking · cryptography & PKI (the sysadmin → cyber bridge) |
 | [Protocols](protocols/README.md) | **8 mechanism deep dives** — Kerberos, AD, LDAP, RADIUS, TLS, SSH, SAML, OIDC/OAuth 2.0 (flows + how they encrypt) |
 
-**🛡️ [WALLIX / PAM hub](wallix/README.md)** — all WALLIX material under `wallix/`
+**🛡️ [WALLIX / PAM hub](certs/wallix/README.md)** — all WALLIX material under `certs/wallix/`
 
 | Section | Covers |
 |---------|--------|
-| [Product portfolio](wallix/overview/product-portfolio.md) · [Cert framework](wallix/overview/certification-framework.md) | The WALLIX suite + how the certifications are structured |
-| [PAM / Bastion track](wallix/pam-bastion/README.md) | **WCA-P → WCP-P → WCE-P** — curricula, scope, exam focus, study tips |
-| [Deep dives](wallix/deep-dives/README.md) | **13 docs** — Bastion architecture, data model, sessions, secrets, auth, HA/DR, REST API, PAM4OT, IDaaS, IAG, EPM, WALLIX One |
-| [Labs](wallix/labs/README.md) · [Exam prep](wallix/exam-prep/README.md) · [Career](wallix/career/README.md) | Build a lab, exercises, study plan, practice questions, cheat sheet, roadmap |
+| [Product portfolio](certs/wallix/overview/product-portfolio.md) · [Cert framework](certs/wallix/overview/certification-framework.md) | The WALLIX suite + how the certifications are structured |
+| [PAM / Bastion track](certs/wallix/pam-bastion/README.md) | **WCA-P → WCP-P → WCE-P** — curricula, scope, exam focus, study tips |
+| [Deep dives](certs/wallix/deep-dives/README.md) | **13 docs** — Bastion architecture, data model, sessions, secrets, auth, HA/DR, REST API, PAM4OT, IDaaS, IAG, EPM, WALLIX One |
+| [Labs](certs/wallix/labs/README.md) · [Exam prep](certs/wallix/exam-prep/README.md) · [Career](certs/wallix/career/README.md) | Build a lab, exercises, study plan, practice questions, cheat sheet, roadmap |
 
 **⚔️ CEH hub** *(defense-oriented, educational & authorized-use only)*
 
 | Section | Covers |
 |---------|--------|
-| [CEH v13 hub](ceh/README.md) | Overview, exam & eligibility, the 5 phases, **legal & ethics**, AI in ethical hacking, engagement & reporting |
-| [The 20 modules](ceh/domains/README.md) | Recon → scanning → system hacking → malware → web → wireless → cloud → crypto, each with countermeasures |
-| [Tools](ceh/tools/tools-by-phase.md) · [Labs](ceh/labs/building-a-ceh-lab.md) · [Exam prep](ceh/exam-prep/study-plan.md) | Tools by phase, safe-lab setup, study plan, 56 practice Qs, cheat sheet |
+| [CEH v13 hub](certs/ceh/README.md) | Overview, exam & eligibility, the 5 phases, **legal & ethics**, AI in ethical hacking, engagement & reporting |
+| [The 20 modules](certs/ceh/domains/README.md) | Recon → scanning → system hacking → malware → web → wireless → cloud → crypto, each with countermeasures |
+| [Tools](certs/ceh/tools/tools-by-phase.md) · [Labs](certs/ceh/labs/building-a-ceh-lab.md) · [Exam prep](certs/ceh/exam-prep/study-plan.md) | Tools by phase, safe-lab setup, study plan, 56 practice Qs, cheat sheet |
 
 **🧱 CompTIA & practical cert hubs** *(vendor-neutral)*
 
 | Hub | Focus | Exam |
 |-----|-------|------|
-| [Security+](security-plus/README.md) | Foundational baseline (defensive lean) | SY0-701 — [5 domains](security-plus/domains/README.md) |
-| [CySA+](cysa-plus/README.md) | Blue-team / SOC analyst — detection & response | CS0-003 — [4 domains](cysa-plus/domains/README.md) |
-| [PenTest+](pentest-plus/README.md) | Vendor-neutral penetration testing + reporting | PT0-003 — [5 domains](pentest-plus/domains/README.md) |
-| [OSCP / OSCP+](oscp/README.md) | Hands-on offensive (24-hour exam) | OffSec PEN-200 — [skill areas](oscp/topics/README.md) |
-| [PNPT](pnpt/README.md) | Practical engagement + live debrief | TCM Security — [engagement phases](pnpt/topics/README.md) |
+| [Security+](certs/security-plus/README.md) | Foundational baseline (defensive lean) | SY0-701 — [5 domains](certs/security-plus/domains/README.md) |
+| [CySA+](certs/cysa-plus/README.md) | Blue-team / SOC analyst — detection & response | CS0-003 — [4 domains](certs/cysa-plus/domains/README.md) |
+| [PenTest+](certs/pentest-plus/README.md) | Vendor-neutral penetration testing + reporting | PT0-003 — [5 domains](certs/pentest-plus/domains/README.md) |
+| [OSCP / OSCP+](certs/oscp/README.md) | Hands-on offensive (24-hour exam) | OffSec PEN-200 — [skill areas](certs/oscp/topics/README.md) |
+| [PNPT](certs/pnpt/README.md) | Practical engagement + live debrief | TCM Security — [engagement phases](certs/pnpt/topics/README.md) |
 
 **🧩 Adjacent certifications** — concise, provider-cited overviews
 
-[CISSP](adjacent-certs/cissp.md) · [Cloud security (AZ-500 / AWS)](adjacent-certs/cloud-security.md) *(Security+, CySA+, PenTest+, OSCP & PNPT each have their own full hubs above)*
+[CISSP](certs/adjacent-certs/cissp.md) · [Cloud security (AZ-500 / AWS)](certs/adjacent-certs/cloud-security.md) *(Security+, CySA+, PenTest+, OSCP & PNPT each have their own full hubs above)*
 
 **🧭 Cross-cutting & reference**
 
@@ -127,10 +127,10 @@ flowchart LR
 
 | Track | Product | Administrator | Professional | Expert |
 |-------|---------|---------------|--------------|--------|
-| **PAM / Bastion** | WALLIX Bastion | [WCA-P](wallix/pam-bastion/wca-p-administrator.md) | [WCP-P](wallix/pam-bastion/wcp-p-professional.md) | [WCE-P](wallix/pam-bastion/wce-p-expert.md) |
-| **IAG** | WALLIX IAG | [WCA-G](wallix/iag/wca-g-administrator.md) *(soon)* | [WCP-G](wallix/iag/ewcp-g-professional.md) | — |
-| **IDaaS** | WALLIX One IDaaS (Trustelem) | — | [WCP-I](wallix/idaas/ewcp-i-professional.md) | — |
-| **OT** | WALLIX PAM4OT | — | [eWCP-P-OT](wallix/ot-pam4ot/ewcp-p-ot-professional.md) | — |
+| **PAM / Bastion** | WALLIX Bastion | [WCA-P](certs/wallix/pam-bastion/wca-p-administrator.md) | [WCP-P](certs/wallix/pam-bastion/wcp-p-professional.md) | [WCE-P](certs/wallix/pam-bastion/wce-p-expert.md) |
+| **IAG** | WALLIX IAG | [WCA-G](certs/wallix/iag/wca-g-administrator.md) *(soon)* | [WCP-G](certs/wallix/iag/ewcp-g-professional.md) | — |
+| **IDaaS** | WALLIX One IDaaS (Trustelem) | — | [WCP-I](certs/wallix/idaas/ewcp-i-professional.md) | — |
+| **OT** | WALLIX PAM4OT | — | [eWCP-P-OT](certs/wallix/ot-pam4ot/ewcp-p-ot-professional.md) | — |
 
 ## ✅ How this repo is built
 
@@ -145,14 +145,14 @@ flowchart LR
 ```mermaid
 flowchart TB
     Root["📦 WallixCerts/"]
-    subgraph SHARED["Shared fundamentals (root)"]
+    subgraph SHARED["Shared (root)"]
         FND["foundations/<br/>PAM concepts · threats"]
         PRE["prerequisites/<br/>Linux · Win/AD · net · crypto"]
         PRO["protocols/<br/>Kerberos · TLS · SAML · …"]
         REF["reference/ · learning/"]
     end
-    subgraph CERTS["Certification hubs"]
-        WAL["wallix/<br/>WALLIX / PAM (primary)<br/>overview · pam-bastion · iag<br/>idaas · ot-pam4ot · deep-dives<br/>labs · exam-prep · career"]
+    subgraph CERTS["certs/ — all certification hubs"]
+        WAL["wallix/<br/>WALLIX / PAM (primary)"]
         CEHD["ceh/<br/>CEH v13 (20 modules)"]
         SP["security-plus/ · cysa-plus/<br/>pentest-plus/ (CompTIA)"]
         OFF["oscp/ · pnpt/<br/>(practical offensive)"]

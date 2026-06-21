@@ -2,8 +2,8 @@
 
 A suggested path that ties this repo's hubs together — from systems-administration
 fundamentals to a privileged-access / blue-team specialisation, with offensive, cloud, and
-senior tracks alongside. It connects the **[WALLIX/PAM](../README.md)**, **[CEH](../ceh/README.md)**,
-and **[adjacent-cert](../adjacent-certs/README.md)** material into one journey.
+senior tracks alongside. It connects the **[WALLIX/PAM](../README.md)**, **[CEH](../certs/ceh/README.md)**,
+and **[adjacent-cert](../certs/adjacent-certs/README.md)** material into one journey.
 
 > *This is **suggested guidance**, not a prescriptive or official path — order it to your
 > goals and employer. Certification specifics change; verify on each provider's site. No
@@ -37,12 +37,12 @@ flowchart TD
 | Stage | What & why | In this repo |
 |-------|-----------|--------------|
 | **0 · Foundations** | The infrastructure PAM and security sit on | [foundations/](../foundations/README.md) · [prerequisites/](../prerequisites/README.md) · [protocols/](../protocols/README.md) |
-| **1 · Entry** | Broad, vendor-neutral baseline (Security+) | [Security+ hub](../security-plus/README.md) (the [5 domains](../security-plus/domains/README.md)) |
-| **2a · Identity / PAM** | Specialise in privileged access (the repo's core) | [WALLIX hub](../README.md) · [PAM/Bastion track](../wallix/pam-bastion/README.md) · [deep dives](../wallix/deep-dives/README.md) |
-| **2b · Blue team / SOC** | Detection, monitoring & incident response | [CySA+ hub](../cysa-plus/README.md) |
-| **2c · Offensive** | Understand the attacker (knowledge → hands-on) | [CEH hub](../ceh/README.md) → [PenTest+](../pentest-plus/README.md) → [PNPT](../pnpt/README.md) → [OSCP](../oscp/README.md) |
-| **2d · Cloud** | Secure cloud identities & workloads | [adjacent-certs/cloud-security.md](../adjacent-certs/cloud-security.md) · [CEH cloud module](../ceh/domains/19-cloud-computing.md) |
-| **3 · Senior** | Breadth & management | [adjacent-certs/cissp.md](../adjacent-certs/cissp.md) |
+| **1 · Entry** | Broad, vendor-neutral baseline (Security+) | [Security+ hub](../certs/security-plus/README.md) (the [5 domains](../certs/security-plus/domains/README.md)) |
+| **2a · Identity / PAM** | Specialise in privileged access (the repo's core) | [WALLIX hub](../README.md) · [PAM/Bastion track](../certs/wallix/pam-bastion/README.md) · [deep dives](../certs/wallix/deep-dives/README.md) |
+| **2b · Blue team / SOC** | Detection, monitoring & incident response | [CySA+ hub](../certs/cysa-plus/README.md) |
+| **2c · Offensive** | Understand the attacker (knowledge → hands-on) | [CEH hub](../certs/ceh/README.md) → [PenTest+](../certs/pentest-plus/README.md) → [PNPT](../certs/pnpt/README.md) → [OSCP](../certs/oscp/README.md) |
+| **2d · Cloud** | Secure cloud identities & workloads | [adjacent-certs/cloud-security.md](../certs/adjacent-certs/cloud-security.md) · [CEH cloud module](../certs/ceh/domains/19-cloud-computing.md) |
+| **3 · Senior** | Breadth & management | [adjacent-certs/cissp.md](../certs/adjacent-certs/cissp.md) |
 
 > 🧰 **Where to practice each stage:** see **[learning-platforms.md](platforms.md)** —
 > the best platforms (free & paid) for every step, from Professor Messer and TryHackMe to
@@ -50,15 +50,15 @@ flowchart TD
 
 ## How the offensive and defensive sides reinforce each other
 
-A PAM engineer who understands the [attack chain](../ceh/domains/01-introduction-to-ethical-hacking.md)
+A PAM engineer who understands the [attack chain](../certs/ceh/domains/01-introduction-to-ethical-hacking.md)
 and [credential attacks](../foundations/pam-threat-landscape.md) configures better controls; a
-pentester who understands [how PAM brokers and records sessions](../wallix/deep-dives/bastion-architecture.md)
+pentester who understands [how PAM brokers and records sessions](../certs/wallix/deep-dives/bastion-architecture.md)
 writes more useful findings. The two hubs are deliberately cross-linked — see the
 **[attack → defense matrix](../attack-to-defense-matrix.md)** for the concrete mapping of
 attack techniques to the controls that stop them.
 
 ## Sources
 
-- Certification specifics: see each cert's page under [adjacent-certs/](../adjacent-certs/README.md),
-  the [CEH hub](../ceh/README.md), and the [WALLIX certification framework](../wallix/overview/certification-framework.md),
+- Certification specifics: see each cert's page under [adjacent-certs/](../certs/adjacent-certs/README.md),
+  the [CEH hub](../certs/ceh/README.md), and the [WALLIX certification framework](../certs/wallix/overview/certification-framework.md),
   each of which cites its provider.

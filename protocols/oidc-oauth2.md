@@ -305,8 +305,8 @@ Keep the two mechanisms distinct, exactly as in SAML:
 
 For how WALLIX brokers these protocols — Access Manager / Bastion as OAuth client and OIDC
 relying party, WALLIX One IDaaS as the OpenID Provider — see
-[../deep-dives/authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md)
-and [../deep-dives/idaas-trustelem.md](../wallix/deep-dives/idaas-trustelem.md). For the XML-based
+[../deep-dives/authentication-and-access-manager.md](../certs/wallix/deep-dives/authentication-and-access-manager.md)
+and [../deep-dives/idaas-trustelem.md](../certs/wallix/deep-dives/idaas-trustelem.md). For the XML-based
 predecessor solving the same SSO problem, see [./saml.md](saml.md).
 
 ---
@@ -327,5 +327,5 @@ predecessor solving the same SSO problem, see [./saml.md](saml.md).
   <https://www.rfc-editor.org/rfc/rfc9700>
 - Related: [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md),
   [./tls.md](tls.md), [./saml.md](saml.md),
-  [../deep-dives/authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md),
-  [../deep-dives/idaas-trustelem.md](../wallix/deep-dives/idaas-trustelem.md)
+  [../deep-dives/authentication-and-access-manager.md](../certs/wallix/deep-dives/authentication-and-access-manager.md),
+  [../deep-dives/idaas-trustelem.md](../certs/wallix/deep-dives/idaas-trustelem.md)

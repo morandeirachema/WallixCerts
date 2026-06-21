@@ -6,11 +6,11 @@ and **factual accuracy**, not software vulnerabilities.
 
 ## Responsible / authorized use
 
-Parts of this repo (notably the [CEH hub](ceh/README.md)) explain **offensive** security
+Parts of this repo (notably the [CEH hub](certs/ceh/README.md)) explain **offensive** security
 concepts. They are written at an **educational, defense-oriented** level and paired with
 countermeasures. Any hands-on use of these techniques is legal **only** against systems you
 own or are **explicitly authorized in writing** to test. See
-[CEH → legal & ethics](ceh/00-overview/legal-and-ethics.md). The maintainers do not condone
+[CEH → legal & ethics](certs/ceh/00-overview/legal-and-ethics.md). The maintainers do not condone
 unauthorized access.
 
 ## Reporting a problem

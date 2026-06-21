@@ -4,7 +4,7 @@
 
 This page is written for a systems administrator beginning a cybersecurity career in **Privileged Access Management (PAM)**. It explains the two analyst frameworks buyers rely on, compares the major vendors factually, and shows where **WALLIX** — the European (French) PAM vendor whose certifications this repository documents — sits in that market and why.
 
-For the WALLIX product details referenced throughout, see [../docs/00-overview/product-portfolio.md](../wallix/overview/product-portfolio.md). For how a sysadmin builds toward a PAM role, see [../career/sysadmin-to-pam-roadmap.md](../wallix/career/sysadmin-to-pam-roadmap.md).
+For the WALLIX product details referenced throughout, see [../docs/00-overview/product-portfolio.md](../certs/wallix/overview/product-portfolio.md). For how a sysadmin builds toward a PAM role, see [../career/sysadmin-to-pam-roadmap.md](../certs/wallix/career/sysadmin-to-pam-roadmap.md).
 
 ---
 
@@ -146,7 +146,7 @@ WALLIX competes less on raw scale (where CyberArk/BeyondTrust/Delinea lead) and 
 | **OT / industrial security** | **PAM4OT** under the *OT.security by WALLIX* brand; agentless access to PLCs/HMIs; industrial-protocol encapsulation in SSH; alliances with Schneider Electric, Cisco, Nozomi. Analysts (Gartner 2025, KuppingerCole 2026) call OT/CPS coverage a genuine differentiator. | Industrial operators need privileged-access control without disrupting production — an area many IT-only PAM tools cover weakly. |
 | **Integrated suite (PAM + IDaaS + IAG + EPM)** | One vendor across **Bastion (PAM)**, **Trustelem (IDaaS — SSO/MFA)**, **IAG (governance, ex-Kleverware)**, and **BestSafe (EPM/PEDM)**. | Fewer vendors to integrate; converges PAM with identity governance and endpoint least-privilege under a single roof. |
 
-See [../docs/00-overview/product-portfolio.md](../wallix/overview/product-portfolio.md) for the full technical detail and certification caveats behind each of these.
+See [../docs/00-overview/product-portfolio.md](../certs/wallix/overview/product-portfolio.md) for the full technical detail and certification caveats behind each of these.
 
 ---
 
@@ -190,7 +190,7 @@ Adjacent tools (different primary job, often compared to PAM, sitting outside th
 - **Sovereignty and OT are growth lanes.** EU regulation (NIS2, DORA) and industrial security are where European specialists like WALLIX differentiate — useful context if you target EU public-sector or industrial employers.
 - **Adjacent tools are not substitutes.** Expect to integrate PAM with secrets managers (Vault) and cloud-identity JIT (Entra PIM) rather than replace one with the other.
 
-Next: [../career/sysadmin-to-pam-roadmap.md](../wallix/career/sysadmin-to-pam-roadmap.md).
+Next: [../career/sysadmin-to-pam-roadmap.md](../certs/wallix/career/sysadmin-to-pam-roadmap.md).
 
 ---
 

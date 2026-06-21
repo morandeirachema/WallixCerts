@@ -35,7 +35,7 @@ See [../prerequisites/networking-and-protocols.md](../prerequisites/networking-a
 for ports and transport, [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md)
 for TLS and certificates, [./tls.md](tls.md) for the TLS handshake itself,
 [./kerberos.md](kerberos.md) for the GSSAPI/Kerberos bind mechanism, and
-[../deep-dives/authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md)
+[../deep-dives/authentication-and-access-manager.md](../certs/wallix/deep-dives/authentication-and-access-manager.md)
 for how WALLIX consumes LDAP/AD identities.
 
 ---

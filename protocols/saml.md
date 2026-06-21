@@ -311,8 +311,8 @@ needs the signature; encryption is added when attribute confidentiality matters.
 
 For how WALLIX consumes/produces SAML in practice — Access Manager and Bastion as SAML SP, and
 WALLIX One IDaaS as IdP — see
-[../deep-dives/authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md)
-and [../deep-dives/idaas-trustelem.md](../wallix/deep-dives/idaas-trustelem.md). For the newer,
+[../deep-dives/authentication-and-access-manager.md](../certs/wallix/deep-dives/authentication-and-access-manager.md)
+and [../deep-dives/idaas-trustelem.md](../certs/wallix/deep-dives/idaas-trustelem.md). For the newer,
 JSON/JWT-based federation alternative, see [./oidc-oauth2.md](oidc-oauth2.md).
 
 ---
@@ -334,5 +334,5 @@ JSON/JWT-based federation alternative, see [./oidc-oauth2.md](oidc-oauth2.md).
   <https://www.w3.org/TR/xmlenc-core/>
 - Related: [../prerequisites/cryptography-and-pki.md](../prerequisites/cryptography-and-pki.md),
   [./tls.md](tls.md), [./oidc-oauth2.md](oidc-oauth2.md),
-  [../deep-dives/authentication-and-access-manager.md](../wallix/deep-dives/authentication-and-access-manager.md),
-  [../deep-dives/idaas-trustelem.md](../wallix/deep-dives/idaas-trustelem.md)
+  [../deep-dives/authentication-and-access-manager.md](../certs/wallix/deep-dives/authentication-and-access-manager.md),
+  [../deep-dives/idaas-trustelem.md](../certs/wallix/deep-dives/idaas-trustelem.md)
