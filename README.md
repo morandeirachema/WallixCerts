@@ -39,6 +39,8 @@ into cybersecurity**, anchored on **Privileged Access Management (PAM)** and **W
 | 🛡️ **Get into PAM / pass a WALLIX cert** | [WALLIX / PAM hub](docs/pam-bastion/README.md) · [product portfolio](docs/00-overview/product-portfolio.md) |
 | ⚔️ **Learn ethical hacking (CEH)** | [CEH v13 hub](ceh/README.md) · [the 20 modules](ceh/domains/README.md) |
 | 🧱 **Get the vendor-neutral baseline (Security+)** | [Security+ hub](security-plus/README.md) · [the 5 domains](security-plus/domains/README.md) |
+| 🔵 **Become a blue-team / SOC analyst (CySA+)** | [CySA+ hub](cysa-plus/README.md) · [the 4 domains](cysa-plus/domains/README.md) |
+| 🟠 **Learn penetration testing (PenTest+ / OSCP / PNPT)** | [PenTest+](pentest-plus/README.md) · [OSCP](oscp/README.md) · [PNPT](pnpt/README.md) |
 | 🔌 **Understand a protocol** (Kerberos, TLS, SAML…) | [Protocols](protocols/README.md) |
 | 🧭 **Plan a cybersecurity career** | [Learning roadmap](learning/roadmap.md) |
 | 🧰 **Find the best platforms to practice** | [Learning platforms](learning/platforms.md) |
@@ -95,17 +97,19 @@ flowchart TB
 | [The 20 modules](ceh/domains/README.md) | Recon → scanning → system hacking → malware → web → wireless → cloud → crypto, each with countermeasures |
 | [Tools](ceh/tools/tools-by-phase.md) · [Labs](ceh/labs/building-a-ceh-lab.md) · [Exam prep](ceh/exam-prep/study-plan.md) | Tools by phase, safe-lab setup, study plan, 56 practice Qs, cheat sheet |
 
-**🧱 CompTIA Security+ hub** *(vendor-neutral, foundational baseline)*
+**🧱 CompTIA & practical cert hubs** *(vendor-neutral)*
 
-| Section | Covers |
-|---------|--------|
-| [Security+ hub](security-plus/README.md) | What it is, exam & objectives (SY0-701) |
-| [The 5 domains](security-plus/domains/README.md) | General concepts · threats/vulns · architecture · operations · program management — taught to the objectives |
-| [Exam prep](security-plus/exam-prep/study-plan.md) · [Reference](security-plus/reference/acronyms.md) | Study plan, 52 practice Qs, cheat sheet, acronyms & glossary |
+| Hub | Focus | Exam |
+|-----|-------|------|
+| [Security+](security-plus/README.md) | Foundational baseline (defensive lean) | SY0-701 — [5 domains](security-plus/domains/README.md) |
+| [CySA+](cysa-plus/README.md) | Blue-team / SOC analyst — detection & response | CS0-003 — [4 domains](cysa-plus/domains/README.md) |
+| [PenTest+](pentest-plus/README.md) | Vendor-neutral penetration testing + reporting | PT0-003 — [5 domains](pentest-plus/domains/README.md) |
+| [OSCP / OSCP+](oscp/README.md) | Hands-on offensive (24-hour exam) | OffSec PEN-200 — [skill areas](oscp/topics/README.md) |
+| [PNPT](pnpt/README.md) | Practical engagement + live debrief | TCM Security — [engagement phases](pnpt/topics/README.md) |
 
 **🧩 Adjacent certifications** — concise, provider-cited overviews
 
-[OSCP](adjacent-certs/oscp.md) · [PNPT](adjacent-certs/pnpt.md) · [CISSP](adjacent-certs/cissp.md) · [Cloud security (AZ-500 / AWS)](adjacent-certs/cloud-security.md) *(Security+ has its own [full hub](security-plus/README.md) above)*
+[CISSP](adjacent-certs/cissp.md) · [Cloud security (AZ-500 / AWS)](adjacent-certs/cloud-security.md) *(Security+, CySA+, PenTest+, OSCP & PNPT each have their own full hubs above)*
 
 **🧭 Cross-cutting & reference**
 

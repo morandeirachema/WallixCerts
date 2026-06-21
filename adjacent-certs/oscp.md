@@ -1,5 +1,9 @@
 # OSCP / OSCP+ (OffSec PEN-200) — Overview
 
+> 📚 **There's now a full OSCP study hub** → **[../oscp/](../oscp/README.md)** — the PEN-200
+> skill areas (enumeration, web, priv-esc, Active Directory, pivoting), exam structure, and a
+> study plan. This page stays as a one-screen orientation.
+
 The **Offensive Security Certified Professional (OSCP)** is a hands-on penetration-testing certification from **OffSec** (formerly Offensive Security). It is earned by passing a fully practical, proctored exam tied to the **PEN-200: Penetration Testing with Kali Linux** course. OSCP is widely regarded as a benchmark proof of *practical* offensive skill — you must actually compromise live machines, not answer multiple-choice questions.
 
 > **Unofficial & no fabrication.** Not affiliated with or endorsed by OffSec. Exam specifics below are from OffSec's official PEN-200 page and OSCP+ exam documentation; anything volatile (price, exact structure) should be re-checked there. Compiled **2026-06-18**.

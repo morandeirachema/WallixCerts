@@ -19,13 +19,15 @@ and **[adjacent-cert](../adjacent-certs/README.md)** material into one journey.
 ```mermaid
 flowchart TD
     F["Foundations<br/>this repo: foundations/ + prerequisites/<br/>(Linux · Windows/AD · networking ·<br/>crypto)"] --> SP["CompTIA Security+<br/>vendor-neutral entry"]
-    SP --> DEF["Defensive / identity specialisation"]
-    SP --> OFF["Offensive specialisation"]
+    SP --> DEF["Defensive / identity"]
+    SP --> SOC["Blue team / SOC<br/>CySA+"]
+    SP --> OFF["Offensive"]
     SP --> CLOUD["Cloud security<br/>AZ-500 / AWS Security"]
     DEF --> WALLIX["WALLIX / PAM<br/>WCA-P → WCP-P → WCE-P<br/>(+ IAG · IDaaS · OT tracks)"]
-    OFF --> CEH["CEH v13<br/>(knowledge-level)"]
-    CEH --> HANDSON["OSCP / PNPT<br/>(hands-on offensive)"]
+    OFF --> CEH["CEH + PenTest+<br/>(knowledge / methodology)"]
+    CEH --> HANDSON["PNPT → OSCP<br/>(hands-on offensive)"]
     WALLIX --> SENIOR["CISSP<br/>senior / managerial"]
+    SOC --> SENIOR
     HANDSON --> SENIOR
     CLOUD --> SENIOR
 ```
@@ -37,8 +39,9 @@ flowchart TD
 | **0 · Foundations** | The infrastructure PAM and security sit on | [foundations/](../foundations/README.md) · [prerequisites/](../prerequisites/README.md) · [protocols/](../protocols/README.md) |
 | **1 · Entry** | Broad, vendor-neutral baseline (Security+) | [Security+ hub](../security-plus/README.md) (the [5 domains](../security-plus/domains/README.md)) |
 | **2a · Identity / PAM** | Specialise in privileged access (the repo's core) | [WALLIX hub](../README.md) · [PAM/Bastion track](../docs/pam-bastion/README.md) · [deep dives](../deep-dives/README.md) |
-| **2b · Offensive** | Understand the attacker (CEH → hands-on) | [CEH hub](../ceh/README.md) → [OSCP](../adjacent-certs/oscp.md) · [PNPT](../adjacent-certs/pnpt.md) |
-| **2c · Cloud** | Secure cloud identities & workloads | [adjacent-certs/cloud-security.md](../adjacent-certs/cloud-security.md) · [CEH cloud module](../ceh/domains/19-cloud-computing.md) |
+| **2b · Blue team / SOC** | Detection, monitoring & incident response | [CySA+ hub](../cysa-plus/README.md) |
+| **2c · Offensive** | Understand the attacker (knowledge → hands-on) | [CEH hub](../ceh/README.md) → [PenTest+](../pentest-plus/README.md) → [PNPT](../pnpt/README.md) → [OSCP](../oscp/README.md) |
+| **2d · Cloud** | Secure cloud identities & workloads | [adjacent-certs/cloud-security.md](../adjacent-certs/cloud-security.md) · [CEH cloud module](../ceh/domains/19-cloud-computing.md) |
 | **3 · Senior** | Breadth & management | [adjacent-certs/cissp.md](../adjacent-certs/cissp.md) |
 
 > 🧰 **Where to practice each stage:** see **[learning-platforms.md](platforms.md)** —

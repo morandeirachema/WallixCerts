@@ -3,6 +3,20 @@
 Notable changes to this study repo. Dates are when the work landed on `main`.
 This is a documentation repo, so "changes" are content additions and corrections.
 
+## 2026-06-21
+
+### Added
+- **Four more full certification hubs** (each like the Security+/CEH hubs):
+  - **CompTIA CySA+** (`cysa-plus/`, CS0-003) — blue-team / SOC analyst: 4 domains, exam prep, glossary.
+  - **CompTIA PenTest+** (`pentest-plus/`, PT0-003) — vendor-neutral pentesting: 5 domains, exam prep, glossary.
+  - **OSCP / OSCP+** (`oscp/`, OffSec PEN-200) — hands-on offensive: 6 skill areas, exam structure, study plan.
+  - **PNPT** (`pnpt/`, TCM Security) — practical engagement + live debrief: 5 engagement phases, study plan.
+- Offensive hubs (PenTest+, OSCP, PNPT) carry the same authorized-use / defensive framing as
+  CEH; their attack pages cross-link the [attack → defense matrix](attack-to-defense-matrix.md)
+  and the WALLIX/PAM defenses.
+- The `adjacent-certs/` overviews for Security+/OSCP/PNPT now point to their full hubs.
+- Wired all hubs into the curated nav, root README ("Start here" + a cert-hub table), and roadmap.
+
 ## 2026-06-20
 
 ### Added

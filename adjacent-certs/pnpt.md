@@ -1,5 +1,9 @@
 # PNPT (TCM Security Practical Network Penetration Tester) — Overview
 
+> 📚 **There's now a full PNPT study hub** → **[../pnpt/](../pnpt/README.md)** — the engagement
+> phases (OSINT → external → Active Directory → lateral movement → report & debrief), exam
+> structure, and a study plan. This page stays as a one-screen orientation.
+
 The **Practical Network Penetration Tester (PNPT)** is a hands-on penetration-testing certification from **TCM Security**. It is built around a realistic, multi-day network assessment: you perform reconnaissance, compromise an **Active Directory (AD)** environment, write a professional report, and then **present your findings in a live debrief** to senior penetration testers. It is widely positioned as a **budget-friendly, real-world alternative to the OSCP**.
 
 > **Unofficial & no fabrication.** Not affiliated with or endorsed by TCM Security. Exam specifics below are from TCM Security's official PNPT page; anything volatile (price, exact structure) should be re-checked there. Compiled **2026-06-18**.

@@ -196,6 +196,65 @@ nav:
       - Reference:
           - Glossary: ceh/reference/glossary.md
           - Acronyms: ceh/reference/acronyms.md
+  - CompTIA CySA+:
+      - cysa-plus/README.md
+      - Overview:
+          - What is CySA+: cysa-plus/00-overview/what-is-cysa-plus.md
+          - Exam & objectives: cysa-plus/00-overview/exam-and-objectives.md
+      - The 4 domains:
+          - cysa-plus/domains/README.md
+          - 1 · Security operations: cysa-plus/domains/01-security-operations.md
+          - 2 · Vulnerability management: cysa-plus/domains/02-vulnerability-management.md
+          - 3 · Incident response & management: cysa-plus/domains/03-incident-response-and-management.md
+          - 4 · Reporting & communication: cysa-plus/domains/04-reporting-and-communication.md
+      - Exam prep:
+          - Study plan: cysa-plus/exam-prep/study-plan.md
+          - Practice questions: cysa-plus/exam-prep/practice-questions.md
+      - Glossary: cysa-plus/reference/glossary.md
+  - CompTIA PenTest+:
+      - pentest-plus/README.md
+      - Overview:
+          - What is PenTest+: pentest-plus/00-overview/what-is-pentest-plus.md
+          - Exam & objectives: pentest-plus/00-overview/exam-and-objectives.md
+      - The 5 domains:
+          - pentest-plus/domains/README.md
+          - 1 · Engagement management: pentest-plus/domains/01-engagement-management.md
+          - 2 · Reconnaissance & enumeration: pentest-plus/domains/02-reconnaissance-and-enumeration.md
+          - 3 · Vulnerability discovery & analysis: pentest-plus/domains/03-vulnerability-discovery-and-analysis.md
+          - 4 · Attacks & exploits: pentest-plus/domains/04-attacks-and-exploits.md
+          - 5 · Post-exploitation & lateral movement: pentest-plus/domains/05-post-exploitation-and-lateral-movement.md
+      - Exam prep:
+          - Study plan: pentest-plus/exam-prep/study-plan.md
+          - Practice questions: pentest-plus/exam-prep/practice-questions.md
+          - Cheat sheet: pentest-plus/exam-prep/cheat-sheet.md
+      - Glossary: pentest-plus/reference/glossary.md
+  - OSCP / OSCP+:
+      - oscp/README.md
+      - Overview:
+          - What is OSCP: oscp/00-overview/what-is-oscp.md
+          - Exam structure: oscp/00-overview/exam-structure.md
+      - Skill areas:
+          - oscp/topics/README.md
+          - 1 · Enumeration & information gathering: oscp/topics/01-enumeration-and-information-gathering.md
+          - 2 · Web application attacks: oscp/topics/02-web-application-attacks.md
+          - 3 · Password & client-side attacks: oscp/topics/03-password-and-client-side-attacks.md
+          - 4 · Privilege escalation: oscp/topics/04-privilege-escalation.md
+          - 5 · Active Directory attacks: oscp/topics/05-active-directory-attacks.md
+          - 6 · Pivoting & tunneling: oscp/topics/06-pivoting-and-tunneling.md
+      - Study plan: oscp/exam-prep/study-plan.md
+  - PNPT:
+      - pnpt/README.md
+      - Overview:
+          - What is PNPT: pnpt/00-overview/what-is-pnpt.md
+          - Exam structure: pnpt/00-overview/exam-structure.md
+      - Engagement phases:
+          - pnpt/topics/README.md
+          - 1 · OSINT & reconnaissance: pnpt/topics/01-osint-and-reconnaissance.md
+          - 2 · External penetration testing: pnpt/topics/02-external-penetration-testing.md
+          - 3 · Active Directory exploitation: pnpt/topics/03-active-directory-exploitation.md
+          - 4 · Lateral movement & pivoting: pnpt/topics/04-lateral-movement-and-pivoting.md
+          - 5 · Reporting & the debrief: pnpt/topics/05-reporting-and-the-debrief.md
+      - Study plan: pnpt/exam-prep/study-plan.md
   - Adjacent certifications:
       - adjacent-certs/README.md
       - CompTIA Security+: adjacent-certs/security-plus.md
