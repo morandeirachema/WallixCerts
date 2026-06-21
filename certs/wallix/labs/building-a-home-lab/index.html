@@ -7903,7 +7903,7 @@ the VMs WALLIX provides preconfigured. Counts are taken directly from the cert d
         BASTION1 --&gt;|"HA Database Replication"| BASTION2
     end
 
-    subgraph TARGETS["AD domain: users, DNS, Kerberos KDC for&lt;br/&gt;all hosts"]
+    subgraph TARGETS["AD domain: users,&lt;br/&gt;DNS, Kerberos KDC for&lt;br/&gt;all hosts"]
         DC["Domain Controller&lt;br/&gt;(AD/DNS/Kerberos)&lt;br/&gt;Win 2016"]
         WINSRV["Windows Server 2016&lt;br/&gt;(RDP target / jump server)"]
         LINUX["Linux Server&lt;br/&gt;(SSH target)"]
@@ -8045,7 +8045,7 @@ licences/time and prepares both legs of the proxy.</p>
         DC &lt;--&gt;|"LDAP / Kerberos"| LINUX
         WINSRV --&gt;|"RDP 3389&lt;br/&gt;SSH 22"| LINUX
     end
-    LAB -.-&gt;|"drop a Bastion + Access Manager in front later"| LATER["Bastion + Access Manager (added later)"]</code></pre>
+    LAB -.-&gt;|"drop a Bastion + Access Manager in front later"| LATER["Bastion + Access&lt;br/&gt;Manager (added later)"]</code></pre>
 <p>What to practise on this substrate, mapped to the deep-dives:</p>
 <ul>
 <li><strong>Active Directory</strong> — stand up <strong>AD DS (Active Directory Domain Services)</strong> + <strong>DNS

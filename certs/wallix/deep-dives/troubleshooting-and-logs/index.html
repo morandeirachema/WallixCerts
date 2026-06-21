@@ -7983,10 +7983,10 @@ Certificate Authority · SMTP = Simple Mail Transfer Protocol. Full list:
 <hr />
 <h2 id="1-troubleshooting-methodology">1. Troubleshooting methodology<a class="headerlink" href="#1-troubleshooting-methodology" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TD
-    Reproduce["1. REPRODUCE&lt;br/&gt;-&gt; exact user, target, protocol, time;&lt;br/&gt;capture the error text"]
+    Reproduce["1. REPRODUCE&lt;br/&gt;-&gt; exact user, target,&lt;br/&gt;protocol, time;&lt;br/&gt;capture the error text"]
     Isolate["2. ISOLATE LEG&lt;br/&gt;-&gt; client -&gt; Bastion (primary) OR&lt;br/&gt;Bastion -&gt; target (secondary)?&lt;br/&gt;(web GUI login works but proxy fails&lt;br/&gt;=&amp;gt; secondary-leg/authz)"]
-    ReadLogs["3. READ LOGS&lt;br/&gt;-&gt; System &gt; Status / Syslog (GUI) ; CLI&lt;br/&gt;logs under /var/log/wab*&lt;br/&gt;WAM: Settings &gt; Logs,&lt;br/&gt;/var/log/wallix/wabam"]
-    Services["4. SERVICES&lt;br/&gt;-&gt; System &gt; Service control ; watchdog&lt;br/&gt;state (e-mail templates)"]
+    ReadLogs["3. READ LOGS&lt;br/&gt;-&gt; System &gt; Status /&lt;br/&gt;Syslog (GUI) ; CLI&lt;br/&gt;logs under /var/log/wab*&lt;br/&gt;WAM: Settings &gt; Logs,&lt;br/&gt;/var/log/wallix/wabam"]
+    Services["4. SERVICES&lt;br/&gt;-&gt; System &gt; Service&lt;br/&gt;control ; watchdog&lt;br/&gt;state (e-mail templates)"]
     Database["5. DATABASE&lt;br/&gt;-&gt; MariaDB up? replication healthy?&lt;br/&gt;(bastion-replication --monitoring)"]
     Escalate["6. ESCALATE&lt;br/&gt;-&gt; set logs DEBUG, generate archive,&lt;br/&gt;open WALLIX support case"]
     Reproduce --&gt; Isolate --&gt; ReadLogs --&gt; Services --&gt; Database --&gt; Escalate</code></pre>
@@ -8246,8 +8246,8 @@ Default templates (in <code>/var/wab/etc/notifier/</code>):</p>
 <h2 id="5-debugging-password-rotation-plugins">5. Debugging password-rotation plugins<a class="headerlink" href="#5-debugging-password-rotation-plugins" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TD
     Celery["wallixcelery&lt;br/&gt;(rotation job)"] --&gt;|"plugin over SSH/API/SMB&lt;br/&gt;(change scheduled)"| Target["TARGET device or global server&lt;br/&gt;(Cisco/Windows/Unix/LDAP/...)"]
-    Target --&gt;|"on MISMATCH&lt;br/&gt;(Bastion vault secret ==? actual secret on target)"| Reconcile["RECONCILIATION:&lt;br/&gt;'Administrator account' on the domain&lt;br/&gt;re-sets the pw when Bastion &amp;lt;&amp;gt;&lt;br/&gt;target"]
-    Reconcile --&gt; Result["Result -&gt; credential_change_success.txt&lt;br/&gt;/ _failure.txt / _summary.txt"]</code></pre>
+    Target --&gt;|"on MISMATCH&lt;br/&gt;(Bastion vault secret ==? actual secret on target)"| Reconcile["RECONCILIATION:&lt;br/&gt;'Administrator&lt;br/&gt;account' on the domain&lt;br/&gt;re-sets the pw when Bastion &amp;lt;&amp;gt;&lt;br/&gt;target"]
+    Reconcile --&gt; Result["Result -&gt;&lt;br/&gt;credential_change_success.txt&lt;br/&gt;/ _failure.txt / _summary.txt"]</code></pre>
 <p><em>Password change / verify (and where it breaks).</em></p>
 <p>Debug checklist:</p>
 <ul>
@@ -8303,7 +8303,7 @@ Default templates (in <code>/var/wab/etc/notifier/</code>):</p>
 </ul>
 <pre class="mermaid"><code>flowchart LR
     Sources["EVENT SOURCES&lt;br/&gt;- proxy session events&lt;br/&gt;- auth success/failure&lt;br/&gt;- cert / key verification&lt;br/&gt;- ICAP (AV/DLP) verdicts&lt;br/&gt;- Session Probe metadata"] --&gt; Syslog["syslog-ng (:514)"]
-    Syslog --&gt; SIEM["SIEM (Splunk / QRadar / Sentinel / ...)"]
+    Syslog --&gt; SIEM["SIEM (Splunk / QRadar&lt;br/&gt;/ Sentinel / ...)"]
     Syslog -.-&gt; Other["also: SNMP traps :162,&lt;br/&gt;e-mail (SMTP :25/587/465)"]</code></pre>
 <hr />
 <h2 id="8-access-manager-troubleshooting">8. Access Manager troubleshooting<a class="headerlink" href="#8-access-manager-troubleshooting" title="Permanent link">&para;</a></h2>

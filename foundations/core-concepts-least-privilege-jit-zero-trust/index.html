@@ -8154,7 +8154,7 @@ standing access</strong>; they must request it, and it disappears on its own.</p
     G["3. GRANT (JIT)&lt;br/&gt;PAM opens a brokered, RECORDED&lt;br/&gt;session to TARGET; credential&lt;br/&gt;INJECTED (user never sees it)"]
     E["4. AUTO-EXPIRE&lt;br/&gt;time window ends: access REVOKED&lt;br/&gt;automatically; credential ROTATED;&lt;br/&gt;session sealed in audit trail"]
     R --&gt; A --&gt; G --&gt; E
-    Notes["If DENIED at step 2 → no access, request&lt;br/&gt;logged.&lt;br/&gt;If approval TIMES OUT → request expires,&lt;br/&gt;nothing granted.&lt;br/&gt;Net effect: ZERO standing privilege&lt;br/&gt;between tasks (→ ZSP)."]
+    Notes["If DENIED at step 2&lt;br/&gt;→ no access, request&lt;br/&gt;logged.&lt;br/&gt;If approval TIMES OUT&lt;br/&gt;→ request expires,&lt;br/&gt;nothing granted.&lt;br/&gt;Net effect: ZERO standing privilege&lt;br/&gt;between tasks (→ ZSP)."]
     R -.-&gt; Notes
     A -.-&gt; Notes
     G -.-&gt; Notes

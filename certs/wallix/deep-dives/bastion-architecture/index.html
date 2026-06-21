@@ -7900,13 +7900,13 @@
 <p>The Bastion inserts a <strong>mandatory chokepoint</strong>:</p>
 <pre class="mermaid"><code>flowchart LR
     subgraph LOW["LOW-TRUST DOMAIN&lt;br/&gt;(people + Internet)"]
-        User["Admin / user workstation&lt;br/&gt;(user knows ONLY their Bastion login)"]
+        User["Admin / user workstation&lt;br/&gt;(user knows ONLY&lt;br/&gt;their Bastion login)"]
     end
     subgraph PROXY["PROXY / BROKER (WALLIX Bastion)"]
         Bastion["Authenticates the USER&lt;br/&gt;Injects the TARGET secret&lt;br/&gt;Records the whole session&lt;br/&gt;(vault + recordings)"]
     end
     subgraph HIGH["HIGH-TRUST DOMAIN&lt;br/&gt;(target accounts)"]
-        Target["Linux / Windows&lt;br/&gt;Network device&lt;br/&gt;Application (target account)&lt;br/&gt;(target password NEVER reaches the user)"]
+        Target["Linux / Windows&lt;br/&gt;Network device&lt;br/&gt;Application (target account)&lt;br/&gt;(target password NEVER&lt;br/&gt;reaches the user)"]
     end
     User ==&gt;|"FRONT LEG (primary connection)&lt;br/&gt;SSH / RDP / HTTPS"| Bastion
     Bastion ==&gt;|"BACK LEG (secondary connection)&lt;br/&gt;SSH / RDP / VNC / ..."| Target</code></pre>
@@ -8116,7 +8116,7 @@ wabsystemconfiguration  syslog-ng  acpid  cron  wab-backupdaemon  mariadb
 </table>
 <p>Storage sits on <strong>LVM</strong> under <code>/var/wab</code> (recordings, database, logs), encrypted with <strong>LUKS</strong>; the volume can be extended to grow recording retention.</p>
 <pre class="mermaid"><code>flowchart TB
-    subgraph APPLIANCE["WALLIX BASTION APPLIANCE (Debian + LUKS&lt;br/&gt;at rest)"]
+    subgraph APPLIANCE["WALLIX BASTION APPLIANCE&lt;br/&gt;(Debian + LUKS&lt;br/&gt;at rest)"]
         subgraph ADMIN["ADMIN / API PLANE"]
             wabgui["wabgui (443)&lt;br/&gt;wabrestapi"]
             sashimi["sashimi /&lt;br/&gt;wallixsession"]
@@ -8135,7 +8135,7 @@ wabsystemconfiguration  syslog-ng  acpid  cron  wab-backupdaemon  mariadb
             celery["wallixcelery (async jobs)"]
             backup["wab-backupdaemon"]
         end
-        storage["/var/wab on LVM (recordings, DB, logs)"]
+        storage["/var/wab on LVM&lt;br/&gt;(recordings, DB, logs)"]
     end
     wabgui &lt;--&gt; redemption
     redemption --&gt; sashimi</code></pre>
@@ -8220,7 +8220,7 @@ wabsystemconfiguration  syslog-ng  acpid  cron  wab-backupdaemon  mariadb
     Front --&gt; Authz["2. Bastion AUTHN + AUTHZ&lt;br/&gt;- verify user (LDAP/SAML/MFA...)&lt;br/&gt;- permission profile check&lt;br/&gt;- evaluate AUTHORIZATION (ACL):&lt;br/&gt;user group -&gt; target group?&lt;br/&gt;Sessions right? approval?"]
     Authz --&gt; Proxy["redemption / SSH proxy"]
     Proxy --&gt;|"3. SECRET RETRIEVAL&lt;br/&gt;vault (MariaDB) or external vault&lt;br/&gt;PASSWORD_VAULT / mapping / interactive"| Secret["Secret obtained"]
-    Secret --&gt; Target["5. BACK LEG: Bastion -&gt; target&lt;br/&gt;injects target secret, opens session&lt;br/&gt;TARGET (Windows / Linux / network / HMI)"]
+    Secret --&gt; Target["5. BACK LEG: Bastion -&gt; target&lt;br/&gt;injects target secret, opens session&lt;br/&gt;TARGET (Windows /&lt;br/&gt;Linux / network / HMI)"]
     Proxy -.-&gt;|"4. RECORD + real-time monitor&lt;br/&gt;(video/transcript, Session Probe,&lt;br/&gt;SIEM via syslog-ng)"| Client</code></pre>
 <p>Each numbered step maps to a sibling deep-dive: authorization evaluation → <a href="../bastion-data-model/">bastion-data-model.md</a>; recording/monitoring/approval → <a href="../session-management/">session-management.md</a>; secret retrieval/rotation → <a href="../secrets-and-password-management/">secrets-and-password-management.md</a>.</p>
 <hr />

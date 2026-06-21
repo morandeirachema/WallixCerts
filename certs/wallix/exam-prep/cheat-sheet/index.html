@@ -7965,7 +7965,7 @@ Manager <strong>5.2.4.0</strong>. Some facts are version-specific (flagged inlin
         SERVICE["SERVICE (proto+port+policy)"]
         RESOURCE["RESOURCE (service + device/app)"]
         DOMAIN["DOMAIN (global/local)"]
-        TACCOUNT["TARGET ACCOUNT (account, in a domain)"]
+        TACCOUNT["TARGET ACCOUNT&lt;br/&gt;(account, in a domain)"]
         TARGET["TARGET (= resource + target account)"]
         TARGETGROUP["TARGET GROUP"]
         DEVAPP --&gt;|"hosts"| SERVICE
@@ -7976,7 +7976,7 @@ Manager <strong>5.2.4.0</strong>. Some facts are version-specific (flagged inlin
         TARGET --&gt;|"member of"| TARGETGROUP
     end
 
-    AUTHZ["AUTHORIZATION (BINDING)&lt;br/&gt;ONE user grp &amp;lt;-&amp;gt; ONE target grp&lt;br/&gt;carries: Sessions | Secrets (cumulative)&lt;br/&gt;+ Protocols/Sub-protocols + Recording&lt;br/&gt;+ Session invite + Critical flag +&lt;br/&gt;Approval tab"]
+    AUTHZ["AUTHORIZATION (BINDING)&lt;br/&gt;ONE user grp &amp;lt;-&amp;gt;&lt;br/&gt;ONE target grp&lt;br/&gt;carries: Sessions |&lt;br/&gt;Secrets (cumulative)&lt;br/&gt;+ Protocols/Sub-protocols&lt;br/&gt;+ Recording&lt;br/&gt;+ Session invite + Critical flag +&lt;br/&gt;Approval tab"]
 
     USERGROUP --&gt; AUTHZ
     TARGETGROUP --&gt; AUTHZ</code></pre>

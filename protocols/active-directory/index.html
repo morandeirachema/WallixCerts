@@ -7900,9 +7900,9 @@ and <a href="../../certs/wallix/deep-dives/authentication-and-access-manager/">.
 database and runs all of the above (LDAP server, KDC, DNS, replication).</p>
 <h2 id="2-logical-structure">2. Logical structure<a class="headerlink" href="#2-logical-structure" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart TD
-    F["Forest: contoso.com&lt;br/&gt;(single schema + config, trust boundary)"]
+    F["Forest: contoso.com&lt;br/&gt;(single schema +&lt;br/&gt;config, trust boundary)"]
     F --&gt; T1["Tree root domain: contoso.com"]
-    F --&gt; T2["Second tree: fabrikam.com&lt;br/&gt;(separate namespace, auto two-way trust)"]
+    F --&gt; T2["Second tree: fabrikam.com&lt;br/&gt;(separate namespace,&lt;br/&gt;auto two-way trust)"]
     T1 --&gt; C1["Child domain: eu.contoso.com"]
     T1 --&gt; C2["Child domain: us.contoso.com"]
     C1 --&gt; OU1["OU=Paris"]

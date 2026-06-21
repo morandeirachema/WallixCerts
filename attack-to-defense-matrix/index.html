@@ -7763,18 +7763,18 @@ controls.</p>
 <pre class="mermaid"><code>flowchart TB
     S1["1. INITIAL ACCESS&lt;br/&gt;phishing, stolen creds, exploit&lt;br/&gt;(TA0001)"]
     S2["2. CREDENTIAL THEFT&lt;br/&gt;dump LSASS, Mimikatz, Kerberoasting&lt;br/&gt;(TA0006)"]
-    S3["3. PRIVILEGE ESCALATION&lt;br/&gt;token abuse, UAC bypass, sudo misconfig&lt;br/&gt;(TA0004)"]
+    S3["3. PRIVILEGE ESCALATION&lt;br/&gt;token abuse, UAC bypass,&lt;br/&gt;sudo misconfig&lt;br/&gt;(TA0004)"]
     S4["4. LATERAL MOVEMENT&lt;br/&gt;PtH / PtT, RDP/SSH reuse&lt;br/&gt;(TA0008)"]
-    S5["5. PERSISTENCE&lt;br/&gt;backdoor accounts, Golden Ticket, DCSync&lt;br/&gt;(TA0003)"]
+    S5["5. PERSISTENCE&lt;br/&gt;backdoor accounts,&lt;br/&gt;Golden Ticket, DCSync&lt;br/&gt;(TA0003)"]
     S6["6. IMPACT&lt;br/&gt;ransomware, data theft, sabotage&lt;br/&gt;(TA0040)"]
     S1 --&gt; S2 --&gt; S3 --&gt; S4 --&gt; S5 --&gt; S6
 
-    D1["Gateway + MFA; no target password to&lt;br/&gt;phish&lt;br/&gt;(it lives in the vault). User awareness&lt;br/&gt;training."]
-    D2["Credential injection: target secret&lt;br/&gt;never lands&lt;br/&gt;on the endpoint. Aggressive rotation&lt;br/&gt;voids any scrape."]
-    D3["Least privilege / JIT; remove local&lt;br/&gt;admin (EPM);&lt;br/&gt;app-level (not user-level) elevation."]
-    D4["Brokered, recorded sessions are the only&lt;br/&gt;path;&lt;br/&gt;unique + rotated creds per host kill&lt;br/&gt;hash/ticket reuse."]
-    D5["No standing Domain-Admin to steal;&lt;br/&gt;approval + recording&lt;br/&gt;make new accounts visible. AD hardening&lt;br/&gt;(general)."]
-    D6["Session kill + restriction rules;&lt;br/&gt;anti-ransomware (EPM);&lt;br/&gt;backups + segmentation (general). Full&lt;br/&gt;audit trail."]
+    D1["Gateway + MFA; no target password&lt;br/&gt;to phish (it lives in the vault).&lt;br/&gt;User-awareness training."]
+    D2["Credential injection: the target&lt;br/&gt;secret never lands on the endpoint;&lt;br/&gt;aggressive rotation voids a scrape."]
+    D3["Least privilege / JIT; remove local&lt;br/&gt;admin (EPM); app-level (not&lt;br/&gt;user-level) elevation."]
+    D4["Brokered, recorded sessions are the&lt;br/&gt;only path; unique + rotated creds&lt;br/&gt;per host kill hash/ticket reuse."]
+    D5["No standing Domain-Admin to steal;&lt;br/&gt;approval + recording make new&lt;br/&gt;accounts visible.&lt;br/&gt;AD hardening (general)."]
+    D6["Session kill + restriction rules;&lt;br/&gt;anti-ransomware (EPM); backups +&lt;br/&gt;segmentation (general).&lt;br/&gt;Full audit trail."]
 
     S1 -. "defence" .-&gt; D1
     S2 -. "defence" .-&gt; D2

@@ -8183,12 +8183,12 @@ privilege</em>, and note where the circles touch.</p>
     subgraph GOVL["GOVERNANCE LAYER — 'who SHOULD have&lt;br/&gt;access, and can we prove it?'"]
         IGA["IGA / IAG&lt;br/&gt;access reviews · SoD · role mining ·&lt;br/&gt;compliance&lt;br/&gt;governs BOTH ordinary and privileged&lt;br/&gt;access"]
     end
-    subgraph IDL["IDENTITY LAYER (everyday) — 'who is this&lt;br/&gt;user?'"]
-        IAM["IAM&lt;br/&gt;AuthN · AuthZ · lifecycle&lt;br/&gt;SSO + MFA&lt;br/&gt;delivered via IDaaS (WALLIX Trustelem)"]
+    subgraph IDL["IDENTITY LAYER (everyday)&lt;br/&gt;— 'who is this&lt;br/&gt;user?'"]
+        IAM["IAM&lt;br/&gt;AuthN · AuthZ · lifecycle&lt;br/&gt;SSO + MFA&lt;br/&gt;delivered via IDaaS&lt;br/&gt;(WALLIX Trustelem)"]
     end
-    subgraph PRL["PRIVILEGE LAYER (dangerous) — 'control&lt;br/&gt;the powerful access'"]
+    subgraph PRL["PRIVILEGE LAYER&lt;br/&gt;(dangerous) — 'control&lt;br/&gt;the powerful access'"]
         PAM["PAM&lt;br/&gt;vault · broker · record · JIT&lt;br/&gt;(WALLIX Bastion + Access Mgr)"]
-        EPM["EPM / PEDM&lt;br/&gt;remove local admin · app-level elevation&lt;br/&gt;(WALLIX BestSafe)"]
+        EPM["EPM / PEDM&lt;br/&gt;remove local admin ·&lt;br/&gt;app-level elevation&lt;br/&gt;(WALLIX BestSafe)"]
         PAM --&gt;|"pairs with"| EPM
     end
     CIEM["CLOUD ENTITLEMENTS — CIEM&lt;br/&gt;right-size cloud roles/policies&lt;br/&gt;(context only; not a WALLIX product)"]

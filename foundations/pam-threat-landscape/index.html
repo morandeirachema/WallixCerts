@@ -7951,19 +7951,19 @@ abuse <strong>visible and reversible</strong>. Defense-in-depth still applies.</
         WO5["PASS-THE-HASH to next server&lt;br/&gt;(reused local-admin password works&lt;br/&gt;everywhere)"]
         WO6["LATERAL MOVEMENT across the estate"]
         WO7["reach Domain Controller → DOMAIN&lt;br/&gt;TAKEOVER"]
-        WO8["PERSISTENCE (Golden Ticket) + RANSOMWARE"]
-        WOR["Result: full compromise, no audit trail"]
+        WO8["PERSISTENCE (Golden&lt;br/&gt;Ticket) + RANSOMWARE"]
+        WOR["Result: full compromise,&lt;br/&gt;no audit trail"]
         WO1 --&gt; WO2 --&gt; WO3 --&gt; WO4 --&gt; WO5 --&gt; WO6 --&gt; WO7 --&gt; WO8 --&gt; WOR
     end
     subgraph WITH["WITH PAM"]
         direction TB
         WI1["Admin connects to the GATEWAY (MFA)"]
-        WI2["Credential stays in VAULT; INJECTED only&lt;br/&gt;into the brokered session (never cached)"]
+        WI2["Credential stays in&lt;br/&gt;VAULT; INJECTED only&lt;br/&gt;into the brokered&lt;br/&gt;session (never cached)"]
         WI3["[attacker phishes the endpoint]"]
         WI4["endpoint holds NO target secret →&lt;br/&gt;nothing useful to dump"]
         WI5["unique + ROTATED creds per target →&lt;br/&gt;stolen value is already worthless"]
-        WI6["every privileged hop must go through the&lt;br/&gt;gateway → BLOCKED / RECORDED /&lt;br/&gt;time-boxed"]
-        WI7["attack stalls at the endpoint; auditor&lt;br/&gt;sees the attempt; access auto-expires"]
+        WI6["every privileged hop&lt;br/&gt;must go through the&lt;br/&gt;gateway → BLOCKED / RECORDED /&lt;br/&gt;time-boxed"]
+        WI7["attack stalls at the&lt;br/&gt;endpoint; auditor&lt;br/&gt;sees the attempt;&lt;br/&gt;access auto-expires"]
         WIR["Result: contained, attributed,&lt;br/&gt;reversible"]
         WI1 --&gt; WI2 --&gt; WI3 --&gt; WI4 --&gt; WI5 --&gt; WI6 --&gt; WI7 --&gt; WIR
     end</code></pre>

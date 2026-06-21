@@ -8082,7 +8082,7 @@ users</em><em>, unlike traditional tools on the market."</em></p>
 </ul>
 <h3 id="diagram-user-privilege-model-vs-application-privilege-model">Diagram — user-privilege model vs. application-privilege model<a class="headerlink" href="#diagram-user-privilege-model-vs-application-privilege-model" title="Permanent link">&para;</a></h3>
 <pre class="mermaid"><code>flowchart TB
-    subgraph trad["Traditional model: privilege on the USER"]
+    subgraph trad["Traditional model:&lt;br/&gt;privilege on the USER"]
         direction TB
         U1["User account&lt;br/&gt;(local administrator)"]
         APP1["Sanctioned app&lt;br/&gt;(elevated)"]
@@ -8091,7 +8091,7 @@ users</em><em>, unlike traditional tools on the market."</em></p>
         U1 --&gt;|"inherits admin"| MAL1
     end
 
-    subgraph best["BestSafe model: privilege on the PROCESS"]
+    subgraph best["BestSafe model:&lt;br/&gt;privilege on the PROCESS"]
         direction TB
         U2["User account&lt;br/&gt;(standard, non-admin)"]
         APP2["Sanctioned app&lt;br/&gt;(elevated by policy)"]
@@ -8222,7 +8222,7 @@ version-dependent. The sources reviewed describe the MMC + AD model.</p>
         MMC --&gt; AD
     end
 
-    subgraph fleet["Endpoints (workstations / app servers)"]
+    subgraph fleet["Endpoints (workstations&lt;br/&gt;/ app servers)"]
         AGT1["BestSafe agent&lt;br/&gt;(local policy cache,&lt;br/&gt;offline enforcement)"]
         AGT2["BestSafe agent&lt;br/&gt;(local policy cache,&lt;br/&gt;offline enforcement)"]
     end

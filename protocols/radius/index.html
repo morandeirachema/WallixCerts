@@ -8126,13 +8126,13 @@ each subsequent block uses <code>MD5(shared_secret + previous_ciphertext_block)<
 The server, knowing the same shared secret and seeing the Request Authenticator, recomputes the
 keystream and XORs it back to recover the password.</p>
 <pre class="mermaid"><code>flowchart TD
-    SS["Shared secret&lt;br/&gt;(never on the wire)"] --&gt; M["MD5( secret + Request Authenticator )"]
+    SS["Shared secret&lt;br/&gt;(never on the wire)"] --&gt; M["MD5( secret + Request&lt;br/&gt;Authenticator )"]
     RA["Request Authenticator&lt;br/&gt;(random nonce, sent in header)"] --&gt; M
     M --&gt; KS["16-byte keystream block 'b'"]
     PW["User-Password&lt;br/&gt;(padded to 16-byte blocks)"] --&gt; X(("XOR"))
     KS --&gt; X
     X --&gt; HID["Hidden User-Password&lt;br/&gt;(this is what is sent)"]
-    Note["Longer passwords: chain —&lt;br/&gt;next block uses MD5(secret + previous&lt;br/&gt;cipher block)"]
+    Note["Longer passwords: chain —&lt;br/&gt;next block uses&lt;br/&gt;MD5(secret + previous&lt;br/&gt;cipher block)"]
     HID -.-&gt; Note</code></pre>
 <p><strong>Why this is weak (do not overstate it):</strong></p>
 <ul>

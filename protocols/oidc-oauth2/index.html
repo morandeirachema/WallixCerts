@@ -8034,11 +8034,11 @@ always secured as a <strong>JSON Web Signature (JWS)</strong>: three Base64URL-e
     JWT --&gt; H["Header (Base64URL JSON)&lt;br/&gt;alg = e.g. RS256 / ES256&lt;br/&gt;typ = JWT, kid = key id"]
     JWT --&gt; P["Payload (Base64URL JSON)&lt;br/&gt;claims: iss, sub, aud,&lt;br/&gt;exp, iat, nonce, ..."]
     JWT --&gt; S["Signature (Base64URL bytes)"]
-    H --&gt; SIGN["signing input =&lt;br/&gt;B64URL(header) + '.' + B64URL(payload)"]
+    H --&gt; SIGN["signing input =&lt;br/&gt;B64URL(header) + '.'&lt;br/&gt;+ B64URL(payload)"]
     P --&gt; SIGN
     SIGN --&gt; JWS["JWS: sign with issuer key&lt;br/&gt;(RS256 = RSA private key,&lt;br/&gt;ES256 = EC private key,&lt;br/&gt;HS256 = shared HMAC secret)"]
     JWS --&gt; S
-    S --&gt; VER["Verifier recomputes signature&lt;br/&gt;over header.payload using the&lt;br/&gt;issuer's PUBLIC key (from JWKS, by kid)&lt;br/&gt;-&gt; integrity + authenticity"]</code></pre>
+    S --&gt; VER["Verifier recomputes signature&lt;br/&gt;over header.payload using the&lt;br/&gt;issuer's PUBLIC key&lt;br/&gt;(from JWKS, by kid)&lt;br/&gt;-&gt; integrity + authenticity"]</code></pre>
 <ul>
 <li><strong>Header</strong> — JSON describing the token: <strong><code>alg</code></strong> (the signature algorithm, e.g. <code>RS256</code> =
   RSA + SHA-256, <code>ES256</code> = ECDSA + SHA-256, or <code>HS256</code> = HMAC-SHA-256), <code>typ</code>, and a <strong><code>kid</code></strong>

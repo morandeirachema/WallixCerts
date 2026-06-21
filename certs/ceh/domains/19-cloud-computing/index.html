@@ -7858,12 +7858,12 @@
 <h2 id="the-shared-responsibility-model">The shared-responsibility model<a class="headerlink" href="#the-shared-responsibility-model" title="Permanent link">&para;</a></h2>
 <p>The single most important cloud security concept. Security responsibility is <strong>split</strong> between the provider and the customer, and the split <strong>changes with the service model</strong>. A common phrasing: the provider is responsible for security <strong>of</strong> the cloud; the customer is responsible for security <strong>in</strong> the cloud.</p>
 <pre class="mermaid"><code>flowchart TD
-    subgraph Customer["Customer responsibility (security IN the&lt;br/&gt;cloud)"]
+    subgraph Customer["Customer responsibility&lt;br/&gt;(security IN the&lt;br/&gt;cloud)"]
         DATA["Data &amp; classification"]
         IDENT["Identity &amp; access (IAM)"]
         APPCFG["App / OS / network config&lt;br/&gt;(varies by model)"]
     end
-    subgraph Provider["Provider responsibility (security OF the&lt;br/&gt;cloud)"]
+    subgraph Provider["Provider responsibility&lt;br/&gt;(security OF the&lt;br/&gt;cloud)"]
         VIRT["Virtualisation / hypervisor"]
         HW["Physical hosts"]
         FAC["Facilities &amp; physical security"]
