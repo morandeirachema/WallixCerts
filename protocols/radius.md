@@ -173,13 +173,13 @@ keystream and XORs it back to recover the password.
 
 ```mermaid
 flowchart TD
-    SS["Shared secret<br/>(never on the wire)"] --> M["MD5( secret + Request Authenticator )"]
+    SS["Shared secret<br/>(never on the wire)"] --> M["MD5( secret + Request<br/>Authenticator )"]
     RA["Request Authenticator<br/>(random nonce, sent in header)"] --> M
     M --> KS["16-byte keystream block 'b'"]
     PW["User-Password<br/>(padded to 16-byte blocks)"] --> X(("XOR"))
     KS --> X
     X --> HID["Hidden User-Password<br/>(this is what is sent)"]
-    Note["Longer passwords: chain —<br/>next block uses MD5(secret + previous<br/>cipher block)"]
+    Note["Longer passwords: chain —<br/>next block uses<br/>MD5(secret + previous<br/>cipher block)"]
     HID -.-> Note
 ```
 

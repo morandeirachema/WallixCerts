@@ -160,7 +160,7 @@ flowchart TD
             PAM["PAM<br/>session + secrets<br/>for admins/targets"]
             EPM["EPM / PEDM<br/>endpoint elevation<br/>remove local admin"]
         end
-        ENDP["ENDPOINT/NET — EDR · firewall · network<br/>segmentation"]
+        ENDP["ENDPOINT/NET — EDR ·<br/>firewall · network<br/>segmentation"]
         MON["MONITORING — SIEM · SOC · log<br/>correlation · alerting"]
         GOV --- IDENT --- PRIV --- ENDP --- MON
     end

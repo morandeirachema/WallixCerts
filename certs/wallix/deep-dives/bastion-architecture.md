@@ -29,13 +29,13 @@ The Bastion inserts a **mandatory chokepoint**:
 ```mermaid
 flowchart LR
     subgraph LOW["LOW-TRUST DOMAIN<br/>(people + Internet)"]
-        User["Admin / user workstation<br/>(user knows ONLY their Bastion login)"]
+        User["Admin / user workstation<br/>(user knows ONLY<br/>their Bastion login)"]
     end
     subgraph PROXY["PROXY / BROKER (WALLIX Bastion)"]
         Bastion["Authenticates the USER<br/>Injects the TARGET secret<br/>Records the whole session<br/>(vault + recordings)"]
     end
     subgraph HIGH["HIGH-TRUST DOMAIN<br/>(target accounts)"]
-        Target["Linux / Windows<br/>Network device<br/>Application (target account)<br/>(target password NEVER reaches the user)"]
+        Target["Linux / Windows<br/>Network device<br/>Application (target account)<br/>(target password NEVER<br/>reaches the user)"]
     end
     User ==>|"FRONT LEG (primary connection)<br/>SSH / RDP / HTTPS"| Bastion
     Bastion ==>|"BACK LEG (secondary connection)<br/>SSH / RDP / VNC / ..."| Target
@@ -151,7 +151,7 @@ Storage sits on **LVM** under `/var/wab` (recordings, database, logs), encrypted
 
 ```mermaid
 flowchart TB
-    subgraph APPLIANCE["WALLIX BASTION APPLIANCE (Debian + LUKS<br/>at rest)"]
+    subgraph APPLIANCE["WALLIX BASTION APPLIANCE<br/>(Debian + LUKS<br/>at rest)"]
         subgraph ADMIN["ADMIN / API PLANE"]
             wabgui["wabgui (443)<br/>wabrestapi"]
             sashimi["sashimi /<br/>wallixsession"]
@@ -170,7 +170,7 @@ flowchart TB
             celery["wallixcelery (async jobs)"]
             backup["wab-backupdaemon"]
         end
-        storage["/var/wab on LVM (recordings, DB, logs)"]
+        storage["/var/wab on LVM<br/>(recordings, DB, logs)"]
     end
     wabgui <--> redemption
     redemption --> sashimi
@@ -249,7 +249,7 @@ flowchart TD
     Front --> Authz["2. Bastion AUTHN + AUTHZ<br/>- verify user (LDAP/SAML/MFA...)<br/>- permission profile check<br/>- evaluate AUTHORIZATION (ACL):<br/>user group -> target group?<br/>Sessions right? approval?"]
     Authz --> Proxy["redemption / SSH proxy"]
     Proxy -->|"3. SECRET RETRIEVAL<br/>vault (MariaDB) or external vault<br/>PASSWORD_VAULT / mapping / interactive"| Secret["Secret obtained"]
-    Secret --> Target["5. BACK LEG: Bastion -> target<br/>injects target secret, opens session<br/>TARGET (Windows / Linux / network / HMI)"]
+    Secret --> Target["5. BACK LEG: Bastion -> target<br/>injects target secret, opens session<br/>TARGET (Windows /<br/>Linux / network / HMI)"]
     Proxy -.->|"4. RECORD + real-time monitor<br/>(video/transcript, Session Probe,<br/>SIEM via syslog-ng)"| Client
 ```
 

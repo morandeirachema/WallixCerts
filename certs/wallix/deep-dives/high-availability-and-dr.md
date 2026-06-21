@@ -108,7 +108,7 @@ flowchart LR
     end
     subgraph NotReplicated["NOT REPLICATED"]
         direction TB
-        N["AUDIT / SESSION tables (live data)<br/>Session Management &gt; Recording Opts<br/>Configuration &gt; Configuration Opts<br/>Configuration &gt; Connection Messages<br/>Configuration &gt; License<br/>Configuration &gt; Audit Logs<br/>System &gt; Network<br/>System &gt; Time Service<br/>System &gt; SNMP<br/>System &gt; SMTP Server<br/>System &gt; Service Control<br/>System &gt; SIEM Integration<br/>Users &gt; Accounts: GPG fingerprint<br/>Targets &gt; Devices: device certs"]
+        N["AUDIT / SESSION tables (live data)<br/>Session Management<br/>&gt; Recording Opts<br/>Configuration &gt;<br/>Configuration Opts<br/>Configuration &gt;<br/>Connection Messages<br/>Configuration &gt; License<br/>Configuration &gt; Audit Logs<br/>System &gt; Network<br/>System &gt; Time Service<br/>System &gt; SNMP<br/>System &gt; SMTP Server<br/>System &gt; Service Control<br/>System &gt; SIEM Integration<br/>Users &gt; Accounts: GPG fingerprint<br/>Targets &gt; Devices: device certs"]
     end
 ```
 
@@ -209,7 +209,7 @@ flowchart TD
     Browsers["browsers (HTML5)"] --> LB["Load balancer (front)"]
     LB --> WAM1["WAM node 1<br/>/var/wab/etc/wabam"]
     LB --> WAM2["WAM node 2<br/>/var/wab/etc/wabam<br/>(HA: copy crypto.install.key, db.*,<br/>user.admin*)"]
-    WAM1 --> Cluster{{"one WAM 'farm'; any node serves any user<br/>Bastion CLUSTER (same auth names)"}}
+    WAM1 --> Cluster{{"one WAM 'farm'; any<br/>node serves any user<br/>Bastion CLUSTER (same auth names)"}}
     WAM2 --> Cluster
     Cluster --> BastionA["Bastion A"]
     Cluster --> BastionB["Bastion B"]
@@ -241,10 +241,10 @@ FEWEST sessions in progress within the WAM farm.
 ```mermaid
 flowchart TD
     Healthy["Master healthy"] -->|"replication monitoring (cron / e-mail)"| OK["OK"]
-    Healthy -->|"Master fails (hardware / network / crash)"| Detect["1. Detection<br/>- bastion-replication --monitoring shows<br/>Master fault<br/>- e-mail alert ha_master_fault.txt (if<br/>notification set)"]
+    Healthy -->|"Master fails (hardware / network / crash)"| Detect["1. Detection<br/>- bastion-replication<br/>--monitoring shows<br/>Master fault<br/>- e-mail alert<br/>ha_master_fault.txt (if<br/>notification set)"]
     Detect --> Promote["2. Promote a Slave<br/>bastion-replication --elevate-master<br/>(Slave becomes the new writer)"]
-    Promote --> Redirect["3. Redirect users<br/>- point clients / WAM Bastion 'Host' to<br/>the new Master<br/>- resume password rotation / approvals<br/>on new Master"]
-    Redirect --> Recover["4. Recover old Master<br/>- rebuild as a Slave of the new Master,<br/>then<br/>bastion-replication --resync (or<br/>--dump-resync)"]
+    Promote --> Redirect["3. Redirect users<br/>- point clients / WAM<br/>Bastion 'Host' to<br/>the new Master<br/>- resume password<br/>rotation / approvals<br/>on new Master"]
+    Redirect --> Recover["4. Recover old Master<br/>- rebuild as a Slave<br/>of the new Master,<br/>then<br/>bastion-replication --resync (or<br/>--dump-resync)"]
 ```
 
 *Failover (Master/Slave example).* E-mail templates: `ha_master_fault.txt` /

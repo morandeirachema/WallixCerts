@@ -15,7 +15,7 @@ import glob
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
-WIDTH = 40
+WIDTH = 36  # max chars per node-label line (boxes are sized to the widest line)
 
 SKIP = ('.git/', 'site/', 'site-src/', 'node_modules/')
 MD = [p for p in glob.glob('**/*.md', recursive=True)
@@ -24,22 +24,44 @@ MD = [p for p in glob.glob('**/*.md', recursive=True)
 NODE_LABEL = re.compile(r'([\[({]+)"([^"]*)"')
 
 
+def _greedy(words, width):
+    """Pack words into the fewest lines that each fit within `width`."""
+    lines, line = [], ''
+    for w in words:
+        if line == '':
+            line = w
+        elif len(line) + 1 + len(w) <= width:
+            line += ' ' + w
+        else:
+            lines.append(line)
+            line = w
+    if line:
+        lines.append(line)
+    return lines
+
+
 def wrap_text(s, width=WIDTH):
+    """Balanced wrap: use the fewest lines that fit in `width`, then make those
+    lines as even as possible (avoids a long line next to a tiny orphan line).
+    Existing <br/> breaks are honoured (each segment is wrapped independently)."""
     out = []
     for part in s.split('<br/>'):
-        line = ''
-        for w in part.split(' '):
-            if w == '':
-                continue
-            if line == '':
-                line = w
-            elif len(line) + 1 + len(w) <= width:
-                line += ' ' + w
+        words = [w for w in part.split(' ') if w != '']
+        if not words:
+            continue
+        target_lines = len(_greedy(words, width))
+        # Shrink the effective width to the smallest that still fits in the same
+        # number of lines, which balances line lengths and removes orphans.
+        longest = max(len(w) for w in words)
+        lo, hi, best = longest, width, width
+        while lo <= hi:
+            mid = (lo + hi) // 2
+            if len(_greedy(words, mid)) <= target_lines:
+                best, hi = mid, mid - 1
             else:
-                out.append(line)
-                line = w
-        out.append(line)
-    return '<br/>'.join(x for x in out if x != '')
+                lo = mid + 1
+        out.extend(_greedy(words, best))
+    return '<br/>'.join(out)
 
 
 def rewrap_block(body):

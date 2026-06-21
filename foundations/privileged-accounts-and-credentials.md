@@ -104,9 +104,9 @@ schedule or after every use, and cleanly retired at the end.
 
 ```mermaid
 flowchart LR
-    P["1. PROVISION (onboard)<br/>• create account with LEAST privilege<br/>• store secret in the VAULT<br/>• record owner & purpose"]
-    U["2. USE (access)<br/>• user authNs to the PAM gateway (with<br/>MFA)<br/>• PAM CHECKS OUT the secret & INJECTS it<br/>• session RECORDED"]
-    R["3. ROTATE (refresh)<br/>• change pwd/key on a schedule or AFTER<br/>use<br/>• re-vault new secret<br/>• old secret is now worthless"]
+    P["1. PROVISION (onboard)<br/>• create account<br/>with LEAST privilege<br/>• store secret in the VAULT<br/>• record owner & purpose"]
+    U["2. USE (access)<br/>• user authNs to the<br/>PAM gateway (with<br/>MFA)<br/>• PAM CHECKS OUT the<br/>secret & INJECTS it<br/>• session RECORDED"]
+    R["3. ROTATE (refresh)<br/>• change pwd/key on<br/>a schedule or AFTER<br/>use<br/>• re-vault new secret<br/>• old secret is now worthless"]
     D["4. DEPROVISION (retire)<br/>• disable & delete the account<br/>• remove SSH keys / certs / tokens<br/>• revoke cloud roles<br/>• close the audit record"]
     P --> U --> R --> D
     U <-->|"CHECK-OUT / CHECK-IN loop<br/>(steps 2 ↔ 3 repeat)"| R
@@ -116,7 +116,7 @@ The CHECK-OUT / CHECK-IN model (zoom on steps 2–3):
 
 ```mermaid
 flowchart LR
-    Req["request"] --> CO["CHECK-OUT secret<br/>(lock account so no one else uses it)"]
+    Req["request"] --> CO["CHECK-OUT secret<br/>(lock account so no<br/>one else uses it)"]
     CO --> Use["use (recorded)"]
     Use --> CI["CHECK-IN (return)"]
     CI --> Rot["ROTATE<br/>'change password at check-in' forces<br/>rotation"]

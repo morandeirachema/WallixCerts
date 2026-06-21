@@ -60,8 +60,8 @@ to prioritize study, not as a ranking of difficulty.
 ```mermaid
 flowchart TD
     title["Centrality to PAM (qualitative)<br/>Read DOWN as your study order"]
-    core["CORE<br/>Linux · Windows/AD · Networking ·<br/>Crypto/PKI<br/>(the four ../prerequisites/ deep-dives)"]
-    high["HIGH<br/>Scripting/Automation · Identity stack<br/>(IAM/IGA/IDaaS/EPM)"]
+    core["CORE<br/>Linux · Windows/AD · Networking ·<br/>Crypto/PKI<br/>(the four ../prerequisites/<br/>deep-dives)"]
+    high["HIGH<br/>Scripting/Automation<br/>· Identity stack<br/>(IAM/IGA/IDaaS/EPM)"]
     growing["GROWING<br/>Cloud (Azure / AWS IAM, SaaS PAM,<br/>secrets mgmt)"]
 
     title --> core
@@ -186,7 +186,7 @@ A suggested minimal-but-credible early-PAM stack (see the roadmap for timing):
 flowchart LR
     foundation["Foundation (vendor-neutral)<br/>Security+"]
     product["PAM product (vendor-specific)<br/>WALLIX WCA-P/WCP-P"]
-    specialization["One specialization (your chosen lane)<br/>one of:<br/>- a 2nd PAM vendor cert<br/>- SC-300 (identity lane)<br/>- AZ-500 / AWS Security (cloud lane)"]
+    specialization["One specialization<br/>(your chosen lane)<br/>one of:<br/>- a 2nd PAM vendor cert<br/>- SC-300 (identity lane)<br/>- AZ-500 / AWS Security (cloud lane)"]
 
     foundation -->|"+"| product
     product -->|"+"| specialization

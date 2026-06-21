@@ -80,7 +80,7 @@ flowchart TD
         BASTION1 -->|"HA Database Replication"| BASTION2
     end
 
-    subgraph TARGETS["AD domain: users, DNS, Kerberos KDC for<br/>all hosts"]
+    subgraph TARGETS["AD domain: users,<br/>DNS, Kerberos KDC for<br/>all hosts"]
         DC["Domain Controller<br/>(AD/DNS/Kerberos)<br/>Win 2016"]
         WINSRV["Windows Server 2016<br/>(RDP target / jump server)"]
         LINUX["Linux Server<br/>(SSH target)"]
@@ -169,7 +169,7 @@ flowchart TD
         DC <-->|"LDAP / Kerberos"| LINUX
         WINSRV -->|"RDP 3389<br/>SSH 22"| LINUX
     end
-    LAB -.->|"drop a Bastion + Access Manager in front later"| LATER["Bastion + Access Manager (added later)"]
+    LAB -.->|"drop a Bastion + Access Manager in front later"| LATER["Bastion + Access<br/>Manager (added later)"]
 ```
 
 What to practise on this substrate, mapped to the deep-dives:

@@ -160,12 +160,12 @@ flowchart TD
     subgraph GOVL["GOVERNANCE LAYER — 'who SHOULD have<br/>access, and can we prove it?'"]
         IGA["IGA / IAG<br/>access reviews · SoD · role mining ·<br/>compliance<br/>governs BOTH ordinary and privileged<br/>access"]
     end
-    subgraph IDL["IDENTITY LAYER (everyday) — 'who is this<br/>user?'"]
-        IAM["IAM<br/>AuthN · AuthZ · lifecycle<br/>SSO + MFA<br/>delivered via IDaaS (WALLIX Trustelem)"]
+    subgraph IDL["IDENTITY LAYER (everyday)<br/>— 'who is this<br/>user?'"]
+        IAM["IAM<br/>AuthN · AuthZ · lifecycle<br/>SSO + MFA<br/>delivered via IDaaS<br/>(WALLIX Trustelem)"]
     end
-    subgraph PRL["PRIVILEGE LAYER (dangerous) — 'control<br/>the powerful access'"]
+    subgraph PRL["PRIVILEGE LAYER<br/>(dangerous) — 'control<br/>the powerful access'"]
         PAM["PAM<br/>vault · broker · record · JIT<br/>(WALLIX Bastion + Access Mgr)"]
-        EPM["EPM / PEDM<br/>remove local admin · app-level elevation<br/>(WALLIX BestSafe)"]
+        EPM["EPM / PEDM<br/>remove local admin ·<br/>app-level elevation<br/>(WALLIX BestSafe)"]
         PAM -->|"pairs with"| EPM
     end
     CIEM["CLOUD ENTITLEMENTS — CIEM<br/>right-size cloud roles/policies<br/>(context only; not a WALLIX product)"]

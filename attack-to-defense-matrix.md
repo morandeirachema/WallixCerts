@@ -51,18 +51,18 @@ controls.
 flowchart TB
     S1["1. INITIAL ACCESS<br/>phishing, stolen creds, exploit<br/>(TA0001)"]
     S2["2. CREDENTIAL THEFT<br/>dump LSASS, Mimikatz, Kerberoasting<br/>(TA0006)"]
-    S3["3. PRIVILEGE ESCALATION<br/>token abuse, UAC bypass, sudo misconfig<br/>(TA0004)"]
+    S3["3. PRIVILEGE ESCALATION<br/>token abuse, UAC bypass,<br/>sudo misconfig<br/>(TA0004)"]
     S4["4. LATERAL MOVEMENT<br/>PtH / PtT, RDP/SSH reuse<br/>(TA0008)"]
-    S5["5. PERSISTENCE<br/>backdoor accounts, Golden Ticket, DCSync<br/>(TA0003)"]
+    S5["5. PERSISTENCE<br/>backdoor accounts,<br/>Golden Ticket, DCSync<br/>(TA0003)"]
     S6["6. IMPACT<br/>ransomware, data theft, sabotage<br/>(TA0040)"]
     S1 --> S2 --> S3 --> S4 --> S5 --> S6
 
-    D1["Gateway + MFA; no target password to<br/>phish<br/>(it lives in the vault). User awareness<br/>training."]
-    D2["Credential injection: target secret<br/>never lands<br/>on the endpoint. Aggressive rotation<br/>voids any scrape."]
-    D3["Least privilege / JIT; remove local<br/>admin (EPM);<br/>app-level (not user-level) elevation."]
-    D4["Brokered, recorded sessions are the only<br/>path;<br/>unique + rotated creds per host kill<br/>hash/ticket reuse."]
-    D5["No standing Domain-Admin to steal;<br/>approval + recording<br/>make new accounts visible. AD hardening<br/>(general)."]
-    D6["Session kill + restriction rules;<br/>anti-ransomware (EPM);<br/>backups + segmentation (general). Full<br/>audit trail."]
+    D1["Gateway + MFA; no target password<br/>to phish (it lives in the vault).<br/>User-awareness training."]
+    D2["Credential injection: the target<br/>secret never lands on the endpoint;<br/>aggressive rotation voids a scrape."]
+    D3["Least privilege / JIT; remove local<br/>admin (EPM); app-level (not<br/>user-level) elevation."]
+    D4["Brokered, recorded sessions are the<br/>only path; unique + rotated creds<br/>per host kill hash/ticket reuse."]
+    D5["No standing Domain-Admin to steal;<br/>approval + recording make new<br/>accounts visible.<br/>AD hardening (general)."]
+    D6["Session kill + restriction rules;<br/>anti-ransomware (EPM); backups +<br/>segmentation (general).<br/>Full audit trail."]
 
     S1 -. "defence" .-> D1
     S2 -. "defence" .-> D2

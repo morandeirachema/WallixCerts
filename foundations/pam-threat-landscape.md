@@ -134,19 +134,19 @@ flowchart TD
         WO5["PASS-THE-HASH to next server<br/>(reused local-admin password works<br/>everywhere)"]
         WO6["LATERAL MOVEMENT across the estate"]
         WO7["reach Domain Controller → DOMAIN<br/>TAKEOVER"]
-        WO8["PERSISTENCE (Golden Ticket) + RANSOMWARE"]
-        WOR["Result: full compromise, no audit trail"]
+        WO8["PERSISTENCE (Golden<br/>Ticket) + RANSOMWARE"]
+        WOR["Result: full compromise,<br/>no audit trail"]
         WO1 --> WO2 --> WO3 --> WO4 --> WO5 --> WO6 --> WO7 --> WO8 --> WOR
     end
     subgraph WITH["WITH PAM"]
         direction TB
         WI1["Admin connects to the GATEWAY (MFA)"]
-        WI2["Credential stays in VAULT; INJECTED only<br/>into the brokered session (never cached)"]
+        WI2["Credential stays in<br/>VAULT; INJECTED only<br/>into the brokered<br/>session (never cached)"]
         WI3["[attacker phishes the endpoint]"]
         WI4["endpoint holds NO target secret →<br/>nothing useful to dump"]
         WI5["unique + ROTATED creds per target →<br/>stolen value is already worthless"]
-        WI6["every privileged hop must go through the<br/>gateway → BLOCKED / RECORDED /<br/>time-boxed"]
-        WI7["attack stalls at the endpoint; auditor<br/>sees the attempt; access auto-expires"]
+        WI6["every privileged hop<br/>must go through the<br/>gateway → BLOCKED / RECORDED /<br/>time-boxed"]
+        WI7["attack stalls at the<br/>endpoint; auditor<br/>sees the attempt;<br/>access auto-expires"]
         WIR["Result: contained, attributed,<br/>reversible"]
         WI1 --> WI2 --> WI3 --> WI4 --> WI5 --> WI6 --> WI7 --> WIR
     end

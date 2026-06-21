@@ -240,7 +240,7 @@ opening**.
 
 ```mermaid
 flowchart LR
-    subgraph cloud["Trustelem cloud (European data centers)"]
+    subgraph cloud["Trustelem cloud<br/>(European data centers)"]
         IdP["IDaaS tenant<br/>SSO + MFA + access rules"]
         Cat["App catalog<br/>SAML / OIDC / OAuth / Basic"]
     end

@@ -61,7 +61,7 @@ flowchart TD
         SERVICE["SERVICE (proto+port+policy)"]
         RESOURCE["RESOURCE (service + device/app)"]
         DOMAIN["DOMAIN (global/local)"]
-        TACCOUNT["TARGET ACCOUNT (account, in a domain)"]
+        TACCOUNT["TARGET ACCOUNT<br/>(account, in a domain)"]
         TARGET["TARGET (= resource + target account)"]
         TARGETGROUP["TARGET GROUP"]
         DEVAPP -->|"hosts"| SERVICE
@@ -72,7 +72,7 @@ flowchart TD
         TARGET -->|"member of"| TARGETGROUP
     end
 
-    AUTHZ["AUTHORIZATION (BINDING)<br/>ONE user grp &lt;-&gt; ONE target grp<br/>carries: Sessions | Secrets (cumulative)<br/>+ Protocols/Sub-protocols + Recording<br/>+ Session invite + Critical flag +<br/>Approval tab"]
+    AUTHZ["AUTHORIZATION (BINDING)<br/>ONE user grp &lt;-&gt;<br/>ONE target grp<br/>carries: Sessions |<br/>Secrets (cumulative)<br/>+ Protocols/Sub-protocols<br/>+ Recording<br/>+ Session invite + Critical flag +<br/>Approval tab"]
 
     USERGROUP --> AUTHZ
     TARGETGROUP --> AUTHZ

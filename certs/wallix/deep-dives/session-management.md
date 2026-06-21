@@ -116,7 +116,7 @@ Key facts:
 ```mermaid
 flowchart TD
     Live["LIVE SESSION"] --> Capture["proxy captures"]
-    Capture --> Rec["VIDEO (RDP) / TRANSCRIPT (SSH)<br/>encrypted, Bastion-bound, on /var/wab<br/>(LVM)"]
+    Capture --> Rec["VIDEO (RDP) / TRANSCRIPT (SSH)<br/>encrypted, Bastion-bound,<br/>on /var/wab<br/>(LVM)"]
     Capture --> Probe["Session Probe metadata (RDP)"]
     Capture --> Restr["restriction-rule events"]
     Capture --> Lifecycle["session lifecycle events"]
@@ -225,7 +225,7 @@ Plus:
 
 ```mermaid
 flowchart TD
-    Req["USER requests access (web or at SSH/RDP<br/>connect)"] --> Enabled{"Approval workflow enabled?"}
+    Req["USER requests access<br/>(web or at SSH/RDP<br/>connect)"] --> Enabled{"Approval workflow enabled?"}
     Enabled -->|"no"| Direct["direct access"]
     Enabled -->|"yes"| Frame{"inside time frame?"}
     Frame -->|"yes"| Inside["No approval / Automatic /<br/>Approval with quorum"]
@@ -233,7 +233,7 @@ flowchart TD
     Inside --> Quorum{"quorum reached?"}
     Outside --> Quorum
     Quorum -->|"no"| Pending["pending ... -> rejected / timeout -><br/>CLOSED"]
-    Quorum -->|"yes"| Accepted["ACCEPTED -> session may start<br/>(Single connection? then one shot)<br/>(comment/ticket recorded; SIEM logged)"]
+    Quorum -->|"yes"| Accepted["ACCEPTED -> session may start<br/>(Single connection? then one shot)<br/>(comment/ticket<br/>recorded; SIEM logged)"]
 ```
 
 > **Gotcha (verbatim intent):** with *Access blocked* outside hours, an approval that **starts inside** the allowed window can **continue into blocked hours** — only the start time is checked; the session ends when the **approval** ends, not when the time frame ends. Also: **scenario accounts cannot be used with authorizations that include an approval workflow** (use a separate authorization without approval).

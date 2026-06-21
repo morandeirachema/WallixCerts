@@ -123,9 +123,9 @@ A disciplined scan moves from broad to specific: find hosts, then ports, then id
 
 ```mermaid
 flowchart TD
-    A["Host discovery (find live hosts)"] --> B["Port scanning (find open/closed/filtered<br/>ports)"]
-    B --> C["Service and version detection (banner<br/>grabbing)"]
-    C --> D["OS fingerprinting (identify operating<br/>system)"]
+    A["Host discovery (find live hosts)"] --> B["Port scanning (find<br/>open/closed/filtered<br/>ports)"]
+    B --> C["Service and version<br/>detection (banner<br/>grabbing)"]
+    C --> D["OS fingerprinting<br/>(identify operating<br/>system)"]
     D --> E["Document and report findings"]
 ```
 

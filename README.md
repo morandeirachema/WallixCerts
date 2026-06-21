@@ -66,10 +66,10 @@ A deliberate, end-to-end route. Walk it in order — each phase builds on the la
 ```mermaid
 flowchart TB
     P0["Phase 0 · Understand PAM<br/>foundations/ — the why & what"]
-    P1["Phase 1 · Bridge your skills<br/>prerequisites/ + protocols/<br/>Linux · AD · networking · crypto ·<br/>Kerberos/TLS/SAML"]
+    P1["Phase 1 · Bridge your skills<br/>prerequisites/ + protocols/<br/>Linux · AD · networking · crypto<br/>Kerberos · TLS · SAML"]
     P2["Phase 2 · Specialize & certify<br/>certs/wallix/ — product portfolio<br/>WCA-P → WCP-P + deep dives + labs"]
-    P3["Phase 3 · Master PAM<br/>WCE-P (Expert) + OT / IDaaS / IAG tracks"]
-    P4["Phase 4 · Broaden your value<br/>Security+ · CySA+ · attacker context ·<br/>cloud · CISSP"]
+    P3["Phase 3 · Master PAM<br/>WCE-P (Expert)<br/>+ OT / IDaaS / IAG tracks"]
+    P4["Phase 4 · Broaden your value<br/>Security+ · CySA+<br/>attacker context<br/>cloud · CISSP"]
     P0 --> P1 --> P2 --> P3 --> P4
     ATT["⚔️ Attacker context (CEH / PenTest+)<br/>makes you a better PAM defender"] -.-> P3
 ```

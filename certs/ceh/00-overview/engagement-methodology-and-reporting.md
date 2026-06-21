@@ -93,7 +93,7 @@ The report is the product the client pays for. A good report is **read by two ve
 
 ```mermaid
 flowchart TD
-    R["Penetration test report"] --> ES["Executive summary<br/>(non-technical, risk & business impact)"]
+    R["Penetration test report"] --> ES["Executive summary<br/>(non-technical, risk<br/>& business impact)"]
     R --> SC["Scope, methodology<br/>& timeline"]
     R --> FN["Findings<br/>(one per issue)"]
     FN --> F1["Description &<br/>affected assets"]

@@ -51,9 +51,9 @@ database and runs all of the above (LDAP server, KDC, DNS, replication).
 
 ```mermaid
 flowchart TD
-    F["Forest: contoso.com<br/>(single schema + config, trust boundary)"]
+    F["Forest: contoso.com<br/>(single schema +<br/>config, trust boundary)"]
     F --> T1["Tree root domain: contoso.com"]
-    F --> T2["Second tree: fabrikam.com<br/>(separate namespace, auto two-way trust)"]
+    F --> T2["Second tree: fabrikam.com<br/>(separate namespace,<br/>auto two-way trust)"]
     T1 --> C1["Child domain: eu.contoso.com"]
     T1 --> C2["Child domain: us.contoso.com"]
     C1 --> OU1["OU=Paris"]

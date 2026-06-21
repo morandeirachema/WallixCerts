@@ -45,10 +45,10 @@ Certificate Authority · SMTP = Simple Mail Transfer Protocol. Full list:
 
 ```mermaid
 flowchart TD
-    Reproduce["1. REPRODUCE<br/>-> exact user, target, protocol, time;<br/>capture the error text"]
+    Reproduce["1. REPRODUCE<br/>-> exact user, target,<br/>protocol, time;<br/>capture the error text"]
     Isolate["2. ISOLATE LEG<br/>-> client -> Bastion (primary) OR<br/>Bastion -> target (secondary)?<br/>(web GUI login works but proxy fails<br/>=&gt; secondary-leg/authz)"]
-    ReadLogs["3. READ LOGS<br/>-> System > Status / Syslog (GUI) ; CLI<br/>logs under /var/log/wab*<br/>WAM: Settings > Logs,<br/>/var/log/wallix/wabam"]
-    Services["4. SERVICES<br/>-> System > Service control ; watchdog<br/>state (e-mail templates)"]
+    ReadLogs["3. READ LOGS<br/>-> System > Status /<br/>Syslog (GUI) ; CLI<br/>logs under /var/log/wab*<br/>WAM: Settings > Logs,<br/>/var/log/wallix/wabam"]
+    Services["4. SERVICES<br/>-> System > Service<br/>control ; watchdog<br/>state (e-mail templates)"]
     Database["5. DATABASE<br/>-> MariaDB up? replication healthy?<br/>(bastion-replication --monitoring)"]
     Escalate["6. ESCALATE<br/>-> set logs DEBUG, generate archive,<br/>open WALLIX support case"]
     Reproduce --> Isolate --> ReadLogs --> Services --> Database --> Escalate
@@ -177,8 +177,8 @@ See §6.
 ```mermaid
 flowchart TD
     Celery["wallixcelery<br/>(rotation job)"] -->|"plugin over SSH/API/SMB<br/>(change scheduled)"| Target["TARGET device or global server<br/>(Cisco/Windows/Unix/LDAP/...)"]
-    Target -->|"on MISMATCH<br/>(Bastion vault secret ==? actual secret on target)"| Reconcile["RECONCILIATION:<br/>'Administrator account' on the domain<br/>re-sets the pw when Bastion &lt;&gt;<br/>target"]
-    Reconcile --> Result["Result -> credential_change_success.txt<br/>/ _failure.txt / _summary.txt"]
+    Target -->|"on MISMATCH<br/>(Bastion vault secret ==? actual secret on target)"| Reconcile["RECONCILIATION:<br/>'Administrator<br/>account' on the domain<br/>re-sets the pw when Bastion &lt;&gt;<br/>target"]
+    Reconcile --> Result["Result -><br/>credential_change_success.txt<br/>/ _failure.txt / _summary.txt"]
 ```
 
 *Password change / verify (and where it breaks).*
@@ -245,7 +245,7 @@ Logs to pull at each leaf:
 ```mermaid
 flowchart LR
     Sources["EVENT SOURCES<br/>- proxy session events<br/>- auth success/failure<br/>- cert / key verification<br/>- ICAP (AV/DLP) verdicts<br/>- Session Probe metadata"] --> Syslog["syslog-ng (:514)"]
-    Syslog --> SIEM["SIEM (Splunk / QRadar / Sentinel / ...)"]
+    Syslog --> SIEM["SIEM (Splunk / QRadar<br/>/ Sentinel / ...)"]
     Syslog -.-> Other["also: SNMP traps :162,<br/>e-mail (SMTP :25/587/465)"]
 ```
 

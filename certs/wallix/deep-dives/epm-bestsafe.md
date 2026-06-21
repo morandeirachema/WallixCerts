@@ -124,7 +124,7 @@ Consequences of this model:
 
 ```mermaid
 flowchart TB
-    subgraph trad["Traditional model: privilege on the USER"]
+    subgraph trad["Traditional model:<br/>privilege on the USER"]
         direction TB
         U1["User account<br/>(local administrator)"]
         APP1["Sanctioned app<br/>(elevated)"]
@@ -133,7 +133,7 @@ flowchart TB
         U1 -->|"inherits admin"| MAL1
     end
 
-    subgraph best["BestSafe model: privilege on the PROCESS"]
+    subgraph best["BestSafe model:<br/>privilege on the PROCESS"]
         direction TB
         U2["User account<br/>(standard, non-admin)"]
         APP2["Sanctioned app<br/>(elevated by policy)"]
@@ -255,7 +255,7 @@ flowchart LR
         MMC --> AD
     end
 
-    subgraph fleet["Endpoints (workstations / app servers)"]
+    subgraph fleet["Endpoints (workstations<br/>/ app servers)"]
         AGT1["BestSafe agent<br/>(local policy cache,<br/>offline enforcement)"]
         AGT2["BestSafe agent<br/>(local policy cache,<br/>offline enforcement)"]
     end

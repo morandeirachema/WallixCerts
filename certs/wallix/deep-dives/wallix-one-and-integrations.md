@@ -77,7 +77,7 @@ takes care of it for you." It targets organizations of all sizes with emphasis o
 
 ```mermaid
 flowchart TB
-    subgraph one["WALLIX One — cybersecurity SaaS platform"]
+    subgraph one["WALLIX One — cybersecurity<br/>SaaS platform"]
         direction TB
         PAM["WALLIX One-PAM<br/>PAM as a service:<br/>sessions, vault, JIT"]
         IDAAS["WALLIX One-IDaaS<br/>cloud SSO + MFA,<br/>federated identity"]

@@ -102,7 +102,7 @@ The point is that each rung reuses the rung below it.
 ```mermaid
 flowchart BT
     sysadmin["SYSTEMS ADMINISTRATOR<br/>manages Linux/Windows servers, AD,<br/>SSH/RDP, certs, scripting, logging<br/>(YOU START HERE)"]
-    admin["PAM ADMINISTRATOR<br/>day-to-day operation: onboard targets,<br/>manage users/authorizations, run audits<br/>(maps to WCA-level)"]
+    admin["PAM ADMINISTRATOR<br/>day-to-day operation:<br/>onboard targets,<br/>manage users/authorizations,<br/>run audits<br/>(maps to WCA-level)"]
     engineer["PAM / IAM ENGINEER<br/>deploys & integrates the broker,<br/>automates rotation, HA, SIEM<br/>(maps to WCP-level)"]
     analyst["IAM / IDENTITY ANALYST<br/>governs WHO has access:<br/>access reviews, joiner/mover/leaver,<br/>attestation (governance lane,<br/>complements PAM)"]
     architect["PAM / IAM ARCHITECT<br/>designs the whole access model;<br/>sets standards, integrations, ZSP<br/>(deep + cross-product;<br/>maps to WCE-level expertise)"]

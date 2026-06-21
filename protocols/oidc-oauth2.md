@@ -202,11 +202,11 @@ flowchart TB
     JWT --> H["Header (Base64URL JSON)<br/>alg = e.g. RS256 / ES256<br/>typ = JWT, kid = key id"]
     JWT --> P["Payload (Base64URL JSON)<br/>claims: iss, sub, aud,<br/>exp, iat, nonce, ..."]
     JWT --> S["Signature (Base64URL bytes)"]
-    H --> SIGN["signing input =<br/>B64URL(header) + '.' + B64URL(payload)"]
+    H --> SIGN["signing input =<br/>B64URL(header) + '.'<br/>+ B64URL(payload)"]
     P --> SIGN
     SIGN --> JWS["JWS: sign with issuer key<br/>(RS256 = RSA private key,<br/>ES256 = EC private key,<br/>HS256 = shared HMAC secret)"]
     JWS --> S
-    S --> VER["Verifier recomputes signature<br/>over header.payload using the<br/>issuer's PUBLIC key (from JWKS, by kid)<br/>-> integrity + authenticity"]
+    S --> VER["Verifier recomputes signature<br/>over header.payload using the<br/>issuer's PUBLIC key<br/>(from JWKS, by kid)<br/>-> integrity + authenticity"]
 ```
 
 - **Header** — JSON describing the token: **`alg`** (the signature algorithm, e.g. `RS256` =

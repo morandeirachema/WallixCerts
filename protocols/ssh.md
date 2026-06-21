@@ -63,7 +63,7 @@ flowchart TB
   app["Your activity<br/>(shell, file copy, tunnel)"]
   conn["Connection layer (RFC 4254)<br/>multiplexed channels: session, SFTP,<br/>port-forward"]
   auth["User authentication layer (RFC 4252)<br/>publickey / password /<br/>keyboard-interactive / GSSAPI"]
-  trans["Transport layer (RFC 4253)<br/>key exchange, server host-key check,<br/>encryption + integrity of every packet"]
+  trans["Transport layer (RFC 4253)<br/>key exchange, server host-key check,<br/>encryption + integrity<br/>of every packet"]
   tcp["TCP connection (port 22)"]
   app --> conn
   conn --> auth

@@ -230,11 +230,11 @@ FQDN in the cluster). Domain + group mappings mirror SAML.
 ```mermaid
 flowchart TD
     Connect["User connects (HTTPS / SSH / RDP)"] --> Resolve["Resolve Authentication domain<br/>(from login @domain or URL)"]
-    Resolve --> Primary["PRIMARY authentication<br/>(local / LDAP / Kerberos / SAML / OIDC<br/>...)"]
+    Resolve --> Primary["PRIMARY authentication<br/>(local / LDAP /<br/>Kerberos / SAML / OIDC<br/>...)"]
     Primary -->|fail| Deny1["DENY"]
     Primary -->|ok| Secondary{"SECONDARY auth set?"}
-    Secondary -->|no| AllowPrimary["Authorization check passed at PRIMARY -><br/>ALLOW"]
-    Secondary -->|"yes (2FA)"| Factor2["RADIUS push / OTP / Kerberos-Pwd as 2nd<br/>factor"]
+    Secondary -->|no| AllowPrimary["Authorization check<br/>passed at PRIMARY -><br/>ALLOW"]
+    Secondary -->|"yes (2FA)"| Factor2["RADIUS push / OTP /<br/>Kerberos-Pwd as 2nd<br/>factor"]
     Factor2 -->|fail| Deny2["DENY"]
     Factor2 -->|ok| Allow2["ALLOW"]
 ```
@@ -330,7 +330,7 @@ plus authenticators **RADIUS** and **BASTION**; X.509 cert auth can be toggled o
 
 ```mermaid
 flowchart TD
-    subgraph FactorOrder["FACTOR = ORDER of challenge (defines the<br/>MFA chain)"]
+    subgraph FactorOrder["FACTOR = ORDER of<br/>challenge (defines the<br/>MFA chain)"]
         direction LR
         F1["Factor 1<br/>LDAP bind"] --> F2["Factor 2<br/>RADIUS push"] --> F3["Factor 3<br/>X.509"]
     end
