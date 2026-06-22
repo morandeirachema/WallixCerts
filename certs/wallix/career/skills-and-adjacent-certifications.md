@@ -143,8 +143,8 @@ identities increasingly live in the cloud and most enterprises run Microsoft Ent
 | Certification | Provider | Type | Focus | Level | Why it helps a PAM career |
 |---|---|---|---|---|---|
 | **SC-300** (Identity and Access Administrator Associate) | Microsoft | Vendor-specific | Microsoft Entra ID: identities, authentication, Conditional Access, identity governance (incl. Entra PIM) | Associate | Directly identity-focused; covers cloud privileged-role governance (Entra PIM) — the cloud-PAM adjacency |
-| **AZ-500** (Azure Security Engineer Associate) | Microsoft | Vendor-specific | Securing Azure: identity & access, platform, data, network, operations | Associate | Cloud-security depth for the infrastructure lane. **Scheduled to retire 2026-08-31 — check Microsoft Learn for the successor before booking** |
-| **AWS Certified Security – Specialty** (SCS-C0x) | Amazon Web Services | Vendor-specific | Securing AWS: IAM, detection, data protection, incident response, governance | Specialty (advanced) | Proves cloud privileged-identity and security skill on AWS; pairs PAM with cloud IAM |
+| **AZ-500** (Azure Security Engineer Associate) | Microsoft | Vendor-specific | Securing Azure: identity & access, platform, data, network, operations | Associate | Cloud-security depth for the infrastructure lane. **Retires 2026-08-31; successor is SC-500 (Cloud and AI Security Engineer Associate), in beta from May 2026 — the credential does not auto-transfer. Verify on Microsoft Learn before booking** |
+| **AWS Certified Security – Specialty** (SCS-C03) | Amazon Web Services | Vendor-specific | Securing AWS: IAM, detection, data protection, incident response, governance, plus a generative-AI / ML security domain | Specialty (advanced) | Proves cloud privileged-identity and security skill on AWS; pairs PAM with cloud IAM. **SCS-C03 (65 Q / 170 min / 750) replaced SCS-C02 on 2025-12-02 — verify on AWS** |
 
 Provider links: SC-300 <https://learn.microsoft.com/en-us/credentials/certifications/identity-and-access-administrator/> ·
 AZ-500 <https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/> ·
@@ -162,6 +162,36 @@ toward designing and managing programs. Both are **(ISC)²** and **vendor-neutra
 
 Provider links: (ISC)² CC <https://www.isc2.org/certifications/cc> ·
 CISSP <https://www.isc2.org/certifications/cissp>
+
+### 2.5 Which certs do employers actually request? (hiring signal)
+
+A cert's value is partly *how often employers ask for it*. By **US job-posting volume**
+(CyberSeek, a NIST/NICE + Lightcast labor-market tracker; rolling 12-month snapshot,
+2024–2025), **vendor-neutral baselines dominate the demand signal**:
+
+| Certification | US postings requesting it | Source |
+|---|---|---|
+| **CISSP** ((ISC)²) | **82,494** | CyberSeek (via StationX, 2025) |
+| **Security+** (CompTIA) | **70,019** | CyberSeek |
+| **CISA** (ISACA) | **52,337** | CyberSeek |
+| **CISM** (ISACA) | **44,347** | CyberSeek |
+
+Robert Half's 2026 in-demand security-cert list likewise names **CCSP, CISA, and CompTIA
+(incl. Security+)**. Two takeaways for this path:
+
+- **Lead with a vendor-neutral baseline** (Security+ early; CISSP later) for the broadest
+  hiring signal, and layer the **vendor-specific** product cert (WALLIX, then a second PAM
+  vendor) on top — postings name the *product* you'll run, but the baseline clears filters.
+- **Watch total cost of ownership, not just the exam fee.** EC-Council **CEH**, for example,
+  carries a high TCO — roughly **$1,099–$1,299 exam** *plus* **$850–$3,499 mandatory training**
+  (or a paid experience-eligibility path) *plus* **$80/yr renewal** — well above a
+  vendor-neutral CompTIA baseline. (Most *other* per-exam price figures circulating online
+  failed verification — confirm the current fee on each provider's own page.)
+
+> These are job-posting counts, not salary or "best cert" rankings, and they drift over time.
+> Authoritative sources do **not** publish PAM/IAM-specific cert-demand figures. See the
+> [career roadmap §1.1](sysadmin-to-pam-roadmap.md#11-demand-and-outlook-the-cited-numbers)
+> for the demand and salary picture, and the caveats there.
 
 ---
 
@@ -207,7 +237,10 @@ flowchart LR
 - One Identity: https://www.oneidentity.com/
 - Microsoft SC-300 (Identity and Access Administrator): https://learn.microsoft.com/en-us/credentials/certifications/identity-and-access-administrator/
 - Microsoft AZ-500 (Azure Security Engineer): https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/
-- AWS Certified Security – Specialty: https://aws.amazon.com/certification/certified-security-specialty/
+- Microsoft SC-500 (Cloud and AI Security Engineer Associate — AZ-500 successor, beta May 2026): https://learn.microsoft.com/en-us/credentials/certifications/
+- AWS Certified Security – Specialty (SCS-C03, current since 2025-12-02): https://aws.amazon.com/certification/certified-security-specialty/
+- CyberSeek — cybersecurity certification job-posting demand (CISSP/Security+/CISA/CISM volumes): https://www.cyberseek.org/certifications.html
+- Robert Half 2026 Salary Guide — Technology (in-demand certs, cyber hiring): https://www.roberthalf.com/us/en/insights/salary-guide/technology
 - (ISC)² Certified in Cybersecurity (CC): https://www.isc2.org/certifications/cc
 - (ISC)² CISSP: https://www.isc2.org/certifications/cissp
 - This repo — prerequisites (Linux, Windows/AD, networking, crypto/PKI): [../prerequisites/](../../../prerequisites/)

@@ -63,11 +63,31 @@ cybersecurity sub-fields.
   **WALLIX**. The *concepts* (vaulting, session brokering, JIT, ZSP, PEDM) transfer
   across all of them, so one product cert plus the shared concepts goes a long way.
 
-> **Honesty note:** This repository does **not** quote salary figures or "demand grew X%"
-> statistics, because reliable, dated sources are required and vary by country. Treat the
-> demand framing as **qualitative** ("strong, regulation-driven demand"). If you need
-> hard numbers, cite a named, dated source such as the (ISC)² Cybersecurity Workforce
-> Study or your national labor statistics office.
+### 1.1 Demand and outlook (the cited numbers)
+
+The qualitative framing above is backed by primary-source data (2025–2026). These are the
+figures that survived an adversarial fact-check; figures that did **not** verify are
+deliberately excluded.
+
+| Metric | Figure | Source (dated) |
+|---|---|---|
+| US information-security-analyst job growth, 2024–34 | **29%** ("much faster than average"); **~16,000** openings/yr | US Bureau of Labor Statistics, Occupational Outlook Handbook (May 2024 data) |
+| US median wage, information security analysts | **$124,910** (10th–90th pct **$69,660–$186,420**) | US BLS (May 2024) |
+| Teams reporting a cybersecurity skills gap | **95%** (up from 90% in 2024) | (ISC)² Cybersecurity Workforce Study 2025 (pub. Dec 2025) |
+| Organizations with unfilled cyber positions / teams understaffed | **65%** / **55%** | ISACA, State of Cybersecurity 2025 (Sept 2025) |
+| Cyber staff who entered from outside the field | **46%** of teams say *more than half* did; **IT-to-cyber is the top pathway** | ISACA 2025 / (ISC)² 2025 |
+
+> **Read these carefully.** BLS covers "information security analysts" as an **aggregate** —
+> there is **no PAM- or IAM-specific** government benchmark. The (ISC)² "IAM" skills figure
+> sits within a *cloud-security* sub-question (not all respondents). All are 2024–2025
+> snapshots that drift.
+
+**Salaries — treat as estimates.** No authoritative source publishes PAM/IAM-specific salary
+benchmarks. Self-reported aggregators (PayScale, 2025–2026) put an **IAM Analyst ≈ $80k**
+(range ~$55k–$128k) and an **IAM Engineer ≈ $104k–$115k median** (range ~$80k–$170k);
+cross-aggregator variance is large, so verify against a current, named source for *your*
+region. PAM / cloud-IAM specialization (CyberArk, Okta, Microsoft Entra ID, SailPoint) tends
+to command a premium — directionally supported, not a hard figure.
 
 ---
 
@@ -301,6 +321,9 @@ flowchart TD
 - This repo — PAM market landscape (analyst positioning, qualitative demand): [../foundations/pam-market-landscape.md](../../../foundations/pam-market-landscape.md)
 - This repo — PAM threat landscape: [../foundations/pam-threat-landscape.md](../../../foundations/pam-threat-landscape.md)
 - This repo — prerequisites (Linux, Windows/AD, networking, crypto/PKI): [../prerequisites/](../../../prerequisites/)
-- (ISC)² Cybersecurity Workforce Study (for any demand statistics — cite the dated edition): https://www.isc2.org/research
+- US Bureau of Labor Statistics — Information Security Analysts (29% growth, ~16,000 openings/yr, $124,910 median, May 2024): https://www.bls.gov/ooh/computer-and-information-technology/information-security-analysts.htm
+- (ISC)² Cybersecurity Workforce Study 2025 (95% skills gap; IT-to-cyber pathway): https://www.isc2.org/Insights/2025/12/2025-ISC2-Cybersecurity-Workforce-Study
+- ISACA — State of Cybersecurity 2025 (65% unfilled, 55% understaffed, 46% transitioned from outside): https://www.isaca.org/about-us/newsroom/press-releases/2025/state-of-cybersecurity-2025-global-press-release
+- PayScale — IAM Analyst / IAM Engineer salary (self-reported estimates, 2025–2026): https://www.payscale.com/research/US/Job=Identity_and_Access_Management_(IAM)_Analyst/Salary
 - EU NIS2 Directive (Directive (EU) 2022/2555): https://eur-lex.europa.eu/eli/dir/2022/2555/oj
 - EU DORA (Regulation (EU) 2022/2554): https://eur-lex.europa.eu/eli/reg/2022/2554/oj
